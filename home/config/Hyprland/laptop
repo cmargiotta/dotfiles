@@ -1,0 +1,20 @@
+exec = swaybg -i ~/.wallpapers/wallpaper.jpg -m fill 
+
+input {
+   # kb_layout = "us"
+   # kb_variant = "intl"
+
+    touchpad {
+        disable_while_typing=true
+        natural_scroll=false
+        tap-to-click=true
+    }
+}
+
+gestures {
+    workspace_swipe=true
+    workspace_swipe_fingers=3
+}
+
+bind=,XF86MonBrightnessUp,exec,sudo brightnessctl s +5%
+bind=,XF86MonBrightnessDown,exec,sudo brightnessctl s 5%-

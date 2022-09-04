@@ -1,0 +1,6 @@
+monitor=DP-1,preferred,1080x200,1
+monitor=HDMI-A-1,preferred,0x0,1
+
+monitor=HDMI-A-1,transform,1
+
+exec = swaybg -o HDMI-A-1 -i ~/.wallpapers/vert.jpg -m fill -o DP-1 -i ~/.wallpapers/ultrawide.jpg -m fill
