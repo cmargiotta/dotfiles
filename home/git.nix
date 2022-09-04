@@ -6,12 +6,16 @@
     delta.enable = true;
     ignores = [ "*~" ];
     userName = "Carmine Margiotta";
+    userEmail = "cmargiotta@posteo.net";
     extraConfig = {
       github.user = "cmargiotta";
       init.defaultBranch = "development";
-      core.editor = "vim";
+      core.editor = "nano";
       merge.tool = "meld";
       pull.ff = "only";
+    };
+    signing = {
+      signByDefault = true;
     };
   };
 

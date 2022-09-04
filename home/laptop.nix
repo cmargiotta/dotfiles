@@ -15,23 +15,21 @@
     brightnessctl
   ];
 
-  programs.git.userEmail = "car.margiotta@icloud.com";
-
   programs = {
     mako = {
-      enable = true; 
+      enable = true;
       backgroundColor = "#2e3440";
       borderColor = "#88c0d0";
       borderRadius = 15;
       borderSize = 2;
-      height = 110; 
-      icons = true; 
+      height = 110;
+      icons = true;
       layer = "overlay";
       width = 300;
-    }; 
+    };
   };
 
-  wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/laptop) + "\n" + (builtins.readFile ./config/Hyprland/common); 
+  wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/laptop) + "\n" + (builtins.readFile ./config/Hyprland/common);
 
   home.sessionVariables = {
     XDG_SESSION_TYPE = "wayland";

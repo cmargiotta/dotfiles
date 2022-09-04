@@ -25,8 +25,6 @@
     cura
   ];
 
-  programs.git.userEmail = "car.margiotta@icloud.com";
-
   programs = {
     mako = {
       enable = true;
