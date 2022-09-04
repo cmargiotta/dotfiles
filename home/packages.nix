@@ -26,6 +26,7 @@
     gnome.seahorse
     libsForQt5.dolphin
     pavucontrol
+    sqlitebrowser
     rnix-lsp
   ];
 }
