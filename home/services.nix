@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   services.blueman-applet.enable = true;
+  services.gpg-agent.enable = true;
 
   services.flameshot = {
     enable = false;
