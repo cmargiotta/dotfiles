@@ -3,6 +3,7 @@
     nixpkgs.url = "nixpkgs/nixos-22.05";
     unstable.url = "nixpkgs/nixos-unstable";
 
+    hypr-contrib.url = "github:hyprwm/contrib";
     home-manager.url = "github:rycee/home-manager/release-22.05";
     nur.url = "github:nix-community/NUR";
 
@@ -17,7 +18,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, unstable, home-manager, hyprland, nur, webcord, ... }@inputs:
+  outputs = { self, nixpkgs, hypr-contrib, unstable, home-manager, hyprland, nur, webcord, ... }@inputs:
     {
       nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -31,7 +32,10 @@
           home-manager.nixosModules.home-manager
 
           {
-            nixpkgs.overlays = [ nur.overlay ];
+            nixpkgs.overlays = [
+              nur.overlay
+              hypr-contrib.overlays.default
+            ];
 
             networking.hostName = "nixos-desktop";
             home-manager.extraSpecialArgs = inputs;
@@ -63,7 +67,10 @@
           home-manager.nixosModules.home-manager
 
           {
-            nixpkgs.overlays = [ nur.overlay ];
+            nixpkgs.overlays = [
+              nur.overlay
+              hypr-contrib.overlays.default
+            ];
 
             networking.hostName = "zenbook13";
             home-manager.extraSpecialArgs = inputs;
