@@ -9,6 +9,7 @@
     ./vscode.nix
     ./wayland.nix
     ./wrappers.nix
+    ./zsh.nix
   ];
 
   home.language = {
@@ -36,21 +37,6 @@
       visual_bell_duration = "0.1";
 
       copy_on_select = "clipboard";
-    };
-  };
-
-
-  programs.zsh = {
-    enable = true;
-    shellAliases = {
-      code = "code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland";
-      update = "sudo nixos-rebuild switch --flake ~/dotfiles";
-    };
-
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "autoenv" "git" "history" "history-substring-search" "man" ];
-      theme = "juanghurtado";
     };
   };
 }
