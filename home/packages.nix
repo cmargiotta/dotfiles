@@ -1,4 +1,4 @@
-{ config, pkgs, webcord, ... }:
+{ config, pkgs, unstable, webcord, ... }:
 {
   nixpkgs.config.allowUnfree = true;
 
