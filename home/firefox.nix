@@ -39,6 +39,7 @@
         "general.useragent.locale" = "it-IT";
         "identity.fxaccounts.enabled" = false;
         "privacy.resistFingerprinting" = true;
+        "signon.rememberSignons" = false;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
     };
