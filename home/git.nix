@@ -16,6 +16,7 @@
     };
     signing = {
       signByDefault = true;
+      key = null;
     };
   };
 
