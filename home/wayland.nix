@@ -1,13 +1,16 @@
-{ config, pkgs, nixpkgs, eww, ... }:
+{ config, pkgs, nixpkgs, eww, unstable, ... }:
 {
   home.packages = with pkgs; [
-    wl-clipboard
-    flameshot
+    grimblast
     lxappearance
-    swaybg
     slurp
-    wofi
+    swaybg
     waybar
+    wl-clipboard
+    wofi
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-wlr
+    xdg-desktop-portal
   ];
 
   home.file.wofi = {
@@ -44,5 +47,15 @@
       name = "Catppuccin-Purple-Dark-Compact";
       package = pkgs.catppuccin-gtk.override { size = "compact"; };
     };
+  };
+
+  home.sessionVariables = {
+    XDG_SESSION_TYPE = "wayland";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+    QT_QPA_PLATFORM = "wayland;xcb";
+    MOZ_ENABLE_WAYLAND = "1";
+    WLR_RENDERER = "vulkan";
+    SDL_VIDEODRIVER = "wayland";
+    _JAVA_AWT_WM_NONREPARENTING = 1;
   };
 }

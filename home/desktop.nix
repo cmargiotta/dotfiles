@@ -42,15 +42,9 @@
   wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/desktop) + "\n" + (builtins.readFile ./config/Hyprland/common);
 
   home.sessionVariables = {
-    XDG_SESSION_TYPE = "wayland";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-    QT_QPA_PLATFORM = "wayland;xcb";
-    XDG_CURRENT_DESKTOP = "sway";
-    MOZ_ENABLE_WAYLAND = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
     WLR_DRM_NO_ATOMIC = "1";
     GBM_BACKEND = "nvidia-drm";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    WLR_RENDERER = "vulkan";
   };
 }
