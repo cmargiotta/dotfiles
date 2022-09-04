@@ -25,6 +25,7 @@
     blueman
     gnome.seahorse
     libsForQt5.dolphin
+    ncdu
     pavucontrol
     sqlitebrowser
     rnix-lsp
