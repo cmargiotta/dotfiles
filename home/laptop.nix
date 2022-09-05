@@ -11,6 +11,16 @@
     target = ".config/waybar/config";
   };
 
+  home.file.sshpub = {
+    source = ../secrets/laptop/ssh_pub;
+    target = ".ssh/id_ed25519.pub";
+  };
+
+  home.file.sshpriv = {
+    source = ../secrets/laptop/ssh_priv;
+    target = ".ssh/id_ed25519";
+  };
+
   home.packages = with pkgs; [
     brightnessctl
   ];

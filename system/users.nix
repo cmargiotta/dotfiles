@@ -4,7 +4,7 @@
     isNormalUser = true;
     home = "/home/nychtelios";
     extraGroups = [ "wheel" "networkmanager" ];
-    hashedPassword = (builtins.readFile ../secrets/nychtelios);
+    hashedPassword = (builtins.substring 0 106 (builtins.readFile ../secrets/nychtelios));
     shell = pkgs.zsh;
   };
 
