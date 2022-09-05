@@ -1,11 +1,11 @@
 { lib, config, pkgs, ... }:
 {
   imports =
-  [
-    ./packages.nix
-    ./services.nix
-    ./users.nix
-  ];
+    [
+      ./packages.nix
+      ./services.nix
+      ./users.nix
+    ];
 
   nixpkgs.overlays = [
     (self: super: {
@@ -40,6 +40,8 @@
   security.sudo.wheelNeedsPassword = false;
 
   networking.firewall.enable = false;
+  networking.nameservers = [ "192.168.1.92" ];
+
 
   system.stateVersion = "22.05";
 }
