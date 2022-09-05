@@ -1,5 +1,10 @@
 { lib, config, pkgs, ... }:
 {
+  imports =
+    [
+      ../secrets/wireguard.nix
+    ];
+
   networking.networkmanager.enable = true;
   networking.wireless.enable = false;
 
