@@ -4,6 +4,8 @@
   services.pcscd.enable = true;
   services.printing.enable = true;
 
+  services.dbus.packages = [ pkgs.gcr ];
+
   services.pipewire = {
     enable = true;
 
