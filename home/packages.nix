@@ -27,6 +27,7 @@
     libsForQt5.dolphin
     ncdu
     pavucontrol
+    pinentry-gtk2
     sqlitebrowser
     rnix-lsp
   ];
