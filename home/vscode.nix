@@ -70,6 +70,12 @@
         version = "1.0.5";
         sha256 = "sha256-CQVtMdt/fZcNIbH/KybJixnLqCsz5iF1U0k+GfL65Ok=";
       }
+      {
+        name = "cmake";
+        publisher = "twxs";
+        version = "0.0.17";
+        sha256 = "sha256-CFiva1AO/oHpszbpd7lLtDzbv1Yi55yQOQPP/kCTH4Y=";
+      }
     ];
 
     userSettings =
