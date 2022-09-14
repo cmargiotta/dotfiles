@@ -9,10 +9,8 @@
       mimeType = [ "text/plain" "inode/directory" ];
       icon = "code";
       exec = "code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland";
-    }; 
-  };
+    };
 
-  xdg.desktopEntries = {
     webcord = {
       name = "Webcord";
       genericName = "Discord and Fosscord client";
@@ -21,6 +19,6 @@
       mimeType = [ "x-scheme-handler/discord" ];
       icon = "webcord";
       exec = "webcord --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland";
-    }; 
+    };
   };
 }

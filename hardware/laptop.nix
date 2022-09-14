@@ -5,9 +5,9 @@
 
 {
   imports =
-  [ 
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
+    ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
@@ -35,23 +35,23 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   fileSystems."/" =
-  { 
-    device = "/dev/disk/by-uuid/d38e8164-b57d-47fa-8681-5ac4e1a37d39";
-    fsType = "ext4";
-  };
+    {
+      device = "/dev/disk/by-uuid/d38e8164-b57d-47fa-8681-5ac4e1a37d39";
+      fsType = "ext4";
+    };
 
   fileSystems."/boot/efi" =
-  { 
-    device = "/dev/disk/by-uuid/F5EE-45C2";
-    fsType = "vfat";
-  };
+    {
+      device = "/dev/disk/by-uuid/F5EE-45C2";
+      fsType = "vfat";
+    };
 
   swapDevices =
-  [ 
-    { device = "/dev/disk/by-uuid/f4ec9dff-d63b-44a2-ad4f-70e70f3b93a8"; }
-  ];
+    [
+      { device = "/dev/disk/by-uuid/f4ec9dff-d63b-44a2-ad4f-70e70f3b93a8"; }
+    ];
 
   networking.useDHCP = lib.mkDefault true;
-  
+
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

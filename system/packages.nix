@@ -6,6 +6,8 @@
     gdb
     meson
     ninja
+    cmake
+    gnumake
 
     # Others
     git
@@ -20,11 +22,13 @@
     zip
   ];
 
-  programs.dconf.enable = true;
+  programs = {
+    dconf.enable = true;
+    xwayland.enable = true;
+  };
 
-  programs.gnupg.agent = {
+  xdg.portal = {
     enable = true;
-    pinentryFlavor = "curses";
-    enableSSHSupport = true;
+    wlr.enable = true;
   };
 }

@@ -38,10 +38,10 @@
   hardware.pulseaudio.enable = false;
 
   security.sudo.wheelNeedsPassword = false;
+  security.polkit.enable = true;
 
   networking.firewall.enable = false;
   networking.nameservers = [ "192.168.1.92" ];
-
 
   system.stateVersion = "22.05";
 }

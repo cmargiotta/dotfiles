@@ -5,7 +5,7 @@
     shellAliases = {
       nixos-apply = "sudo nixos-rebuild switch --flake ~/dotfiles";
       nixos-update = "nix flake update ~/dotfiles && nixos-apply";
-      nixos-clean = "sudo nix-collect-garbage -d && sudo nix store optmise";
+      nixos-clean = "sudo nix-collect-garbage -d && sudo nix store optimise";
     };
 
     oh-my-zsh = {

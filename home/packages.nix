@@ -1,4 +1,4 @@
-{ config, pkgs, unstable, webcord, ... }:
+{ config, lib, pkgs, unstable, iceberg, webcord, ... }:
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -9,6 +9,8 @@
     llvm
     pkg-config
 
+    xorg.xeyes
+
     # Editors
     meld
 
@@ -17,9 +19,6 @@
     mailspring
     nextcloud-client
     tdesktop
-
-    # Office
-    onlyoffice-bin
 
     # Others
     blueman
@@ -30,5 +29,8 @@
     pinentry-gtk2
     sqlitebrowser
     rnix-lsp
+    qt5.qtbase
+    onlyoffice-bin
+    libreoffice
   ];
 }

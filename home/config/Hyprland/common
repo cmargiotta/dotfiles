@@ -43,6 +43,7 @@ master {
 }
 
 exec-once = waybar
+exec-once = hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 bind = SUPER,Return,exec,kitty
 bind = SUPER,D,exec,wofi

@@ -34,10 +34,10 @@ in
     hardware.nvidia.modesetting.enable = true;
     hardware.nvidia.package = nvidiaPackage;
     hardware.nvidia.powerManagement.enable = false;
-  
+
     services.xserver = {
       videoDrivers = [ "nvidia" ];
       displayManager.gdm.wayland = true;
     };
-  };                     
+  };
 }

@@ -4,11 +4,11 @@
 { config, lib, pkgs, modulesPath, ... }:
 {
   imports =
-  [ 
-    (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
 
-    ./nvidia.nix
-  ];
+      ./nvidia.nix
+    ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" ];
   boot.initrd.kernelModules = [ ];
@@ -16,20 +16,20 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-  { 
-    device = "/dev/disk/by-uuid/846a5a98-480e-4f51-b5cc-2e3d6a383002";
-    fsType = "ext4";
-  };
+    {
+      device = "/dev/disk/by-uuid/846a5a98-480e-4f51-b5cc-2e3d6a383002";
+      fsType = "ext4";
+    };
 
   fileSystems."/boot" =
-  { 
-    device = "/dev/disk/by-uuid/D8A8-1D4A";
-    fsType = "vfat";
-  };
+    {
+      device = "/dev/disk/by-uuid/D8A8-1D4A";
+      fsType = "vfat";
+    };
 
   swapDevices = [ ];
-  
+
   networking.useDHCP = lib.mkDefault true;
-  
+
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
