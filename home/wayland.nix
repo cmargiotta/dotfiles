@@ -1,4 +1,4 @@
-{ config, pkgs, nixpkgs, eww, unstable, ... }:
+{ config, pkgs, nixpkgs, eww, unstable, hyprland, ... }:
 {
   home.packages = with pkgs; [
     grimblast
@@ -11,6 +11,7 @@
     xdg-desktop-portal-gtk
     xdg-desktop-portal-wlr
     xdg-desktop-portal
+    xwayland
   ];
 
   home.file.wofi = {
@@ -24,7 +25,16 @@
     target = ".config/waybar/style.css";
   };
 
-  wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland =
+    {
+      enable = true;
+      systemdIntegration = true;
+      xwayland = {
+        enable = true;
+        hidpi = true;
+      };
+    };
+
 
   home.pointerCursor = {
     name = "Nordzy-white-cursors";
@@ -67,10 +77,13 @@
   home.sessionVariables = {
     XDG_SESSION_TYPE = "wayland";
     QT_QPA_PLATFORMTHEME = "qt5ct";
-    QT_QPA_PLATFORM = "wayland;xcb";
+    QT_QPA_PLATFORM = "wayland";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     MOZ_ENABLE_WAYLAND = "1";
     WLR_RENDERER = "vulkan";
     SDL_VIDEODRIVER = "wayland";
     _JAVA_AWT_WM_NONREPARENTING = 1;
+    GDK_BACKEND = "wayland";
+    NIXOS_OZONE_WL = "1";
   };
 }
