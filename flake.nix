@@ -1,24 +1,27 @@
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-22.05";
-    unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
 
     hypr-contrib.url = "github:hyprwm/contrib";
-    home-manager.url = "github:rycee/home-manager/release-22.05";
+    iceberg.url = "github:icebox-nix/iceberg";
     nur.url = "github:nix-community/NUR";
+
+    home-manager = {
+      url = "github:rycee/home-manager";
+    };
 
     webcord = {
       url = "github:fufexan/webcord-flake";
-      inputs.nixpkgs.follows = "unstable";
+
     };
 
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "unstable";
+
     };
   };
 
-  outputs = { self, nixpkgs, hypr-contrib, unstable, home-manager, hyprland, nur, webcord, ... }@inputs:
+  outputs = { self, nixpkgs, hypr-contrib, home-manager, iceberg, hyprland, nur, webcord, ... }@inputs:
     {
       nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -30,6 +33,7 @@
           ./system/desktop.nix
 
           home-manager.nixosModules.home-manager
+          hyprland.nixosModules.default
 
           {
             nixpkgs.overlays = [
@@ -85,6 +89,8 @@
                     ./home/common.nix
                     ./home/laptop.nix
                   ];
+
+                home.stateVersion = "22.05";
               };
           }
         ];
