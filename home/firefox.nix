@@ -10,7 +10,6 @@
       clearurls
       consent-o-matic
       don-t-fuck-with-paste
-      duckduckgo-privacy-essentials
       enhancer-for-youtube
       firefox-color
       flagfox
