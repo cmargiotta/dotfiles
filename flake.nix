@@ -54,6 +54,8 @@
                     ./home/common.nix
                     ./home/desktop.nix
                   ];
+
+                home.stateVersion = "22.05";
               };
           }
         ];

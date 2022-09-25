@@ -3,6 +3,7 @@
   services.openssh.enable = true;
   services.pcscd.enable = true;
   services.printing.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   services.dbus.packages = [ pkgs.gcr ];
 

@@ -22,6 +22,7 @@
 
     # Others
     blueman
+    dconf
     gnome.seahorse
     libsForQt5.dolphin
     ncdu
