@@ -18,6 +18,7 @@
     webcord.packages.${pkgs.system}.default
     mailspring
     nextcloud-client
+    spotify
     tdesktop
 
     # Others
