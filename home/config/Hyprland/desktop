@@ -1,5 +1,5 @@
-monitor=DP-1,preferred,1080x200,1
-monitor=HDMI-A-1,preferred,0x0,1
+monitor=DP-1,highres,1080x200,1
+monitor=HDMI-A-1,highres,0x0,1
 
 monitor=HDMI-A-1,transform,1
 
