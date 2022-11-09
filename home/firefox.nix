@@ -5,7 +5,6 @@
     extensions = with pkgs.nur.repos.rycee.firefox-addons; [
       behind-the-overlay-revival
       bitwarden
-      bypass-paywalls-clean
       c-c-search-extension
       clearurls
       consent-o-matic
