@@ -33,6 +33,5 @@
     rnix-lsp
     qt5.qtbase
     onlyoffice-bin
-    libreoffice
   ];
 }
