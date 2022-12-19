@@ -6,6 +6,7 @@
     # Dev
     clang-tools
     cmake
+    esphome
     llvm
     pkg-config
 
