@@ -8,7 +8,7 @@
       categories = [ "Utility" "TextEditor" "Development" "IDE" ];
       mimeType = [ "text/plain" "inode/directory" ];
       icon = "code";
-      exec = "code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland";
+      exec = "code --ozone-platform=x11";
     };
 
     webcord = {

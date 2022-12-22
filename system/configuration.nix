@@ -43,5 +43,5 @@
   networking.firewall.enable = false;
   networking.nameservers = [ "192.168.1.92" ];
 
-  system.stateVersion = "22.05";
+  system.stateVersion = "23.05";
 }
