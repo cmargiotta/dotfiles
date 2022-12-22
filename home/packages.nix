@@ -5,12 +5,11 @@
   home.packages = with pkgs; [
     # Dev
     clang-tools
+    clang_14
     cmake
     esphome
     llvm
     pkg-config
-
-    xorg.xeyes
 
     # Editors
     meld

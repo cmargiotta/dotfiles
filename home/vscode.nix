@@ -87,6 +87,7 @@
         "editor.formatOnPaste" = true;
         "editor.formatOnSave" = true;
         "editor.formatOnType" = true;
+        "editor.inlayHints.enabled" = false;
 
         # Git
         "git.autofetch" = true;
