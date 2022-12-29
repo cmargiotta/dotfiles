@@ -20,6 +20,11 @@
     recursive = true;
   };
 
+  home.file.dunst = {
+    source = ./config/dunst;
+    target = ".config/dunst/config";
+  };
+
   home.file.waybar_style = {
     source = ./config/waybar/style.css;
     target = ".config/waybar/style.css";
@@ -43,18 +48,10 @@
     gtk.enable = true;
   };
 
-  programs = {
-    mako = {
+  services = {
+    dunst = {
       enable = true;
-      backgroundColor = "#2e3440";
-      borderColor = "#88c0d0";
-      borderRadius = 15;
-      borderSize = 2;
-      defaultTimeout = 15;
-      height = 110;
-      icons = true;
-      layer = "overlay";
-      width = 300;
+      configFile = "$XDG_CONFIG_HOME/dunst/config";
     };
   };
 
