@@ -1,6 +1,4 @@
 general {
-  main_mod = SUPER
-
   gaps_in = 2
   gaps_out = 8
   border_size = 2
@@ -43,55 +41,70 @@ master {
 exec-once = waybar
 exec-once = hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
-bind = SUPER,Return,exec,kitty
-bind = SUPER,D,exec,wofi
+$MOD = SUPER
+$MODSHIFT = SUPERSHIFT
 
-bind = SUPER,Q,killactive
-bind = SUPER,F,fullscreen
-bind = SUPERSHIFT,F,togglefloating
-bind = SUPER,M,layoutmsg,swapwithmaster
+bind = $MOD,Return,exec,kitty
+bind = $MOD,D,exec,wofi
 
-bind = SUPER,left,movefocus,l
-bind = SUPER,right,movefocus,r
-bind = SUPER,up,movefocus,u
-bind = SUPER,down,movefocus,d
+bind = $MOD,Q,killactive
+bind = $MOD,F,fullscreen
+bind = $MODSHIFT,F,togglefloating
+bind = $MOD,M,layoutmsg,swapwithmaster
 
-bind = SUPERSHIFT,left,movewindow,l
-bind = SUPERSHIFT,right,movewindow,r
-bind = SUPERSHIFT,up,movewindow,u
-bind = SUPERSHIFT,down,movewindow,d
+bind = $MOD,left,movefocus,l
+bind = $MOD,right,movefocus,r
+bind = $MOD,up,movefocus,u
+bind = $MOD,down,movefocus,d
+
+bind = $MODSHIFT,left,movewindow,l
+bind = $MODSHIFT,right,movewindow,r
+bind = $MODSHIFT,up,movewindow,u
+bind = $MODSHIFT,down,movewindow,d
 
 bind = ,Print,exec,grimblast copy output
-bind = SUPER,S,exec,grimblast copy area
-bind = SUPERSHIFT,S,exec,grimblast copy window
+bind = $MOD,S,exec,grimblast copy area
+bind = $MODSHIFT,S,exec,grimblast copy window
 
-bind = SUPER,1,workspace,1
-bind = SUPER,2,workspace,2
-bind = SUPER,3,workspace,3
-bind = SUPER,4,workspace,4
-bind = SUPER,5,workspace,5
-bind = SUPER,6,workspace,6
-bind = SUPER,7,workspace,7
-bind = SUPER,8,workspace,8
-bind = SUPER,9,workspace,9
-bind = SUPER,0,workspace,10
+bind = $MOD,1,workspace,1
+bind = $MOD,2,workspace,2
+bind = $MOD,3,workspace,3
+bind = $MOD,4,workspace,4
+bind = $MOD,5,workspace,5
+bind = $MOD,6,workspace,6
+bind = $MOD,7,workspace,7
+bind = $MOD,8,workspace,8
+bind = $MOD,9,workspace,9
+bind = $MOD,0,workspace,10
 
-bind=SUPERSHIFT,1,movetoworkspace,1
-bind=SUPERSHIFT,2,movetoworkspace,2
-bind=SUPERSHIFT,3,movetoworkspace,3
-bind=SUPERSHIFT,4,movetoworkspace,4
-bind=SUPERSHIFT,5,movetoworkspace,5
-bind=SUPERSHIFT,6,movetoworkspace,6
-bind=SUPERSHIFT,7,movetoworkspace,7
-bind=SUPERSHIFT,8,movetoworkspace,8
-bind=SUPERSHIFT,9,movetoworkspace,9
-bind=SUPERSHIFT,0,movetoworkspace,10
+bind = $MODSHIFT,1,movetoworkspace,1
+bind = $MODSHIFT,2,movetoworkspace,2
+bind = $MODSHIFT,3,movetoworkspace,3
+bind = $MODSHIFT,4,movetoworkspace,4
+bind = $MODSHIFT,5,movetoworkspace,5
+bind = $MODSHIFT,6,movetoworkspace,6
+bind = $MODSHIFT,7,movetoworkspace,7
+bind = $MODSHIFT,8,movetoworkspace,8
+bind = $MODSHIFT,9,movetoworkspace,9
+bind = $MODSHIFT,0,movetoworkspace,10
 
-bind=ALTSHIFT,down,movecurrentworkspacetomonitor,d
-bind=ALTSHIFT,up,movecurrentworkspacetomonitor,u
-bind=ALTSHIFT,left,movecurrentworkspacetomonitor,l
-bind=ALTSHIFT,right,movecurrentworkspacetomonitor,r
+bind = $MODSHIFT,down,movecurrentworkspacetomonitor,d
+bind = $MODSHIFT,up,movecurrentworkspacetomonitor,u
+bind = $MODSHIFT,left,movecurrentworkspacetomonitor,l
+bind = $MODSHIFT,right,movecurrentworkspacetomonitor,r
 
-bind = SUPERSHIFT,R,exec,hyprctl reload
+bind = $MODSHIFT,R,exec,hyprctl reload
 
-windowrule=float,pavucontrol-qt
+bind = $MOD,R,submap,resize
+submap = resize
+
+binde = ,right,resizeactive,10 0
+binde = ,left,resizeactive,-10 0
+binde = ,up,resizeactive,0 -10
+binde = ,down,resizeactive,0 10
+
+bind = ,escape,submap,reset
+
+submap = reset
+
+windowrule = float,pavucontrol-qt

@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     grimblast
-    lxappearance
     slurp
     swaybg
     waybar
@@ -42,7 +41,7 @@
 
 
   home.pointerCursor = {
-    name = "Nordzy-white-cursors";
+    name = "Nordzy-cursors-white";
     package = pkgs.nordzy-cursor-theme;
     size = 32;
     gtk.enable = true;
