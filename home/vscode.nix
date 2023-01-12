@@ -34,6 +34,8 @@
         "C/C++ Include Guard.Path Depth" = "2";
         "C/C++ Include Guard.Path Skip" = "1";
         "C/C++ Include Guard.Remove Extension" = "false";
+        "mesonbuild.buildFolder" = "build";
+        "mesonbuild.configureOnOpen" = true;
 
         # Preferences
         "explorer.confirmDragAndDrop" = false;
