@@ -1,0 +1,5 @@
+[lapce-cpp-clangd.volt]
+clangdVersion = "15.0.6" # git tag from https://github.com/clangd/clangd
+serverArgs = [
+    #custom args
+]

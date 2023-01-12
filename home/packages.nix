@@ -5,11 +5,12 @@
   home.packages = with pkgs; [
     # Dev
     clang-tools
-    clang_14
+    gcc12
     cmake
     esphome
     llvm
     pkg-config
+    lapce
 
     # Editors
     meld

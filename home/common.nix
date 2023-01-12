@@ -20,6 +20,11 @@
     telephone = "it_IT.UTF-8";
   };
 
+  home.file.lapce = {
+    source = ./config/lapce.toml;
+    target = ".config/lapce-stable/settings.toml";
+  };
+
   home.enableNixpkgsReleaseCheck = true;
   xdg.mimeApps.enable = true;
 
