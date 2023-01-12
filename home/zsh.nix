@@ -11,7 +11,7 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "autoenv" "git" "history" "history-substring-search" "man" ];
+      plugins = [ "git" "history" "history-substring-search" "man" ];
       theme = "juanghurtado";
     };
   };
