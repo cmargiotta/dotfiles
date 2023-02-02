@@ -1,7 +1,7 @@
 { config, pkgs, nixpkgs, eww, ... }:
 {
   xdg.desktopEntries = {
-    code = {
+    code_x11 = {
       name = "Visual Studio Code";
       genericName = "Text Editor";
       terminal = false;

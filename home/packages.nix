@@ -18,6 +18,7 @@
     # Internet
     webcord.packages.${pkgs.system}.default
     mailspring
+    mqttui
     nextcloud-client
     spotify
     tdesktop
@@ -25,6 +26,7 @@
     # Others
     blueman
     dconf
+    ffmpeg
     gnome.seahorse
     libsForQt5.dolphin
     ncdu
