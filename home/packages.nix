@@ -10,7 +10,6 @@
     esphome
     llvm
     pkg-config
-    lapce
 
     # Editors
     meld
