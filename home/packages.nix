@@ -22,6 +22,8 @@
     nextcloud-client
     spotify
     tdesktop
+    mqttui
+    tor-browser-bundle-bin
 
     # Others
     blueman
