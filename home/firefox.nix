@@ -2,32 +2,6 @@
 {
   programs.firefox = {
     enable = true;
-    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-      behind-the-overlay-revival
-      bitwarden
-      c-c-search-extension
-      clearurls
-      consent-o-matic
-      don-t-fuck-with-paste
-      enhancer-for-youtube
-      firefox-color
-      flagfox
-      floccus
-      gaoptout
-      ghostery
-      grammarly
-      ninja-cookie
-      no-pdf-download
-      octotree
-      search-by-image
-      skip-redirect
-      sourcegraph
-      terms-of-service-didnt-read
-      tokyo-night-v2
-      ubo-scope
-      unpaywall
-      wayback-machine
-    ];
     profiles.nychtelios = {
       isDefault = true;
       settings = {
@@ -40,6 +14,32 @@
         "signon.rememberSignons" = false;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        behind-the-overlay-revival
+        bitwarden
+        c-c-search-extension
+        clearurls
+        consent-o-matic
+        don-t-fuck-with-paste
+        enhancer-for-youtube
+        firefox-color
+        flagfox
+        floccus
+        gaoptout
+        ghostery
+        grammarly
+        ninja-cookie
+        no-pdf-download
+        octotree
+        search-by-image
+        skip-redirect
+        sourcegraph
+        terms-of-service-didnt-read
+        tokyo-night-v2
+        ubo-scope
+        unpaywall
+        wayback-machine
+      ];
     };
   };
 }
