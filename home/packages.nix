@@ -10,9 +10,14 @@
     esphome
     llvm
     pkg-config
+    rustc
+    cargo
+    rust-analyzer
+    rustfmt
 
     # Editors
     meld
+    lapce
 
     # Internet
     webcord.packages.${pkgs.system}.default
