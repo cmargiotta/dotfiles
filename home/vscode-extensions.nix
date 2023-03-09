@@ -26,8 +26,8 @@
   {
     name = "githistory";
     publisher = "donjayamanne";
-    version = "0.6.19";
-    sha256 = "15s2mva9hg2pw499g890v3jycncdps2dmmrmrkj3rns8fkhjn8b3";
+    version = "0.6.20";
+    sha256 = "0x9q7sh5l1frpvfss32ypxk03d73v9npnqxif4fjwcfwvx5mhiww";
   }
   {
     name = "nix-ide";
@@ -42,10 +42,16 @@
     sha256 = "125incws4n688irqii3s2a1cznj0kvkbhv3sa8585chj5g4zvmfy";
   }
   {
-    name = "Cyberpunk";
-    publisher = "max-SS";
-    version = "1.2.14";
-    sha256 = "0q41rql3zvdbp79vwr2bgmvfn6hsjazk5ciw0hxg67d72xhh15dp";
+    name = "rust-analyzer";
+    publisher = "rust-lang";
+    version = "0.4.1428";
+    sha256 = "0ksi7jqwsqjxkw69np7myqhk52bsrg2n4zr8jpzgbpb3gv19f31j";
+  }
+  {
+    name = "vscode-rustfmt";
+    publisher = "statiolake";
+    version = "0.1.2";
+    sha256 = "0kprx45j63w1wr776q0cl2q3l7ra5ln8nwy9nnxhzfhillhqpipi";
   }
   {
     name = "cmantic";
