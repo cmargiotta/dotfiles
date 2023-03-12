@@ -9,7 +9,8 @@
           inherit (extension) name publisher version sha256;
         };
       })
-      (import ./vscode-extensions.nix).extensions;
+      (import ./vscode-extensions.nix).extensions ++
+    [ pkgs.vscode-extensions.matklad.rust-analyzer ];
 
     userSettings =
       {

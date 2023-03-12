@@ -1,4 +1,4 @@
-{ config, lib, pkgs, unstable, iceberg, webcord, ... }:
+{ config, lib, pkgs, unstable, iceberg, webcord, fenix, ... }:
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -9,11 +9,9 @@
     cmake
     esphome
     llvm
+    lua54Packages.lua
     pkg-config
-    rustc
-    cargo
-    rust-analyzer
-    rustfmt
+    rustup
 
     # Editors
     meld
