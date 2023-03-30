@@ -1,5 +1,7 @@
 { lib, config, pkgs, ... }:
 {
+  programs.zsh.enable = true;
+
   users.users.nychtelios = {
     isNormalUser = true;
     home = "/home/nychtelios";

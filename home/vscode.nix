@@ -9,8 +9,7 @@
           inherit (extension) name publisher version sha256;
         };
       })
-      (import ./vscode-extensions.nix).extensions ++
-    [ pkgs.vscode-extensions.matklad.rust-analyzer ];
+      (import ./vscode-extensions.nix).extensions;
 
     userSettings =
       {
@@ -37,6 +36,7 @@
         "C/C++ Include Guard.Remove Extension" = false;
         "mesonbuild.buildFolder" = "build";
         "mesonbuild.configureOnOpen" = true;
+        "[rust]"."editor.defaultFormatter" = "rust-lang.rust-analyzer";
 
         # Preferences
         "explorer.confirmDragAndDrop" = false;
