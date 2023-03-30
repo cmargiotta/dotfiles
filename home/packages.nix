@@ -34,6 +34,7 @@
     gnome.seahorse
     libsForQt5.dolphin
     ncdu
+    openssl
     pavucontrol
     pinentry-gtk2
     sqlitebrowser
