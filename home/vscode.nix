@@ -36,7 +36,9 @@
         "C/C++ Include Guard.Remove Extension" = false;
         "mesonbuild.buildFolder" = "build";
         "mesonbuild.configureOnOpen" = true;
-        "[rust]"."editor.defaultFormatter" = "rust-lang.rust-analyzer";
+        "[rust]" = {
+          "editor.defaultFormatter" = "rust-lang.rust-analyzer";
+        };
 
         # Preferences
         "explorer.confirmDragAndDrop" = false;

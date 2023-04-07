@@ -5,42 +5,47 @@
   home.packages = with pkgs; [
     # Dev
     clang-tools
-    gcc12
     cmake
+    direnv
     esphome
+    gcc12
+    lldb_15
     llvm
     lua54Packages.lua
+    musl
+    nix-direnv
     pkg-config
     rustup
 
     # Editors
-    meld
     lapce
+    meld
 
     # Internet
-    webcord.packages.${pkgs.system}.default
     mailspring
+    mqttui
     mqttui
     nextcloud-client
     spotify
     tdesktop
-    mqttui
     tor-browser-bundle-bin
+    webcord.packages.${pkgs.system}.default
 
     # Others
     blueman
     dconf
     ffmpeg
     gnome.seahorse
+    libreoffice
     libsForQt5.dolphin
     ncdu
+    onlyoffice-bin
     openssl
     pavucontrol
     pinentry-gtk2
-    sqlitebrowser
-    rnix-lsp
     qt5.qtbase
-    onlyoffice-bin
+    rnix-lsp
+    sqlitebrowser
     xorg.xeyes
   ];
 }
