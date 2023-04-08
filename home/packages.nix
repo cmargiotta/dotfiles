@@ -36,7 +36,6 @@
     dconf
     ffmpeg
     gnome.seahorse
-    libreoffice
     libsForQt5.dolphin
     ncdu
     onlyoffice-bin

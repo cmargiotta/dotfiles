@@ -39,6 +39,7 @@
         "[rust]" = {
           "editor.defaultFormatter" = "rust-lang.rust-analyzer";
         };
+        "rust-analyzer.server.path" = "rust-analyzer";
 
         # Preferences
         "explorer.confirmDragAndDrop" = false;

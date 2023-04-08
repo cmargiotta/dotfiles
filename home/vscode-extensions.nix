@@ -42,10 +42,16 @@
     sha256 = "125incws4n688irqii3s2a1cznj0kvkbhv3sa8585chj5g4zvmfy";
   }
   {
+    name = "direnv";
+    publisher = "mkhl";
+    version = "0.10.1";
+    sha256 = "0m89sx1qqdkwa9pfmd9b11lp8z0dqpi6jn27js5q4ymscyg41bqd";
+  }
+  {
     name = "rust-analyzer";
     publisher = "rust-lang";
-    version = "0.4.1454";
-    sha256 = "0sc6s00isxfk6h8arnmg86br9s3kzj8dhzi00y4valy7b13hnb02";
+    version = "0.4.1469";
+    sha256 = "1w0ivb2wvzsd3piprshnljcdbqi40hiclyk35fnqvprya4w009qs";
   }
   {
     name = "vscode-rustfmt";
