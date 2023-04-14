@@ -4,19 +4,10 @@
 
   home.packages = with pkgs; [
     # Dev
-    clang-tools
-    cmake
     direnv
     esphome
-    gcc12
-    lldb_15
-    llvm
-    lua54Packages.lua
-    musl
     nix-direnv
     pkg-config
-    rustup
-    python3
 
     # Editors
     lapce
@@ -24,7 +15,6 @@
 
     # Internet
     mailspring
-    mqttui
     mqttui
     nextcloud-client
     spotify

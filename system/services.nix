@@ -7,6 +7,8 @@
 
   services.dbus.packages = [ pkgs.gcr ];
 
+  services.blueman.enable = true;
+
   services.pipewire = {
     enable = true;
 

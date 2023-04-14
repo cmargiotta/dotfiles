@@ -1,14 +1,6 @@
 { lib, config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    # Build
-    clang
-    gdb
-    meson
-    ninja
-    cmake
-    gnumake
-
     # Others
     git
     gnome.gnome-keyring
