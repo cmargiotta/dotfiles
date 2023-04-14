@@ -13,6 +13,7 @@
         "privacy.resistFingerprinting" = true;
         "signon.rememberSignons" = false;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "webgl.force-enabled" = true;
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         behind-the-overlay-revival

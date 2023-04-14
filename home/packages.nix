@@ -16,6 +16,7 @@
     nix-direnv
     pkg-config
     rustup
+    python3
 
     # Editors
     lapce
