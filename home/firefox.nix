@@ -5,7 +5,7 @@
     profiles.nychtelios = {
       isDefault = true;
       settings = {
-        "browser.startup.homepage" = "http://192.168.1.92:8005/";
+        "browser.startup.homepage" = "http://192.168.1.92:3000/";
         "browser.toolbars.bookmarks.visibility" = "always";
         "extensions.pocket.enabled" = false;
         "general.useragent.locale" = "it-IT";
