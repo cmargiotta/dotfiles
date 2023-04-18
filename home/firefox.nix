@@ -28,10 +28,8 @@
         floccus
         gaoptout
         ghostery
-        grammarly
         ninja-cookie
         no-pdf-download
-        octotree
         search-by-image
         skip-redirect
         sourcegraph

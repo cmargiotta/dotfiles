@@ -42,6 +42,24 @@
     sha256 = "125incws4n688irqii3s2a1cznj0kvkbhv3sa8585chj5g4zvmfy";
   }
   {
+    name = "vscode-dbml";
+    publisher = "matt-meyers";
+    version = "0.3.5";
+    sha256 = "0k7k4jk2nmlj1fw8zjp5xmvsi4vsjzpkvkrgm84jj75m9qrmf702";
+  }
+  {
+    name = "direnv";
+    publisher = "mkhl";
+    version = "0.12.0";
+    sha256 = "1ib29m8809pka9vkdvdp6psq8h8gld4542whrfii80wg11c97hah";
+  }
+  {
+    name = "markdown-kroki";
+    publisher = "pomdtr";
+    version = "1.0.7";
+    sha256 = "1i72x1ilp6zssvx56k1x8r1dc99ibdb3l571p5y2knsbh7hk7lfq";
+  }
+  {
     name = "vscode-direnv";
     publisher = "Rubymaniac";
     version = "0.0.2";
@@ -50,8 +68,8 @@
   {
     name = "rust-analyzer";
     publisher = "rust-lang";
-    version = "0.4.1477";
-    sha256 = "1zl2q9xy85a0ryvi1f4vvqsya99lnyjyp7da09s3jwzsakm0623d";
+    version = "0.4.1482";
+    sha256 = "0pywwqxnn5if9bvp5291gh57mf9hl5378a68fkxgvwpxbql8drcg";
   }
   {
     name = "vscode-rustfmt";
