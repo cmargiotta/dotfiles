@@ -1,6 +1,17 @@
-monitor=DP-1,highres,1080x200,1
-monitor=HDMI-A-1,highres,0x0,1
+$ULTRAWIDE = desc:Samsung Electric Company C34H89x H4ZN200636
+$VERTICAL  = desc:Microstep MSI MP242 PA1T010907358
+$UPPER     = desc:Microstep MSI MP273 PB4H793100073
 
-monitor=HDMI-A-1,transform,1
+monitor = $ULTRAWIDE, highres, 1080x1080, 1.33
+monitor = $UPPER,     highres, 1550x0,    1
+monitor = $VERTICAL,  highres, 0x500,     1
 
-exec = swaybg -o HDMI-A-1 -i ~/.wallpapers/vert.jpg -m fill -o DP-1 -i ~/.wallpapers/ultrawide.jpg -m fill
+monitor = $VERTICAL, transform, 1
+
+exec = swww img -o HDMI-A-1 ~/.wallpapers/vert.jpg
+exec = swww img -o DP-1 ~/.wallpapers/ultrawide.jpg
+exec = swww img -o DP-3 ~/.wallpapers/upper.mp4
+
+workspace = $ULTRAWIDE, 1
+workspace = $VERTICAL, name:vertical
+workspace = $UPPER, name:upper

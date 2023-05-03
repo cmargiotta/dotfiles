@@ -3,10 +3,11 @@
   home.packages = with pkgs; [
     grimblast
     slurp
-    swaybg
+    swww
     waybar
     wl-clipboard
     wofi
+    wlr-randr
     xdg-desktop-portal-gtk
     xdg-desktop-portal-wlr
     xdg-desktop-portal
