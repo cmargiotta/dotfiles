@@ -25,7 +25,7 @@
     cura
   ];
 
-  wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/desktop) + "\n" + (builtins.readFile ./config/Hyprland/common);
+  wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/common) + "\n" + (builtins.readFile ./config/Hyprland/desktop);
 
   home.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";

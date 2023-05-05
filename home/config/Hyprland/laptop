@@ -1,4 +1,4 @@
-exec = swaybg -i ~/.wallpapers/wallpaper.jpg -m fill 
+exec = swww img ~/.wallpapers/wallpaper.jpg
 
 input {
    # kb_layout = "us"
