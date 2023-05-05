@@ -7,7 +7,9 @@
     direnv
     esphome
     nix-direnv
+    pgadmin4-desktopmode
     pkg-config
+    sqlitebrowser
 
     # Editors
     lapce
@@ -15,6 +17,7 @@
 
     # Internet
     mailspring
+    mongodb-compass
     mqttui
     nextcloud-client
     spotify
@@ -22,20 +25,25 @@
     tor-browser-bundle-bin
     webcord.packages.${pkgs.system}.default
 
-    # Others
+    # Office
+    onlyoffice-bin
+    qalculate-gtk
+
+    # System
     blueman
     dconf
+    pavucontrol
+
+    # Media
     ffmpeg
+
+    # Others
     gnome.seahorse
     libsForQt5.dolphin
     ncdu
-    onlyoffice-bin
-    openssl
-    pavucontrol
     pinentry-gtk2
     qt5.qtbase
     rnix-lsp
-    sqlitebrowser
     xorg.xeyes
   ];
 }
