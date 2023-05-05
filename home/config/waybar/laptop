@@ -1,14 +1,28 @@
 {
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 0, // Gaps between modules (4px)
-    // Choose the order of the modules
-    "modules-left": ["idle_inhibitor", "cpu", "memory", "disk", "temperature", "sway/mode", "sway/window"],
-    "modules-center": ["wlr/workspaces"],
-    "modules-right": ["tray", "sway/language", "bluetooth", "pulseaudio", "network", "backlight", "battery", "clock"],
-    // Modules configuration
+    "height": 30,
+    "spacing": 0,
+    "modules-left": [
+        "idle_inhibitor",
+        "cpu",
+        "memory",
+        "disk",
+        "temperature",
+        "sway/mode",
+        "sway/window"
+    ],
+    "modules-center": [
+        "wlr/workspaces"
+    ],
+    "modules-right": [
+        "tray",
+        "sway/language",
+        "bluetooth",
+        "pulseaudio",
+        "network",
+        "backlight",
+        "battery",
+        "clock"
+    ],
     "wlr/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -60,11 +74,9 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
@@ -76,22 +88,23 @@
         "format": "{}% "
     },
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
     },
     "backlight": {
-        // "device": "acpi_video1",
         "on-click": "dex /usr/share/applications/clightc.desktop",
         "format": "{percent}% {icon}",
-        "format-icons": [""]
+        "format-icons": [
+            ""
+        ]
     },
     "battery": {
         "states": {
-            // "good": 95,
             "warning": 30,
             "critical": 15
         },
@@ -99,15 +112,18 @@
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
     },
     "battery#bat2": {
         "bat": "BAT2"
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{signalStrength}% ",
         "format-ethernet": "",
         "tooltip-format": "{ifname} via {gwaddr} ",
@@ -116,7 +132,6 @@
         "format-alt": "{essid}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
@@ -130,7 +145,11 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": [
+                "",
+                "",
+                ""
+            ]
         },
         "on-click": "pavucontrol"
     },
@@ -143,8 +162,7 @@
             "default": "🎜"
         },
         "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
     },
     "disk": {
         "interval": 30,
@@ -165,4 +183,3 @@
         "max-length": 50
     }
 }
-// vim: set ft=json:
