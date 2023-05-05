@@ -25,8 +25,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  hardware.bluetooth.enable = true;
-
   time.timeZone = "Europe/Rome";
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -41,7 +39,6 @@
   security.polkit.enable = true;
 
   networking.firewall.enable = false;
-  networking.nameservers = [ "192.168.1.92" ];
 
   system.stateVersion = "23.05";
 }
