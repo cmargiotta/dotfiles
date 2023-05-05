@@ -40,6 +40,7 @@ master {
 
 exec-once = waybar
 exec-once = hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = swww init
 
 $MOD = SUPER
 $MODSHIFT = SUPERSHIFT
@@ -94,6 +95,8 @@ bind = $MODSHIFT,left,movecurrentworkspacetomonitor,l
 bind = $MODSHIFT,right,movecurrentworkspacetomonitor,r
 
 bind = $MODSHIFT,R,exec,hyprctl reload
+bind = $MODSHIFT,V,layoutmsg,orientationtop
+bind = $MODSHIFT,H,layoutmsg,orientationleft
 
 bind = $MOD,R,submap,resize
 submap = resize
