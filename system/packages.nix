@@ -11,6 +11,7 @@
     pass-secret-service
     unzip
     wget
+    busybox
     zip
   ];
 
