@@ -26,7 +26,6 @@
         firefox-color
         flagfox
         floccus
-        gaoptout
         ghostery
         ninja-cookie
         no-pdf-download
