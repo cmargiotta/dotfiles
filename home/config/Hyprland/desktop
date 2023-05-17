@@ -9,12 +9,8 @@ monitor = $VERTICAL,  highres, 0x500,     1
 monitor = $VERTICAL, transform, 1
 
 exec = sleep 1.5 && swww img -o HDMI-A-1 ~/.wallpapers/vert.png
-exec = sleep 0.5 && swww img -o DP-1 ~/.wallpapers/ultrawide.jpg
+exec = sleep 0.5 && swww img -o DP-2 ~/.wallpapers/ultrawide.jpg
 exec = sleep 0.5 && swww img -o DP-3 ~/.wallpapers/upper.jpg
-
-wsbind = 1, $ULTRAWIDE
-wsbind = 2, $VERTICAL
-wsbind = 3, $UPPER
 
 workspace = DP-1, 1
 workspace = HDMI-A-1, 2
