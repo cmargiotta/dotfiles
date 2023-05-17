@@ -41,7 +41,7 @@
     gnome.seahorse
     libsForQt5.dolphin
     ncdu
-    pinentry-gtk2
+    pinentry-qt
     qt5.qtbase
     rnix-lsp
     xorg.xeyes
