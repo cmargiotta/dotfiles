@@ -15,6 +15,8 @@
     })
   ];
 
+  virtualisation.podman.enable = true;
+
   nixpkgs.config.allowUnfree = true;
 
   nix.gc.automatic = true;
