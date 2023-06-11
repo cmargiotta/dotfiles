@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
       ./nvidia.nix
     ];
 
@@ -16,12 +17,14 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/4aeb1db7-9fbd-4bf2-b66e-2fd04df50000";
+    {
+      device = "/dev/disk/by-uuid/4aeb1db7-9fbd-4bf2-b66e-2fd04df50000";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/3F06-E1AD";
+    {
+      device = "/dev/disk/by-uuid/3F06-E1AD";
       fsType = "vfat";
     };
 
