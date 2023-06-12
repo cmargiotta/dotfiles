@@ -6,10 +6,12 @@
     # Dev
     direnv
     esphome
+    gaphor
     nix-direnv
     pgadmin4-desktopmode
     pkg-config
     sqlitebrowser
+    platformio
 
     # Editors
     lapce

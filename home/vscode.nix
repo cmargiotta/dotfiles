@@ -40,6 +40,7 @@
           "editor.defaultFormatter" = "rust-lang.rust-analyzer";
         };
         "rust-analyzer.server.path" = "rust-analyzer";
+        "C_Cpp.intelliSenseEngine" = "disabled";
 
         # Preferences
         "explorer.confirmDragAndDrop" = false;
