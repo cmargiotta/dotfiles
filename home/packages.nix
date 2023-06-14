@@ -21,12 +21,11 @@
     meld
 
     # Internet
-    thunderbird
     mongodb-compass
     mqttui
     nextcloud-client
+    slack
     spotify
-    chromium
     tdesktop
     tor-browser-bundle-bin
     webcord.packages.${pkgs.system}.default
