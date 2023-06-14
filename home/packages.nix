@@ -10,8 +10,11 @@
     nix-direnv
     pgadmin4-desktopmode
     pkg-config
+    python3Full
+    cutecom
     sqlitebrowser
     platformio
+    wineWowPackages.waylandFull
 
     # Editors
     lapce
@@ -23,6 +26,7 @@
     mqttui
     nextcloud-client
     spotify
+    chromium
     tdesktop
     tor-browser-bundle-bin
     webcord.packages.${pkgs.system}.default

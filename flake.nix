@@ -61,6 +61,43 @@
         ];
       };
 
+      nixosConfigurations.cmargiotta = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = inputs;
+
+        modules = [
+          ./hardware/laptop-wsense.nix
+          ./system/configuration.nix
+          ./system/laptop-wsense.nix
+
+          home-manager.nixosModules.home-manager
+
+          {
+            nixpkgs.overlays = [
+              nur.overlay
+              hypr-contrib.overlays.default
+            ];
+
+            networking.hostName = "cmargiotta";
+            home-manager.extraSpecialArgs = inputs;
+            home-manager.useUserPackages = true;
+            home-manager.useGlobalPkgs = true;
+            home-manager.users.nychtelios =
+              {
+                imports =
+                  [
+                    hyprland.homeManagerModules.default
+
+                    ./home/common.nix
+                    ./home/laptop.nix
+                  ];
+
+                home.stateVersion = "23.05";
+              };
+          }
+        ];
+      };
+
       nixosConfigurations.zenbook13 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = inputs;
