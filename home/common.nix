@@ -10,6 +10,7 @@
     ./wayland.nix
     ./wrappers.nix
     ./zsh.nix
+    ../secrets/email.nix
   ];
 
   home.language = {

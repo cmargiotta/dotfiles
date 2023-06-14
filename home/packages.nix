@@ -21,7 +21,7 @@
     meld
 
     # Internet
-    mailspring
+    thunderbird
     mongodb-compass
     mqttui
     nextcloud-client
