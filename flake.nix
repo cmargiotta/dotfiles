@@ -2,26 +2,16 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
+    home-manager.url = "github:rycee/home-manager";
     hypr-contrib.url = "github:hyprwm/contrib";
+    hyprland.url = "github:hyprwm/Hyprland";
     iceberg.url = "github:icebox-nix/iceberg";
+    nixgl.url = "github:guibou/nixGL";
     nur.url = "github:nix-community/NUR";
-
-    home-manager = {
-      url = "github:rycee/home-manager";
-    };
-
-    webcord = {
-      url = "github:fufexan/webcord-flake";
-
-    };
-
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-
-    };
+    webcord.url = "github:fufexan/webcord-flake";
   };
 
-  outputs = { self, nixpkgs, hypr-contrib, home-manager, iceberg, hyprland, nur, webcord, ... }@inputs:
+  outputs = { self, nixpkgs, hypr-contrib, home-manager, iceberg, hyprland, nur, webcord, nixgl, ... }@inputs:
     {
       nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -39,6 +29,7 @@
             nixpkgs.overlays = [
               nur.overlay
               hypr-contrib.overlays.default
+              nixgl.overlay
             ];
 
             networking.hostName = "nixos-desktop";
@@ -76,6 +67,7 @@
             nixpkgs.overlays = [
               nur.overlay
               hypr-contrib.overlays.default
+              nixgl.overlay
             ];
 
             networking.hostName = "cmargiotta";
@@ -113,6 +105,7 @@
             nixpkgs.overlays = [
               nur.overlay
               hypr-contrib.overlays.default
+              nixgl.overlay
             ];
 
             networking.hostName = "zenbook13";

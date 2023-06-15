@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 {
   home.file.wallpapers = {
-    source = ./wallpapers/laptop;
+    source = ./wallpapers/laptop-wsense;
     target = ".wallpapers";
     recursive = true;
   };
@@ -23,7 +23,10 @@
 
   home.packages = with pkgs; [
     brightnessctl
+    nixgl.nixGLIntel
   ];
 
-  wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/laptop) + "\n" + (builtins.readFile ./config/Hyprland/common);
+  programs.zsh.shellAliases.Hyprland = "nixGLIntel Hyprland";
+
+  wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/laptop-wsense) + "\n" + (builtins.readFile ./config/Hyprland/common);
 }

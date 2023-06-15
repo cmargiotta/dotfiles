@@ -23,7 +23,10 @@
 
   home.packages = with pkgs; [
     cura
+    nixgl.nixVulkanNvidia
   ];
+
+  programs.zsh.shellAliases.Hyprland = "nixGL Hyprland";
 
   wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/common) + "\n" + (builtins.readFile ./config/Hyprland/desktop);
 
