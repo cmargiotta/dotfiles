@@ -23,6 +23,12 @@
     recursive = true;
   };
 
+  home.file.lock = {
+    source = ./config/lock.sh;
+    target = ".config/swaylock.sh";
+    recursive = true;
+  };
+
   home.file.dunst = {
     source = ./config/dunst;
     target = ".config/dunst/config";

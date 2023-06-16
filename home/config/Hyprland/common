@@ -55,6 +55,8 @@ bind = $MOD,F,fullscreen
 bind = $MODSHIFT,F,togglefloating
 bind = $MOD,M,layoutmsg,swapwithmaster
 
+bind = $MOD,L,exec,~/.config/swaylock.sh
+
 bind = $MOD,left,movefocus,l
 bind = $MOD,right,movefocus,r
 bind = $MOD,up,movefocus,u
