@@ -38,15 +38,15 @@ master {
   new_on_top = true
 }
 
+exec-once = nwg-panel
 exec-once = waybar
 exec-once = hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-exec-once = swww init
 
 $MOD = SUPER
 $MODSHIFT = SUPERSHIFT
 
 bind = $MOD,Return,exec,kitty
-bind = $MOD,D,exec,wofi
+bind = $MOD,D,exec,nwg-drawer -fm dolphin -g "Catppuccin-Purple-Dark-Compact" -ovl -term kitty
 
 bind = $MOD,Q,killactive
 bind = $MOD,F,fullscreen
