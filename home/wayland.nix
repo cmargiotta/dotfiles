@@ -39,6 +39,21 @@
     target = ".config/waybar/style.css";
   };
 
+  home.file.nwg-panel-settings = {
+    source = "./config/nwg-panel/common-settings.json";
+    target = ".config/nwg-panel/common-settings.json";
+  };
+
+  home.file.nwg-panel-config = {
+    source = "./config/nwg-panel/config";
+    target = ".config/nwg-panel/config";
+  };
+
+  home.file.nwg-panel-css = {
+    source = "./config/nwg-panel/style.css";
+    target = ".config/nwg-panel/style.css";
+  };
+
   wayland.windowManager.hyprland =
     {
       enable = true;

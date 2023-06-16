@@ -1,0 +1,200 @@
+[
+  {
+    "name": "panel-top",
+    "output": "All",
+    "layer": "overlay",
+    "position": "top",
+    "controls": "right",
+    "width": "auto",
+    "height": 30,
+    "homogeneous": true,
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "padding-horizontal": 0,
+    "padding-vertical": 0,
+    "spacing": 0,
+    "items-padding": 0,
+    "icons": "light",
+    "css-name": "panel-top",
+    "modules-left": [
+      "playerctl",
+      "openweather"
+    ],
+    "modules-center": [
+      "clock"
+    ],
+    "modules-right": [
+      "tray"
+    ],
+    "controls-settings": {
+      "components": [
+        "brightness",
+        "volume",
+        "battery",
+        "net",
+        "bluetooth"
+      ],
+      "commands": {
+        "net": "",
+        "bluetooth": "",
+        "battery": ""
+      },
+      "show-values": false,
+      "interval": 1,
+      "icon-size": 16,
+      "hover-opens": false,
+      "leave-closes": true,
+      "click-closes": false,
+      "css-name": "controls-window",
+      "net-interface": "",
+      "custom-items": [
+        {
+          "name": "Panel settings",
+          "icon": "nwg-panel",
+          "cmd": "nwg-panel-config"
+        }
+      ],
+      "menu": {
+        "name": "Exit",
+        "icon": "system-shutdown-symbolic",
+        "items": [
+          {
+            "name": "Lock",
+            "cmd": "swaylock -f -c 000000"
+          },
+          {
+            "name": "Logout",
+            "cmd": "swaymsg exit"
+          },
+          {
+            "name": "Reboot",
+            "cmd": "systemctl reboot"
+          },
+          {
+            "name": "Shutdown",
+            "cmd": "systemctl -i poweroff"
+          }
+        ]
+      },
+      "output-switcher": true,
+      "backlight-controller": "brightnessctl",
+      "backlight-device": "intel_backlight",
+      "window-width": 0,
+      "window-margin-horizontal": 0,
+      "window-margin-vertical": 0,
+      "root-css-name": "controls-overview",
+      "battery-low-level": 20,
+      "battery-low-interval": 3,
+      "angle": 0.0
+    },
+    "tray": {
+      "root-css-name": "tray",
+      "inner-css-name": "inner-tray"
+    },
+    "sway-taskbar": {
+      "workspace-menu": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "name-max-len": 20,
+      "image-size": 16,
+      "workspaces-spacing": 0,
+      "task-padding": 0,
+      "show-app-icon": true,
+      "show-app-name": true,
+      "show-layout": true,
+      "workspace-buttons": false,
+      "all-workspaces": true,
+      "mark-autotiling": true,
+      "mark-xwayland": true,
+      "all-outputs": true
+    },
+    "sway-workspaces": {
+      "numbers": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ]
+    },
+    "clock": {
+      "format": "%a, %d. %b  %H:%M:%S",
+      "tooltip-text": "",
+      "on-left-click": "",
+      "on-middle-click": "",
+      "on-right-click": "",
+      "on-scroll-up": "",
+      "on-scroll-down": "",
+      "css-name": "clock",
+      "interval": 1
+    },
+    "playerctl": {
+      "buttons-position": "left",
+      "icon-size": 16,
+      "chars": 30,
+      "scroll": false,
+      "button-css-name": "",
+      "label-css-name": "",
+      "interval": 1
+    },
+    "button-sample": {
+      "command": "notify-send 'sample button'",
+      "icon": "view-grid",
+      "label": "",
+      "label-position": "right",
+      "css-name": "button-custom",
+      "icon-size": 16
+    },
+    "menu-start": "off",
+    "exclusive-zone": true,
+    "scratchpad": {},
+    "openweather": {
+      "module-id": "1686830317.5239854",
+      "appid": "21a93e93f532d040c5a5df8a880b8a4c",
+      "weatherbit-api-key": "",
+      "lat": 41.8507,
+      "long": 12.4564,
+      "lang": "it",
+      "units": "metric",
+      "interval": 1800,
+      "loc-name": "Rome",
+      "weather-icons": "color",
+      "on-right-click": "",
+      "on-middle-click": "",
+      "on-scroll": "",
+      "icon-placement": "start",
+      "icon-size": 24,
+      "css-name": "weather",
+      "show-name": false,
+      "angle": 0.0,
+      "ow-popup-icons": "light",
+      "popup-header-icon-size": 48,
+      "popup-icon-size": 24,
+      "popup-text-size": "medium",
+      "popup-css-name": "weather-forecast",
+      "popup-placement": "right",
+      "popup-margin-horizontal": 0,
+      "popup-margin-top": 0,
+      "popup-margin-bottom": 0,
+      "show-humidity": true,
+      "show-wind": true,
+      "show-pressure": true,
+      "show-cloudiness": true,
+      "show-visibility": true,
+      "show-pop": true,
+      "show-volume": true
+    },
+    "brightness-slider": {},
+    "dwl-tags": {}
+  }
+]
