@@ -29,17 +29,17 @@
   };
 
   home.file.panel_settings = {
-    source = "./config/panel/common-settings.json";
+    source = ./config/panel/common-settings.json;
     target = ".config/nwg-panel/common-settings.json";
   };
 
   home.file.panel_config = {
-    source = "./config/panel/config";
+    source = ./config/panel/config;
     target = ".config/nwg-panel/config";
   };
 
   home.file.panel_css = {
-    source = "./config/panel/style.css";
+    source = ./config/panel/style.css;
     target = ".config/nwg-panel/style.css";
   };
 
