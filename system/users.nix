@@ -5,7 +5,7 @@
   users.users.nychtelios = {
     isNormalUser = true;
     home = "/home/nychtelios";
-    extraGroups = [ "wheel" "networkmanager" "podman" ];
+    extraGroups = [ "wheel" "networkmanager" "podman" "dialout" ];
     hashedPassword = (builtins.substring 0 106 (builtins.readFile ../secrets/nychtelios));
     shell = pkgs.zsh;
   };
