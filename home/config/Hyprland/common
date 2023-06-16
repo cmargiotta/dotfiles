@@ -42,6 +42,8 @@ exec-once = nwg-panel
 exec-once = waybar
 exec-once = hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
+exec = swayosd
+
 $MOD = SUPER
 $MODSHIFT = SUPERSHIFT
 
@@ -107,6 +109,14 @@ binde = ,up,resizeactive,0 -10
 binde = ,down,resizeactive,0 10
 
 bind = ,escape,submap,reset
+
+bind = , XF86AudioRaiseVolume, exec, swayosd --output-volume raise
+bind = , XF86AudioLowerVolume, exec, swayosd --output-volume lower
+bind = , XF86AudioMute, exec, swayosd --output-volume mute-toggle
+bind = , XF86AudioMicMute, exec, swayosd --input-volume mute-toggle
+
+bind = , XF86MonBrightnessUp, exec, swayosd --brightness raise
+bind = , XF86MonBrightnessDown, exec, swayosd --brightness lower
 
 submap = reset
 

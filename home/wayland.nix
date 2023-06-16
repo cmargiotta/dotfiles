@@ -14,8 +14,6 @@
     xwayland
     swayosd
     nwg-panel
-    nwg-menu
-    nwg-bar
     swaylock-effects
   ];
 
