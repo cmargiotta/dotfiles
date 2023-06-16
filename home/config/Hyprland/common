@@ -46,7 +46,7 @@ $MOD = SUPER
 $MODSHIFT = SUPERSHIFT
 
 bind = $MOD,Return,exec,kitty
-bind = $MOD,D,exec,nwg-drawer -fm dolphin -g "Catppuccin-Purple-Dark-Compact" -ovl -term kitty
+bind = $MOD,D,exec,wofi
 
 bind = $MOD,Q,killactive
 bind = $MOD,F,fullscreen

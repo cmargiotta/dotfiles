@@ -13,7 +13,6 @@
     xdg-desktop-portal
     xwayland
     swayosd
-    nwg-drawer
     nwg-panel
     nwg-menu
     nwg-bar
@@ -23,12 +22,6 @@
   home.file.wofi = {
     source = ./config/wofi;
     target = ".config/wofi";
-    recursive = true;
-  };
-
-  home.file.nwg-drawer = {
-    source = ./config/nwg/drawer/drawer.css;
-    target = ".config/nwg-drawer/drawer.css";
     recursive = true;
   };
 
