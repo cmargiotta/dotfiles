@@ -14,7 +14,6 @@
     xwayland
     swayosd
     nwg-panel
-    swaylock-effects
   ];
 
   home.file.wofi = {
@@ -27,6 +26,7 @@
     source = ./config/lock.sh;
     target = ".config/swaylock.sh";
     recursive = true;
+    executable = true;
   };
 
   home.file.dunst = {
@@ -49,6 +49,10 @@
       };
     };
 
+  programs.swaylock = {
+    enable = true;
+    package = pkgs.swaylock-effects;
+  };
 
   home.pointerCursor = {
     name = "Nordzy-cursors-white";

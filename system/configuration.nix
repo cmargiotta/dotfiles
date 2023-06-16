@@ -42,6 +42,7 @@
 
   security.sudo.wheelNeedsPassword = false;
   security.polkit.enable = true;
+  security.pam.services.swaylock = { };
 
   networking.firewall.enable = false;
 
