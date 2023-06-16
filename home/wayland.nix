@@ -25,8 +25,22 @@
   home.file.lock = {
     source = ./config/lock.sh;
     target = ".config/swaylock.sh";
-    recursive = true;
     executable = true;
+  };
+
+  home.file.panel_settings = {
+    source = "./config/panel/common-settings.json";
+    target = ".config/nwg-panel/common-settings.json";
+  };
+
+  home.file.panel_config = {
+    source = "./config/panel/config";
+    target = ".config/nwg-panel/config";
+  };
+
+  home.file.panel_css = {
+    source = "./config/panel/style.css";
+    target = ".config/nwg-panel/style.css";
   };
 
   home.file.dunst = {
@@ -37,21 +51,6 @@
   home.file.waybar_style = {
     source = ./config/waybar/style.css;
     target = ".config/waybar/style.css";
-  };
-
-  home.file.nwg-panel-settings = {
-    source = "./config/nwg-panel/common-settings.json";
-    target = ".config/nwg-panel/common-settings.json";
-  };
-
-  home.file.nwg-panel-config = {
-    source = "./config/nwg-panel/config";
-    target = ".config/nwg-panel/config";
-  };
-
-  home.file.nwg-panel-css = {
-    source = "./config/nwg-panel/style.css";
-    target = ".config/nwg-panel/style.css";
   };
 
   wayland.windowManager.hyprland =
