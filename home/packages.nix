@@ -12,11 +12,10 @@
     pkg-config
     docker-compose
     python3Full
-    stm32cubemx
     gcc13
     cutecom
     sqlitebrowser
-    platformio
+    podman-compose
     wineWowPackages.waylandFull
 
     # Editors
@@ -25,6 +24,7 @@
 
     # Internet
     mongodb-compass
+    chromium
     mqttui
     nextcloud-client
     slack
