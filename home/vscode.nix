@@ -41,6 +41,8 @@
         };
         "rust-analyzer.server.path" = "rust-analyzer";
         "C_Cpp.intelliSenseEngine" = "disabled";
+        "platformio-ide.useBuiltinPIOCore" = false;
+        "platformio-ide.useBuiltinPython" = false;
 
         # Preferences
         "explorer.confirmDragAndDrop" = false;
