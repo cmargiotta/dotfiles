@@ -10,7 +10,7 @@
         "extensions.pocket.enabled" = false;
         "general.useragent.locale" = "it-IT";
         "identity.fxaccounts.enabled" = false;
-        "privacy.resistFingerprinting" = true;
+        "privacy.resistFingerprinting" = false;
         "signon.rememberSignons" = false;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "webgl.force-enabled" = true;
