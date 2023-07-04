@@ -8,9 +8,6 @@
     wl-clipboard
     wofi
     wlr-randr
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-wlr
-    xdg-desktop-portal
     xwayland
     swayosd
     nwg-panel
@@ -53,15 +50,14 @@
     target = ".config/waybar/style.css";
   };
 
-  wayland.windowManager.hyprland =
-    {
+  wayland.windowManager.hyprland = {
+    enable = true;
+    systemdIntegration = true;
+    xwayland = {
       enable = true;
-      systemdIntegration = true;
-      xwayland = {
-        enable = true;
-        hidpi = true;
-      };
+      hidpi = true;
     };
+  };
 
   programs.swaylock = {
     enable = true;
