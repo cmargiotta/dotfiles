@@ -2,15 +2,16 @@
 {
   home.packages = with pkgs; [
     grimblast
+    nwg-panel
     slurp
+    swayosd
     swww
     waybar
     wl-clipboard
-    wofi
     wlr-randr
+    wofi
+    xdg-desktop-portal-hyprland
     xwayland
-    swayosd
-    nwg-panel
   ];
 
   home.file.wofi = {
@@ -64,17 +65,25 @@
     package = pkgs.swaylock-effects;
   };
 
-  home.pointerCursor = {
-    name = "Nordzy-cursors-white";
-    package = pkgs.nordzy-cursor-theme;
-    size = 32;
-    gtk.enable = true;
-  };
-
   services = {
     dunst = {
       enable = true;
       configFile = "$XDG_CONFIG_HOME/dunst/config";
+    };
+  };
+
+  xdg = {
+    enable = true;
+    mime.enable = true;
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "application/pdf" = "firefox.desktop";
+      };
+    };
+    userDirs = {
+      enable = true;
+      createDirectories = true;
     };
   };
 
