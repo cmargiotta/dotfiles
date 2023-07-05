@@ -2,10 +2,10 @@
 {
   imports = [
     ./firefox.nix
-    ./fonts.nix
     ./git.nix
     ./packages.nix
     ./services.nix
+    ./theming.nix
     ./vscode.nix
     ./wayland.nix
     ./wrappers.nix
@@ -22,7 +22,6 @@
   };
 
   home.enableNixpkgsReleaseCheck = true;
-  xdg.mimeApps.enable = true;
 
   programs.kitty = {
     enable = true;
