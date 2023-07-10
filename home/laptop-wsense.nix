@@ -38,7 +38,7 @@
       categories = [ "Development" ];
       mimeType = [ "x-scheme-handler/eclipse" ];
       icon = ./icons/mcuxpresso-ide.png;
-      exec = "cd ~/ides/mcuxpresso-ide; podman-compose up";
+      exec = "sh -c \"podman-compose -f ~/ides/mcuxpresso-ide/docker-compose.yml up\"";
     };
   };
 }
