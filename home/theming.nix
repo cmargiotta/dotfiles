@@ -33,15 +33,6 @@
     };
 
     gtk3 = {
-      bookmarks = [
-        "file:///home/demeter/Documents"
-        "file:///home/demeter/Music"
-        "file:///home/demeter/Pictures"
-        "file:///home/demeter/Videos"
-        "file:///home/demeter/Downloads"
-        "file:///home/demeter/Projects Projects"
-        "file:///home/demeter/School School"
-      ];
       extraCss = ''
         headerbar, .titlebar,
         .csd:not(.popup):not(tooltip):not(messagedialog) decoration{ border-radius: 0; }
