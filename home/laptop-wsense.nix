@@ -29,4 +29,16 @@
   programs.zsh.shellAliases.Hyprland = "nixGLIntel Hyprland";
 
   wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/laptop-wsense) + "\n" + (builtins.readFile ./config/Hyprland/common);
+
+  xdg.desktopEntries = {
+    mcuxpresso-ide = {
+      name = "MCUXpresso IDE";
+      genericName = "MCUXpresso IDE";
+      terminal = false;
+      categories = [ "Development" ];
+      mimeType = [ "x-scheme-handler/eclipse" ];
+      icon = ./icons/mcuxpresso-ide.png;
+      exec = "cd ~/ides/mcuxpresso-ide; podman-compose up";
+    };
+  };
 }
