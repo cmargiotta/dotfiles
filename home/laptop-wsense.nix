@@ -23,10 +23,7 @@
 
   home.packages = with pkgs; [
     brightnessctl
-    nixgl.nixGLIntel
   ];
-
-  programs.zsh.shellAliases.Hyprland = "nixGLIntel Hyprland";
 
   wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/laptop-wsense) + "\n" + (builtins.readFile ./config/Hyprland/common);
 

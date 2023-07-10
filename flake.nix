@@ -6,12 +6,11 @@
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprland.url = "github:hyprwm/Hyprland";
     iceberg.url = "github:icebox-nix/iceberg";
-    nixgl.url = "github:guibou/nixGL";
     nur.url = "github:nix-community/NUR";
     webcord.url = "github:fufexan/webcord-flake";
   };
 
-  outputs = { self, nixpkgs, hypr-contrib, home-manager, iceberg, hyprland, nur, webcord, nixgl, ... }@inputs:
+  outputs = { self, nixpkgs, hypr-contrib, home-manager, iceberg, hyprland, nur, webcord, ... }@inputs:
     {
       nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -29,8 +28,9 @@
             nixpkgs.overlays = [
               nur.overlay
               hypr-contrib.overlays.default
-              nixgl.overlay
             ];
+
+            programs.hyprland.enable = true;
 
             networking.hostName = "nixos-desktop";
             home-manager.extraSpecialArgs = inputs;
@@ -46,7 +46,7 @@
                     ./home/desktop.nix
                   ];
 
-                home.stateVersion = "23.05";
+                home.stateVersion = "23.11";
               };
           }
         ];
@@ -67,8 +67,9 @@
             nixpkgs.overlays = [
               nur.overlay
               hypr-contrib.overlays.default
-              nixgl.overlay
             ];
+
+            programs.hyprland.enable = true;
 
             networking.hostName = "cmargiotta";
             home-manager.extraSpecialArgs = inputs;
@@ -84,7 +85,7 @@
                     ./home/laptop-wsense.nix
                   ];
 
-                home.stateVersion = "23.05";
+                home.stateVersion = "23.11";
               };
           }
         ];
@@ -105,8 +106,9 @@
             nixpkgs.overlays = [
               nur.overlay
               hypr-contrib.overlays.default
-              nixgl.overlay
             ];
+
+            programs.hyprland.enable = true;
 
             networking.hostName = "zenbook13";
             home-manager.extraSpecialArgs = inputs;
@@ -122,7 +124,7 @@
                     ./home/laptop.nix
                   ];
 
-                home.stateVersion = "23.05";
+                home.stateVersion = "23.11";
               };
           }
         ];
