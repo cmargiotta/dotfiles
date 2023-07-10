@@ -35,14 +35,12 @@ in
     hardware.nvidia.package = nvidiaPackage;
     hardware.nvidia.powerManagement.enable = false;
 
-    programs.xwayland.enable = true;
-
     services.xserver = {
       videoDrivers = [ "nvidia" ];
       displayManager = {
         gdm = {
           wayland = true;
-          enable = true; 
+          enable = true;
         };
       };
     };
