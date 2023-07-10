@@ -55,12 +55,6 @@
       sha256 = "1ymcszw5lzmqv2khnm8q46q96hbdb0qljm5sxzqzhn5alx505v4h";
     }
     {
-      name = "platformio-ide";
-      publisher = "platformio";
-      version = "3.2.0";
-      sha256 = "0ilwh89ma6jf6lhfq4iwhxmyjbizd3p57h5jmqy99if1x68azxnr";
-    }
-    {
       name = "markdown-kroki";
       publisher = "pomdtr";
       version = "1.0.7";

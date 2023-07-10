@@ -40,19 +40,14 @@
     target = ".config/nwg-panel/config";
   };
 
-  home.file.panel_css = {
-    source = ./config/panel/style.css;
-    target = ".config/nwg-panel/style.css";
+  home.file.waybar = {
+    source = ./config/waybar/config;
+    target = ".config/waybar/config";
   };
 
   home.file.dunst = {
     source = ./config/dunst;
     target = ".config/dunst/config";
-  };
-
-  home.file.waybar_style = {
-    source = ./config/waybar/style.css;
-    target = ".config/waybar/style.css";
   };
 
   wayland.windowManager.hyprland = {

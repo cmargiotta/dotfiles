@@ -6,11 +6,6 @@
     recursive = true;
   };
 
-  home.file.waybar = {
-    source = ./config/waybar/desktop;
-    target = ".config/waybar/config";
-  };
-
   home.file.sshpub = {
     source = ../secrets/desktop/ssh_pub;
     target = ".ssh/id_ed25519.pub";
@@ -23,10 +18,10 @@
 
   home.packages = with pkgs; [
     cura
-    nixgl.nixVulkanNvidia
+    #    nixgl.nixVulkanNvidia
   ];
 
-  programs.zsh.shellAliases.Hyprland = "nixGL Hyprland";
+  #  programs.zsh.shellAliases.Hyprland = "nixGL Hyprland";
 
   wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/common) + "\n" + (builtins.readFile ./config/Hyprland/desktop);
 

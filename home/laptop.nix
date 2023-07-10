@@ -6,11 +6,6 @@
     recursive = true;
   };
 
-  home.file.waybar = {
-    source = ./config/waybar/laptop;
-    target = ".config/waybar/config";
-  };
-
   home.file.sshpub = {
     source = ../secrets/laptop/ssh_pub;
     target = ".ssh/id_ed25519.pub";
