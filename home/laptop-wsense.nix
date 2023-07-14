@@ -32,5 +32,14 @@
       icon = ./icons/mcuxpresso-ide.png;
       exec = "sh -c \"podman-compose -f ~/ides/mcuxpresso-ide/docker-compose.yml up\"";
     };
+    stm32cubeide = {
+      name = "STM32Cube IDE";
+      genericName = "STM32Cube IDE";
+      terminal = false;
+      categories = [ "Development" ];
+      mimeType = [ "x-scheme-handler/eclipse" ];
+      icon = ./icons/mcuxpresso-ide.png;
+      exec = "sh -c \"podman-compose -f ~/ides/stm32cube-ide/docker-compose.yml up\"";
+    };
   };
 }
