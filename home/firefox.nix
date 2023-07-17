@@ -21,15 +21,16 @@
         c-c-search-extension
         clearurls
         consent-o-matic
+        dearrow
         don-t-fuck-with-paste
         enhancer-for-youtube
         firefox-color
         flagfox
         floccus
         ghostery
+        new-tab-override
         ninja-cookie
         no-pdf-download
-        search-by-image
         skip-redirect
         sourcegraph
         terms-of-service-didnt-read
