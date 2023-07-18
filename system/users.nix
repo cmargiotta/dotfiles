@@ -11,4 +11,15 @@
   };
 
   security.pam.services.nychtelios.enableGnomeKeyring = true;
+
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = "Hyprland";
+        user = "nychtelios";
+      };
+      default_session = initial_session;
+    };
+  };
 }
