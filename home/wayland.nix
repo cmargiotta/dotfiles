@@ -15,8 +15,6 @@
     wlr-randr
     wofi
     xdg-desktop-portal-hyprland
-
-    xorg.xprop
   ];
 
   home.file.wofi = {
