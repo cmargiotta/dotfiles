@@ -21,4 +21,4 @@ monitor=eDP-1,1920x1080,2133x0,1
 monitor=,preferred,auto,1
 
 exec-once = swww init
-exec = sleep 1 && swww img ~/.wallpapers/wallpaper.png
+exec = sleep 1 && swww img ~/.wallpapers/wallpaper.jpg
