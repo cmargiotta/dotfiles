@@ -123,3 +123,11 @@ bind = , XF86MonBrightnessDown, exec, swayosd --brightness lower
 submap = reset
 
 windowrule = float,pavucontrol-qt
+
+env = QT_QPA_PLATFORMTHEME,qt5ct
+env = QT_QPA_PLATFORM,wayland;xcb
+env = MOZ_ENABLE_WAYLAND,1
+env = WLR_RENDERER,vulkan
+env = SDL_VIDEODRIVER,wayland
+env = _JAVA_AWT_WM_NONREPARENTING
+env = NIXOS_OZONE_WL,1

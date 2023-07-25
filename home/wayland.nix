@@ -100,14 +100,4 @@
       package = pkgs.catppuccin-gtk.override { size = "compact"; };
     };
   };
-
-  home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-    QT_QPA_PLATFORM = "wayland;xcb";
-    MOZ_ENABLE_WAYLAND = "1";
-    WLR_RENDERER = "vulkan";
-    SDL_VIDEODRIVER = "wayland";
-    _JAVA_AWT_WM_NONREPARENTING = 1;
-    NIXOS_OZONE_WL = "1";
-  };
 }
