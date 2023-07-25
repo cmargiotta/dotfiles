@@ -24,7 +24,6 @@
 
     # Internet
     mongodb-compass
-    chromium
     mqttui
     nextcloud-client
     slack
@@ -44,6 +43,8 @@
 
     # Media
     ffmpeg
+    shntool
+    flacon
 
     # Others
     gnome.seahorse
