@@ -21,7 +21,6 @@
         c-c-search-extension
         clearurls
         consent-o-matic
-        dearrow
         don-t-fuck-with-paste
         enhancer-for-youtube
         firefox-color
