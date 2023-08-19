@@ -12,15 +12,15 @@
     pkg-config
     docker-compose
     python3Full
-    gcc13
     cutecom
     sqlitebrowser
     podman-compose
-    wineWowPackages.waylandFull
+    # wineWowPackages.waylandFull
 
     # Editors
     lapce
     meld
+    stm32cubemx
 
     # Internet
     mongodb-compass
@@ -45,11 +45,14 @@
     ffmpeg
     shntool
     flacon
+    picard
+    mac
 
     # Others
     gnome.seahorse
     libsForQt5.dolphin
     ncdu
+    filezilla
     pinentry-qt
     qt5.qtbase
     rnix-lsp

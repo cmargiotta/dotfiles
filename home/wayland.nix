@@ -54,7 +54,6 @@
     systemdIntegration = true;
     xwayland = {
       enable = true;
-      hidpi = true;
     };
   };
 
