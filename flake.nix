@@ -6,9 +6,9 @@
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprland.url = "github:hyprwm/Hyprland";
     iceberg.url = "github:icebox-nix/iceberg";
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nur.url = "github:nix-community/NUR";
     webcord.url = "github:fufexan/webcord-flake";
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
   };
 
   outputs = { self, nixpkgs, home-manager, hyprland, iceberg, nur, webcord, ... }@inputs:
