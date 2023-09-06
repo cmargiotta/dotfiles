@@ -26,14 +26,32 @@
   {
     name = "nix-ide";
     publisher = "jnoortheen";
-    version = "0.2.1";
-    sha256 = "0bibb3r4cb7chnx6vpyl41ig12pc0cbg0sb8f2khs52c71nk4bn8";
+    version = "0.2.2";
+    sha256 = "1264027sjh9a112si0y0p3pk3y36shj5b4qkpsj207z7lbxqq0wg";
+  }
+  {
+    name = "vscode-clangd";
+    publisher = "llvm-vs-code-extensions";
+    version = "0.1.24";
+    sha256 = "0s7n3r3fkb6xh38yv8q0nj0js1dkxl53xhr1dvqia7gh71i6rsn8";
   }
   {
     name = "vscode-dbml";
     publisher = "matt-meyers";
     version = "0.3.5";
     sha256 = "0k7k4jk2nmlj1fw8zjp5xmvsi4vsjzpkvkrgm84jj75m9qrmf702";
+  }
+  {
+    name = "direnv";
+    publisher = "mkhl";
+    version = "0.14.0";
+    sha256 = "1ssh577b0fx1cnkj52fiy1x41lcf56vk85sq7yrlmkmy9gmfvrjg";
+  }
+  {
+    name = "cpptools";
+    publisher = "ms-vscode";
+    version = "1.17.5";
+    sha256 = "1mkdsps8h7k9w3ps2vzr8xmxh0rf3m14wgy5skqhs0r8r31h801c";
   }
   {
     name = "markdown-kroki";
@@ -46,6 +64,12 @@
     publisher = "Rubymaniac";
     version = "0.0.2";
     sha256 = "1gml41bc77qlydnvk1rkaiv95rwprzqgj895kxllqy4ps8ly6nsd";
+  }
+  {
+    name = "rust-analyzer";
+    publisher = "rust-lang";
+    version = "0.4.1648";
+    sha256 = "0ryfcbmqhssq53lrarg723734jx97ch2ggf010paf2y244shn5xj";
   }
   {
     name = "vscode-rustfmt";
@@ -64,6 +88,12 @@
     publisher = "twxs";
     version = "0.0.17";
     sha256 = "11hzjd0gxkq37689rrr2aszxng5l9fwpgs9nnglq3zhfa1msyn08";
+  }
+  {
+    name = "vscode-lldb";
+    publisher = "vadimcn";
+    version = "1.9.2";
+    sha256 = "0nbi1hl8y3i9c0ghacnng8c9r83nfzmzdqgsb0knisrwklnwh4ag";
   }
   {
     name = "vscode-todo-highlight";

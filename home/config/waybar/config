@@ -5,12 +5,13 @@
     "position": "bottom",
     "modules-left": [],
     "modules-center": [
-        "wlr/workspaces"
+        "hyprland/workspaces"
     ],
     "modules-right": [],
-    "wlr/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": false,
-        "format": "{name}"
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "all-outputs": false
     }
 }

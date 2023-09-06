@@ -16,7 +16,7 @@
     enable = true;
     settings = rec {
       initial_session = {
-        command = "zsh -c \"Hyprland\"";
+        command = "zsh -c 'Hyprland'";
         user = "nychtelios";
       };
       default_session = initial_session;

@@ -7,14 +7,6 @@
       ./users.nix
     ];
 
-  nixpkgs.overlays = [
-    (self: super: {
-      waybar = super.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      });
-    })
-  ];
-
   virtualisation.podman = {
     enable = true;
     dockerSocket.enable = true;

@@ -11,20 +11,11 @@ in
     hardware.opengl.driSupport32Bit = true;
     hardware.pulseaudio.support32Bit = true;
     hardware.opengl.extraPackages = with pkgs; [
-      vaapiVdpau
-      libdrm
-      libvdpau-va-gl
       libva
-      libva-utils
-      libglvnd
-      vulkan-validation-layers
-      vulkan-extension-layer
-      vulkan-loader
-      vulkan-tools
+      nvidia-vaapi-driver
     ];
     environment.systemPackages = with pkgs; [
-      vulkan-tools
-      libva-utils
+      egl-wayland
     ];
 
     boot.extraModprobeConfig = ''
@@ -33,9 +24,13 @@ in
 
     hardware.nvidia.modesetting.enable = true;
     hardware.nvidia.package = nvidiaPackage;
-    hardware.nvidia.powerManagement.enable = false;
+    hardware.nvidia.powerManagement.enable = true;
+    hardware.nvidia.open = true;
+    hardware.nvidia.nvidiaSettings = true;
 
     services.xserver = {
+      enable = true;
+      autorun = false;
       videoDrivers = [ "nvidia" ];
       displayManager = {
         gdm = {

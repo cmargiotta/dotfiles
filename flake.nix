@@ -8,13 +8,14 @@
     iceberg.url = "github:icebox-nix/iceberg";
     nur.url = "github:nix-community/NUR";
     webcord.url = "github:fufexan/webcord-flake";
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
   };
 
-  outputs = { self, nixpkgs, hypr-contrib, home-manager, iceberg, hyprland, nur, webcord, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, iceberg, nur, webcord, ... }@inputs:
     {
       nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = inputs;
+        specialArgs = { inherit inputs; };
 
         modules = [
           ./hardware/desktop.nix
@@ -27,7 +28,8 @@
           {
             nixpkgs.overlays = [
               nur.overlay
-              hypr-contrib.overlays.default
+              inputs.nixpkgs-wayland.overlay
+              inputs.hypr-contrib.overlays.default
             ];
 
             programs.hyprland.enable = true;
@@ -66,7 +68,7 @@
           {
             nixpkgs.overlays = [
               nur.overlay
-              hypr-contrib.overlays.default
+              inputs.hypr-contrib.overlays.default
             ];
 
             programs.hyprland.enable = true;
@@ -91,43 +93,5 @@
         ];
       };
 
-      nixosConfigurations.zenbook13 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = inputs;
-
-        modules = [
-          ./hardware/laptop.nix
-          ./system/configuration.nix
-          ./system/laptop.nix
-
-          home-manager.nixosModules.home-manager
-
-          {
-            nixpkgs.overlays = [
-              nur.overlay
-              hypr-contrib.overlays.default
-            ];
-
-            programs.hyprland.enable = true;
-
-            networking.hostName = "zenbook13";
-            home-manager.extraSpecialArgs = inputs;
-            home-manager.useUserPackages = true;
-            home-manager.useGlobalPkgs = true;
-            home-manager.users.nychtelios =
-              {
-                imports =
-                  [
-                    hyprland.homeManagerModules.default
-
-                    ./home/common.nix
-                    ./home/laptop.nix
-                  ];
-
-                home.stateVersion = "23.11";
-              };
-          }
-        ];
-      };
     };
 }

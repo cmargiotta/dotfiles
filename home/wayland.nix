@@ -1,9 +1,7 @@
-{ config, pkgs, nixpkgs, eww, unstable, hyprland, ... }:
+{ config, pkgs, nixpkgs, eww, unstable, ... }:
 {
   home.packages = with pkgs; [
-    # grimblast
     grimblast
-    hyprland
     hyprland-protocols
     hyprland-share-picker
     nwg-panel
