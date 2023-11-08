@@ -4,18 +4,18 @@
 
   home.packages = with pkgs; [
     # Dev
+    cutecom
     direnv
+    docker-compose
     esphome
     gaphor
     nix-direnv
     pgadmin4-desktopmode
     pkg-config
-    docker-compose
-    python3Full
-    cutecom
-    sqlitebrowser
     podman-compose
-    # wineWowPackages.waylandFull
+    python3Full
+    sqlitebrowser
+    wineWowPackages.waylandFull
 
     # Editors
     lapce
@@ -27,12 +27,12 @@
     mqttui
     nextcloud-client
     slack
-    spotify
     tdesktop
     tor-browser-bundle-bin
     webcord.packages.${pkgs.system}.default
 
     # Office
+    gnome.gnome-calculator
     onlyoffice-bin
     qalculate-gtk
 
@@ -43,17 +43,18 @@
 
     # Media
     ffmpeg
-    shntool
     flacon
-    picard
     mac
+    picard
+    shntool
 
     # Others
+    filezilla
     gnome.seahorse
     libsForQt5.dolphin
     ncdu
-    filezilla
     pinentry-qt
+    prusa-slicer
     qt5.qtbase
     rnix-lsp
     xorg.xeyes
