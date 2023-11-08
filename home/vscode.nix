@@ -2,6 +2,8 @@
 {
   programs.vscode = {
     enable = true;
+    enableExtensionUpdateCheck = true;
+    enableUpdateCheck = false;
 
     extensions = map
       (extension: pkgs.vscode-utils.buildVscodeMarketplaceExtension {
@@ -54,6 +56,8 @@
         "terminal.external.linuxExec" = "kitty";
         "telemetry.telemetryLevel" = "off";
         "workbench.colorTheme" = "Cyberpunk";
+        
+        "window.titleBarStyle" = "custom";
       };
   };
 }
