@@ -26,4 +26,16 @@
 
     socketActivation = true;
   };
+  
+  xdg.portal = {
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
+    
+    enable = true;
+  };
+  
+  xdg.menus.enable = true;
+  xdg.autostart.enable = true;
 }
