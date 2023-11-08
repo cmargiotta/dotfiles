@@ -22,6 +22,9 @@
     meld
     stm32cubemx
 
+    # Gaming
+    steam
+
     # Internet
     mongodb-compass
     mqttui
