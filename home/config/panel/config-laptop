@@ -28,10 +28,11 @@
     ],
     "controls-settings": {
       "components": [
+        "brightness",
         "volume",
+        "battery",
         "net",
-        "bluetooth",
-        "processes"
+        "bluetooth"
       ],
       "commands": {
         "net": "",
@@ -76,6 +77,8 @@
         ]
       },
       "output-switcher": true,
+      "backlight-controller": "brightnessctl",
+      "backlight-device": "intel_backlight",
       "window-width": 0,
       "window-margin-horizontal": 0,
       "window-margin-vertical": 0,

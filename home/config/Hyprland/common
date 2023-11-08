@@ -45,6 +45,7 @@ master {
 exec-once = swww init
 exec-once = nwg-panel
 exec-once = waybar
+exec-once = blueman-applet
 exec-once = hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 exec = swayosd

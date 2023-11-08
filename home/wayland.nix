@@ -30,11 +30,6 @@
     target = ".config/nwg-panel/common-settings.json";
   };
 
-  home.file.panel_config = {
-    source = ./config/panel/config;
-    target = ".config/nwg-panel/config";
-  };
-
   home.file.waybar = {
     source = ./config/waybar/config;
     target = ".config/waybar/config";

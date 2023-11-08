@@ -58,5 +58,14 @@
 
   networking.firewall.enable = false;
 
+  system.userActivationScripts = {
+    linkPrusaSlicerConfig = {
+      text = ''
+        rm -r /home/nychtelios/.config/PrusaSlicer
+        ln -s /home/nychtelios/dotfiles/home/config/PrusaSlicer /home/nychtelios/.config/PrusaSlicer
+      '';
+    };
+  };
+
   system.stateVersion = "23.11";
 }
