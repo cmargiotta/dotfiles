@@ -38,10 +38,16 @@
 
   time.timeZone = "Europe/Rome";
 
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.inputMethod = {
-    enabled = "ibus";
-    ibus.engines = with pkgs.ibus-engines; [ ];
+  i18n = {
+    extraLocaleSettings = {
+      LANGUGAGE = config.i18n.defaultLocale;
+      LC_ALL = config.i18n.defaultLocale;
+    };
+    defaultLocale = "en_US.UTF-8";
+    inputMethod = {
+      enabled = "ibus";
+      ibus.engines = with pkgs.ibus-engines; [ ];
+    };
   };
 
   hardware.pulseaudio.enable = false;
