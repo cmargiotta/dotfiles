@@ -23,7 +23,6 @@
           ./system/desktop.nix
 
           home-manager.nixosModules.home-manager
-          hyprland.nixosModules.default
 
           {
             nixpkgs.overlays = [
@@ -31,8 +30,6 @@
               inputs.nixpkgs-wayland.overlay
               inputs.hypr-contrib.overlays.default
             ];
-
-            programs.hyprland.enable = true;
 
             networking.hostName = "nixos-desktop";
             home-manager.extraSpecialArgs = inputs;
@@ -48,7 +45,7 @@
                     ./home/desktop.nix
                   ];
 
-                home.stateVersion = "23.11";
+                home.stateVersion = "23.05";
               };
           }
         ];
@@ -68,10 +65,9 @@
           {
             nixpkgs.overlays = [
               nur.overlay
+              inputs.nixpkgs-wayland.overlay
               inputs.hypr-contrib.overlays.default
             ];
-
-            programs.hyprland.enable = true;
 
             networking.hostName = "cmargiotta";
             home-manager.extraSpecialArgs = inputs;
@@ -84,10 +80,10 @@
                     hyprland.homeManagerModules.default
 
                     ./home/common.nix
-                    ./home/laptop-wsense.nix
+                    ./home/desktop.nix
                   ];
 
-                home.stateVersion = "23.11";
+                home.stateVersion = "23.05";
               };
           }
         ];
