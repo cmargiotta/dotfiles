@@ -16,12 +16,14 @@
     target = ".ssh/id_ed25519";
   };
 
+  home.file.panel_config = {
+    source = ./config/panel/config;
+    target = ".config/nwg-panel/config";
+  };
+
   home.packages = with pkgs; [
     cura
-    #    nixgl.nixVulkanNvidia
   ];
-
-  #  programs.zsh.shellAliases.Hyprland = "nixGL Hyprland";
 
   wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/common) + "\n" + (builtins.readFile ./config/Hyprland/desktop);
 
