@@ -6,10 +6,10 @@
     sha256 = "0lbxsbhf7y3qfjyilgyhqw0yd2fa08qcikc8n58g6m71b4ybh3d7";
   }
   {
-    name = "meson";
-    publisher = "asabil";
-    version = "1.3.0";
-    sha256 = "1q35rzn7l7n2rzm3yvgdhs0yxgz9aqlrgr0clswwps3i85s7gjj0";
+    name = "Nix";
+    publisher = "bbenoist";
+    version = "1.0.1";
+    sha256 = "0zd0n9f5z1f0ckzfjr38xw2zzmcxg1gjrava7yahg5cvdcw6l35b";
   }
   {
     name = "doxdocgen";
@@ -36,82 +36,40 @@
     sha256 = "0s7n3r3fkb6xh38yv8q0nj0js1dkxl53xhr1dvqia7gh71i6rsn8";
   }
   {
-    name = "vscode-dbml";
-    publisher = "matt-meyers";
-    version = "0.3.5";
-    sha256 = "0k7k4jk2nmlj1fw8zjp5xmvsi4vsjzpkvkrgm84jj75m9qrmf702";
+    name = "mesonbuild";
+    publisher = "mesonbuild";
+    version = "1.16.3";
+    sha256 = "0bkyix67ssv0d9bkdpkgxk6kz9xljdrxa18ila1m93vgwx63h7gc";
   }
   {
     name = "direnv";
     publisher = "mkhl";
-    version = "0.14.0";
-    sha256 = "1ssh577b0fx1cnkj52fiy1x41lcf56vk85sq7yrlmkmy9gmfvrjg";
+    version = "0.15.2";
+    sha256 = "06lp4qgnksklgc6nvx1l9z38y7apbx0a6v886nd15aq9rq8my0ka";
   }
   {
     name = "cpptools";
     publisher = "ms-vscode";
-    version = "1.17.5";
-    sha256 = "1mkdsps8h7k9w3ps2vzr8xmxh0rf3m14wgy5skqhs0r8r31h801c";
+    version = "1.18.1";
+    sha256 = "1lfzsy4zq3lav62bj9nlmdy5j3wpcd80hgd2aw609ma8a9v084jd";
   }
   {
-    name = "markdown-kroki";
-    publisher = "pomdtr";
-    version = "1.0.7";
-    sha256 = "1i72x1ilp6zssvx56k1x8r1dc99ibdb3l571p5y2knsbh7hk7lfq";
-  }
-  {
-    name = "vscode-direnv";
-    publisher = "Rubymaniac";
-    version = "0.0.2";
-    sha256 = "1gml41bc77qlydnvk1rkaiv95rwprzqgj895kxllqy4ps8ly6nsd";
+    name = "platformio-ide";
+    publisher = "platformio";
+    version = "3.3.1";
+    sha256 = "0aii9ms2wzwfc5008c85fbz1k3ggqsqc29ahcjl7l2mrfhdh513w";
   }
   {
     name = "rust-analyzer";
     publisher = "rust-lang";
-    version = "0.4.1648";
-    sha256 = "0ryfcbmqhssq53lrarg723734jx97ch2ggf010paf2y244shn5xj";
-  }
-  {
-    name = "vscode-rustfmt";
-    publisher = "statiolake";
-    version = "0.1.2";
-    sha256 = "0kprx45j63w1wr776q0cl2q3l7ra5ln8nwy9nnxhzfhillhqpipi";
-  }
-  {
-    name = "cmantic";
-    publisher = "tdennis4496";
-    version = "0.9.0";
-    sha256 = "1xk10lj72vf7zqk72wc13yirbpydzrygn0rdbcaalb35rls24vkc";
-  }
-  {
-    name = "cmake";
-    publisher = "twxs";
-    version = "0.0.17";
-    sha256 = "11hzjd0gxkq37689rrr2aszxng5l9fwpgs9nnglq3zhfa1msyn08";
-  }
-  {
-    name = "vscode-lldb";
-    publisher = "vadimcn";
-    version = "1.9.2";
-    sha256 = "0nbi1hl8y3i9c0ghacnng8c9r83nfzmzdqgsb0knisrwklnwh4ag";
+    version = "0.4.1724";
+    sha256 = "078jn1ahqg4lgnz7rhr305183zz5p7fhm8hqksg3hq98lxb35sj3";
   }
   {
     name = "vscode-todo-highlight";
     publisher = "wayou";
     version = "1.0.5";
     sha256 = "1sg4zbr1jgj9adsj3rik5flcn6cbr4k2pzxi446rfzbzvcqns189";
-  }
-  {
-    name = "highlight-trailing-white-spaces";
-    publisher = "ybaumes";
-    version = "0.0.2";
-    sha256 = "01hqvszdxg1mn2wyax8alkz92scqv20741rkpvy62hm0wy4piqf2";
-  }
-  {
-    name = "markdown-all-in-one";
-    publisher = "yzhang";
-    version = "3.5.1";
-    sha256 = "04b8hiha6z7w189lkx0lhy0sgldrfwx1yikl2463lkhhkm3f8av7";
   }
   {
     name = "json";
