@@ -3,8 +3,16 @@
   networking.networkmanager.enable = true;
   networking.wireless.enable = false;
 
-  hardware.bluetooth.enable = false;
-  hardware.bluetooth.powerOnBoot = false;
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
 
-  services.blueman.enable = false;
+  services.printing = {
+    enable = true;
+    logLevel = "debug";
+
+    drivers = [
+      pkgs.hplipWithPlugin
+    ];
+  };
 }
