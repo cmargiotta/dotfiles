@@ -12,7 +12,6 @@ decoration {
   inactive_opacity = 0.9
   drop_shadow = true
   shadow_range = 3
-  multisample_edges = true
 
   blur {
     enabled = true

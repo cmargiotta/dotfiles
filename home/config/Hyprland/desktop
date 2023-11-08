@@ -2,7 +2,7 @@ $ULTRAWIDE = desc:Samsung Electric Company C34H89x H4ZN200636
 $VERTICAL  = desc:Microstep MSI MP242 PA1T010907358
 $UPPER     = desc:Microstep MSI MP273 PB4H793100073
 
-monitor = $ULTRAWIDE, highres, 1080x1080, 1.2
+monitor = $ULTRAWIDE, highres, 1080x1080, 1
 monitor = $UPPER,     highres, 1550x0,    1
 monitor = $VERTICAL,  highres, 0x500,     1
 
