@@ -1,1 +1,3 @@
 home/config/PrusaSlicer/cache/**
+home/config/PrusaSlicer/snapshots/**
+home/config/PrusaSlicer/vendor/**
