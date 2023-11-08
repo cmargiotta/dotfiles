@@ -20,5 +20,13 @@
       icon = "webcord";
       exec = "webcord --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland";
     };
+
+    prusa-slicer = {
+      name = "Prusa Slicer";
+      terminal = false;
+      mimeType = [ "x-scheme-handler/prusa-slicer" ];
+      icon = "prusa-slicer";
+      exec = "LC_ALL=C prusa-slicer";
+    };
   };
 }
