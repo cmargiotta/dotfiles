@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     grimblast
     hyprland-protocols
-    hyprland-share-picker
     nwg-panel
     slurp
     swayosd
@@ -12,7 +11,6 @@
     wl-clipboard
     wlr-randr
     wofi
-    xdg-desktop-portal-hyprland
   ];
 
   home.file.wofi = {
