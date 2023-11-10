@@ -22,9 +22,6 @@
     meld
     stm32cubemx
 
-    # Gaming
-    steam
-
     # Internet
     mongodb-compass
     mqttui
@@ -47,6 +44,7 @@
     # Media
     ffmpeg
     flacon
+    gimp
     mac
     picard
     shntool
@@ -60,6 +58,7 @@
     prusa-slicer
     qt5.qtbase
     rnix-lsp
+    xorg.xrandr
     xorg.xeyes
   ];
 }
