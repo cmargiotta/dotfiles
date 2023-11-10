@@ -20,5 +20,22 @@
   programs = {
     dconf.enable = true;
     hyprland.enable = true;
+    steam = {
+      enable = true;
+      gamescopeSession = {
+        enable = true;
+        args = [
+          "--rt"
+          "--prefer-vk-device 8086:9bc4"
+          "-W 3440"
+          "-H 1440"
+          "-f"
+          "-e"
+        ];
+        env = {
+          ENABLE_VKBASALT = "1";
+        };
+      };
+    };
   };
 }

@@ -42,6 +42,10 @@ master {
   new_on_top = true
 }
 
+xwayland {
+  force_zero_scaling = true
+}
+
 exec-once = swww init
 exec-once = nwg-panel
 exec-once = waybar
@@ -129,6 +133,7 @@ bind = , XF86MonBrightnessDown, exec, swayosd --brightness lower
 submap = reset
 
 windowrule = float,pavucontrol-qt
+windowrulev2 = fullscreen,class:gamescope
 
 env = QT_QPA_PLATFORMTHEME,qt5ct
 env = QT_QPA_PLATFORM,wayland;xcb
