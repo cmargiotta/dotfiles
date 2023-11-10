@@ -23,6 +23,22 @@
     };
   };
 
+  hardware = {
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+    };
+
+    pulseaudio.support32Bit = true;
+
+    bluetooth = {
+      enable = true;
+      powerOnBoot = false;
+    };
+  };
+
   fileSystems."/" =
     {
       device = "/dev/disk/by-uuid/f472ce49-034e-4f31-8c18-67fc74b419d1";
