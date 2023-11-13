@@ -1,0 +1,79 @@
+{
+    "C/C++ Include Guard.Macro Type": "Filepath",
+    "C/C++ Include Guard.Path Depth": 2,
+    "C/C++ Include Guard.Path Skip": 1,
+    "C/C++ Include Guard.Remove Extension": false,
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    },
+    "clangd.checkUpdates": true,
+    "editor.find.autoFindInSelection": "never",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.inlayHints.enabled": false,
+    "explorer.confirmDragAndDrop": false,
+    "extensions.autoUpdate": false,
+    "extensions.ignoreRecommendations": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "git.autoStash": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "mesonbuild.buildFolder": "build",
+    "mesonbuild.configureOnOpen": true,
+    "nix.enableLanguageServer": true,
+    "platformio-ide.useBuiltinPIOCore": false,
+    "platformio-ide.useBuiltinPython": false,
+    "rust-analyzer.server.path": "rust-analyzer",
+    "search.smartCase": true,
+    "telemetry.telemetryLevel": "off",
+    "terminal.external.linuxExec": "kitty",
+    "update.mode": "none",
+    "window.titleBarStyle": "custom",
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "Cyberpunk",
+    "extensions.autoCheckUpdates": false,
+    "platformio-ide.autoPreloadEnvTasks": true,
+    "platformio-ide.disablePIOHomeStartup": true,
+    "platformio-ide.toolbar": [
+        {
+            "text": "$(home)",
+            "tooltip": "PlatformIO: Home",
+            "commands": "platformio-ide.showHome"
+        },
+        {
+            "text": "$(check)",
+            "tooltip": "PlatformIO: Build",
+            "commands": "platformio-ide.build"
+        },
+        {
+            "text": "$(arrow-right)",
+            "tooltip": "PlatformIO: Upload",
+            "commands": "platformio-ide.upload"
+        },
+        {
+            "text": "$(trashcan)",
+            "tooltip": "PlatformIO: Clean",
+            "commands": "platformio-ide.clean"
+        },
+        {
+            "text": "$(beaker)",
+            "tooltip": "PlatformIO: Test",
+            "commands": "platformio-ide.test"
+        },
+        {
+            "text": "$(plug)",
+            "tooltip": "PlatformIO: Serial Monitor",
+            "commands": "platformio-ide.serialMonitor"
+        },
+        {
+            "text": "$(terminal)",
+            "tooltip": "PlatformIO: New Terminal",
+            "commands": "platformio-ide.newTerminal"
+        }
+    ]
+}

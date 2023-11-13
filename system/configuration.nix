@@ -65,6 +65,13 @@
         ln -s /home/nychtelios/dotfiles/home/config/PrusaSlicer /home/nychtelios/.config/PrusaSlicer
       '';
     };
+
+    linkVSCodeConfig = {
+      text = ''
+        rm /home/nychtelios/.config/Code/User/settings.json
+        ln -s /home/nychtelios/dotfiles/home/config/vscode.json /home/nychtelios/.config/Code/User/settings.json
+      '';
+    };
   };
 
   system.stateVersion = "23.05";
