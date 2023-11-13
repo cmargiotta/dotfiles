@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     grimblast
     hyprland-protocols
+    nwg-look
     nwg-panel
     slurp
     swayosd
@@ -72,22 +73,6 @@
     userDirs = {
       enable = true;
       createDirectories = true;
-    };
-  };
-
-  gtk = {
-    enable = true;
-
-    gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
-    };
-
-    theme = {
-      name = "Catppuccin-Purple-Dark-Compact";
-      package = pkgs.catppuccin-gtk.override { size = "compact"; };
     };
   };
 }
