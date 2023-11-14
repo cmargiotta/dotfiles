@@ -58,7 +58,7 @@ $MOD = SUPER
 $MODSHIFT = SUPERSHIFT
 
 bind = $MOD,Return,exec,kitty
-bind = $MOD,D,exec,rofi
+bind = $MOD,D,exec,~/.config/rofi/launchers/type-6/launcher.sh
 
 bind = $MOD,Q,killactive
 bind = $MOD,F,fullscreen
