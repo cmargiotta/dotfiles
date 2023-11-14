@@ -25,8 +25,27 @@
       name = "Prusa Slicer";
       terminal = false;
       mimeType = [ "x-scheme-handler/prusa-slicer" ];
-      icon = "prusa-slicer";
+      icon = "prusa-slicer %U";
       exec = "LC_ALL=C prusa-slicer";
+    };
+
+    firefox = {
+      name = "Firefox";
+      genericName = "Web Browser";
+      exec = "hdrop firefox %U";
+      terminal = false;
+      icon = "firefox";
+      categories = [ "Application" "Network" "WebBrowser" ];
+      mimeType = [ "text/html" "text/xml" ];
+    };
+
+    steam = {
+      name = "Steam";
+      exec = "env SDL_VIDEODRIVER=x11 steam-gamescope %U";
+      icon = "steam";
+      terminal = false;
+      categories = [ "Network" "Game" ];
+      mimeType = [ "x-scheme-handler/steam" "x-scheme-handler/steamlink" ];
     };
   };
 }
