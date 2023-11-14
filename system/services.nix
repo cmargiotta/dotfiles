@@ -6,6 +6,7 @@
     printing.enable = true;
     gnome.gnome-keyring.enable = true;
     blueman.enable = true;
+    upower.enable = true;
 
     dbus.packages = [ pkgs.gcr ];
 
