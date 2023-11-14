@@ -12,6 +12,7 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelParams = [ "i915.force_probe=46a8" ];
   boot.extraModulePackages = [ ];
 
   boot.initrd.luks.devices = {
@@ -29,6 +30,12 @@
       driSupport = true;
       driSupport32Bit = true;
       extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+      extraPackages = with pkgs; [
+        intel-media-driver # LIBVA_DRIVER_NAME=iHD
+        vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+        vaapiVdpau
+        libvdpau-va-gl
+     ];
     };
 
     pulseaudio.support32Bit = true;
@@ -55,6 +62,10 @@
 
   hardware.enableRedistributableFirmware = true;
   networking.useDHCP = lib.mkDefault true;
+
+  services.xserver = {
+      enable = true;
+    };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
