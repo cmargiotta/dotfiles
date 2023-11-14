@@ -3,11 +3,13 @@
   home.packages = with pkgs; [
     grimblast
     hyprland-protocols
-    flameshot
     nwg-look
-    nwg-panel
     rofi-wayland
     slurp
+    ironbar
+    scratchpad
+    hdrop
+    swappy
     swayosd
     swww
     waybar
