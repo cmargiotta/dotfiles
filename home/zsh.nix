@@ -12,7 +12,10 @@
       ssh = "kitty +kitten ssh";
       reboot = "sudo systemctl reboot";
     };
-    initExtra = "LOCALE_ARCHIVE=\"$(nix profile list | grep glibcLocales | tail -n1 | cut -d ' ' -f4)/lib/locale/locale-archive\"";
+    initExtra = ''
+      LOCALE_ARCHIVE=\"$(nix profile list | grep glibcLocales | tail -n1 | cut -d ' ' -f4)/lib/locale/locale-archive\"
+      neofetch
+    '';
 
     oh-my-zsh = {
       enable = true;
