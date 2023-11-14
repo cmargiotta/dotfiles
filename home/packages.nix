@@ -42,6 +42,7 @@
     # System
     blueman
     dconf
+    neofetch
     pavucontrol
 
     # Media
