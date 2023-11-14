@@ -17,6 +17,9 @@
     sqlitebrowser
     wineWowPackages.waylandFull
 
+    # Gaming
+    gamescope
+
     # Editors
     lapce
     meld
