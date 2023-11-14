@@ -5,40 +5,21 @@ icon_theme: "Papirus"
 
 start:
   - type: "launcher"
-    favorites:
-      - firefox
-      - steam
-      - vscode
-      - telegram-desktop
     show_names: false
     show_icons: true
-  - type: "focused"
-    show_icon: true
-    show_title: true
-    icon_size: 32
-    truncate: "end"
 
 center:
   - type: "workspaces"
+    hidden: [
+      "special:scratchpad"
+    ]
     all_monitors: false
 
 end:
-  - type: 'clipboard'
-    max_items: 3
-    truncate:
-      mode: 'end'
-      length: 50
-  - type: "music"
-    player_type: "mpd"
-    format: "{title} / {artist}"
-    truncate: "end"
-    icons:
-      play: ""
-      pause: ""
   - format:
-    - ' {cpu_percent}% | {temp_c:k10temp_Tccd1}°C'
-    - ' {memory_used} / {memory_total} GB ({memory_percent}%)'
-    - ' {disk_used:/} / {disk_total:/} GB ({disk_percent:/}%)'
+    - ' {cpu_percent}% | {temp_c:coretemp-Package-id-0}°C'
+    - ' ({memory_percent}%)'
+    - ' ({disk_percent:/}%)'
     - '李 {net_down:wg0} / {net_up:wg0} Mbps'
     interval:
       cpu: 1
