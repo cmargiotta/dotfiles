@@ -80,7 +80,7 @@
                     hyprland.homeManagerModules.default
 
                     ./home/common.nix
-                    ./home/desktop.nix
+                    ./home/laptop-wsense.nix
                   ];
 
                 home.stateVersion = "23.05";
