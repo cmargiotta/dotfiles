@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, nixpkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     # Others
@@ -15,6 +15,16 @@
     unzip
     wget
     zip
+  ];
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      steam = prev.steam.override ({ extraPkgs ? pkgs': [], ... }: {
+        extraPkgs = pkgs': (extraPkgs pkgs') ++ (with pkgs'; [
+          libgdiplus
+        ]);
+      });
+    })
   ];
 
   programs = {
@@ -34,6 +44,8 @@
         ];
         env = {
           ENABLE_VKBASALT = "1";
+          SDL_VIDEODRIVER = "x11";
+          GDK_BACKEND="x11";
         };
       };
     };
