@@ -6,7 +6,7 @@
     flameshot
     nwg-look
     nwg-panel
-    rofi
+    rofi-wayland
     slurp
     swayosd
     swww
