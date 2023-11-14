@@ -25,10 +25,10 @@ decoration {
 
 animations {
   enabled = 1
-  animation = windows,1,7,default
-  animation = border,1,10,default
-  animation = fade,1,10,default
-  animation = workspaces,1,6,default
+  animation = windows, 1, 7, default
+  animation = border, 1, 10, default
+  animation = fade, 1, 10, default
+  animation = workspaces, 1, 6, default
 }
 
 input {
@@ -46,8 +46,9 @@ xwayland {
   force_zero_scaling = true
 }
 
+exec-once = nix flake update ~/dotfiles && nixos-apply
 exec-once = swww init
-exec-once = nwg-panel
+exec-once = ironbar
 exec-once = waybar
 exec-once = blueman-applet
 exec-once = hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
@@ -57,70 +58,74 @@ exec = swayosd
 $MOD = SUPER
 $MODSHIFT = SUPERSHIFT
 
-bind = $MOD,Return,exec,kitty
-bind = $MOD,D,exec,~/.config/rofi/launchers/type-6/launcher.sh
+bind = $MOD, Return, exec, kitty
+bind = $MOD, D, exec,~/.config/rofi/launchers/type-6/launcher.sh
 
-bind = $MOD,Q,killactive
-bind = $MOD,F,fullscreen
-bind = $MODSHIFT,F,togglefloating
-bind = $MOD,M,layoutmsg,swapwithmaster
+bind = $MOD, Q, killactive
+bind = $MOD, F, fullscreen
+bind = $MODSHIFT, F, togglefloating
+bind = $MOD, M, layoutmsg, swapwithmaster
 
-bind = $MOD,L,exec,~/.config/swaylock.sh
+bind = $MOD, L, exec,~/.config/swaylock.sh
 
-bind = $MOD,left,movefocus,l
-bind = $MOD,right,movefocus,r
-bind = $MOD,up,movefocus,u
-bind = $MOD,down,movefocus,d
+bind = $MOD, left, movefocus, l
+bind = $MOD, right, movefocus, r
+bind = $MOD, up, movefocus, u
+bind = $MOD, down, movefocus, d
 
-bind = $MODSHIFT,left,movewindow,l
-bind = $MODSHIFT,right,movewindow,r
-bind = $MODSHIFT,up,movewindow,u
-bind = $MODSHIFT,down,movewindow,d
+bind = $MODSHIFT, left, movewindow, l
+bind = $MODSHIFT, right, movewindow, r
+bind = $MODSHIFT, up, movewindow, u
+bind = $MODSHIFT, down, movewindow, d
 
-bind = ,Print,exec,grimblast copy output
-bind = $MOD,S,exec,grimblast copy area
-bind = $MODSHIFT,S,exec,grimblast copy window
+bind = ,Print, exec, grimblast copy output
+bind = $MOD, S, exec, grimblast copy area
+bind = $MODSHIFT, S, exec, GRIMBLAST_EDITOR="swappy -f" grimblast edit area
+bind = $MODSHIFT, W, exec, grimblast copy window
 
-bind = $MOD,1,workspace,1
-bind = $MOD,2,workspace,2
-bind = $MOD,3,workspace,3
-bind = $MOD,4,workspace,4
-bind = $MOD,5,workspace,5
-bind = $MOD,6,workspace,6
-bind = $MOD,7,workspace,7
-bind = $MOD,8,workspace,8
-bind = $MOD,9,workspace,9
-bind = $MOD,0,workspace,10
+bind = $MOD, T, exec, scratchpad
+bind = $MODSHIFT, T, exec, scratchpad -g
 
-bind = $MODSHIFT,1,movetoworkspace,1
-bind = $MODSHIFT,2,movetoworkspace,2
-bind = $MODSHIFT,3,movetoworkspace,3
-bind = $MODSHIFT,4,movetoworkspace,4
-bind = $MODSHIFT,5,movetoworkspace,5
-bind = $MODSHIFT,6,movetoworkspace,6
-bind = $MODSHIFT,7,movetoworkspace,7
-bind = $MODSHIFT,8,movetoworkspace,8
-bind = $MODSHIFT,9,movetoworkspace,9
-bind = $MODSHIFT,0,movetoworkspace,10
+bind = $MOD, 1, workspace, 1
+bind = $MOD, 2, workspace, 2
+bind = $MOD, 3, workspace, 3
+bind = $MOD, 4, workspace, 4
+bind = $MOD, 5, workspace, 5
+bind = $MOD, 6, workspace, 6
+bind = $MOD, 7, workspace, 7
+bind = $MOD, 8, workspace, 8
+bind = $MOD, 9, workspace, 9
+bind = $MOD, 0, workspace, 10
 
-bind = $MODSHIFT,down,movecurrentworkspacetomonitor,d
-bind = $MODSHIFT,up,movecurrentworkspacetomonitor,u
-bind = $MODSHIFT,left,movecurrentworkspacetomonitor,l
-bind = $MODSHIFT,right,movecurrentworkspacetomonitor,r
+bind = $MODSHIFT, 1, movetoworkspace, 1
+bind = $MODSHIFT, 2, movetoworkspace, 2
+bind = $MODSHIFT, 3, movetoworkspace, 3
+bind = $MODSHIFT, 4, movetoworkspace, 4
+bind = $MODSHIFT, 5, movetoworkspace, 5
+bind = $MODSHIFT, 6, movetoworkspace, 6
+bind = $MODSHIFT, 7, movetoworkspace, 7
+bind = $MODSHIFT, 8, movetoworkspace, 8
+bind = $MODSHIFT, 9, movetoworkspace, 9
+bind = $MODSHIFT, 0, movetoworkspace, 10
 
-bind = $MODSHIFT,R,exec,hyprctl reload
-bind = $MODSHIFT,V,layoutmsg,orientationtop
-bind = $MODSHIFT,H,layoutmsg,orientationleft
+bind = $MODSHIFT, down, movecurrentworkspacetomonitor, d
+bind = $MODSHIFT, up, movecurrentworkspacetomonitor, u
+bind = $MODSHIFT, left, movecurrentworkspacetomonitor, l
+bind = $MODSHIFT, right, movecurrentworkspacetomonitor, r
 
-bind = $MOD,R,submap,resize
+bind = $MODSHIFT, R, exec, hyprctl reload
+bind = $MODSHIFT, V, layoutmsg, orientationtop
+bind = $MODSHIFT, H, layoutmsg, orientationleft
+
+bind = $MOD, R, submap, resize
 submap = resize
 
-binde = ,right,resizeactive,10 0
-binde = ,left,resizeactive,-10 0
-binde = ,up,resizeactive,0 -10
-binde = ,down,resizeactive,0 10
+binde = ,right, resizeactive, 10 0
+binde = ,left, resizeactive,-10 0
+binde = ,up, resizeactive, 0 -10
+binde = ,down, resizeactive, 0 10
 
-bind = ,escape,submap,reset
+bind = ,escape, submap, reset
 
 bind = , XF86AudioRaiseVolume, exec, swayosd --output-volume raise
 bind = , XF86AudioLowerVolume, exec, swayosd --output-volume lower
@@ -132,13 +137,13 @@ bind = , XF86MonBrightnessDown, exec, swayosd --brightness lower
 
 submap = reset
 
-windowrule = float,pavucontrol-qt
-windowrulev2 = fullscreen,class:gamescope
+windowrule = float, pavucontrol-qt
+windowrulev2 = fullscreen, class:gamescope
 
-env = QT_QPA_PLATFORMTHEME,qt5ct
-env = QT_QPA_PLATFORM,wayland;xcb
-env = MOZ_ENABLE_WAYLAND,1
-env = SDL_VIDEODRIVER,wayland
+env = QT_QPA_PLATFORMTHEME, qt5ct
+env = QT_QPA_PLATFORM, wayland;xcb
+env = MOZ_ENABLE_WAYLAND, 1
+env = SDL_VIDEODRIVER, wayland
 env = _JAVA_AWT_WM_NONREPARENTING
-env = NIXOS_OZONE_WL,1
-env = XDG_SESSION_TYPE,wayland
+env = NIXOS_OZONE_WL, 1
+env = XDG_SESSION_TYPE, wayland
