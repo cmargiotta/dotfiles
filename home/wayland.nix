@@ -3,20 +3,21 @@
   home.packages = with pkgs; [
     grimblast
     hyprland-protocols
+    flameshot
     nwg-look
     nwg-panel
+    rofi
     slurp
     swayosd
     swww
     waybar
     wl-clipboard
     wlr-randr
-    wofi
   ];
 
   home.file.wofi = {
-    source = ./config/wofi;
-    target = ".config/wofi";
+    source = ./config/rofi;
+    target = ".config/rofi";
     recursive = true;
   };
 

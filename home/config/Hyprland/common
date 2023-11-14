@@ -58,7 +58,7 @@ $MOD = SUPER
 $MODSHIFT = SUPERSHIFT
 
 bind = $MOD,Return,exec,kitty
-bind = $MOD,D,exec,wofi
+bind = $MOD,D,exec,rofi
 
 bind = $MOD,Q,killactive
 bind = $MOD,F,fullscreen
