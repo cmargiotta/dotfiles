@@ -7,7 +7,6 @@
   imports =
     [
       (modulesPath + "/installer/scan/not-detected.nix")
-      ./nvidia.nix
     ];
 
   hardware = {
@@ -15,7 +14,26 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [
+        libva
+        qt6.qtwayland
+        libsForQt5.qt5ct
+        nvidia-vaapi-driver
+      ];
+      extraPackages = with pkgs; [
+        libva
+        qt6.qtwayland
+        libsForQt5.qt5ct
+        nvidia-vaapi-driver
+      ];
+    };
+
+    nvidia = {
+      modesetting.enable = true;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      powerManagement.enable = true;
+      open = true;
+      nvidiaSettings = true;
     };
 
     xpadneo.enable = true;
@@ -43,11 +61,21 @@
     pulseaudio.support32Bit = true;
   };
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
-  boot.extraModprobeConfig = '' options bluetooth disable_ertm=1 '';
+  services.xserver = {
+    videoDrivers = [ "nvidia" "fbdev" ];
+  };
+
+  boot = {
+    extraModprobeConfig = ''
+      options nvidia_drm fbdev=1
+      options bluetooth disable_ertm=1
+    '';
+
+    initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+    initrd.kernelModules = [ ];
+    kernelModules = [ "kvm-amd" ];
+    extraModulePackages = [ ];
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/4aeb1db7-9fbd-4bf2-b66e-2fd04df50000";
