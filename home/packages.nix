@@ -38,9 +38,9 @@
     gnome.gnome-calculator
     onlyoffice-bin
     qalculate-gtk
+    libsForQt5.kate
 
     # System
-    blueman
     dconf
     neofetch
     pavucontrol
