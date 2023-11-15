@@ -4,7 +4,9 @@ general {
   border_size = 2
   col.active_border = 0x66ee1111
   col.inactive_border = 0x66333333
+  allow_tearing = true
   layout = master
+  resize_on_border = true
 }
 
 decoration {
@@ -23,6 +25,19 @@ decoration {
   }
 }
 
+misc {
+  vrr = 1
+  animate_manual_resizes = true
+  animate_mouse_windowdragging = true
+  enable_swallow = true
+  swallow_regex = ".*kitty.*"
+}
+
+binds {
+  workspace_back_and_forth = true
+  workspace_center_on = 1
+}
+
 animations {
   enabled = 1
   animation = windows, 1, 7, default
@@ -34,6 +49,7 @@ animations {
 input {
   kb_layout = us
   kb_variant = intl
+  mouse_refocus = false
 }
 
 master {
@@ -46,28 +62,47 @@ xwayland {
   force_zero_scaling = true
 }
 
-exec-once = nix flake update ~/dotfiles && nixos-apply
+exec-once = hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = (nixos-clear && nix flake update ~/dotfiles && nixos-apply)&
 exec-once = swww init
 exec-once = ironbar
-exec-once = waybar
 exec-once = blueman-applet
-exec-once = hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 exec = swayosd
 
 $MOD = SUPER
 $MODSHIFT = SUPERSHIFT
 
+# Exec bindings
 bind = $MOD, Return, exec, kitty
 bind = $MOD, D, exec,~/.config/rofi/launchers/type-6/launcher.sh
+bind = $MOD, L, exec,~/.config/swaylock.sh
+bind = ,Print, exec, grimblast copy output
+bind = $MOD, S, exec, grimblast copy area
+bind = $MODSHIFT, S, exec, GRIMBLAST_EDITOR="swappy -f" grimblast edit area
+bind = $MODSHIFT, W, exec, grimblast copy window
+bind = $MOD, T, exec, scratchpad
+bind = $MODSHIFT, T, exec, scratchpad -g
+bind = $MODSHIFT, R, exec, hyprctl reload
 
+bind = , XF86AudioRaiseVolume, exec, swayosd --output-volume raise
+bind = , XF86AudioLowerVolume, exec, swayosd --output-volume lower
+bind = , XF86AudioMute, exec, swayosd --output-volume mute-toggle
+bind = , XF86AudioMicMute, exec, swayosd --input-volume mute-toggle
+
+bind = , XF86MonBrightnessUp, exec, swayosd --brightness raise
+bind = , XF86MonBrightnessDown, exec, swayosd --brightness lower
+
+# Window bindings
 bind = $MOD, Q, killactive
 bind = $MOD, F, fullscreen
 bind = $MODSHIFT, F, togglefloating
 bind = $MOD, M, layoutmsg, swapwithmaster
 
-bind = $MOD, L, exec,~/.config/swaylock.sh
+# Move floating window
+bindm = $MOD, mouse:272, movewindow
 
+# Navigation bindings
 bind = $MOD, left, movefocus, l
 bind = $MOD, right, movefocus, r
 bind = $MOD, up, movefocus, u
@@ -77,14 +112,6 @@ bind = $MODSHIFT, left, movewindow, l
 bind = $MODSHIFT, right, movewindow, r
 bind = $MODSHIFT, up, movewindow, u
 bind = $MODSHIFT, down, movewindow, d
-
-bind = ,Print, exec, grimblast copy output
-bind = $MOD, S, exec, grimblast copy area
-bind = $MODSHIFT, S, exec, GRIMBLAST_EDITOR="swappy -f" grimblast edit area
-bind = $MODSHIFT, W, exec, grimblast copy window
-
-bind = $MOD, T, exec, scratchpad
-bind = $MODSHIFT, T, exec, scratchpad -g
 
 bind = $MOD, 1, workspace, 1
 bind = $MOD, 2, workspace, 2
@@ -108,42 +135,53 @@ bind = $MODSHIFT, 8, movetoworkspace, 8
 bind = $MODSHIFT, 9, movetoworkspace, 9
 bind = $MODSHIFT, 0, movetoworkspace, 10
 
-bind = $MODSHIFT, down, movecurrentworkspacetomonitor, d
-bind = $MODSHIFT, up, movecurrentworkspacetomonitor, u
-bind = $MODSHIFT, left, movecurrentworkspacetomonitor, l
-bind = $MODSHIFT, right, movecurrentworkspacetomonitor, r
-
-bind = $MODSHIFT, R, exec, hyprctl reload
+# Orientation
 bind = $MODSHIFT, V, layoutmsg, orientationtop
 bind = $MODSHIFT, H, layoutmsg, orientationleft
 
+# Resize mode
 bind = $MOD, R, submap, resize
-submap = resize
 
+submap = resize
 binde = ,right, resizeactive, 10 0
 binde = ,left, resizeactive,-10 0
 binde = ,up, resizeactive, 0 -10
 binde = ,down, resizeactive, 0 10
-
 bind = ,escape, submap, reset
-
-bind = , XF86AudioRaiseVolume, exec, swayosd --output-volume raise
-bind = , XF86AudioLowerVolume, exec, swayosd --output-volume lower
-bind = , XF86AudioMute, exec, swayosd --output-volume mute-toggle
-bind = , XF86AudioMicMute, exec, swayosd --input-volume mute-toggle
-
-bind = , XF86MonBrightnessUp, exec, swayosd --brightness raise
-bind = , XF86MonBrightnessDown, exec, swayosd --brightness lower
-
 submap = reset
 
-windowrule = float, pavucontrol-qt
-windowrulev2 = fullscreen, class:gamescope
+windowrule = float,       pavucontrol
+windowrule = center,      pavucontrol
+windowrule = forceinput,  ^(steam)$
+windowrule = workspace 9, ^(steam_app.*)$
+windowrule = float,       title:Picture-in-Picture
 
-env = QT_QPA_PLATFORMTHEME, qt5ct
-env = QT_QPA_PLATFORM, wayland;xcb
-env = MOZ_ENABLE_WAYLAND, 1
-env = SDL_VIDEODRIVER, wayland
+windowrulev2   = tile,        workspace: 9, floating: 1
+windowrulev2   = opaque,      workspace: 9
+windowrulev2   = noblur,      workspace: 9
+windowrulev2   = fullscreen,  workspace: 9
+windowrulev2   = immediate,   workspace: 9
+
+windowrulev2 = float,class:^(steam)$,title:^(Lista amici)(.*)$
+windowrulev2 = size 391 1225,class:^(steam)$,title:^(Lista amici)$
+
 env = _JAVA_AWT_WM_NONREPARENTING
+env = CLUTTER_BACKEND,wayland
+env = GDK_BACKEND,wayland,x11
+env = MOZ_ENABLE_WAYLAND, 1
+env = MOZ_DISABLE_RDD_SANDBOX,1
+env = _JAVA_AWT_WM_NONREPARENTING=1
 env = NIXOS_OZONE_WL, 1
+env = QT_QPA_PLATFORM, wayland;xcb
+env = QT_AUTO_SCREEN_SCALE_FACTOR,1
+env = QT_QPA_PLATFORMTHEME, qt5ct
+env = SDL_VIDEODRIVER, wayland
 env = XDG_SESSION_TYPE, wayland
+# env = STEAM_USE_DYNAMIC_VRS, 1
+# env = WINEDLLOVERRIDES, "dxgi=n"
+# env = STEAMOS_STEAM_REBOOT_SENTINEL, "/tmp/steamos-reboot-sentinel"
+# env = STEAMOS_STEAM_SHUTDOWN_SENTINEL, "/tmp/steamos-shutdown-sentinel"
+# env = STEAM_ENABLE_VOLUME_HANDLER, 1
+# env = STEAM_DISABLE_AUDIO_DEVICE_SWITCHING, 1
+# env = STEAM_MULTIPLE_XWAYLANDS, 1
+# env = vk_xwayland_wait_ready, "false"

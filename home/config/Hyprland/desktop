@@ -8,23 +8,46 @@ monitor = $VERTICAL,  highres, 0x500,     1
 
 monitor = $VERTICAL, transform, 1
 
-exec-once = gamescope steam -F nis -f
-exec-once = telegram
-exec = sleep 1.5 && swww img -o HDMI-A-1 ~/.wallpapers/vert.png
-exec = sleep 1.5 && swww img -o DP-2 ~/.wallpapers/ultrawide.jpg
-exec = sleep 1.5 && swww img -o DP-3 ~/.wallpapers/upper.jpg
+# Autostart apps
+exec-once = steam
+exec-once = telegram-desktop
+exec-once = webcord
+exec-once = easyeffects
+
+# Scripts
+exec-once = ~/.config/hypr/scripts/vertical-layout.sh
+
+# Wallpapers
+exec = sleep 3.5 && swww img -o HDMI-A-1 ~/.wallpapers/vert.png
+exec = sleep 3.5 && swww img -o HDMI-A-2 ~/.wallpapers/vert.png
+exec = sleep 3.5 && swww img -o DP-4 ~/.wallpapers/ultrawide.jpg
+exec = sleep 3.5 && swww img -o DP-5 ~/.wallpapers/upper.jpg
+
+# Select primary screen
+exec = sleep 3.5 && xrandr --output DP-4 --primary -s 3440x1440
+
+# Autoconnect bluetooth soundbar
 exec = sleep 5 && echo "connect 00:15:83:02:82:79" | bluetoothctl
 
 workspace = 1, monitor:$ULTRAWIDE, default:true
 workspace = 9, monitor:$ULTRAWIDE
 workspace = 2, monitor:$VERTICAL, default:true
 workspace = 3, monitor:$UPPER, default:true
+workspace = 4, monitor:$UPPER
 
-windowrulev2 = workspace 9, class:(.*steam_app.*)
-windowrulev2 = fullscreen, class:(.*steam_app.*)
-windowrulev2 = workspace 2, class:org.telegram.desktop
+windowrule = workspace 4, org.telegram.desktop
+windowrule = workspace 3, ^(steam)$
+windowrule = workspace 3, WebCord
+windowrule = workspace 2, com.github.wwmm.easyeffects
 
+env = __GL_GSYNC_ALLOWED,1
+env = __GL_MaxFramesAllowed,1
+env = __GL_VRR_ALLOWED,1
+env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 env = LIBVA_DRIVER_NAME,nvidia
 env = GBM_BACKEND,nvidia-drm
-env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+env = NVD_BACKEND,direct
+env = PROTON_ENABLE_NGX_UPDATER,1
+env = WLR_DRM_NO_ATOMIC,1
 env = WLR_NO_HARDWARE_CURSORS,1
+env = WLR_USE_LIBINPUT,1
