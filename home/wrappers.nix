@@ -38,14 +38,5 @@
       categories = [ "Application" "Network" "WebBrowser" ];
       mimeType = [ "text/html" "text/xml" ];
     };
-
-    steam = {
-      name = "Steam";
-      exec = "env SDL_VIDEODRIVER=x11 steam-gamescope %U";
-      icon = "steam";
-      terminal = false;
-      categories = [ "Network" "Game" ];
-      mimeType = [ "x-scheme-handler/steam" "x-scheme-handler/steamlink" ];
-    };
   };
 }
