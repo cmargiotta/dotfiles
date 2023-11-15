@@ -17,7 +17,7 @@ center:
 
 end:
   - format:
-    - ' {cpu_percent}% | {temp_c:coretemp-Package-id-0}°C'
+    - ' {cpu_percent}% | {temp_c:k10temp_Tccd1}°C'
     - ' ({memory_percent}%)'
     - ' ({disk_percent:/}%)'
     - '李 {net_down:eno1} / {net_up:eno1} Mbps'

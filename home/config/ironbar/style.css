@@ -37,6 +37,8 @@ button:hover {
 .popup {
     border: 1px solid @color_border;
     padding: 1em;
+    background-color: @color_bg;
+    color: black;
 }
 
 
@@ -112,51 +114,6 @@ button:hover {
     border-top: 1px solid @color_border;
 }
 
-
-/* -- music -- */
-
-.music:hover * {
-    background-color: @color_bg_dark;
-}
-
-.popup-music .album-art {
-    margin-right: 1em;
-}
-
-.popup-music .icon-box {
-    margin-right: 0.4em;
-}
-
-.popup-music .title .icon,
-.popup-music .title .label {
-    font-size: 1.7em;
-}
-
-.popup-music .controls *:disabled {
-    color: @color_border;
-}
-
-.popup-music .volume .slider slider {
-    border-radius: 100%;
-}
-
-.popup-music .volume .icon {
-    margin-left: 4px;
-}
-
-.popup-music .progress .slider slider {
-    border-radius: 100%;
-}
-
-/* -- script -- */
-
-.script {
-    padding-left: 10px;
-}
-
-
-/* -- sys_info -- */
-
 .sysinfo {
     margin-left: 10px;
 }
@@ -184,21 +141,14 @@ button:hover {
     box-shadow: inset 0 -3px;
 }
 
-
-/* -- custom: power menu -- */
-
-.popup-power-menu #header {
-    font-size: 1.4em;
-    padding-bottom: 0.4em;
-    margin-bottom: 0.6em;
-    border-bottom: 1px solid @color_border;
+menu menuitem {
+    color: @color_text;
+    background-color: @color_bg_dark;
 }
 
-.popup-power-menu .power-btn {
-    border: 1px solid @color_border;
-    padding: 0.6em 1em;
-}
-
-.popup-power-menu #buttons>*:nth-child(1) .power-btn {
-    margin-right: 1em;
+menu menuitem:hover,
+menu menuitem:hover>*,
+menu * menuitem:hover>* {
+    color: @color_bg_dark;
+    background-color: @color_text;
 }
