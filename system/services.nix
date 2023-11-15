@@ -15,20 +15,6 @@
       SUBSYSTEM=="usb", ATTR{idVendor}=="1366", ATTR{idProduct}=="0101", MODE="0666", GROUP="plugdev"
       SUBSYSTEM=="usb", ATTR{idVendor}=="1366", ATTR{idProduct}=="1020", MODE="0666", GROUP="plugdev"
     '';
-
-    pipewire = {
-      enable = true;
-
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-
-      jack.enable = true;
-      pulse.enable = true;
-
-      socketActivation = true;
-    };
   };
 
   xdg.portal = {

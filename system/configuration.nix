@@ -5,6 +5,7 @@
       ./packages.nix
       ./services.nix
       ./users.nix
+      ./audio.nix
     ];
 
   virtualisation.podman = {
