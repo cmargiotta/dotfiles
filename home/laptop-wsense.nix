@@ -22,8 +22,8 @@
   };
 
   home.file.ironbar_config = {
-    source = ./config/ironbar/laptop;
-    target = ".config/ironbar";
+    source = ./config/ironbar/laptop.yaml;
+    target = ".config/ironbar/config.yaml";
   };
 
   home.packages = with pkgs; [

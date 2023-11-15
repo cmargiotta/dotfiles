@@ -1,8 +1,11 @@
 { config, pkgs, nixpkgs, eww, unstable, ... }:
 {
   home.packages = with pkgs; [
+    arandr
     grimblast
     hyprland-protocols
+    eww-wayland
+    glmark2
     nwg-look
     rofi-wayland
     slurp
@@ -12,7 +15,8 @@
     swappy
     swayosd
     swww
-    waybar
+    wev
+    watershot
     wl-clipboard
     wlr-randr
   ];
@@ -42,6 +46,16 @@
   home.file.dunst = {
     source = ./config/dunst;
     target = ".config/dunst/config";
+  };
+
+  home.file.ironbar_style = {
+    source = ./config/ironbar/style.css;
+    target = ".config/ironbar/style.css";
+  };
+
+  home.file.hyprland_scripts = {
+    source = ./config/Hyprland/scripts;
+    target = ".config/hypr/scripts";
   };
 
   wayland.windowManager.hyprland = {
