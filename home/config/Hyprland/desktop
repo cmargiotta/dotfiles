@@ -23,6 +23,11 @@ exec = sleep 3.5 && swww img -o HDMI-A-2 ~/.wallpapers/vert.png
 exec = sleep 3.5 && swww img -o DP-4 ~/.wallpapers/ultrawide.jpg
 exec = sleep 3.5 && swww img -o DP-5 ~/.wallpapers/upper.jpg
 
+# EWW
+exec = eww open bar --screen $MAIN_MONITOR_ID
+exec = eww open workspace_dock_0
+exec = eww open workspace_dock_2
+
 # Select primary screen
 exec = sleep 3.5 && xrandr --output DP-4 --primary -s 3440x1440
 
@@ -51,3 +56,5 @@ env = PROTON_ENABLE_NGX_UPDATER,1
 env = WLR_DRM_NO_ATOMIC,1
 env = WLR_NO_HARDWARE_CURSORS,1
 env = WLR_USE_LIBINPUT,1
+
+env = MAIN_MONITOR_ID, 1
