@@ -1,0 +1,60 @@
+(defvar date_reveal false)
+
+(defvar day "0")
+(defvar month "0")
+(defvar year "0")
+
+(defpoll hour :interval "1s" "scripts/time_info --hour")
+(defpoll minutes :interval "1s" "scripts/time_info --minutes")
+(defpoll date :interval "1s" "scripts/time_info --date")
+
+(defwidget time []
+  (eventbox
+    :tooltip "Current time"
+    :onhover "${EWW_CMD} update date_reveal=true"
+    :onhoverlost "${EWW_CMD} update date_reveal=false"
+    :cursor "pointer"
+    (button
+      :onclick "scripts/popup_calendar"
+      (box
+        :class "time_box"
+        :space-evenly "false"
+        :orientation "h"
+        :valign "center"
+        :halign "fill"
+        (label
+          :valign "center"
+          :class "time"
+          :markup "<span font-weight=\"heavy\">${hour}</span><span font-weight=\"heavy\">:${minutes}</span>" )
+        (revealer
+          :reveal date_reveal
+          :transition "slideright"
+          :duration "350ms"
+          :valign "fill"
+          (label
+            :valign "fill"
+            :class "date"
+            :markup "<span font-size=\"xx-small\">${date}</span>"
+            ))))))
+
+(defwindow calendar
+  :geometry
+    (geometry
+      :anchor "bottom right"
+      :x "0px"
+      :y "5px"
+      :width "415px"
+      :height "100px")
+  :stacking "overlay"
+  (box
+    :class "cal"
+    :orientation "h"
+    :valign "fill"
+    :halign "fill"
+    (calendar
+      :day day
+      :month month
+      :year year
+      :show-details "true"
+      :show-heading "true"
+      :show-day-names "true")))

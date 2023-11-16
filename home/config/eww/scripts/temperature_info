@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+temp=$(sensors | grep 'Tctl:' | grep '[0-9]*\.[0-9]*' -o)
+echo "$temp"

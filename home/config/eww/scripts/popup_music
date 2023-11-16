@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+eww close music || (\
+    eww open music --screen $MAIN_MONITOR_ID )

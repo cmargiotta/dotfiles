@@ -1,0 +1,31 @@
+(include "bars/left/music.yuck")
+(include "bars/left/workspaces.yuck")
+
+(defvar left_class "win_normal")
+
+(defwidget widgets_left []
+  (eventbox
+    :onhover "${EWW_CMD} update left_class=\"win_hovered\""
+    :onhoverlost "${EWW_CMD} update left_class=\"win_normal\""
+    (box
+      :spacing 0
+      :space-evenly "false"
+      :class left_class
+      :orientation "h"
+      :valign "fill"
+      :hexpand "false"
+      (workspaces
+        :monitor "1")
+      (music))))
+
+(defwidget workspace_dock [monitor]
+  (eventbox
+    (box
+      :spacing 0
+      :space-evenly "false"
+      :class "workspace_dock_standalone"
+      :orientation "h"
+      :valign "fill"
+      :hexpand "false"
+      (workspaces
+        :monitor "${monitor}"))))

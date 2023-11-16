@@ -1,0 +1,71 @@
+(include "bars/left.yuck")
+(include "bars/center.yuck")
+(include "bars/right.yuck")
+
+(deflisten monitors "scripts/monitors")
+
+(defwindow bar
+  :geometry
+    (geometry
+      :anchor "bottom center"
+      :x "0px"
+      :y "0px"
+      :width "100%"
+      :height "50px")
+  :stacking "fg"
+  :exclusive true
+  :namespace "bar"
+  :focusable false
+  (main_bar))
+
+(defwindow workspace_dock_0
+  :geometry
+    (geometry
+      :anchor "bottom left"
+      :x "5px"
+      :y "5px"
+      :height "40px")
+  :stacking "overlay"
+  :namespace "bar"
+  :monitor 0
+  :focusable false
+  (workspace_dock
+    :monitor "0"))
+
+(defwindow workspace_dock_2
+  :geometry
+    (geometry
+      :anchor "bottom left"
+      :x "5px"
+      :y "5px"
+      :height "40px")
+  :stacking "overlay"
+  :namespace "bar"
+  :monitor 2
+  :focusable false
+  (workspace_dock
+    :monitor "2"))
+
+(defwidget main_bar []
+  (centerbox
+    :orientation "h"
+    :width "100%"
+
+    (box
+      :halign "start"
+      :hexpand false
+      :vexpand true
+      (widgets_left))
+
+    (box
+      :halign "center"
+      :hexpand true
+      :vexpand true
+      (widgets_center))
+
+    (box
+      :halign "end"
+      :hexpand false
+      :vexpand true
+      (widgets_right))
+  ))

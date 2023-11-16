@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Selects player based on if they're playing or if they provide a cover image
 # Note: Being played takes priority
@@ -19,9 +19,9 @@ select_player () {
 		echo "$player"
 	done;
 }
-	
 
-# Get general info 
+
+# Get general info
 eww="eww -c $HOME/.config/eww/mybar"
 player=`select_player | tail -1`
 status=`playerctl --player="$player" status 2> /dev/null`
@@ -29,13 +29,13 @@ status=`playerctl --player="$player" status 2> /dev/null`
 
 # Toggle play pause and update status accordingly
 toggle () {
-    [[ $status == "Playing" ]] && $eww update media_status=""|| $eww update media_status=""
+    [[ $status == "Playing" ]] && eww update media_status=""|| eww update media_status=""
     playerctl --player="$player" play-pause 2> /dev/null
 }
 
-# Seek to an specific time 
+# Seek to an specific time
 seek () {
-    seekt="$1"    
+    seekt="$1"
     position=`playerctl --player=$player position 2> /dev/null`
     if [[ $? -eq 0 ]]
     then
@@ -45,8 +45,8 @@ seek () {
 
 # Rewind or fast forward 5 seconds
 move () {
-	move="$1"             
-    startpos=`playerctl --player=$player position 2> /dev/null`	
+	move="$1"
+    startpos=`playerctl --player=$player position 2> /dev/null`
 	length=`playerctl --player="$player" metadata mpris:length 2> /dev/null`
 	length=`python -c "print($length/1000000)"`
 	if [[ $? -eq 0 ]]
@@ -55,7 +55,7 @@ move () {
 		playerctl --player=$player position $endpos 2> /dev/null
 	fi;
 }
-	
+
 
 case $1 in
     --toggle )

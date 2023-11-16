@@ -1,0 +1,30 @@
+(defvar wp0 "●")
+(defvar wp1 "○")
+(defvar wp2 "○")
+(defvar wp3 "○")
+(defvar wp4 "○")
+
+(deflisten active_workspaces "scripts/workspaces")
+
+(defwidget workspaces [monitor]
+    (box
+      :orientation "h"
+      :halign "start"
+      :class "workspaces"
+      (box
+        :orientation "h"
+        :spacing 5
+        :space-evenly "false"
+        (label
+            :text monitors
+            :visible false)
+        (for workspace in "${jq ("${active_workspaces}", "[.[] | select(.monitorID == ${monitor})]")}"
+            (eventbox
+                :cursor "default"
+                :tooltip "Switch to workspace ${workspace.name}"
+                :onclick "hyprctl dispatch workspace ${workspace.id} > /dev/null"
+                (button
+                    (label
+                        :markup "${workspace.name}"
+                        :class "${jq ("${monitors}", ".[] | select(.id == ${monitor}) | .activeWorkspace.id") == "${workspace.id}" ? 'active_workspace_button' : 'workspace_button'}")))))
+      ))

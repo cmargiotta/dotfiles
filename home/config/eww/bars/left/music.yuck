@@ -1,0 +1,234 @@
+(defvar music_reveal false)
+(defvar media_bar_class "bar_normal")
+(defvar media_bar_is_active false)
+(defvar media_bar_class_popup "bar_normal_popup")
+(defvar media_bar_is_active_popup false)
+(defvar cover "images/music.png")
+(defvar position 0)
+(defvar media_status "")
+(defvar artist "No artist")
+(defvar artist_parsed "No artist")
+(defvar title "No title")
+(defvar title_parsed "No title")
+(defvar length 100)
+
+(deflisten launch3 "scripts/media_info")
+
+(defwidget music []
+    (eventbox
+      :onhover "${EWW_CMD} update music_reveal=true"
+      :onhoverlost "${EWW_CMD} update music_reveal=false"
+      (box
+        :class "music_box"
+        :orientation "h"
+        :spacing 0
+        :space-evenly "false"
+        :halign "start"
+        (label
+          :text "${launch3}"
+          :visible false)
+        (eventbox
+          :cursor "pointer"
+          (box
+            :space_evenly "false"
+            :halign "start"
+            :tooltip "${title} by ${artist}"
+            (button
+              :onclick "scripts/popup_music"
+              (image
+                :class "media_art"
+                :path cover
+                :image-height 40
+                :image-width 40))))
+        (box
+          :class "media_data"
+          :orientation "v"
+          :space-evenly "false"
+          :vexpand "false"
+          :hexpand "false"
+          :valign "end"
+          :halign "start"
+          (box
+            :orientation "v"
+            :space-evenly "false"
+            :vexpand "true"
+            :hexpand "true"
+            :valign "end"
+            :halign "fill"
+            (revealer
+              :reveal "${!music_reveal}"
+              :transition "slidedown"
+              :duration "350ms"
+              (box
+                :orientation "v"
+                :valign "fill"
+                :halign "fill"
+              (label
+                :class "media_title"
+                :halign "center"
+                :markup title_parsed
+                :limit-width 15
+                :wrap "true"
+                :show_truncated "true")))
+            (revealer
+              :reveal music_reveal
+              :transition "slideup"
+              :duration "350ms"
+              (box
+                :orientation "h"
+                :halign "center"
+                :class "media_buttons"
+                :space-evenly false
+                (eventbox
+                  :cursor "pointer"
+                  (button
+                    :class "prev_button"
+                    :onclick "scripts/media_control --prev"
+                    :tooltip "Previous"
+                    ""))
+                (eventbox
+                  :cursor "pointer"
+                  (button
+                    :class "toggle_button"
+                    :onclick "scripts/media_control --toggle"
+                    :tooltip "Play/Pause"
+                    "${media_status}"))
+                (eventbox
+                  :cursor "pointer"
+                  (button
+                    :class "next_button"
+                    :onclick "scripts/media_control --next"
+                    :tooltip "Next"
+                    "")))))
+          (box
+            :space-evenly "false"
+            :class media_bar_class
+            :halign "center"
+            :vexpand "false"
+            :hexpand "false"
+            (eventbox
+              :cursor "pointer"
+              :onhover "${EWW_CMD} update media_bar_class=bar_highlighted && eww update media_bar_is_active=true"
+              :onhoverlost "${EWW_CMD} update media_bar_class=bar_normal && eww update media_bar_is_active=false"
+              (scale
+                :active media_bar_is_active
+                :min 0
+                :max length
+                :value position
+                :orientation "h"
+                :tooltip "Seek"
+                :onchange "scripts/media_control --seek {} ${media_bar_is_active}"
+                )))))))
+
+;; Music window
+(defwindow music
+  :geometry
+    (geometry
+      :anchor "bottom left"
+      :x "40px"
+      :y "10px"
+      :width "415px"
+      :height "200px")
+    :stacking "overlay"
+    :windowtype "dock"
+    (music_popup))
+
+(defwidget music_popup []
+    (box
+      :orientation "v"
+      :valign "fill"
+      :halign "fill"
+      :space-evenly "false"
+      :class "music_box_popup"
+      (box
+        :orientation "h"
+        :valign "fill"
+        :halign "fill"
+        :space-evenly "false"
+        (box
+          :valign "center"
+          :halign "start"
+          :height 140
+          :width 140
+          :class "media_art_popup_box"
+            (image
+              :valign "center"
+              :halign "center"
+              :class "media_art_popup"
+              :tooltip "${title} by ${artist}"
+              :path cover
+            ))
+        (box
+          :valign "center"
+          :halign "fill"
+          :orientation "v"
+          :class "media_data_popup"
+          :spacing 20
+          (label
+            :class "media_title_popup"
+            :markup title_parsed
+            :halign "center")
+          (label
+            :class "media_artist_popup"
+            :markup artist_parsed
+            :halign "center")
+          (box
+            :orientation "h"
+            :halign "fill"
+            :valign "fill"
+            :class "media_buttons_box_popup"
+            (eventbox
+              :cursor "pointer"
+              (button
+                :onclick "scripts/media_control --prev"
+                :class "nextprev_popup"
+                :tooltip "Previous"
+                ""))
+            (eventbox
+              :cursor "pointer"
+              (button
+                :onclick "scripts/media_control --move -5"
+                :class "move_popup"
+                :tooltip "-5 seconds"
+                ""))
+            (eventbox
+              :cursor "pointer"
+              (button
+                :onclick "scripts/media_control --toggle"
+                :class "playpause_popup"
+                :tooltip "Play/Pause"
+                media_status))
+            (eventbox
+              :cursor "pointer"
+              (button
+                :onclick "scripts/media_control --move +5"
+                :class "move_popup"
+                :tooltip "+5 seconds"
+                ""))
+            (eventbox
+              :cursor "pointer"
+              (button
+                :onclick "scripts/media_control --next"
+                :class "nextprev_popup"
+                :tooltip "Next"
+                ""))
+
+                )))
+      (eventbox
+        :cursor "pointer"
+        :onhover "${EWW_CMD} update media_bar_class_popup=\"bar_highlighted_popup\" && eww update media_bar_is_active_popup=true"
+        :onhoverlost "${EWW_CMD} update media_bar_class_popup=\"bar_normal_popup\" && eww update media_bar_is_active_popup=false"
+        (box
+          :active media_bar_is_active_popup
+          :orientation "h"
+          :valign "fill"
+          :halign "fill"
+          :class media_bar_class_popup
+          (scale
+            :min 0
+            :max length
+            :value position
+            :orientation "h"
+            :onchange "scripts/media_control --seek {} ${media_bar_is_active_popup}"
+          )))
+      ))

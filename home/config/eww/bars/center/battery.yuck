@@ -1,0 +1,61 @@
+(defpoll battery_percent :interval "1s" "scripts/battery_info --percentage")
+(defpoll battery_time :interval "1s" "scripts/battery_info --time")
+
+(defvar battery_reveal false)
+(defvar battery_image "images/battery_normal.png")
+
+(deflisten battery_files_number `ls -1 /sys/class/power_supply | wc -l`)
+
+(defwidget battery_status []
+  (eventbox
+    :onhover "${EWW_CMD} update battery_reveal=\"true\""
+    :onhoverlost "${EWW_CMD} update battery_reveal=\"false\""
+    :tooltip "Battery"
+    :visible {battery_files_number != '0'}
+    (box
+      :orientation "h"
+      :space-evenly "false"
+      :class "battery_box"
+      :vexpand "false"
+      :hexpand "false"
+        (image
+          :class "center_icons"
+          :path battery_image
+          :image-width 30
+          :image-height 30)
+        (box
+          :orientation "v"
+          :space-evenly "false"
+          :vexpand "false"
+          :hexpand "false"
+          :valign "center"
+          :class "center_boxes"
+          (revealer
+            :reveal "${!battery_reveal}"
+            :transition "slidedown"
+            :duration "350ms"
+            (box
+              :orientation "v"
+              :class "center_info"
+              :valign "start"
+              (label
+                :class "center_labels"
+                :text "${battery_percent}%"
+                :halign "center")
+              (scale
+                :min 0
+                :max 100
+                :value battery_percent
+                :orientation "h")))
+          (revealer
+            :reveal battery_reveal
+            :transition "slideup"
+            :duration "350ms"
+            :valign "center"
+            (box
+              :valign "center"
+              :class "center_revealers"
+              (label
+                :halign "center"
+                :text battery_time))
+            )))))

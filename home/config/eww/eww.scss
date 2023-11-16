@@ -1,9 +1,9 @@
-// EWW.SCSS 
+// EWW.SCSS
 // GLOBALS
 
 @import "colors.scss";
 
-*{
+* {
     all: unset;
     font-family: "Iosevka Curly";
     font-weight: 800;
@@ -14,6 +14,8 @@
     background-color: $color0;
     border: 5px solid $color9;
     border-radius: 40px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .win_hovered {
@@ -21,19 +23,34 @@
     background-color: $color8;
     border: 5px solid $color9;
     border-radius: 40px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 // LEFT MODULES
 // Workspaces
 .workspaces {
     margin-left: 10px;
-    margin-top: -4px;
 }
-.workspace_buttons {
+
+.workspace_button,
+.active_workspace_button {
     font-family: Hack;
     font-size: 30px;
-    margin: 0 3 0 2;
+    margin: 3;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 50%;
+}
+
+.workspace_button {
     color: $color15;
+    background-color: $color8;
+}
+
+.active_workspace_button {
+    color: $color8;
+    background-color: $color15;
 }
 
 // Layout
@@ -46,14 +63,15 @@
 }
 
 // Music
-.music_box { 
-}
+.music_box {}
+
 .music_box_popup {
     background-color: $color0;
     background-image: url("images/background.png");
     border: solid 5px $color9;
     border-radius: 0 0 20 20;
 }
+
 .media_art {
     border-right: solid 5px $color9;
     border-left: solid 5px $color9;
@@ -63,21 +81,25 @@
     min-width: 40px;
     min-height: 40px;
 }
+
 .media_art_popup {
     border: solid 5px $color14;
     border-radius: 5px;
 }
+
 .media_art_popup_box {
     min-width: 140px;
     min-height: 140px;
     margin: 15 0 15 15;
 }
-.media_data { 
+
+.media_data {
     margin-left: 10px;
     margin-right: 17px;
 }
-.media_data_popup {
-}
+
+.media_data_popup {}
+
 .media_title {
     //font-family: "Meiryo";
     font-size: 16px;
@@ -86,25 +108,30 @@
     margin-right: -1000px;
     margin-left: -1000px;
 }
+
 .media_title_popup {
     font-size: 22px;
     color: $color15;
 }
+
 .media_artist_popup {
     font-size: 15px;
     margin: 0 15 0 10;
     color: $color12;
-//    background-color: #31225a;
+    //    background-color: #31225a;
 }
+
 .media_buttons {
     font-size: 20px;
     margin-bottom: 2px;
 }
 
-.prev_button, .toggle_button, .next_button {
+.prev_button,
+.toggle_button,
+.next_button {
     font-size: 20px;
     min-width: 30px;
-//    background-color: #ffffff;
+    //    background-color: #ffffff;
 }
 
 .playpause_popup {
@@ -113,30 +140,34 @@
     margin-left: 10px;
     color: $color12;
 }
+
 .move_popup {
     font-size: 30px;
     margin-right: 10px;
     margin-left: 10px;
     color: $color15;
 }
+
 .nextprev_popup {
     font-size: 30px;
     margin-right: 10px;
     margin-left: 10px;
     color: $color13;
 }
-.media_buttons_box_popup {
-    
-}
+
+.media_buttons_box_popup {}
+
 .toggle_button {
     margin-left: 15px;
     margin-right: 15px;
 }
+
 .bar_normal_popup scale trough highlight {
     all: unset;
     background-color: $color13;
     border-radius: 15px;
 }
+
 .bar_normal_popup scale trough {
     all: unset;
     background-color: rgba($color15, 0.4);
@@ -145,11 +176,13 @@
     border-radius: 15px;
     border: solid 5px $color14;
 }
+
 .bar_highlighted_popup scale trough highlight {
     all: unset;
     background-color: $color15;
     border-radius: 15px;
 }
+
 .bar_highlighted_popup scale trough {
     all: unset;
     background-color: rgba($color15, 0.4);
@@ -158,11 +191,13 @@
     border-radius: 15px;
     border: solid 5px $color14;
 }
+
 .bar_normal scale trough highlight {
     all: unset;
     background-color: $color12;
     border-radius: 10px;
 }
+
 .bar_normal scale trough {
     all: unset;
     background-color: rgba($color15, 0.4);
@@ -172,11 +207,13 @@
     margin-bottom: 5px;
     margin-top: 0px;
 }
+
 .bar_highlighted scale trough highlight {
     all: unset;
     background-color: $color15;
     border-radius: 10px;
 }
+
 .bar_highlighted scale trough {
     all: unset;
     background-color: rgba($color15, 0.4);
@@ -192,12 +229,14 @@
     margin-right: 5px;
     margin-left: 15px;
 }
+
 .center_labels {
     font-size: 16px;
     margin-bottom: -3px;
     margin-top: 1px;
     color: $color15;
 }
+
 .center_revealers {
     border-radius: 5px;
     background-color: rgba($color0, 1);
@@ -205,61 +244,63 @@
     border: solid 2px $color11;
     color: $color12;
 }
+
 .center_info scale trough highlight {
     all: unset;
     background: $color3;
-    border-radius: 10px;            
+    border-radius: 10px;
     border: solid 2px $color11;
 }
+
 .center_info scale trough {
     all: unset;
     background-color: rgba($color15, 0.4);
     border-radius: 10px;
     min-width: 110px;
-    min-height: 10px;               
+    min-height: 10px;
 }
 
 
-// RIGHT MODULES 
+// RIGHT MODULES
 .power_button {
     color: $color13;
     font-size: 25px;
     font-family: Caskaydia Cove Nerd Font;
     margin: -10 18 -10 15;
 }
+
 .time_box {
     margin-top: -10px;
     margin-bottom: -10px;
 }
+
 .time {
     color: $color15;
     font-size: 30px;
     margin-bottom: -20px;
     margin-top: -20px;
 }
+
 .date {
     color: $color15;
     font-size: 30px;
     margin-top: 8px;
 }
+
 .kb_box {
     color: $color15;
     font-size: 16px;
     margin-left: 1px;
     margin-right: 10px;
 }
-.kb_button_active {
+
+.kb_button {
     font-size: 16px;
     margin-bottom: -3px;
     margin-top: -3px;
     color: rgba($color15, 1);
 }
-.kb_button_inactive {
-    font-size: 16px;
-    margin-top: -3px;
-    margin-bottom: -3px;
-    color: rgba($color15, 0.4);
-}
+
 .cal {
     font-size: 18px;
     background-color: $color0;
@@ -268,4 +309,16 @@
     border: 5px solid $color9;
     border-radius: 0 0 20 20;
     padding: 10px;
+}
+
+.workspace_dock_standalone {
+    background-image: url("images/background.png");
+    background-color: $color0;
+    border-radius: 40px;
+    padding-right: 10px;
+    opacity: 0.85;
+}
+
+.workspace_dock_standalone * {
+    font-size: 20px;
 }
