@@ -1,0 +1,18 @@
+(defpoll notifs_count :interval "3s" :initial "0" "swaync-client -c")
+
+(defwidget notifications []
+  (box
+    :class "notifs"
+    :space-evenly false
+    :spacing {notifs_count > 0 ? 15 : 0}
+    :hexpand "false"
+    (_notifications)))
+
+(defwidget _notifications []
+  (revealer
+    :transition "slideright"
+    :reveal {notifs_count > 0}
+    :duration "350ms"
+    (overlay :class "notifs" :width 35
+      (label :class "fg" :text notifs_count)
+      (label :class "bg" :text "󱥂"))))

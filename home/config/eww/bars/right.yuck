@@ -1,5 +1,6 @@
 (include "bars/right/keyboard.yuck")
 (include "bars/right/time.yuck")
+(include "bars/right/notifications.yuck")
 
 (defvar right_class "win_normal")
 
@@ -16,4 +17,5 @@
       :hexpand "false"
       (time)
       (keyboard)
+      (notifications)
       )))
