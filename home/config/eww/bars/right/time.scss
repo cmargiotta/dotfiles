@@ -1,0 +1,27 @@
+.time_box {
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.time {
+    color: $color15;
+    font-size: 30px;
+    margin-bottom: -20px;
+    margin-top: -20px;
+}
+
+.date {
+    color: $color15;
+    font-size: 30px;
+    margin-top: 8px;
+}
+
+.cal {
+    font-size: 18px;
+    background-color: $color0;
+    background-image: url("images/background.png");
+    color: $color15;
+    border: 5px solid $color9;
+    border-radius: 0 0 20 20;
+    padding: 10px;
+}

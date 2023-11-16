@@ -1,0 +1,35 @@
+.workspaces {
+    margin-left: 10px;
+}
+
+.workspace_button,
+.active_workspace_button {
+    font-family: Hack;
+    font-size: 30px;
+    margin: 3;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 50%;
+}
+
+.workspace_button {
+    color: $color15;
+    background-color: $color8;
+}
+
+.active_workspace_button {
+    color: $color8;
+    background-color: $color15;
+}
+
+.workspace_dock_standalone {
+    background-image: url("images/background.png");
+    background-color: $color0;
+    border-radius: 40px;
+    padding-right: 10px;
+    opacity: 0.85;
+}
+
+.workspace_dock_standalone * {
+    font-size: 20px;
+}

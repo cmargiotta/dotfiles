@@ -6,6 +6,7 @@
     :space-evenly false
     :spacing {notifs_count > 0 ? 15 : 0}
     :hexpand "false"
+    :onclick "swaync-client -t"
     (_notifications)))
 
 (defwidget _notifications []

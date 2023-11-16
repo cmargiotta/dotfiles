@@ -15,6 +15,7 @@
   :stacking "fg"
   :exclusive true
   :namespace "bar"
+  :monitor 1
   :focusable false
   (main_bar))
 
