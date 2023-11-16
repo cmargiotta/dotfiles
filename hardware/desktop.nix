@@ -71,10 +71,13 @@
       options bluetooth disable_ertm=1
     '';
 
+    kernelPackages = pkgs.linuxPackages_zen;
     initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
     initrd.kernelModules = [ ];
     kernelModules = [ "kvm-amd" ];
-    extraModulePackages = [ ];
+    extraModulePackages = [
+      pkgs.linuxKernel.packages.linux_zen.asus-wmi-sensors
+    ];
   };
 
   fileSystems."/" = {
