@@ -6,16 +6,17 @@
     hyprland-protocols
     eww-wayland
     glmark2
+    jq
     nwg-look
     rofi-wayland
     slurp
-    ironbar
     scratchpad
     hdrop
     swappy
     swayosd
     swww
     wev
+    swaynotificationcenter
     watershot
     wl-clipboard
     wlr-randr
@@ -48,14 +49,14 @@
     target = ".config/dunst/config";
   };
 
-  home.file.ironbar_style = {
-    source = ./config/ironbar/style.css;
-    target = ".config/ironbar/style.css";
-  };
-
   home.file.hyprland_scripts = {
     source = ./config/Hyprland/scripts;
     target = ".config/hypr/scripts";
+  };
+
+  home.file.swaync_config = {
+    source = ./config/swaync;
+    target = ".config/swaync";
   };
 
   wayland.windowManager.hyprland = {
@@ -69,13 +70,6 @@
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;
-  };
-
-  services = {
-    dunst = {
-      enable = true;
-      configFile = "$XDG_CONFIG_HOME/dunst/config";
-    };
   };
 
   xdg = {
