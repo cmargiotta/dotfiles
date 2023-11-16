@@ -21,11 +21,6 @@
     target = ".config/nwg-panel/config";
   };
 
-  home.file.ironbar_config = {
-    source = ./config/ironbar/laptop.yaml;
-    target = ".config/ironbar/config.yaml";
-  };
-
   home.packages = with pkgs; [
     brightnessctl
   ];
