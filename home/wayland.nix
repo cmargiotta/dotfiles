@@ -72,6 +72,11 @@
     package = pkgs.swaylock-effects;
   };
 
+  services.dunst = {
+    enable = true;
+    configFile = ./config/dunst;
+  };
+
   xdg = {
     enable = true;
     mime.enable = true;
