@@ -17,9 +17,6 @@
     sqlitebrowser
     wineWowPackages.waylandFull
 
-    # Gaming
-    gamescope
-
     # Editors
     lapce
     meld
@@ -36,12 +33,14 @@
 
     # Office
     gnome.gnome-calculator
+    libsForQt5.kate
     onlyoffice-bin
     qalculate-gtk
-    libsForQt5.kate
 
     # System
     dconf
+    inxi
+    lm_sensors
     neofetch
     pavucontrol
 
@@ -51,6 +50,7 @@
     gimp
     mac
     picard
+    playerctl
     shntool
 
     # Others
@@ -62,7 +62,7 @@
     prusa-slicer
     qt5.qtbase
     rnix-lsp
-    xorg.xrandr
     xorg.xeyes
+    xorg.xrandr
   ];
 }
