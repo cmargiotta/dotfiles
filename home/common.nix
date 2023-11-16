@@ -19,6 +19,7 @@
     measurement = "it_IT.UTF-8";
     monetary = "it_IT.UTF-8";
     telephone = "it_IT.UTF-8";
+    time = "it_IT.UTF-8";
   };
 
   home.enableNixpkgsReleaseCheck = true;
