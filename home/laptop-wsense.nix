@@ -16,11 +16,6 @@
     target = ".ssh/id_ed25519";
   };
 
-  home.file.panel_config = {
-    source = ./config/panel/config-laptop;
-    target = ".config/nwg-panel/config";
-  };
-
   home.packages = with pkgs; [
     brightnessctl
   ];

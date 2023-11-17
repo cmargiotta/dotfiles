@@ -1,15 +1,5 @@
 { pkgs, lib, config, ... }:
 {
-  home.file.panel_css = {
-    source = ./config/panel/style.css;
-    target = ".config/nwg-panel/style.css";
-  };
-
-  home.file.waybar_style = {
-    source = ./config/waybar/style.css;
-    target = ".config/waybar/style.css";
-  };
-
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [

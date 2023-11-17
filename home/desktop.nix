@@ -16,11 +16,6 @@
     target = ".ssh/id_ed25519";
   };
 
-  home.file.panel_config = {
-    source = ./config/panel/config;
-    target = ".config/nwg-panel/config";
-  };
-
   home.file.eww_config = {
     source = ./config/eww;
     target = ".config/eww";

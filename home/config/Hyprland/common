@@ -67,7 +67,6 @@ exec-once = (nixos-clear && nix flake update ~/dotfiles && nixos-apply)&
 exec-once = swww init
 exec-once = eww daemon
 exec-once = blueman-applet
-exec-once = swaync
 
 exec = swayosd
 
@@ -77,7 +76,6 @@ $MODSHIFT = SUPERSHIFT
 # Exec bindings
 bind = $MOD, Return, exec, kitty
 bind = $MOD, D, exec, ~/.config/rofi/launchers/type-6/launcher.sh
-bind = $MOD, N, exec, swaync-client -t
 bind = $MOD, L, exec, ~/.config/swaylock.sh
 bind = ,Print, exec, grimblast copy output
 bind = $MOD, S, exec, grimblast copy area
