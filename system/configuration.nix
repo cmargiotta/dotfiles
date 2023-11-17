@@ -62,21 +62,21 @@
   system.userActivationScripts = {
     linkPrusaSlicerConfig = {
       text = ''
-        rm -r /home/nychtelios/.config/PrusaSlicer
+        rm -r /home/nychtelios/.config/PrusaSlicer || true
         ln -s /home/nychtelios/dotfiles/home/config/PrusaSlicer /home/nychtelios/.config/PrusaSlicer
       '';
     };
 
     linkEasyEffectsConfig = {
       text = ''
-        rm /home/nychtelios/.config/easyeffects -r
+        rm /home/nychtelios/.config/easyeffects -r || true
         ln -s /home/nychtelios/dotfiles/home/easyeffects /home/nychtelios/.config/easyeffects
       '';
     };
 
     linkVSCodeConfig = {
       text = ''
-        rm /home/nychtelios/.config/Code/User/settings.json
+        rm /home/nychtelios/.config/Code/User/settings.json || true
         ln -s /home/nychtelios/dotfiles/home/config/vscode.json /home/nychtelios/.config/Code/User/settings.json
       '';
     };
