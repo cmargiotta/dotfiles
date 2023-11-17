@@ -1,7 +1,7 @@
-(defwidget _psundial [halign ?hexpand prefix]
+(defwidget _psundial [halign prefix]
   (box :space-evenly false :class "chrono-sundial-box" :spacing 5
     (label :text prefix :class "chrono-sundial-prefix")
-    (label :class "chrono-sundial-label" :halign halign :hexpand hexpand
+    (label :class "chrono-sundial-label" :halign halign
                :text {time.hour >= 2 && time.hour <= 4 ? "Early Morning" :
                  time.hour <= 5 ? "Dawn" :
                  time.hour >= 6 && (time.hour <= 8 && time.min <= 59) ? "Morning" :

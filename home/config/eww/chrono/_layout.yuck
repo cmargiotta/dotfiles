@@ -1,3 +1,6 @@
+(defpoll weather :interval "500s" `scripts/weather.py fetch`)
+(defpoll weather_gist :interval "15m" :run-while false `scripts/weather.py gist description`)
+
 (defwidget chrono_layout []
   (scroll
     (box :space-evenly false
@@ -12,14 +15,14 @@
                :hexpand true)
         (button :onclick "${EWW_CMD} close chrono" :class "chrono-headers-close" "✖"))
       (_ptime :hour {time.hour} :minute {time.min} :secs {time.sec} :uptime uptime)
-      (_pcalen :day {time.day}
-               :month {time.month}
+      (_pcalen :day {time.day_num}
+               :month {time.month_num}
                :year {time.year})
       (_weather :glyph {weather.weather[0].glyph}
                 :main {weather.weather[0].main}
                 :image {weather.weather[0].image}
-                :temp {round(weather.main.temp, 0)}
-                :feels {round(weather.main.feels_like, 0)}
+                :temp {round(weather.main.temp, 1)}
+                :feels {round(weather.main.feels_like, 1)}
                 :bright_col "blue"
                 :sundial ""
                 :overlay "dark-blue"
@@ -30,9 +33,9 @@
                 :pressure_unit "hPa" ; hecto-Pascal (Pressure Unit)
                 :location "${weather.name}, ${weather.sys.country}"
                 :location_icon "🗺"
-                :max {round(weather.main.temp_max, 0)}
+                :max {round(weather.main.temp_max, 1)}
                 :max_icon "🔺"
-                :min {round(weather.main.temp_min, 0)}
+                :min {round(weather.main.temp_min, 1)}
                 :min_icon "🔻")
       (_weatherextras :header "Weather Info."
                       :description "${weather_gist}."

@@ -1,9 +1,3 @@
-(defvar wp0 "●")
-(defvar wp1 "○")
-(defvar wp2 "○")
-(defvar wp3 "○")
-(defvar wp4 "○")
-
 (deflisten active_workspaces "scripts/workspaces")
 
 (defwidget workspaces [monitor]

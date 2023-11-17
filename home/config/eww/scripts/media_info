@@ -61,7 +61,7 @@ scroll_text () {
 	done
 }
 
-imgdir="$HOME/.config/eww/images"
+imgdir="$XDG_CACHE_HOME/eww/images"
 lastimg="none"
 
 while true; do
