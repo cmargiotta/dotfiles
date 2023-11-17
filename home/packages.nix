@@ -13,7 +13,6 @@
     pgadmin4-desktopmode
     pkg-config
     podman-compose
-    python3Full
     sqlitebrowser
     wineWowPackages.waylandFull
 
@@ -52,17 +51,30 @@
     picard
     playerctl
     shntool
+    sonixd
 
     # Others
+    coreutils-full
     filezilla
     gnome.seahorse
+    gobject-introspection
     libsForQt5.dolphin
     ncdu
     pinentry-qt
+    pkg-config
     prusa-slicer
     qt5.qtbase
     rnix-lsp
     xorg.xeyes
     xorg.xrandr
+  ] ++ [
+    # Python with packages
+    (pkgs.python311Full.withPackages (ps: with ps; [
+      dbus-python
+      mpd2
+      pygobject3
+      requests
+      virtualenv
+    ]))
   ];
 }
