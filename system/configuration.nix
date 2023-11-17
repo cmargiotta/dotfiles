@@ -67,6 +67,13 @@
       '';
     };
 
+    linkEasyEffectsConfig = {
+      text = ''
+        rm /home/nychtelios/.config/easyeffects -r
+        ln -s /home/nychtelios/dotfiles/home/easyeffects /home/nychtelios/.config/easyeffects
+      '';
+    };
+
     linkVSCodeConfig = {
       text = ''
         rm /home/nychtelios/.config/Code/User/settings.json

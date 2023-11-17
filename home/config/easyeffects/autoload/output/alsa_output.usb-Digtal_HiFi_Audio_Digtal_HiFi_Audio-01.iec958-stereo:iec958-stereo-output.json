@@ -1,0 +1,6 @@
+{
+    "device": "alsa_output.usb-Digtal_HiFi_Audio_Digtal_HiFi_Audio-01.iec958-stereo",
+    "device-description": "SA9023 audio controller Digital Stereo (IEC958)",
+    "device-profile": "iec958-stereo-output",
+    "preset-name": "Bass Enhancing + Perfect EQ"
+}
