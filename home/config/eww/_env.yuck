@@ -1,0 +1,16 @@
+(defpoll weather :interval "500s" "scripts/weather.py fetch")
+(defpoll weather_gist :interval "20h" :run-while false "scripts/weather.py gist description")
+
+(defpoll time :interval "1s" `date +'{"hour":"%H","min":"%M","sec":"%S","pretty":"%a, %e %b","day":"%A","month":"%B","dom":"%e","year":"%Y","day_num":"%d","month_num":"%m","year_num":"%y"}'`)
+(defpoll uptime :interval "1m" "uptime | sed -E 's/^[^,]*up *//; s/, *[[:digit:]]* users.*//; s/min/minutes/; s/([[:digit:]]+):0?([[:digit:]]+)/\1 h \2 m/' ")
+
+(defpoll player_volume :interval "1s" `playerctl volume`)
+(defpoll pctl_sub :interval "1s" `playerctl metadata`)
+(defvar cover "images/music.png")
+(defvar position 0)
+(defvar media_status "")
+(defvar artist "No artist")
+(defvar artist_parsed "No artist")
+(defvar title "No title")
+(defvar title_parsed "No title")
+(defvar length 100)

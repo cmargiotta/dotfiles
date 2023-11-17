@@ -3,14 +3,6 @@
 (defvar media_bar_is_active false)
 (defvar media_bar_class_popup "bar_normal_popup")
 (defvar media_bar_is_active_popup false)
-(defvar cover "images/music.png")
-(defvar position 0)
-(defvar media_status "")
-(defvar artist "No artist")
-(defvar artist_parsed "No artist")
-(defvar title "No title")
-(defvar title_parsed "No title")
-(defvar length 100)
 
 (deflisten launch3 "scripts/media_info")
 
@@ -34,7 +26,7 @@
             :halign "start"
             :tooltip "${title} by ${artist}"
             (button
-              :onclick "scripts/popup_music"
+              :onclick "$EWW_CMD open music --screen 1 --toggle"
               (image
                 :class "media_art"
                 :path cover

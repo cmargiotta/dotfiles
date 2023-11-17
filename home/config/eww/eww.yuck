@@ -1,6 +1,10 @@
 (include "bars/left.yuck")
 (include "bars/center.yuck")
 (include "bars/right.yuck")
+(include "_env.yuck")
+(include "_lib.yuck")
+
+(include "chrono/_init.yuck")
 
 (deflisten monitors "scripts/monitors")
 

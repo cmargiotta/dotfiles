@@ -1,8 +1,23 @@
 @import "colors.scss";
 @import "bars/eww.scss";
 
+@import "themes/radium";
+
+@import "avatar/init";
+@import "disclose/init";
+@import "chrono/init";
+
+
 * {
     all: unset;
     font-family: "Iosevka Curly";
     font-weight: 800;
+    transition: 200ms ease-out;
+}
+
+tooltip {
+    font-family: Phosphor, Dosis;
+    background-color: $base15;
+    color: $base01;
+    font-size: 14px;
 }
