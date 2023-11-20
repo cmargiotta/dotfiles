@@ -1,4 +1,4 @@
-{ config, pkgs, webcord, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ./firefox.nix

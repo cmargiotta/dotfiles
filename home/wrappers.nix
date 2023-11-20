@@ -11,16 +11,6 @@
       exec = "mongodb-compass --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland --ignore-additional-command-line-flags";
     };
 
-    webcord = {
-      name = "Webcord";
-      genericName = "Discord and Fosscord client";
-      terminal = false;
-      categories = [ "Network" "InstantMessaging" ];
-      mimeType = [ "x-scheme-handler/discord" ];
-      icon = "webcord";
-      exec = "webcord --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland";
-    };
-
     prusa-slicer = {
       name = "Prusa Slicer";
       terminal = false;

@@ -11,7 +11,7 @@ monitor = $VERTICAL, transform, 1
 # Autostart apps
 exec-once = steam
 exec-once = telegram-desktop
-exec-once = webcord
+exec-once = discord
 exec-once = easyeffects
 
 # Scripts
@@ -42,7 +42,7 @@ workspace = 4, monitor:$UPPER
 
 windowrule = workspace 4, org.telegram.desktop
 windowrule = workspace 3, ^(steam)$
-windowrule = workspace 3, WebCord
+windowrule = workspace 3, Discord
 windowrule = workspace 2, com.github.wwmm.easyeffects
 
 env = __GL_GSYNC_ALLOWED,1

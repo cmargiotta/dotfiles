@@ -8,10 +8,9 @@
     iceberg.url = "github:icebox-nix/iceberg";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nur.url = "github:nix-community/NUR";
-    webcord.url = "github:fufexan/webcord-flake";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, iceberg, nur, webcord, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, iceberg, nur, ... }@inputs:
     {
       nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

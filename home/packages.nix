@@ -1,4 +1,4 @@
-{ config, lib, pkgs, unstable, iceberg, webcord, fenix, ... }:
+{ config, lib, pkgs, unstable, iceberg, fenix, ... }:
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -22,13 +22,13 @@
     stm32cubemx
 
     # Internet
+    discord
     mongodb-compass
     mqttui
     nextcloud-client
     slack
     tdesktop
     tor-browser-bundle-bin
-    webcord.packages.${pkgs.system}.default
 
     # Office
     gnome.gnome-calculator
