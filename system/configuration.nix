@@ -70,7 +70,7 @@
     linkEasyEffectsConfig = {
       text = ''
         rm /home/nychtelios/.config/easyeffects -r || true
-        ln -s /home/nychtelios/dotfiles/home/easyeffects /home/nychtelios/.config/easyeffects
+        ln -s /home/nychtelios/dotfiles/home/config/easyeffects /home/nychtelios/.config/easyeffects
       '';
     };
 
