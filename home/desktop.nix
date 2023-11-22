@@ -16,11 +16,6 @@
     target = ".ssh/id_ed25519";
   };
 
-  home.file.eww_config = {
-    source = ./config/eww;
-    target = ".config/eww";
-  };
-
   wayland.windowManager.hyprland.enableNvidiaPatches = true;
   wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/common) + "\n" + (builtins.readFile ./config/Hyprland/desktop);
 

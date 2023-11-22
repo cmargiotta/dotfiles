@@ -38,6 +38,11 @@
     target = ".config/hypr/scripts";
   };
 
+  home.file.eww_config = {
+    source = ./config/eww;
+    target = ".config/eww";
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     systemdIntegration = true;
