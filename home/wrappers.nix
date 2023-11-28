@@ -18,15 +18,5 @@
       icon = "prusa-slicer %U";
       exec = "LC_ALL=C prusa-slicer";
     };
-
-    firefox = {
-      name = "Firefox";
-      genericName = "Web Browser";
-      exec = "hdrop firefox %U";
-      terminal = false;
-      icon = "firefox";
-      categories = [ "Application" "Network" "WebBrowser" ];
-      mimeType = [ "text/html" "text/xml" ];
-    };
   };
 }
