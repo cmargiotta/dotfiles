@@ -1,9 +1,14 @@
 { config, pkgs, lib, ... }:
 {
+  home.file.starship = {
+    source = ./config/starship.toml;
+    target = ".config/starship.toml";
+    recursive = true;
+  };
+
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
-    settings = (builtins.readFile ./config/starship.toml);
   };
 
   programs.zsh = {
