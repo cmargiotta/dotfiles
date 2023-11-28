@@ -1,4 +1,4 @@
-{ config, lib, pkgs, unstable, iceberg, fenix, ... }:
+{ config, lib, pkgs, unstable, nur, iceberg, fenix, ... }:
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -27,7 +27,7 @@
     mqttui
     nextcloud-client
     slack
-    tdesktop
+    kotatogram-desktop
     tor-browser-bundle-bin
 
     # Office
@@ -40,7 +40,7 @@
     dconf
     inxi
     lm_sensors
-    neofetch
+    fastfetch
     pavucontrol
 
     # Media
