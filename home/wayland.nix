@@ -11,12 +11,10 @@
     rofi-wayland
     slurp
     scratchpad
-    hdrop
     swappy
     swayosd
     swww
     wev
-    watershot
     wl-clipboard
     wlr-randr
   ];
