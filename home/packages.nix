@@ -27,7 +27,7 @@
     mqttui
     nextcloud-client
     slack
-    kotatogram-desktop
+    tdesktop
     tor-browser-bundle-bin
 
     # Office
