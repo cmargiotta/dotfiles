@@ -63,7 +63,7 @@ xwayland {
 }
 
 exec-once = hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-exec-once = (nixos-clear && nix flake update ~/dotfiles && nixos-apply)&
+exec-once = nixos-clear && nix flake update ~/dotfiles && nixos-apply
 exec-once = swww init
 exec-once = eww daemon
 exec-once = blueman-applet
