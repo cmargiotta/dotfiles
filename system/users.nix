@@ -1,13 +1,13 @@
 { lib, config, pkgs, ... }:
 {
-  programs.zsh.enable = true;
+  programs.fish.enable = true;
 
   users.users.nychtelios = {
     isNormalUser = true;
     home = "/home/nychtelios";
     extraGroups = [ "wheel" "networkmanager" "podman" "dialout" "plugdev" ];
     hashedPassword = (builtins.substring 0 106 (builtins.readFile ../secrets/nychtelios));
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 
   security.pam.services.nychtelios.enableGnomeKeyring = true;
@@ -16,7 +16,7 @@
     enable = true;
     settings = rec {
       initial_session = {
-        command = "zsh -c 'dbus-run-session -- Hyprland'";
+        command = "fish -c 'source ~/dotfiles/secrets/atuin-login.sh; dbus-run-session -- Hyprland'";
         user = "nychtelios";
       };
       default_session = initial_session;

@@ -21,6 +21,8 @@
           ./system/configuration.nix
           ./system/desktop.nix
 
+          nur.nixosModules.nur
+
           home-manager.nixosModules.home-manager
 
           {
@@ -44,7 +46,7 @@
                     ./home/desktop.nix
                   ];
 
-                home.stateVersion = "23.05";
+                home.stateVersion = "23.11";
               };
           }
         ];
@@ -58,6 +60,8 @@
           ./hardware/laptop-wsense.nix
           ./system/configuration.nix
           ./system/laptop-wsense.nix
+
+          nur.nixosModules.nur
 
           home-manager.nixosModules.home-manager
 
@@ -82,7 +86,7 @@
                     ./home/laptop-wsense.nix
                   ];
 
-                home.stateVersion = "23.05";
+                home.stateVersion = "23.11";
               };
           }
         ];
