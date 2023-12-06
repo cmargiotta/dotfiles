@@ -21,6 +21,9 @@
     meld
     stm32cubemx
 
+    # Gaming
+    gamemode
+
     # Internet
     discord
     mongodb-compass
