@@ -2,6 +2,7 @@
 {
   imports = [
     ./firefox.nix
+    ./fish.nix
     ./git.nix
     ./packages.nix
     ./services.nix
@@ -9,7 +10,6 @@
     ./vscode.nix
     ./wayland.nix
     ./wrappers.nix
-    ./zsh.nix
     ../secrets/email.nix
   ];
 
@@ -23,25 +23,4 @@
   };
 
   home.enableNixpkgsReleaseCheck = true;
-
-  programs.kitty = {
-    enable = true;
-    extraConfig = (builtins.readFile ./themes/kitty);
-    font.name = "Iosevka Term";
-    shellIntegration.enableZshIntegration = true;
-
-    settings = {
-      scrollback_lines = 10000;
-      confirm_os_window_close = 0;
-      placement_strategy = "center";
-
-      enable_audio_bell = "no";
-      visual_bell_duration = "0.1";
-
-      copy_on_select = "clipboard";
-
-      term = "xterm";
-      linux_display_server = "wayland";
-    };
-  };
 }
