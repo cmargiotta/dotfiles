@@ -23,4 +23,3 @@ monitor=,preferred,auto,1
 exec = sleep 1 && swww img ~/.wallpapers/wallpaper.jpg
 exec = eww open bar
 exec = eww open workspace_dock_0
-exec = eww open workspace_dock_1

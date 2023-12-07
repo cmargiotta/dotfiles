@@ -16,6 +16,14 @@
     target = ".ssh/id_ed25519";
   };
 
+  programs.git = {
+    userEmail = "cmargiotta@posteo.net";
+    signing = {
+      signByDefault = true;
+      key = null;
+    };
+  };
+
   wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/common) + "\n" + (builtins.readFile ./config/Hyprland/desktop);
 
   home.sessionVariables = {

@@ -20,6 +20,8 @@
     brightnessctl
   ];
 
+  programs.git.userEmail = "carmine.margiotta@wsense.it";
+
   wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/laptop-wsense) + "\n" + (builtins.readFile ./config/Hyprland/common);
 
   xdg.desktopEntries = {

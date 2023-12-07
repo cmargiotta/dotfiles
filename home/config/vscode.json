@@ -7,7 +7,7 @@
     "[rust]": {
         "editor.defaultFormatter": "rust-lang.rust-analyzer"
     },
-    "clangd.checkUpdates": true,
+    "clangd.checkUpdates": false,
     "editor.find.autoFindInSelection": "never",
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
@@ -75,5 +75,6 @@
             "tooltip": "PlatformIO: New Terminal",
             "commands": "platformio-ide.newTerminal"
         }
-    ]
+    ],
+    "C/C++ Include Guard.Spaces After Endif": 1
 }

@@ -5,6 +5,7 @@
     grimblast
     hyprland-protocols
     eww-wayland
+    libGL
     glmark2
     jq
     nwg-look
