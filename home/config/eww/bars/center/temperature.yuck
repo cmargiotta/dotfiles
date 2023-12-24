@@ -1,5 +1,3 @@
-(defpoll temperature :interval "1s" "scripts/temperature_info")
-
 (defvar temperature_reveal false)
 
 (defwidget temperature_status []
@@ -35,12 +33,12 @@
               :valign "start"
               (label
                 :class "center_labels"
-                :text "${temperature}°C"
+                :text "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}°C"
                 :halign "center")
               (scale
                 :min 0
                 :max 100
-                :value temperature
+                :value {round(EWW_TEMPS.CORETEMP_PACKAGE_ID_0, 2)}
                 :orientation "h")))
           (revealer
             :reveal temperature_reveal
@@ -52,7 +50,7 @@
               :class "center_revealers"
               (graph
                 :thickness 3
-                :value temperature
+                :value {round(EWW_TEMPS.CORETEMP_PACKAGE_ID_0, 2)}
                 :time-range "20s"
                 :min 0
                 :max 100

@@ -28,5 +28,28 @@
         (temperature_status)
         (disk_status :disk "/")
         (disk_status :disk "/home/nychtelios/data")
+        ))))
+
+(defwidget widgets_center_laptop []
+  (eventbox
+    :onhover "${EWW_CMD} update center_class=\"win_hovered\""
+    :onhoverlost "${EWW_CMD} update center_class=\"win_normal\""
+    (box
+      :spacing 0
+      :space-evenly "true"
+      :class center_class
+      :orientation "h"
+      :valign "fill"
+      :halign "center"
+      :hexpand true
+      (box
+        :space-evenly "true"
+        :orientation "h"
+        :valign "center"
+        :halign "fill"
+        (cpu_status)
+        (ram_status)
+        (temperature_status)
+        (disk_status :disk "/")
         (battery_status)
         ))))

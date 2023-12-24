@@ -3,7 +3,7 @@
 
 (defvar left_class "win_normal")
 
-(defwidget widgets_left []
+(defwidget widgets_left [monitor]
   (eventbox
     :onhover "${EWW_CMD} update left_class=\"win_hovered\""
     :onhoverlost "${EWW_CMD} update left_class=\"win_normal\""
@@ -15,7 +15,7 @@
       :valign "fill"
       :hexpand "false"
       (workspaces
-        :monitor "1")
+        :monitor monitor)
       (music))))
 
 (defwidget workspace_dock [monitor]
@@ -28,4 +28,5 @@
       :valign "fill"
       :hexpand "false"
       (workspaces
-        :monitor "${monitor}"))))
+        :monitor monitor
+      ))))
