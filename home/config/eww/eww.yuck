@@ -21,7 +21,7 @@
   :monitor 1
   :focusable false
   (main_bar
-    :monitor 0
+    :monitor 1
   ))
 
 (defwindow laptop_bar

@@ -88,7 +88,7 @@
       name = "platformio-ide";
       publisher = "platformio";
       version = "3.3.1";
-      sha256 = "0aii9ms2wzwfc5008c85fbz1k3ggqsqc29ahcjl7l2mrfhdh513w";
+      sha256 = "sha256-zBZFpOWJ4JEv6qu9XT1u0uspZ+N2wKrpL3joC+/t/zs=";
     }
     {
       name = "vscode-sort-json";

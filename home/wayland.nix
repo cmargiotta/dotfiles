@@ -8,12 +8,13 @@
     libGL
     glmark2
     jq
+    font-awesome
     nwg-look
+    pamixer
     rofi-wayland
     slurp
     scratchpad
     swappy
-    swayosd
     swww
     wev
     wl-clipboard

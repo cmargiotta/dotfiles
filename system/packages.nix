@@ -38,10 +38,25 @@
   ];
 
   programs = {
-    dconf.enable = true;
     hyprland.enable = true;
     steam = {
       enable = true;
+    };
+
+    dconf = {
+      enable = true;
+      profiles = {
+        # A "user" profile with a database
+        user.databases = [
+          {
+            settings = { };
+          }
+        ];
+        # A "bar" profile from a package
+        bar = pkgs.bar-dconf-profile;
+        # A "foo" profile from a path
+        foo = ${./foo}
+      };
     };
   };
 }
