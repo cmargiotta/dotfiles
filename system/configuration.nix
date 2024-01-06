@@ -6,11 +6,11 @@
       ./services.nix
       ./users.nix
       ./audio.nix
+      ../secrets/fortinet.nix
     ];
 
-  virtualisation.podman = {
+  virtualisation.docker = {
     enable = true;
-    dockerSocket.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -80,6 +80,20 @@
         ln -s /home/nychtelios/dotfiles/home/config/vscode.json /home/nychtelios/.config/Code/User/settings.json
       '';
     };
+
+    linkFishFunctions = {
+      text = ''
+        ln -sf /home/nychtelios/dotfiles/home/config/fish/functions/* /home/nychtelios/.config/fish/functions/
+      '';
+    };
+  };
+
+  networking = {
+    networkmanager = {
+      enable = true;
+      dhcp = "dhcpcd";
+    };
+    wireless.enable = false;
   };
 
   system.stateVersion = "23.11";

@@ -11,6 +11,10 @@
     enableFishIntegration = true;
   };
 
+  programs.direnv = {
+    enable = true;
+  };
+
   programs.atuin = {
     enable = true;
     enableFishIntegration = true;
@@ -48,19 +52,67 @@
 
   programs.fish = {
     enable = true;
+
     shellAbbrs = {
-      nixos-apply = "sudo nixos-rebuild switch --flake ~/dotfiles";
-      nixos-update = "nixos-clear && pushd ~/dotfiles; source update.sh; popd";
-      nixos-clear = "sudo nix-collect-garbage -d && sudo nix store optimise";
-      ssh = "kitty +kitten ssh";
+      g = "git";
+      l = "exa";
+      la = "exa -a";
+      lL = "exa -algiSH --git";
+      ll = "exa -l";
+      ls = "exa";
+      lt = "exa -lT";
       reboot = "sudo systemctl reboot";
     };
+
+    shellAliases = {
+      ssh = "kitty +kitten ssh";
+    };
+
+    functions = {
+      fish_greeting = {
+        body = ''
+          fastfetch
+          atuin init fish | source
+        '';
+      };
+
+      nixos-apply = {
+        body = "sudo nixos-rebuild switch --flake ~/dotfiles";
+      };
+
+      nixos-clear = {
+        body = "sudo nix-collect-garbage -d && sudo nix store optimise";
+      };
+
+      nixos-update = {
+        body = "nixos-clear && nix flake update ~/dotfiles && nixos-apply";
+      };
+
+      fish_command_not_found = {
+        body = ''
+          source ~/.config/fish/functions/_lib.fish
+          if test (count (nix-locate --top-level --minimal --at-root --whole-name "/bin/$argv")) -ne 0
+              function fish_mode_prompt; end # Remove mode indicator for prompt
+              read -n 1 -P $purple"?? nixpkgs has a match for /bin/"$argv". Use it? (y/N) "$resf reply
+              if test $reply = y
+                set package (nix-locate --top-level --minimal --at-root --whole-name "/bin/$argv")
+                nix shell "nixpkgs#$package" -c $argv
+              end
+          else
+              echo "$argv: command not found"
+              return 127
+          end
+        '';
+      };
+
+      gitignore = {
+        body = "curl -sL https://www.gitignore.io/api/$argv";
+      };
+    };
+
     shellInit = ''
       set LOCALE_ARCHIVE \"$(nix profile list | grep glibcLocales | tail -n1 | cut -d ' ' -f4)/lib/locale/locale-archive\"
-      fastfetch
       atuin gen-completions --shell fish -o ~/.config/fish/completions/
     '';
   };
-
-
 }

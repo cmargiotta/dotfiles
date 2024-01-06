@@ -5,6 +5,7 @@
     ./fish.nix
     ./git.nix
     ./packages.nix
+    ./schedule.nix
     ./services.nix
     ./theming.nix
     ./vscode.nix

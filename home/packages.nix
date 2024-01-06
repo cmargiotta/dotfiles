@@ -5,14 +5,12 @@
   home.packages = with pkgs; [
     # Dev
     cutecom
-    direnv
     docker-compose
     esphome
     gaphor
     nix-direnv
     pgadmin4-desktopmode
     pkg-config
-    podman-compose
     sqlitebrowser
     wineWowPackages.waylandFull
 
@@ -40,9 +38,13 @@
     qalculate-gtk
 
     # System
+    acpi
     dconf
+    eza
+    immersed-vr
     inxi
     lm_sensors
+    nix-index
     fastfetch
     pavucontrol
 
@@ -55,13 +57,14 @@
     playerctl
     shntool
     sonixd
+    sox
 
     # Others
     coreutils-full
     filezilla
     gnome.seahorse
     gobject-introspection
-    libsForQt5.dolphin
+    cinnamon.nemo-with-extensions
     ncdu
     pinentry-qt
     pkg-config

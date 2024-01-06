@@ -76,5 +76,6 @@
             "commands": "platformio-ide.newTerminal"
         }
     ],
-    "C/C++ Include Guard.Spaces After Endif": 1
+    "C/C++ Include Guard.Spaces After Endif": 1,
+    "mesonbuild.downloadLanguageServer": true
 }

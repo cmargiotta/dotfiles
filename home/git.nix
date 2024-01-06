@@ -6,6 +6,11 @@
     delta.enable = true;
     ignores = [ "*~" ];
     userName = "Carmine Margiotta";
+    userEmail = "cmargiotta@posteo.net";
+    signing = {
+      signByDefault = true;
+      key = null;
+    };
     extraConfig = {
       github.user = "cmargiotta";
       init.defaultBranch = "development";
