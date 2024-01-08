@@ -17,6 +17,8 @@
       extraPackages32 = with pkgs.pkgsi686Linux; [
         libva
         qt6.qtwayland
+        vaapiVdpau
+        libvdpau-va-gl
         libsForQt5.qt5ct
         nvidia-vaapi-driver
       ];
@@ -25,6 +27,8 @@
         qt6.qtwayland
         libsForQt5.qt5ct
         nvidia-vaapi-driver
+        vaapiVdpau
+        libvdpau-va-gl
       ];
     };
 
@@ -32,7 +36,7 @@
       modesetting.enable = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta;
       powerManagement.enable = true;
-      open = true;
+      open = false;
       nvidiaSettings = true;
     };
 
@@ -94,6 +98,10 @@
     device = "/dev/disk/by-uuid/eb917002-8a95-40c5-ae1b-64545bf1e750";
     fsType = "ext4";
   };
+
+  environment.systemPackages = with pkgs; [
+    vulkan-tools
+  ];
 
   swapDevices = [ ];
 
