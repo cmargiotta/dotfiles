@@ -18,45 +18,50 @@
     zip
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1w"
+  ];
+
   nixpkgs.overlays = [
     (final: prev: {
       steam = prev.steam.override ({ extraPkgs ? pkgs': [ ], ... }: {
         extraPkgs = pkgs': (extraPkgs pkgs') ++ (with pkgs'; [
+          curl
           freetype
           gtk3
           gtk3-x11
           harfbuzz
+          keyutils
+          krb5
           libgdiplus
+          libidn2
+          libpsl
           libthai
           mono
+          nghttp2
+          openssl_1_1
           pango
+          rtmpdump
           zlib
         ]);
-
       });
     })
   ];
 
   programs = {
-    hyprland.enable = true;
-    steam = {
+    steam.enable = true;
+
+    gamemode = {
+      enable = true;
+      enableRenice = true;
+    };
+
+    hyprland = {
       enable = true;
     };
 
     dconf = {
       enable = true;
-      profiles = {
-        # A "user" profile with a database
-        user.databases = [
-          {
-            settings = { };
-          }
-        ];
-        # A "bar" profile from a package
-        bar = pkgs.bar-dconf-profile;
-        # A "foo" profile from a path
-        foo = ${./foo}
-      };
     };
   };
 }
