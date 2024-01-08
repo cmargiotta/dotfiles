@@ -9,7 +9,7 @@ monitor = $VERTICAL,  highres, 0x500,     1
 monitor = $VERTICAL, transform, 1
 
 # Autostart apps
-exec-once = steam
+exec-once = gamemoderun steam
 exec-once = telegram-desktop
 exec-once = discord
 exec-once = easyeffects
