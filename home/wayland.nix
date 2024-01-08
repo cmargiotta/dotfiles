@@ -5,6 +5,7 @@
     grimblast
     hyprland-protocols
     eww-wayland
+    libnotify
     libGL
     glmark2
     jq
@@ -16,6 +17,7 @@
     scratchpad
     swappy
     swww
+    pulseaudio
     wev
     wl-clipboard
     wlr-randr
