@@ -13,6 +13,8 @@
     enable = true;
   };
 
+  hardware.glasgow.enable = true;
+
   nixpkgs.config.allowUnfree = true;
 
   nix = {
