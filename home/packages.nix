@@ -7,9 +7,8 @@
     cutecom
     docker-compose
     esphome
-    gaphor
     nix-direnv
-    pgadmin4-desktopmode
+    # pgadmin4-desktopmode
     pkg-config
     sqlitebrowser
     wineWowPackages.waylandFull
@@ -38,7 +37,6 @@
     acpi
     dconf
     eza
-    immersed-vr
     inxi
     lm_sensors
     nix-index
