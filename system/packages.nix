@@ -3,11 +3,13 @@
   environment.systemPackages = with pkgs; [
     # Others
     busybox
+    duf
+    fd
     git
     glibcLocales
     gnome.gnome-keyring
     gnupg
-    htop
+    btop
     libsecret
     nano
     ntfs3g

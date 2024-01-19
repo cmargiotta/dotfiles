@@ -54,6 +54,7 @@
     enable = true;
 
     shellAbbrs = {
+      find = "fd";
       g = "git";
       l = "exa";
       la = "exa -a";
@@ -72,6 +73,7 @@
       fish_greeting = {
         body = ''
           fastfetch
+          duf --only local
           atuin init fish | source
         '';
       };
@@ -91,12 +93,12 @@
       fish_command_not_found = {
         body = ''
           source ~/.config/fish/functions/_lib.fish
-          if test (count (nix-locate --top-level --minimal --at-root --whole-name "/bin/$argv")) -ne 0
+          if test (count (nix-locate --top-level --minimal --at-root --whole-name "/bin/$argv[1]")) -ne 0
               function fish_mode_prompt; end # Remove mode indicator for prompt
-              read -n 1 -P $purple"?? nixpkgs has a match for /bin/"$argv". Use it? (y/N) "$resf reply
+              read -n 1 -P $purple"?? nixpkgs has a match for /bin/"$argv[1]". Use it? (y/N) "$resf reply
               if test $reply = y
-                set package (nix-locate --top-level --minimal --at-root --whole-name "/bin/$argv")
-                nix shell "nixpkgs#$package" -c $argv
+                set package (nix-locate --top-level --minimal --at-root --whole-name "/bin/$argv[1]")
+                nix shell "nixpkgs#$package" -c $argv[1]
               end
           else
               echo "$argv: command not found"
