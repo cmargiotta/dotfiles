@@ -99,6 +99,11 @@
     fsType = "ext4";
   };
 
+  fileSystems."/home/nychtelios/Downloads" = {
+    device = "/home/nychtelios/data/Downloads";
+    options = [ "bind" ];
+  };
+
   environment.systemPackages = with pkgs; [
     vulkan-tools
   ];
