@@ -13,6 +13,7 @@ exec-once = gamemoderun steam
 exec-once = telegram-desktop
 exec-once = discord
 exec-once = easyeffects
+exec-once = kitty --class=btop btop
 
 # Scripts
 exec-once = ~/.config/hypr/scripts/vertical-layout.sh
@@ -34,16 +35,17 @@ exec = sleep 3.5 && xrandr --output DP-4 --primary -s 3440x1440
 # Autoconnect bluetooth soundbar
 exec = sleep 5 && echo "connect 00:15:83:02:82:79" | bluetoothctl
 
-workspace = 1, monitor:$ULTRAWIDE, default:true
+workspace = 1, monitor:$ULTRAWIDE, default:true, layoutopt:orientation:top
 workspace = 9, monitor:$ULTRAWIDE
 workspace = 2, monitor:$VERTICAL, default:true
-workspace = 3, monitor:$UPPER, default:true
-workspace = 4, monitor:$UPPER
+workspace = name:, monitor:$UPPER, default:true
+workspace = name:, monitor:$UPPER
 
-windowrule = workspace 4, org.telegram.desktop
-windowrule = workspace 3, ^(steam)$
+windowrule = workspace name:, org.telegram.desktop
+windowrule = workspace name:, ^(steam)$
 windowrule = workspace 3, Discord
 windowrule = workspace 2, com.github.wwmm.easyeffects
+windowrule = workspace 2, ^(btop)$
 
 env = __GL_GSYNC_ALLOWED,1
 env = __GL_MaxFramesAllowed,1

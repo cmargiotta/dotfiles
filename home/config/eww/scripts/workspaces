@@ -2,7 +2,7 @@
 
 workspaces() {
   # Get workspaces for this monitor
-  echo `hyprctl workspaces -j`
+  echo `hyprctl workspaces -j | jq '[.[] | select(.name | test("special:") | not)] | sort_by(.id)'`
 }
 
 workspaces

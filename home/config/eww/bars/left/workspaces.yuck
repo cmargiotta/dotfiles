@@ -16,7 +16,7 @@
             (eventbox
                 :cursor "default"
                 :tooltip "Switch to workspace ${workspace.name}"
-                :onclick "hyprctl dispatch workspace ${workspace.id} > /dev/null"
+                :onclick "hyprctl dispatch workspace name:${workspace.name} > /dev/null"
                 (button
                     (label
                         :markup "${workspace.name}"
