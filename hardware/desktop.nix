@@ -52,6 +52,9 @@
           Enable = "Source,Sink,Media,Socket";
           PairableTimeout = 0;
           FastConnectable = true;
+          JustWorksRepairing = "always";
+          ControllerMode = "dual";
+          Privacy = "device";
         };
 
         Policy = {
