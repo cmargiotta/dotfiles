@@ -61,7 +61,6 @@
     enable = true;
     iconTheme = {
       name = "Papirus";
-      size = "60";
       package = pkgs.papirus-icon-theme;
     };
     settings = {
@@ -92,7 +91,7 @@
         font = "Hack Nerd Font 11";
         line_height = 0;
         markup = "full";
-        format = "<b>%a</b>\n%s";
+        format = "<b>%s</b>\\n%b";
         alignment = "left";
         vertical_alignment = "center";
         show_age_threshold = 120;
@@ -116,8 +115,8 @@
 
         # Mouse
         mouse_left_click = "do_action, close_current";
-        mouse_middle_click = "close_current";
-        mouse_right_click = "close_all";
+        mouse_middle_click = "context, close_currentn";
+        mouse_right_click = "close_current";
       };
 
       experimental = {
