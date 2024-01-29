@@ -90,6 +90,11 @@
     };
   };
 
+  boot.kernel.sysctl."net.core.wmem_max" = 12582912;
+  boot.kernel.sysctl."net.core.rmem_max" = 12582912;
+  boot.kernel.sysctl."net.ipv4.tcp_rmem" = "10240 87380 12582912";
+  boot.kernel.sysctl."net.ipv4.tcp_wmem" = "10240 87380 12582912";
+
   networking = {
     networkmanager = {
       enable = true;
