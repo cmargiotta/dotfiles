@@ -71,11 +71,8 @@
   ] ++ [
     # Python with packages
     (pkgs.python311Full.withPackages (ps: with ps; [
-      dbus-python
-      mpd2
       pygobject3
       requests
-      virtualenv
     ]))
   ];
 }
