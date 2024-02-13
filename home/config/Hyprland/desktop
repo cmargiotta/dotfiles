@@ -30,7 +30,7 @@ exec = eww open workspace_dock_0
 exec = eww open workspace_dock_2
 
 # Select primary screen
-exec = sleep 3.5 && xrandr --output DP-4 --primary -s 3440x1440
+exec = sleep 3.5 && xrandr --output DP-2 --primary -s 3440x1440 && xrandr --output DP-4 --primary -s 3440x1440
 
 # Autoconnect bluetooth soundbar
 exec = sleep 5 && echo "connect 00:15:83:02:82:79" | bluetoothctl
@@ -56,4 +56,4 @@ env = GBM_BACKEND,nvidia-drm
 env = NVD_BACKEND,direct
 env = PROTON_ENABLE_NGX_UPDATER,1
 env = WLR_NO_HARDWARE_CURSORS,1
-env = WLR_USE_LIBINPUT,1
+env = WLR_USE_LIBINPUT,0
