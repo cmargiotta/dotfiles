@@ -97,14 +97,9 @@
     fsType = "vfat";
   };
 
-  fileSystems."/home/nychtelios/data" = {
+  fileSystems."/home/nychtelios" = {
     device = "/dev/disk/by-uuid/eb917002-8a95-40c5-ae1b-64545bf1e750";
     fsType = "ext4";
-  };
-
-  fileSystems."/home/nychtelios/Downloads" = {
-    device = "/home/nychtelios/data/Downloads";
-    options = [ "bind" ];
   };
 
   environment.systemPackages = with pkgs; [
