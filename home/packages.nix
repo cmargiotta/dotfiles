@@ -12,6 +12,7 @@
     pkg-config
     sqlitebrowser
     wineWowPackages.waylandFull
+    winetricks
 
     # Editors
     lapce
@@ -54,6 +55,10 @@
     sonixd
     sox
 
+    # 3D printing
+    prusa-slicer
+    openscad
+
     # Others
     coreutils-full
     filezilla
@@ -63,7 +68,6 @@
     ncdu
     pinentry-qt
     pkg-config
-    prusa-slicer
     qt5.qtbase
     rnix-lsp
     xorg.xeyes
