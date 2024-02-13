@@ -163,13 +163,13 @@ env = GDK_BACKEND,wayland,x11
 env = MOZ_ENABLE_WAYLAND, 1
 env = MOZ_DISABLE_RDD_SANDBOX,1
 env = _JAVA_AWT_WM_NONREPARENTING=1
-# env = NIXOS_OZONE_WL, 1
-# env = QT_QPA_PLATFORM, wayland;xcb
+env = NIXOS_OZONE_WL, 1
+env = QT_QPA_PLATFORM, wayland;xcb
 env = QT_AUTO_SCREEN_SCALE_FACTOR,1
 env = QT_QPA_PLATFORMTHEME, qt5ct
 env = SDL_VIDEODRIVER, wayland
 env = XDG_SESSION_TYPE, wayland
-# env = WLR_DRM_NO_ATOMIC,1
+env = WLR_DRM_NO_ATOMIC,1
 # env = STEAM_USE_DYNAMIC_VRS, 1
 # env = WINEDLLOVERRIDES, "dxgi=n"
 # env = STEAMOS_STEAM_REBOOT_SENTINEL, "/tmp/steamos-reboot-sentinel"
