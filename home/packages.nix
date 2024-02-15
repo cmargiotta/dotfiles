@@ -25,6 +25,7 @@
     mqttui
     nextcloud-client
     slack
+    freetube
     tdesktop
     tor-browser-bundle-bin
 
