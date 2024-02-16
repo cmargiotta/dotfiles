@@ -34,7 +34,7 @@
     "terminal.external.linuxExec": "kitty",
     "update.mode": "none",
     "window.titleBarStyle": "custom",
-    "workbench.colorTheme": "Cyberpunk",
+    "workbench.colorTheme": "2077",
     "extensions.autoCheckUpdates": false,
     "platformio-ide.autoPreloadEnvTasks": true,
     "platformio-ide.disablePIOHomeStartup": true,

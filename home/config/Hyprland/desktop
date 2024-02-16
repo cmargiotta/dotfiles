@@ -18,12 +18,6 @@ exec-once = kitty --class=btop btop
 # Scripts
 exec-once = ~/.config/hypr/scripts/vertical-layout.sh
 
-# Wallpapers
-exec = sleep 3.5 && swww img -o HDMI-A-1 ~/.wallpapers/vert.png
-exec = sleep 3.5 && swww img -o HDMI-A-2 ~/.wallpapers/vert.png
-exec = sleep 3.5 && swww img -o DP-4 ~/.wallpapers/ultrawide.jpg
-exec = sleep 3.5 && swww img -o DP-5 ~/.wallpapers/upper.jpg
-
 # EWW
 exec = eww open bar
 exec = eww open workspace_dock_0

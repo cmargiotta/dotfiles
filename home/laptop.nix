@@ -16,6 +16,12 @@
     target = ".ssh/id_ed25519";
   };
 
+  home.file.hyprpaper = {
+    source = ./config/Hyprland/hyprpaper/laptop;
+    target = ".config/hypr/hyprpaper.conf";
+    recursive = true;
+  };
+
   home.packages = with pkgs; [
     brightnessctl
   ];

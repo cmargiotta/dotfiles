@@ -16,6 +16,12 @@
     target = ".ssh/id_ed25519";
   };
 
+  home.file.hyprpaper = {
+    source = ./config/Hyprland/hyprpaper/desktop;
+    target = ".config/hypr/hyprpaper.conf";
+    recursive = true;
+  };
+
   wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/common) + "\n" + (builtins.readFile ./config/Hyprland/desktop);
 
   home.sessionVariables = {

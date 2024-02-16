@@ -8,6 +8,7 @@
     libnotify
     libGL
     glmark2
+    hyprpaper
     jq
     font-awesome
     nwg-look
@@ -16,7 +17,6 @@
     slurp
     scratchpad
     swappy
-    swww
     pulseaudio
     wev
     wl-clipboard
