@@ -1,0 +1,5 @@
+preload = ~/.wallpapers/wallpaper.jpg
+
+wallpaper = monitor,~/.wallpapers/wallpaper.jpg
+
+splash = true
