@@ -160,6 +160,7 @@ windowrulev2   = immediate,   workspace: 9
 
 windowrulev2 = float,class:^(steam)$,title:^(Lista amici)(.*)$
 windowrulev2 = size 391 1225,class:^(steam)$,title:^(Lista amici)$
+windowrulev2 = noinitialfocus, title:(^notificationtoasts.*)
 
 env = _JAVA_AWT_WM_NONREPARENTING
 env = CLUTTER_BACKEND,wayland
