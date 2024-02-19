@@ -9,7 +9,7 @@
     },
     "clangd.checkUpdates": false,
     "editor.find.autoFindInSelection": "never",
-    "editor.fontFamily": "Fira Code",
+    "editor.fontFamily": "Hack Nerd Font",
     "editor.fontLigatures": true,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,

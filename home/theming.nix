@@ -4,19 +4,12 @@
 
   home.packages = with pkgs; [
     cabin
+    cascadia-code
     dejavu_fonts
     fira
-    fira-code
+    nerdfonts
     font-manager
-    iosevka
     symbola
-
-    (nerdfonts.override {
-      fonts = [
-        "Monoid"
-        "Hack"
-      ];
-    })
   ];
 
   home.pointerCursor = {

@@ -35,10 +35,10 @@
   :stacking "fg"
   :exclusive true
   :namespace "bar"
-  :monitor 0
+  :monitor 1
   :focusable false
   (main_bar_laptop
-    :monitor 0
+    :monitor 1
   ))
 
 (defwindow workspace_dock_0

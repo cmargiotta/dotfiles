@@ -32,17 +32,16 @@
       extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
       extraPackages = with pkgs; [
         intel-media-driver # LIBVA_DRIVER_NAME=iHD
-        vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+        vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
         vaapiVdpau
         libvdpau-va-gl
-     ];
+      ];
     };
 
     pulseaudio.support32Bit = true;
 
     bluetooth = {
       enable = true;
-      powerOnBoot = false;
     };
   };
 
@@ -64,8 +63,8 @@
   networking.useDHCP = lib.mkDefault true;
 
   services.xserver = {
-      enable = true;
-    };
+    enable = true;
+  };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";

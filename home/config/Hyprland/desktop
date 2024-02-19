@@ -33,10 +33,10 @@ workspace = 1, monitor:$ULTRAWIDE, default:true
 workspace = 9, monitor:$ULTRAWIDE
 workspace = 2, monitor:$VERTICAL, default:true, layoutopt:orientation:top
 workspace = name:, monitor:$UPPER, default:true
-workspace = name:, monitor:$UPPER
+workspace = name:, monitor:$UPPER
+workspace = name:󰗃, monitor:$UPPER
+workspace = name:󰝚, monitor:$UPPER
 
-windowrule = workspace name:, org.telegram.desktop
-windowrule = workspace name:, ^(steam)$
 windowrule = workspace 3, Discord
 windowrule = workspace 2, com.github.wwmm.easyeffects
 windowrule = workspace 2, ^(btop)$
