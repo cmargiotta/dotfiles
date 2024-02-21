@@ -27,7 +27,7 @@
         (ram_status)
         (temperature_status)
         (disk_status :disk "/")
-        (disk_status :disk "/home/nychtelios/data")
+        (disk_status :disk "/home/nychtelios")
         ))))
 
 (defwidget widgets_center_laptop []

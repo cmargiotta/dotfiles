@@ -9,10 +9,7 @@
         :orientation "h"
         :spacing 5
         :space-evenly "false"
-        (label
-            :text monitors
-            :visible false)
-        (for workspace in "${jq ("${active_workspaces}", "[.[] | select(.monitorID == ${monitor})]")}"
+        (for workspace in "${jq (active_workspaces, "[.[] | select(.monitorID == ${monitor})]")}"
             (eventbox
                 :cursor "default"
                 :tooltip "Switch to workspace ${workspace.name}"
