@@ -1,10 +1,12 @@
 { config, pkgs, nixpkgs, eww, unstable, ... }:
+let
+  eww = pkgs.callPackage ./eww.nix { };
+in
 {
   home.packages = with pkgs; [
     arandr
     grimblast
     hyprland-protocols
-    eww-wayland
     libnotify
     libGL
     glmark2
@@ -21,7 +23,7 @@
     wev
     wl-clipboard
     wlr-randr
-  ];
+  ] ++ [ eww ];
 
   home.file.wofi = {
     source = ./config/rofi;

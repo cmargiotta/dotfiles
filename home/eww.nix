@@ -25,9 +25,7 @@ rustPlatform.buildRustPackage rec {
 
   nativeBuildInputs = [ pkg-config wrapGAppsHook ];
 
-  buildInputs = [ gtk3 librsvg ] ++ lib.optional withWayland gtk-layer-shell;
-
-  buildNoDefaultFeatures = true;
+  buildInputs = [ gtk3 librsvg gtk-layer-shell ];
 
   cargoBuildFlags = [ "--bin" "eww" ];
 
