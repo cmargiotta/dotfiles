@@ -7,6 +7,7 @@
     cascadia-code
     dejavu_fonts
     fira
+    fira-code
     nerdfonts
     font-manager
     symbola
