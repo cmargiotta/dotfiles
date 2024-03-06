@@ -20,6 +20,7 @@ in
     scratchpad
     swappy
     pulseaudio
+    waypipe
     wev
     wl-clipboard
     wlr-randr
