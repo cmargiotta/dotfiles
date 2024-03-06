@@ -1,18 +1,39 @@
-{ pkgs ? import <nixpkgs> { } }:
-with pkgs;
+{ stdenv
+, lib
+, fetchzip
+, alsa-lib
+, autoPatchelfHook
+, gst_all_1
+, libpulseaudio
+, qtbase
+, pkgs
+, openssl_1_1
+}:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "chitubox";
+  version = "1.9.5";
 
-  version = "1.7.0";
-
-  src = builtins.fetchTarball {
-    url = "https://sac.chitubox.com/software/download.do?softwareId=17839&softwareVersionId=v${version}&fileName=CHITUBOX_V${version}.tar.gz";
-    sha256 = "0di0d3hg7jy2c63isdv50c3qsff9vk2x0305jjdqy8xpy62mh9dq";
+  src = fetchzip {
+    url = "https://sac.chitubox.com/software/download.do?softwareId=17839&softwareVersionId=v${finalAttrs.version}&fileName=CHITUBOX_V${finalAttrs.version}.tar.gz";
+    stripRoot = false;
+    hash = "sha256-eTg6C4lnOwACbt7V5uTXpQWE1iIUyhdg4VyCJUtSn8E=";
   };
-  nativeBuildInputs = [ autoPatchelfHook ];
 
-  buildInputs = [ stdenv.cc.cc.lib libglvnd libgcrypt zlib glib fontconfig freetype libdrm ];
+  #dontStrip = true;
+
+  nativeBuildInputs = [
+    autoPatchelfHook
+  ];
+
+  runtimeDependencies = [ "/nix/store/3cvbzm2qviq00h97cmc9234ikwiyw5r2-openssl-1.1.1v/lib "];
+
+  buildInputs = [
+    alsa-lib
+    gst_all_1.gst-plugins-base
+    libpulseaudio
+    pkgs.makeWrapper
+  ] ++ qtbase.buildInputs ++ qtbase.propagatedBuildInputs;
 
   buildPhase = ''
     mkdir -p bin
@@ -22,8 +43,8 @@ stdenv.mkDerivation rec {
     rm AppRun
 
     # Place resources where ChiTuBox can expect to find them
-    mkdir ChiTuBox
-    mv resource ChiTuBox/
+    mkdir chitubox
+    mv resource chitubox/
 
     # Configure Qt paths
     cat << EOF > bin/qt.conf
@@ -38,6 +59,10 @@ stdenv.mkDerivation rec {
   installPhase = ''
     mkdir -p $out
     mv * $out/
+
+    wrapProgram $out/bin/chitubox \
+      --unset QT_PLUGIN_PATH \
+      --unset QML2_IMPORT_PATH
   '';
 
   meta = {
@@ -48,5 +73,6 @@ stdenv.mkDerivation rec {
       shortName = "ChiTuBox";
       url = "https://www.chitubox.com";
     };
+		platforms = [ "x86_64-linux" ];
   };
-}
+})
