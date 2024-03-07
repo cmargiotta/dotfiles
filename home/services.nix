@@ -11,5 +11,6 @@
       };
 
     poweralertd.enable = true;
+    kdeconnect.enable = true;
   };
 }
