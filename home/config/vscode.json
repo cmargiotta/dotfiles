@@ -12,7 +12,6 @@
     "editor.fontFamily": "'Fira Code'",
     "editor.fontLigatures": true,
     "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.inlayHints.enabled": false,
     "explorer.confirmDragAndDrop": false,
@@ -77,5 +76,6 @@
     ],
     "C/C++ Include Guard.Spaces After Endif": 1,
     "mesonbuild.downloadLanguageServer": true,
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
+    "editor.formatOnSave": true
 }
