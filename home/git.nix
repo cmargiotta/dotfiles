@@ -4,6 +4,7 @@
   programs.git = {
     enable = true;
     delta.enable = true;
+    lfs.enable = true;
     ignores = [ "*~" ];
     userName = "Carmine Margiotta";
     userEmail = "cmargiotta@posteo.net";
