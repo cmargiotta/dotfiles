@@ -71,10 +71,10 @@ in
     gobject-introspection
     cinnamon.nemo-with-extensions
     ncdu
-    pinentry-qt
+    nil
+    pinentry-all
     pkg-config
     qt5.qtbase
-    rnix-lsp
     xorg.xeyes
     xorg.xrandr
   ] ++ [

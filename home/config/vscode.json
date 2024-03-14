@@ -77,5 +77,6 @@
     "C/C++ Include Guard.Spaces After Endif": 1,
     "mesonbuild.downloadLanguageServer": true,
     "window.zoomLevel": 1,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "nix.serverPath": "nil"
 }
