@@ -7,6 +7,7 @@
     gnome.gnome-keyring.enable = true;
     blueman.enable = true;
     upower.enable = true;
+    avahi.enable = true;
 
     dbus.packages = [ pkgs.gcr ];
 
