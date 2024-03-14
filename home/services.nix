@@ -4,8 +4,10 @@
     gpg-agent =
       {
         enable = true;
-        enableZshIntegration = true;
-        pinentryFlavor = "qt";
+        enableFishIntegration = true;
+        enableExtraSocket = true;
+        grabKeyboardAndMouse = true;
+        pinentryPackage = pkgs.pinentry-gnome3;
         maxCacheTtl = 28800;
         defaultCacheTtl = 28800;
       };
