@@ -1,7 +1,4 @@
 { config, lib, pkgs, unstable, nur, iceberg, fenix, ... }:
-let
-  chitubox = pkgs.libsForQt5.callPackage ./chitubox.nix { };
-in
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -62,7 +59,6 @@ in
     # 3D printing
     prusa-slicer
     openscad
-    chitubox
 
     # Others
     coreutils-full
@@ -83,7 +79,5 @@ in
       pygobject3
       requests
     ]))
-  ] ++ [
-    chitubox
   ];
 }

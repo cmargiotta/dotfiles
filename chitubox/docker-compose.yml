@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  chitubox:
+    privileged: true
+    environment:
+      - XDG_RUNTIME_DIR=/tmp
+      - DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /home/nychtelios:/mnt:rw
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name:  chitubox

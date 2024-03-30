@@ -18,5 +18,13 @@
       icon = "prusa-slicer %U";
       exec = "LC_ALL=C prusa-slicer";
     };
+
+    chitubox = {
+      name = "Chitubox";
+      comment = "A Revolutionary Tool to Change 3D Printing Processes within One Click";
+      terminal = false;
+      exec = "${config.home.homeDirectory}/dotfiles/chitubox/run.sh";
+      icon = ../chitubox/icon.png;
+    };
   };
 }

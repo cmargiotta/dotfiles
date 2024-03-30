@@ -22,6 +22,7 @@
     wev
     wl-clipboard
     wlr-randr
+    xorg.xhost
   ];
 
   home.file.wofi = {
