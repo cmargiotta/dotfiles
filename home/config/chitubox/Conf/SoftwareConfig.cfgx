@@ -1,0 +1,1198 @@
+visible: true
+setting_appearance_config:
+  visible: true
+  theme:
+    type: combobox
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    valuelist:
+      - 0
+      - 1
+      - 2
+    showlist:
+      - Dark theme
+      - Light theme
+      - Classic theme
+  model_cut_mode:
+    type: combobox
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 1
+    valuelist:
+      - 0
+      - 1
+      - 2
+    showlist:
+      - Hatch mode
+      - Pixel mode
+      - None
+  color_mode:
+    type: combobox
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    valuelist:
+      - Sky blue
+      - Fish Caviar Red
+    showlist:
+      - Sky blue
+      - Fish Caviar Red
+  ratio:
+    type: int
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 100
+    defaultvalue: 100
+    maxvalue: 200
+    minvalue: 100
+    maxalarmvalue: 150
+    minalarmvalue: 100
+    stepvalue: 1
+    unit: "%"
+  grid_width:
+    type: float
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 8
+    defaultvalue: 8
+    maxvalue: 10
+    minvalue: 0.02
+    maxalarmvalue: 10
+    minalarmvalue: 0
+    stepvalue: 0.01
+    unit: mm
+setting_file_config:
+  visible: true
+  file_dialog_folder: /opt/CBD/CHITUBOX_Basic/bin
+  slice_preview_which:
+    type: combobox
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    valuelist:
+      - 0
+      - 1
+      - 2
+    showlist:
+      - Place view
+      - Home view
+      - Front view
+  auto_save_interval:
+    type: int
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 5
+    defaultvalue: 5
+    maxvalue: 10
+    minvalue: 1
+    maxalarmvalue: 10
+    minalarmvalue: 1
+    stepvalue: 1
+    unit: minute
+  auto_save_folder:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: /root/.local/share/chitubox2_0/AutoSave
+    defaultvalue: /root/.local/share/chitubox2_0/AutoSave
+  model_rename:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  copy_model:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  hollow_model:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  repair_model:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  mirror_model:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  project_name_rule:
+    type: combobox
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    valuelist:
+      - 0
+    showlist:
+      - Append Model Filename Sequentially
+      - None
+  slice_name_rule:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  slice_rule_model_name:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  slice_rule_model_name_rule:
+    type: combobox
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    valuelist:
+      - 0
+      - 1
+    showlist:
+      - First model name
+      - Model name order add
+  slice_rule_machine_name:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+  slice_rule_resin_name:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+  slice_rule_volume:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+  slice_rule_print_time:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+  slice_rule_print_layer:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+  slice_rule_layer_height:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  slice_rule_exposure_time:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  slice_rule_software_name:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+  slice_rule_software_version:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+  slice_rule_save_year:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  slice_rule_save_month:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  slice_rule_save_day:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  slice_rule_save_hour_minutes:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  repeat_name_replace:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  repeat_name_replace_format:
+    type: combobox
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    valuelist:
+      - "{f}_{nnn:0:1}"
+    showlist:
+      - "{f}_{nnn:0:1}"
+  char_replace:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  char_replace_less:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: _
+    defaultvalue: _
+  char_replace_greater:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: _
+    defaultvalue: _
+  char_replace_colon:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: _
+    defaultvalue: _
+  char_replace_double_quotation:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: _
+    defaultvalue: _
+  char_replace_backslash:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: _
+    defaultvalue: _
+  char_replace_slash:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: _
+    defaultvalue: _
+  char_replace_vertical_bar:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: _
+    defaultvalue: _
+  char_replace_asterisk:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: _
+    defaultvalue: _
+  char_replace_question:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: _
+    defaultvalue: _
+  char_replace_single_quotation:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: _
+    defaultvalue: _
+  custom_char_replace:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  custom_char_replace_one_first:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: ""
+    defaultvalue: ""
+  custom_char_replace_one_second:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: ""
+    defaultvalue: ""
+  custom_char_replace_two_first:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: ""
+    defaultvalue: ""
+  custom_char_replace_two_second:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: ""
+    defaultvalue: ""
+  custom_char_replace_three_first:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: ""
+    defaultvalue: ""
+  custom_char_replace_three_second:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: ""
+    defaultvalue: ""
+  custom_char_replace_four_first:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: ""
+    defaultvalue: ""
+  custom_char_replace_four_second:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: ""
+    defaultvalue: ""
+setting_system_config:
+  visible: true
+  operator_count:
+    type: int
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 20
+    defaultvalue: 20
+    maxvalue: 100
+    minvalue: 8
+    maxalarmvalue: 100
+    minalarmvalue: 0
+    stepvalue: 1
+    unit: numbers
+  memory_use:
+    type: int
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    maxvalue: 16332
+    minvalue: 0
+    maxalarmvalue: 16332
+    minalarmvalue: 0
+    stepvalue: 1
+    unit: ""
+  graphics_card_compatible:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  graphic_quality:
+    type: combobox
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    valuelist:
+      - 1
+      - 2
+      - 3
+      - 4
+    showlist:
+      - 1
+      - 2
+      - 3
+      - 4
+  render_engine:
+    type: combobox
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    valuelist:
+      - 0
+    showlist:
+      - OpenGL
+  language:
+    type: combobox
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 2
+    defaultvalue: 2
+    valuelist:
+      - zh_CN
+      - zh_TW
+      - en
+      - de
+      - es
+      - fi
+      - fr
+      - hu
+      - it
+      - jp
+      - ko
+      - nl
+      - pl
+      - ptbr
+      - ru
+      - tr
+      - ar
+      - gr
+      - cz
+    showlist:
+      - 简体中文/Simplified Chinese
+      - 繁體中文/Traditional Chinese
+      - English
+      - Deutsch/German
+      - español/Spanish
+      - Suomi/Finland
+      - Français/French
+      - A magyar/Hungarian
+      - Italiano/Italian
+      - 日本語/Japanese
+      - 한국어/Korean
+      - Nederlands/Holland
+      - Polski/Poland
+      - Português/Portuguese
+      - русский/Russian
+      - Türk dili/Turkish
+      - العربية/Arabic
+      - Ελλάδα/Greek
+      - Česká republika/Czech Republic
+  resource_update:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+setting_function_config:
+  visible: true
+  slice_calcu_volume:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  support_hidden_angle:
+    type: float
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 45
+    defaultvalue: 45
+    maxvalue: 90
+    minvalue: 0
+    maxalarmvalue: 90
+    minalarmvalue: 0
+    stepvalue: 1
+    unit: ""
+    decimal: 0
+  desktop_thumbnail_preview:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  enhanced_automatic_support:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  support_in_shell_enable:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  print_estimation_prompt:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  colision_bottom_overlap:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  support_model_auto_place:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+  image_tooltip_enable:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  support_realtime_enable:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  supprt_show_support_guide_line:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+screen_shot_config:
+  duration:
+    type: float
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 60
+    defaultvalue: 60
+    maxvalue: 5000
+    minvalue: 0.1
+    maxalarmvalue: 5000
+    minalarmvalue: 1
+    stepvalue: 1
+    unit: s
+    decimal: 1
+  frame_rate:
+    type: float
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 20
+    defaultvalue: 20
+    maxvalue: 120
+    minvalue: 10
+    maxalarmvalue: 120
+    minalarmvalue: 10
+    stepvalue: 5
+    unit: fps
+    decimal: 0
+  watermark:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+copy_config:
+  number:
+    type: float
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 1
+    defaultvalue: 1
+    maxvalue: 5000
+    minvalue: 1
+    maxalarmvalue: 5000
+    minalarmvalue: 1
+    stepvalue: 1
+auto_layout_config:
+  layout_type:
+    type: combobox
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    valuelist:
+      - 0
+      - 1
+    showlist:
+      - Layout All
+      - Layout Selected
+  minimum_range:
+    type: float
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 5
+    defaultvalue: 5
+    maxvalue: 5000
+    minvalue: 0.5
+    maxalarmvalue: 5000
+    minalarmvalue: 0.49
+    stepvalue: 0.5
+    unit: mm
+    decimal: 2
+hollow_config:
+  hollow_mode:
+    type: combobox
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    valuelist:
+      - 0
+      - 1
+    showlist:
+      - Hollow Out
+      - Peel
+  wall_thickness:
+    type: float
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 1.20
+    defaultvalue: 1.20
+    maxvalue: 5000
+    minvalue: 0.1
+    maxalarmvalue: 5000
+    minalarmvalue: 0.3
+    stepvalue: 0.5
+    unit: mm
+    decimal: 2
+  accuracy:
+    type: float
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0.2
+    defaultvalue: 0.2
+    maxvalue: 1
+    minvalue: 0
+    maxalarmvalue: 1
+    minalarmvalue: 0.1
+    stepvalue: 0.1
+    decimal: 1
+  filled_structure:
+    type: combobox
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    valuelist:
+      - 0
+    showlist:
+      - None
+      - Cross 3D
+  filling_density:
+    type: float
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 30
+    defaultvalue: 30
+    maxvalue: 100
+    minvalue: 0
+    maxalarmvalue: 100
+    minalarmvalue: 0
+    stepvalue: 10
+    unit: "%"
+    decimal: 0
+  hollow_out_process_animation:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+dighole_config:
+  shape:
+    type: combobox
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    valuelist:
+      - 0
+      - 1
+      - 2
+    showlist:
+      - Circular
+      - Hexagon
+      - Square
+  digHole_sidenum:
+    type: combobox
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    valuelist:
+      - 0
+      - 1
+      - 2
+    showlist:
+      - 50
+      - 6
+      - 4
+  diameter:
+    type: flaot
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 3
+    defaultvalue: 3
+    maxvalue: 5000
+    minvalue: 0.1
+    maxalarmvalue: 5000
+    minalarmvalue: 1
+    stepvalue: 0.5
+    unit: mm
+    decimal: 2
+  depth:
+    type: flaot
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 8
+    defaultvalue: 8
+    maxvalue: 5000
+    minvalue: 0.1
+    maxalarmvalue: 5000
+    minalarmvalue: 0.1
+    stepvalue: 0.5
+    unit: mm
+    decimal: 1
+  perpendicular_to:
+    type: combobox
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    valuelist:
+      - 0
+      - 1
+    showlist:
+      - Model
+      - Screen
+  retaining_plie:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+extra_config:
+  visible: true
+  zliftheightinsupportmode:
+    type: double
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 5
+    defaultvalue: 5
+    maxvalue: 300
+    minvalue: 0
+    maxalarmvalue: 300
+    minalarmvalue: 0
+    stepvalue: 0.1
+    unit: ""
+    decimal: 3
+  pointer:
+    type: int
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    maxvalue: 5000
+    minvalue: -5000
+    maxalarmvalue: 5000
+    minalarmvalue: -5000
+    stepvalue: 1
+    unit: ""
+  view_control:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+  cavity_detection:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  collision_Detect:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  auto_support_mode:
+    type: combobox
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    valuelist:
+      - 0
+      - 1
+    showlist:
+      - +All
+      - +Platform
+  dangling_win_state:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+  detection_accuary:
+    type: int
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 1
+    defaultvalue: 1
+    maxvalue: 5000
+    minvalue: -5000
+    maxalarmvalue: 5000
+    minalarmvalue: -5000
+    stepvalue: 1
+    unit: ""
+  collect_data:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  zliftheightinsupportmode:
+    type: double
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 5
+    defaultvalue: 5
+    maxvalue: 5000
+    minvalue: 0
+    maxalarmvalue: 5000
+    minalarmvalue: 0
+    stepvalue: 0.5
+    decimal: 2
+    unit: ""
+  support_win_state:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+  support_mode_select:
+    type: int
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 0
+    defaultvalue: 0
+    maxvalue: 5000
+    minvalue: -5000
+    maxalarmvalue: 5000
+    minalarmvalue: -5000
+    stepvalue: 1
+    unit: ""
+  account_is_login:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+  account_info:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: ""
+    defaultvalue: ""
+  account_head_portrait:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: ""
+    defaultvalue: ""
+  account_passwd:
+    type: string
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: ""
+    defaultvalue: ""
+  slice_generate_model_remember:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+  slice_generate_model:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+  right_action_bar:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  support_advance_setting_foldflag:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+  support_advance_setting_win_visible:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: true
+    defaultvalue: true
+  support_advance_setting_win_extraflag:
+    type: bool
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: false
+    defaultvalue: false
+  slice_profile_show_width:
+    type: int
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 300
+    defaultvalue: 300
+    maxvalue: 1050
+    minvalue: 300
+    maxalarmvalue: 1050
+    minalarmvalue: 300
+    stepvalue: 1
+    unit: ""
+  file_list_bottom_width:
+    type: int
+    showname: ""
+    tooltip: ""
+    visible: true
+    enable: true
+    currentvalue: 220
+    defaultvalue: 580
+    maxvalue: 800
+    minvalue: 80
+    maxalarmvalue: 800
+    minalarmvalue: 80
+    stepvalue: 1
+    unit: ""

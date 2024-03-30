@@ -1,0 +1,5 @@
+current: 0
+root:
+  - type: DefaultItem
+    group: ELEGOO/
+    machine_model: ELEGOO Saturn 3 Ultra

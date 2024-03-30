@@ -1,0 +1,7 @@
+current: 0
+root:
+  - type: DefaultItem
+    dir: ELEGOO/
+    machine_model: ELEGOO Saturn 3 Ultra
+    show_name: ELEGOO Saturn 3 Ultra
+    config_path: fd7b5ab4-3321-4a65-a4c7-ad1d18de7611.cfgx
