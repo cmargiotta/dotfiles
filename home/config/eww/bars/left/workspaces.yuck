@@ -1,15 +1,20 @@
-(deflisten active_workspaces "scripts/workspaces")
+(deflisten workspaces "scripts/workspaces")
+(deflisten active_workspaces "scripts/active_workspaces")
 
 (defwidget workspaces [monitor]
     (box
       :orientation "h"
       :halign "start"
       :class "workspaces"
+      (label
+        :visible "false"
+        :text "${active_workspaces}"
+      )
       (box
         :orientation "h"
         :spacing 5
         :space-evenly "false"
-        (for workspace in "${jq (active_workspaces, "[.[] | select(.monitorID == ${monitor})]")}"
+        (for workspace in "${jq (workspaces, "[.[] | select(.monitorID == ${monitor})]")}"
             (eventbox
                 :cursor "default"
                 :tooltip "Switch to workspace ${workspace.name}"
@@ -17,5 +22,5 @@
                 (button
                     (label
                         :markup "${workspace.name}"
-                        :class "${jq ("${monitors}", ".[] | select(.id == ${monitor}) | .activeWorkspace.id") == "${workspace.id}" ? 'active_workspace_button' : 'workspace_button'}")))))
+                        :class "${jq ("${active_workspaces}", "select(.monitorID == ${monitor}) | .id") == "${workspace.id}" ? 'active_workspace_button' : 'workspace_button'}")))))
       ))

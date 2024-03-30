@@ -1,6 +1,5 @@
 (include "_env.yuck")
 (include "_lib.yuck")
-(deflisten monitors "scripts/monitors")
 
 (include "bars/left.yuck")
 (include "bars/center.yuck")
