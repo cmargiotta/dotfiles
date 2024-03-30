@@ -2,7 +2,7 @@
 
 workspace() {
   # Get active workspace for this monitor
-  echo `hyprctl monitors -j`
+  echo `hyprctl activeworkspace -j`
 }
 
 workspace
