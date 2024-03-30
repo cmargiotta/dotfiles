@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports = [
     ./firefox.nix
@@ -21,6 +21,14 @@
     monetary = "it_IT.UTF-8";
     telephone = "it_IT.UTF-8";
     time = "it_IT.UTF-8";
+  };
+
+  home.activation = {
+    linkConfigFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      run ln -sf ${builtins.toPath ./config/PrusaSlicer} $HOME/.config/
+      run ln -sf ${builtins.toPath ./config/easyeffects} $HOME/.config/
+      run ln -sf ${builtins.toPath ./config/vscode.json} $HOME/.config/Code/User/
+    '';
   };
 
   home.enableNixpkgsReleaseCheck = true;

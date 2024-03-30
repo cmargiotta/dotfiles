@@ -63,35 +63,6 @@
 
   networking.firewall.enable = false;
 
-  system.userActivationScripts = {
-    linkPrusaSlicerConfig = {
-      text = ''
-        rm -r /home/nychtelios/.config/PrusaSlicer || true
-        ln -s /home/nychtelios/dotfiles/home/config/PrusaSlicer /home/nychtelios/.config/PrusaSlicer
-      '';
-    };
-
-    linkEasyEffectsConfig = {
-      text = ''
-        rm /home/nychtelios/.config/easyeffects -r || true
-        ln -s /home/nychtelios/dotfiles/home/config/easyeffects /home/nychtelios/.config/easyeffects
-      '';
-    };
-
-    linkVSCodeConfig = {
-      text = ''
-        rm /home/nychtelios/.config/Code/User/settings.json || true
-        ln -s /home/nychtelios/dotfiles/home/config/vscode.json /home/nychtelios/.config/Code/User/settings.json
-      '';
-    };
-
-    linkFishFunctions = {
-      text = ''
-        ln -sf /home/nychtelios/dotfiles/home/config/fish/functions/* /home/nychtelios/.config/fish/functions/
-      '';
-    };
-  };
-
   boot.kernel.sysctl."net.core.wmem_max" = 12582912;
   boot.kernel.sysctl."net.core.rmem_max" = 12582912;
   boot.kernel.sysctl."net.ipv4.tcp_rmem" = "10240 87380 12582912";
