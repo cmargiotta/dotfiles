@@ -25,6 +25,8 @@
         "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       ];
 
       substituters = [
@@ -32,6 +34,8 @@
         "https://nixpkgs-wayland.cachix.org"
         "https://hyprland.cachix.org"
         "https://ai.cachix.org"
+        "https://nix-community.cachix.org"
+        "https://nix-gaming.cachix.org"
       ];
 
       experimental-features = [ "nix-command" "flakes" ];
