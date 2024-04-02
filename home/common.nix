@@ -1,9 +1,11 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
+    ../secrets/email.nix
     ./firefox.nix
     ./fish.nix
     ./git.nix
+    ./mime.nix
     ./packages.nix
     ./schedule.nix
     ./services.nix
@@ -11,7 +13,6 @@
     ./vscode.nix
     ./wayland.nix
     ./wrappers.nix
-    ../secrets/email.nix
   ];
 
   home.language = {

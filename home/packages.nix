@@ -53,6 +53,7 @@
     mac
     picard
     playerctl
+    pureref
     shntool
     sonixd
     sox
