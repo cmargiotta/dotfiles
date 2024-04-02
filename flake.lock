@@ -248,21 +248,6 @@
         "type": "github"
       }
     },
-    "impurity": {
-      "locked": {
-        "lastModified": 1689836741,
-        "narHash": "sha256-82KeRg2sAqDXCdzVs8P8GoqVaPsZjkWgrfsj6kgOLTY=",
-        "owner": "outfoxxed",
-        "repo": "impurity.nix",
-        "rev": "bbc41b69ab5485cd55aa315d08cff865781d3913",
-        "type": "github"
-      },
-      "original": {
-        "owner": "outfoxxed",
-        "repo": "impurity.nix",
-        "type": "github"
-      }
-    },
     "lib-aggregate": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -509,7 +494,6 @@
         "hypr-contrib": "hypr-contrib",
         "hyprland": "hyprland",
         "iceberg": "iceberg",
-        "impurity": "impurity",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-wayland": "nixpkgs-wayland",
