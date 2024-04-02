@@ -17,6 +17,7 @@
     # Editors
     lapce
     meld
+    nixfmt
     stm32cubemx
 
     # Internet

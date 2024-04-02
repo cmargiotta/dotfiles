@@ -78,5 +78,6 @@
     "mesonbuild.downloadLanguageServer": true,
     "window.zoomLevel": 1,
     "editor.formatOnSave": true,
-    "nix.serverPath": "nil"
+    "nix.serverPath": "nil",
+    "nix.formatterPath": "nixfmt"
 }
