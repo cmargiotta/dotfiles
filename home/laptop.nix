@@ -16,9 +16,9 @@
     target = ".ssh/id_ed25519";
   };
 
-  home.file.hyprpaper = {
+  xdg.configFile.hyprpaper = {
     source = ./config/Hyprland/hyprpaper/laptop;
-    target = ".config/hypr/hyprpaper.conf";
+    target = "hypr/hyprpaper.conf";
     recursive = true;
   };
 

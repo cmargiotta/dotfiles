@@ -25,26 +25,26 @@
     xorg.xhost
   ];
 
-  home.file.wofi = {
+  xdg.configFile.wofi = {
     source = ./config/rofi;
-    target = ".config/rofi";
+    target = "rofi";
     recursive = true;
   };
 
-  home.file.lock = {
+  xdg.configFile.lock = {
     source = ./config/lock.sh;
-    target = ".config/swaylock.sh";
+    target = "swaylock.sh";
     executable = true;
   };
 
-  home.file.hyprland_scripts = {
+  xdg.configFile.hyprland_scripts = {
     source = ./config/Hyprland/scripts;
-    target = ".config/hypr/scripts";
+    target = "hypr/scripts";
   };
 
-  home.file.eww_config = {
+  xdg.configFile.eww_config = {
     source = ./config/eww;
-    target = ".config/eww";
+    target = "eww";
   };
 
   wayland.windowManager.hyprland = {
