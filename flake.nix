@@ -9,6 +9,7 @@
     iceberg.url = "github:icebox-nix/iceberg";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nur.url = "github:nix-community/NUR";
+    nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware, hyprland, iceberg, nur, ... }@inputs:
@@ -23,7 +24,8 @@
           ./system/desktop.nix
 
           nur.nixosModules.nur
-
+          inputs.nix-gaming.nixosModules.pipewireLowLatency
+          inputs.nix-gaming.nixosModules.platformOptimizations
           home-manager.nixosModules.home-manager
 
           {
@@ -63,7 +65,8 @@
           ./system/laptop.nix
 
           nur.nixosModules.nur
-
+          inputs.nix-gaming.nixosModules.pipewireLowLatency
+          inputs.nix-gaming.nixosModules.platformOptimizations
           home-manager.nixosModules.home-manager
           nixos-hardware.nixosModules.dell-latitude-7430
 

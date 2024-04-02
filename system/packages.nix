@@ -37,13 +37,22 @@
           krb5
           libgdiplus
           libidn2
+          libkrb5
+          libpng
           libpsl
+          libpulseaudio
           libthai
+          libvorbis
           mono
           nghttp2
           openssl_1_1
           pango
           rtmpdump
+          stdenv.cc.cc.lib
+          xorg.libXcursor
+          xorg.libXi
+          xorg.libXinerama
+          xorg.libXScrnSaver
           zlib
         ]);
       });
@@ -51,7 +60,10 @@
   ];
 
   programs = {
-    steam.enable = true;
+    steam = {
+      enable = true;
+      platformOptimizations.enable = true;
+    };
 
     gamemode = {
       enable = true;

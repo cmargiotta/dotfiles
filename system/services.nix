@@ -7,7 +7,16 @@
     gnome.gnome-keyring.enable = true;
     blueman.enable = true;
     upower.enable = true;
-    avahi.enable = true;
+
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      publish = {
+        enable = true;
+        domain = true;
+        userServices = true;
+      };
+    };
 
     dbus.packages = [ pkgs.gcr ];
 
@@ -224,6 +233,11 @@
       xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
     ];
+    xdgOpenUsePortal = true;
+    config = {
+      common.default = ["gtk"];
+      hyprland.default = ["gtk" "hyprland"];
+    };
 
     enable = true;
   };
