@@ -18,6 +18,7 @@
       core.editor = "nano";
       merge.tool = "meld";
       pull.ff = "only";
+      http.lowSpeedTime = 600;
     };
   };
 
