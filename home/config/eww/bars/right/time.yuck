@@ -7,7 +7,6 @@
     :onhoverlost "${EWW_CMD} update date_reveal=false"
     :cursor "pointer"
     (button
-      :onclick "${EWW_CMD} open chrono --screen 1"
       (box
         :class "time_box"
         :space-evenly "false"

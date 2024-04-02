@@ -1,9 +1,0 @@
-(include "./chrono/_modules.yuck")
-(include "./chrono/_layout.yuck")
-
-(defwindow chrono
-  :stacking "overlay"
-  :geometry (geometry :width "570px" :height "100%" :anchor "right top")
-  (chrono_layout))
-
-;; vim:ft=yuck

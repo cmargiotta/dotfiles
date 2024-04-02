@@ -4,7 +4,6 @@
 (include "bars/left.yuck")
 (include "bars/center.yuck")
 (include "bars/right.yuck")
-(include "chrono/_init.yuck")
 
 (defwindow bar
   :geometry
@@ -85,7 +84,7 @@
 (defwidget main_bar [monitor]
   (centerbox
     :orientation "h"
-    :width "100%"
+    :class "bar-widget"
 
     (box
       :halign "start"
@@ -111,7 +110,7 @@
 (defwidget main_bar_laptop [monitor]
   (centerbox
     :orientation "h"
-    :width "100%"
+    :class "bar-widget"
 
     (box
       :halign "start"

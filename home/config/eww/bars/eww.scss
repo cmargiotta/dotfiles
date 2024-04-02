@@ -1,23 +1,15 @@
 @import "center.scss";
-@import "left/music.scss";
 @import "left/workspaces.scss";
 @import "right/keyboard.scss";
 @import "right/time.scss";
 
 .win_normal {
-    background-image: url("images/background.png");
-    background-color: $color0;
-    border: 5px solid $color9;
     border-radius: 40px;
     padding-right: 10px;
     padding-left: 10px;
 }
 
 .win_hovered {
-    background-image: url("images/background.png");
-    background-color: $color8;
-    border: 5px solid $color9;
-    border-radius: 40px;
     padding-right: 10px;
     padding-left: 10px;
 }

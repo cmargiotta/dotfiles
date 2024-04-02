@@ -1,12 +1,9 @@
-(include "bars/left/music.yuck")
 (include "bars/left/workspaces.yuck")
 
 (defvar left_class "win_normal")
 
 (defwidget widgets_left [monitor]
   (eventbox
-    :onhover "${EWW_CMD} update left_class=\"win_hovered\""
-    :onhoverlost "${EWW_CMD} update left_class=\"win_normal\""
     (box
       :spacing 0
       :space-evenly "false"
@@ -15,8 +12,7 @@
       :valign "fill"
       :hexpand "false"
       (workspaces
-        :monitor monitor)
-      (music))))
+        :monitor monitor))))
 
 (defwidget workspace_dock [monitor]
   (eventbox
