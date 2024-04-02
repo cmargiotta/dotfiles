@@ -34,7 +34,7 @@
     gnome.gnome-calculator
     libsForQt5.kate
     onlyoffice-bin
-    qalculate-gtk
+    libreoffice
 
     # System
     acpi
