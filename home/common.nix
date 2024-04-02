@@ -25,9 +25,9 @@
 
   home.activation = {
     linkConfigFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      run ln -sf ${builtins.toPath ./config/PrusaSlicer} $HOME/.config/
-      run ln -sf ${builtins.toPath ./config/easyeffects} $HOME/.config/
-      run ln -sf ${builtins.toPath ./config/vscode.json} $HOME/.config/Code/User/
+      run ln -sf $HOME/dotfiles/home/config/PrusaSlicer $HOME/.config/
+      run ln -sf $HOME/dotfiles/home/config/easyeffects $HOME/.config/
+      run ln -sf $HOME/dotfiles/home/config/vscode.json $HOME/.config/Code/User/settings.json
     '';
   };
 
