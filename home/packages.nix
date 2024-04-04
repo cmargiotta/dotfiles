@@ -17,7 +17,7 @@
     # Editors
     lapce
     meld
-    nixfmt
+    nixfmt-rfc-style
     stm32cubemx
 
     # Internet

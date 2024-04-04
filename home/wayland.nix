@@ -151,19 +151,4 @@
       };
     };
   };
-
-  xdg = {
-    enable = true;
-    mime.enable = true;
-    mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "application/pdf" = "firefox.desktop";
-      };
-    };
-    userDirs = {
-      enable = true;
-      createDirectories = true;
-    };
-  };
 }
