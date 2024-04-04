@@ -81,6 +81,13 @@
     kernelPackages = pkgs.linuxPackages_zen;
     initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
     initrd.kernelModules = [ ];
+    plymouth = {
+      enable = true;
+      nixos-bgrt-plymouth = with pkgs; [
+        nixos-bgrt-plymouth
+      ];
+      theme = "nixos-bgrt";
+    };
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [
       pkgs.linuxKernel.packages.linux_zen.asus-wmi-sensors
