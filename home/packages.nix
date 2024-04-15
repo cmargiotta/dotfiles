@@ -44,6 +44,7 @@
     lm_sensors
     nix-index
     fastfetch
+    quickemu
     pavucontrol
 
     # Media
@@ -75,11 +76,5 @@
     qt5.qtbase
     xorg.xeyes
     xorg.xrandr
-  ] ++ [
-    # Python with packages
-    (pkgs.python311Full.withPackages (ps: with ps; [
-      pygobject3
-      requests
-    ]))
   ];
 }
