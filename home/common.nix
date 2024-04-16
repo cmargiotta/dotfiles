@@ -29,7 +29,7 @@
     linkConfigFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
       run ln -sf $HOME/dotfiles/home/config/PrusaSlicer $HOME/.config/
       run ln -sf $HOME/dotfiles/home/config/easyeffects $HOME/.config/
-      run ln -sf $HOME/dotfiles/home/config/emacs/ $HOME/.config/emacs/
+      run ln -sf $HOME/dotfiles/home/config/emacs $HOME/.config/
       run ln -sf $HOME/dotfiles/home/config/vscode.json $HOME/.config/Code/User/settings.json
     '';
   };
