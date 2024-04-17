@@ -9,8 +9,9 @@
       ../secrets/fortinet.nix
     ];
 
-  virtualisation.docker = {
-    enable = true;
+  virtualisation= {
+    docker.enable = true;
+    spiceUSBRedirection.enable = true;
   };
 
   hardware.glasgow.enable = true;

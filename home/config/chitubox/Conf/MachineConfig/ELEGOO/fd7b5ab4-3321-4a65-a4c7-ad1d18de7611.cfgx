@@ -1644,8 +1644,8 @@
                         },
                         "enable_obscure": {
                             "type": "bool",
-                            "currentvalue": true,
-                            "defaultvalue": true,
+                            "currentvalue": false,
+                            "defaultvalue": false,
                             "tooltip": "",
                             "showname": "",
                             "visible": true,
@@ -3080,8 +3080,8 @@
                         },
                         "enable_obscure": {
                             "type": "bool",
-                            "currentvalue": true,
-                            "defaultvalue": true,
+                            "currentvalue": false,
+                            "defaultvalue": false,
                             "tooltip": "",
                             "showname": "",
                             "visible": true,
@@ -3468,7 +3468,7 @@
                         },
                         "layerheight": {
                             "type": "float",
-                            "currentvalue": 0.05000000074505806,
+                            "currentvalue": 0.009999999776482582,
                             "defaultvalue": 0.05000000074505806,
                             "maxvalue": 5000.0,
                             "minvalue": 0.0010000000474974513,
@@ -3484,7 +3484,7 @@
                         },
                         "bottomlayercount": {
                             "type": "int",
-                            "currentvalue": 2,
+                            "currentvalue": 3,
                             "defaultvalue": 2,
                             "maxvalue": 5000,
                             "minvalue": 1,
@@ -3499,7 +3499,7 @@
                         },
                         "normalexposuretime": {
                             "type": "float",
-                            "currentvalue": 2.5,
+                            "currentvalue": 3.5,
                             "defaultvalue": 2.5,
                             "maxvalue": 5000.0,
                             "minvalue": 0.0010000000474974513,
@@ -4516,8 +4516,8 @@
                         },
                         "enable_obscure": {
                             "type": "bool",
-                            "currentvalue": true,
-                            "defaultvalue": true,
+                            "currentvalue": false,
+                            "defaultvalue": false,
                             "tooltip": "",
                             "showname": "",
                             "visible": true,
@@ -7523,7 +7523,7 @@
             }
         }
     ],
-    "open_filter": "",
+    "open_filter": "Mesh files (*.stl *.obj *.3mf)",
     "save_filter": "",
     "slice_save_filter": ""
 }
