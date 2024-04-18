@@ -7,14 +7,28 @@
 (use-package direnv
  :config
  (direnv-mode))
-(require 'eglot)
+
+(use-package helm
+  :config
+    (global-set-key (kbd "M-x") #'helm-M-x)
+    (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+    (global-set-key (kbd "C-x C-f") #'helm-find-files))
+
+(use-package eglot
+  ; (add-to-list 'eglot-server-programs '(nix-mode "nixfmt")))
+  )
+
+
+(use-package helm-projectile
+  :config
+    (helm-projectile-on))
 
 (use-package projectile
   :ensure t
   :bind ("C-S-p" . 'projectile-command-map)
   :config
-    (setq projectile-project-search-path '(("~/projects/" . 4)))
-    (projectile-discover-projects-in-search-path)
+    ;(setq projectile-project-search-path '(("~/projects/" . 4)))
+    ;(projectile-discover-projects-in-search-path)
     (projectile-global-mode))
 
 (use-package treemacs
@@ -165,17 +179,3 @@
 
 (global-set-key (kbd "C-c") #'clipboard-kill-region)
 (global-set-key (kbd "C-v") #'clipboard-yank)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(safe-local-variable-values
-   '((projectile-project-compilation-cmd . "meson setup --cross-file STM32F0/cross_file_stm32f072.txt -Ddebug=true build --reconfigure && meson compile -C build")
-     (projectile-project-compilation-cmd . "meson setup --cross-file ${workspaceRoot}/STM32F0/cross_file_stm32f072.txt -Ddebug=true build --reconfigure && meson compile -C build"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

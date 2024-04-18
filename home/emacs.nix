@@ -11,6 +11,8 @@
       treemacs-magit
       magit
       projectile
+      helm
+      helm-projectile
       eglot
       kanagawa-theme
     ];
