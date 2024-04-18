@@ -19,6 +19,7 @@
     meld
     nixfmt-rfc-style
     stm32cubemx
+    python3
 
     # Internet
     discord

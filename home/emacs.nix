@@ -8,6 +8,8 @@
       ligature
       company
       treemacs-projectile
+      treemacs-magit
+      magit
       projectile
       eglot
       kanagawa-theme
