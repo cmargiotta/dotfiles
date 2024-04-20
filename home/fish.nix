@@ -83,7 +83,7 @@
       };
 
       nixos-clear = {
-        body = "sudo nix-collect-garbage -d && sudo nix store optimise";
+        body = "sudo nix-collect-garbage --delete-older-than 1d && sudo nix store optimise";
       };
 
       nixos-update = {

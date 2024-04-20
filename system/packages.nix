@@ -65,11 +65,6 @@
       platformOptimizations.enable = true;
     };
 
-    gamemode = {
-      enable = true;
-      enableRenice = true;
-    };
-
     hyprland = {
       enable = true;
     };

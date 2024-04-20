@@ -16,7 +16,7 @@
       driSupport32Bit = true;
       extraPackages32 = with pkgs.pkgsi686Linux; [
         libva
-        qt6.qtwayland
+        # qt6.qtwayland
         vaapiVdpau
         libvdpau-va-gl
         libsForQt5.qt5ct
@@ -24,7 +24,7 @@
       ];
       extraPackages = with pkgs; [
         libva
-        qt6.qtwayland
+        # qt6.qtwayland
         libsForQt5.qt5ct
         nvidia-vaapi-driver
         vaapiVdpau
@@ -83,10 +83,6 @@
     initrd.kernelModules = [ ];
     plymouth = {
       enable = true;
-      nixos-bgrt-plymouth = with pkgs; [
-        nixos-bgrt-plymouth
-      ];
-      theme = "nixos-bgrt";
     };
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [

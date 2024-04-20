@@ -15,7 +15,6 @@
     winetricks
 
     # Editors
-    lapce
     meld
     nixfmt-rfc-style
     stm32cubemx
@@ -23,17 +22,14 @@
 
     # Internet
     discord
-    mongodb-compass
     mqttui
     nextcloud-client
     slack
-    freetube
     tdesktop
     tor-browser-bundle-bin
 
     # Office
     gnome.gnome-calculator
-    libsForQt5.kate
     onlyoffice-bin
     libreoffice
 
@@ -67,14 +63,12 @@
     # Others
     coreutils-full
     filezilla
-    gnome.seahorse
     gobject-introspection
     cinnamon.nemo-with-extensions
     ncdu
     nil
     pinentry-all
     pkg-config
-    qt5.qtbase
     xorg.xeyes
     xorg.xrandr
   ];

@@ -3,14 +3,14 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    cabin
-    cascadia-code
-    dejavu_fonts
-    fira
-    fira-code
-    nerdfonts
     font-manager
-    symbola
+    emacs-all-the-icons-fonts
+    font-awesome_5
+    (nerdfonts.override { fonts = [
+      "FiraCode"
+      "Iosevka"
+      "CascadiaCode"
+    ]; })
   ];
 
   home.pointerCursor = {
