@@ -4,33 +4,39 @@
 ;; Disable tool bar, menu bar, scroll bar.
 (tool-bar-mode -1)
 
-(use-package direnv
- :config
- (direnv-mode))
+;; Packages
+(use-package envrc
+  :hook (after-init . envrc-global-mode))
 
-(use-package helm
+(use-package company
+  :bind (:map company-active-map
+         ("C-n" . company-select-next)
+         ("C-p" . company-select-previous))
   :config
-    (global-set-key (kbd "M-x") #'helm-M-x)
-    (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-    (global-set-key (kbd "C-x C-f") #'helm-find-files))
+  (global-company-mode t)
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0))
 
-(use-package eglot
-  ; (add-to-list 'eglot-server-programs '(nix-mode "nixfmt")))
-  )
-
-
-(use-package helm-projectile
-  :config
-    (helm-projectile-on))
-
-(use-package projectile
+(use-package magit
   :ensure t
-  :bind ("C-S-p" . 'projectile-command-map)
-  :config
-    ;(setq projectile-project-search-path '(("~/projects/" . 4)))
-    ;(projectile-discover-projects-in-search-path)
-    (projectile-global-mode))
+  :bind ("C-x g" . magit-status))
 
+(use-package xref
+  :ensure t)
+
+(use-package dap-mode
+  :hook
+  (prog-mode . (lambda ()
+    (dap-mode 1)
+    (dap-ui-mode 1)
+    (dap-tooltip-mode 1)
+    (tooltip-mode 1)
+    (dap-ui-controls-mode 1)))
+  (c++-mode . (lambda ()
+    (require 'dap-gdb-lldb))))
+
+;;;; Treemacs family
 (use-package treemacs
   :ensure t
   :defer t
@@ -105,6 +111,8 @@
        (treemacs-git-mode 'simple)))
 
     (treemacs-hide-gitignored-files-mode nil))
+    (treemacs-add-and-display-current-project-exclusively)
+    (treemacs-project-follow-mode)
   :bind
   (:map global-map
         ("M-F"       . treemacs-select-window)
@@ -123,17 +131,86 @@
   :after (treemacs magit)
   :ensure t)
 
-(use-package company
-  :bind (:map company-active-map
-         ("C-n" . company-select-next)
-         ("C-p" . company-select-previous))
-  :config
-  (setq company-idle-delay 0.3)
-  (global-company-mode t))
+;;;; LSP
+(use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :hook ((prog-mode . lsp-deferred))
+  :commands lsp
+  :bind ("C-." . lsp-execute-code-action))
 
-(use-package magit
+(use-package lsp-ui
+  :after lsp-mode
+  :custom
+  (lsp-ui-doc-enable t)
+  (lsp-ui-sideline-enable t)
+  (lsp-ui-sideline-show-code-actions t)
+  (lsp-ui-sideline-show-hover t)
+  (lsp-ui-sideline-delay 1)
+  (lsp-ui-sideline-show-diagnostics t)
+  (lsp-ui-sideline-toggle-symbols-info t)
+  (lsp-ui-sideline-show-hover nil)
+  (lsp-ui-peek-enable t))
+
+(use-package lsp-treemacs
+  :after (lsp-mode treemacs)
+  :config
+  (lsp-treemacs-sync-mode 1))
+
+;;;; Projectile
+(use-package projectile
   :ensure t
-  :bind ("C-x g" . magit-status))
+  :bind ("C-S-p" . 'projectile-command-map)
+  :config
+    ;(setq projectile-project-search-path '(("~/projects/" . 4)))
+    ;(projectile-discover-projects-in-search-path)
+    (projectile-global-mode))
+
+;;;; Helm
+(use-package helm
+  :config
+    (global-set-key (kbd "M-x") #'helm-M-x)
+    (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+    (global-set-key (kbd "C-x C-f") #'helm-find-files))
+
+(use-package helm-projectile
+  :after (helm projectile)
+  :config
+    (helm-projectile-on))
+
+(use-package helm-xref
+  :ensure t
+  :after (helm xref))
+
+;;;; Flycheck
+(use-package flycheck
+  :ensure t
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode)
+  (global-flycheck-mode +1))
+
+(use-package sideline-flycheck
+  :after (flycheck)
+  :hook
+  (flycheck-mode . sideline-mode)
+  (flycheck-mode . sideline-flycheck-setup)
+  :init
+  (setq sideline-backends-right '(sideline-flycheck)))
+
+(use-package flycheck-rust
+  :after (flycheck)
+  :hook
+  (flycheck-mode . flycheck-rust-setup))
+
+(use-package flycheck-projectile
+  :after (flycheck))
+
+(use-package flycheck-clang-tidy
+  :after flycheck
+  :hook
+  (flycheck-mode . flycheck-clang-tidy-setup))
+
+
 
 ;; Enable the www ligature in every possible major mode
 (ligature-set-ligatures 't '("www"))
@@ -157,25 +234,20 @@
 (set-frame-font "Fira Code 14" nil t)
 (load-theme 'kanagawa t)
 
-(add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
-(add-hook 'prog-mode-hook 'eglot-ensure)
 (add-hook 'prog-mode-hook (
   lambda ()
     (local-set-key (kbd "C-d") #'kill-line)
     (local-set-key (kbd "C-S-c") #'kill-region)
     (local-set-key (kbd "C-S-v") #'yank)
-    (local-set-key (kbd "C-z") #'undo)
-    (add-hook
-      'after-save-hook
-      'eglot-format-buffer)))
+    (local-set-key (kbd "C-z") #'undo)))
 
-(add-hook 'projectile-mode-hook
-  (lambda ()
-    (treemacs)
-    (treemacs-follow-mode)
-    (treemacs-git-mode 'deferred)
-    (treemacs-filewatch-mode)
-    (treemacs-add-and-display-current-project-exclusively)))
+(with-eval-after-load 'lsp-mode
+  (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+  (require 'dap-cpptools)
+  (setq lsp-modeline-diagnostics-scope :workspace)
+  (yas-global-mode))
 
 (global-set-key (kbd "C-c") #'clipboard-kill-region)
 (global-set-key (kbd "C-v") #'clipboard-yank)
+
+(global-auto-revert-mode 1)
