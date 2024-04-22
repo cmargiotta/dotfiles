@@ -1,4 +1,7 @@
-{ lib, config, pkgs, ... }:
+{ inputs, lib, config, pkgs, ... }:
+let
+  pkgs-hypr = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   services = {
     openssh.enable = true;
@@ -233,8 +236,8 @@
     wlr.enable = true;
     xdgOpenUsePortal = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
+      # pkgs-hypr.xdg-desktop-portal-hyprland
+      pkgs-hypr.xdg-desktop-portal-gtk
     ];
   };
 

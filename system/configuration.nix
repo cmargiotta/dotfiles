@@ -1,14 +1,5 @@
 { lib, config, pkgs, ... }:
 {
-  imports =
-    [
-      ./packages.nix
-      ./services.nix
-      ./users.nix
-      ./audio.nix
-      ../secrets/fortinet.nix
-    ];
-
   virtualisation= {
     docker.enable = true;
     spiceUSBRedirection.enable = true;
@@ -82,4 +73,13 @@
   };
 
   system.stateVersion = "23.11";
+
+  imports =
+    [
+      ./packages.nix
+      ./services.nix
+      ./users.nix
+      ./audio.nix
+      ../secrets/fortinet.nix
+    ];
 }

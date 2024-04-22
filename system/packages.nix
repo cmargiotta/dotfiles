@@ -1,4 +1,4 @@
-{ lib, config, pkgs, nixpkgs, ... }:
+{ inputs, lib, config, pkgs, nixpkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     # Others
@@ -67,6 +67,8 @@
 
     hyprland = {
       enable = true;
+      xwayland.enable = true;
+      # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
     dconf = {

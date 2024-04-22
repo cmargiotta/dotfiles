@@ -3,3 +3,10 @@ home/config/PrusaSlicer/snapshots/**
 home/config/PrusaSlicer/vendor/**
 home/config/eww/scripts/__pycache__/**
 home/config/chitubox/Log/**
+home/config/emacs/*/**
+home/config/emacs/.dap-breakpoints
+home/config/emacs/.lsp-session-v1
+home/config/emacs/projectile-bookmarks.eld
+home/config/emacs/projectile.cache
+home/config/emacs/projects
+home/config/emacs/tabsession.el
