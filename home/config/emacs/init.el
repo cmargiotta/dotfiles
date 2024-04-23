@@ -6,7 +6,8 @@
 
 ;; Packages
 (use-package envrc
-  :hook (after-init . envrc-global-mode))
+  :hook
+  ('after-init . #'envrc-global-mode))
 
 (use-package company
   :bind (:map company-active-map
@@ -20,14 +21,19 @@
 
 (use-package magit
   :ensure t
-  :bind ("C-x g" . magit-status))
+  :bind ("C-x g" . #'magit-status)
+  :custom
+  (magit-module-sections-nested t)
+  :config
+  (magit-add-section-hook 'magit-status-sections-hook
+                            'magit-insert-modules
+                            'magit-insert-unpulled-from-upstream))
 
-(use-package xref
-  :ensure t)
+(use-package xref)
 
 (use-package dap-mode
   :hook
-  (prog-mode . (lambda ()
+  ('prog-mode . (lambda ()
     (dap-mode 1)
     (dap-ui-mode 1)
     (dap-tooltip-mode 1)
@@ -38,7 +44,6 @@
 
 ;;;; Treemacs family
 (use-package treemacs
-  :ensure t
   :defer t
   :init
   (with-eval-after-load 'winum
@@ -115,29 +120,31 @@
     (treemacs-project-follow-mode)
   :bind
   (:map global-map
-        ("M-F"       . treemacs-select-window)
-        ("C-x t 1"   . treemacs-delete-other-windows)
-        ("C-x t t"   . treemacs)
-        ("C-x t d"   . treemacs-select-directory)
-        ("C-x t B"   . treemacs-bookmark)
-        ("C-x t C-t" . treemacs-find-file)
-        ("C-x t M-t" . treemacs-find-tag)))
+        ("M-F"       . #'treemacs-select-window)
+        ("C-x t 1"   . #'treemacs-delete-other-windows)
+        ("C-x t t"   . #'treemacs)
+        ("C-x t d"   . #'treemacs-select-directory)
+        ("C-x t B"   . #'treemacs-bookmark)
+        ("C-x t C-t" . #'treemacs-find-file)
+        ("C-x t M-t" . #'treemacs-find-tag)))
 
 (use-package treemacs-projectile
-  :after (treemacs projectile)
-  :ensure t)
+  :after (treemacs projectile))
 
 (use-package treemacs-magit
-  :after (treemacs magit)
-  :ensure t)
+  :after (treemacs magit))
 
 ;;;; LSP
 (use-package lsp-mode
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :hook ((prog-mode . lsp-deferred))
+  :custom
+  (lsp-keymap-prefix "C-c l")
+  :hook
+  ('prog-mode . #'lsp-deferred)
   :commands lsp
-  :bind ("C-." . lsp-execute-code-action))
+  :bind
+  ("C-." . lsp-execute-code-action))
+
+(add-hook 'before-save-hook #'lsp-format-buffer)
 
 (use-package lsp-ui
   :after lsp-mode
@@ -159,7 +166,6 @@
 
 ;;;; Projectile
 (use-package projectile
-  :ensure t
   :bind ("C-S-p" . 'projectile-command-map)
   :config
     ;(setq projectile-project-search-path '(("~/projects/" . 4)))
@@ -168,10 +174,10 @@
 
 ;;;; Helm
 (use-package helm
-  :config
-    (global-set-key (kbd "M-x") #'helm-M-x)
-    (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-    (global-set-key (kbd "C-x C-f") #'helm-find-files))
+  :bind
+    ("M-x" . #'helm-M-x)
+    ("C-x r b" . #'helm-filtered-bookmarks)
+    ("C-x C-f" . #'helm-find-files))
 
 (use-package helm-projectile
   :after (helm projectile)
@@ -179,28 +185,27 @@
     (helm-projectile-on))
 
 (use-package helm-xref
-  :ensure t
   :after (helm xref))
 
 ;;;; Flycheck
 (use-package flycheck
-  :ensure t
+  :hook
+  ('after-init-hook global-flycheck-mode)
   :config
-  (add-hook 'after-init-hook #'global-flycheck-mode)
   (global-flycheck-mode +1))
 
 (use-package sideline-flycheck
   :after (flycheck)
   :hook
-  (flycheck-mode . sideline-mode)
-  (flycheck-mode . sideline-flycheck-setup)
-  :init
-  (setq sideline-backends-right '(sideline-flycheck)))
+  ('flycheck-mode . sideline-mode)
+  ('flycheck-mode . sideline-flycheck-setup)
+  :custom
+  (sideline-backends-right '(sideline-flycheck)))
 
 (use-package flycheck-rust
   :after (flycheck)
   :hook
-  (flycheck-mode . flycheck-rust-setup))
+  ('flycheck-mode . flycheck-rust-setup))
 
 (use-package flycheck-projectile
   :after (flycheck))
@@ -208,7 +213,7 @@
 (use-package flycheck-clang-tidy
   :after flycheck
   :hook
-  (flycheck-mode . flycheck-clang-tidy-setup))
+  ('flycheck-mode . flycheck-clang-tidy-setup))
 
 
 
@@ -247,7 +252,19 @@
   (setq lsp-modeline-diagnostics-scope :workspace)
   (yas-global-mode))
 
-(global-set-key (kbd "C-c") #'clipboard-kill-region)
-(global-set-key (kbd "C-v") #'clipboard-yank)
+(cua-mode)
 
 (global-auto-revert-mode 1)
+
+(defvar my-keys-minor-mode-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "C-f") 're-search-forward)
+    map)
+  "my-keys-minor-mode keymap.")
+
+(define-minor-mode my-keys-minor-mode
+  "A minor mode so that my key settings override annoying major modes."
+  :init-value t
+  :lighter " my-keys")
+
+(my-keys-minor-mode 1)
