@@ -25,8 +25,11 @@
   home.packages = with pkgs; [
     brightnessctl
   ];
-
-  wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/laptop) + "\n" + (builtins.readFile ./config/Hyprland/common);
+   
+  xdg.configFile.hyprland = {
+    text = (builtins.readFile ./config/Hyprland/laptop) + "\n" + (builtins.readFile ./config/Hyprland/common);
+    target = "hypr/hyprland.conf";
+  };
 
   xdg.desktopEntries = {
     mcuxpresso-ide = {

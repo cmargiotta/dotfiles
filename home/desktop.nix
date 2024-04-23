@@ -22,7 +22,10 @@
     recursive = true;
   };
 
-  wayland.windowManager.hyprland.extraConfig = (builtins.readFile ./config/Hyprland/common) + "\n" + (builtins.readFile ./config/Hyprland/desktop);
+  xdg.configFile.hyprland = {
+    text = (builtins.readFile ./config/Hyprland/common) + "\n" + (builtins.readFile ./config/Hyprland/desktop);
+    target = "hypr/hyprland.conf";
+  };
 
   home.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
