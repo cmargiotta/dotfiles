@@ -68,6 +68,8 @@
     networkmanager = {
       enable = true;
       dhcp = "dhcpcd";
+      wifi.macAddress = "persistent";
+      #wifi.backend = "iwd";
     };
     wireless.enable = false;
   };

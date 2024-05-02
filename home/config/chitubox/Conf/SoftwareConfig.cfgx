@@ -77,7 +77,7 @@ setting_appearance_config:
     unit: mm
 setting_file_config:
   visible: true
-  file_dialog_folder: /mnt/Downloads/Telegram Desktop/OnePageRules - Change Daemons - Champion
+  file_dialog_folder: /mnt/Downloads/Telegram Desktop/DTL - Mushroom Bayou - Myconids/STL
   slice_preview_which:
     type: combobox
     showname: ""

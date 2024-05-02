@@ -83,7 +83,7 @@
       };
 
       nixos-clear = {
-        body = "sudo nix-collect-garbage --delete-older-than 1d && sudo nix store optimise";
+        body = "home-manager expire-generations \"-0 days\" && sudo nix-collect-garbage --delete-older-than 1d && sudo nix store optimise";
       };
 
       nixos-update = {

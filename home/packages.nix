@@ -17,13 +17,13 @@
     # Editors
     meld
     nixfmt-rfc-style
-    stm32cubemx
+    #stm32cubemx
     python3
 
     # Internet
     discord
     mqttui
-    nextcloud-client
+    #nextcloud-client
     slack
     tdesktop
     tor-browser-bundle-bin
@@ -42,6 +42,7 @@
     nix-index
     fastfetch
     quickemu
+    home-manager
     pavucontrol
 
     # Media

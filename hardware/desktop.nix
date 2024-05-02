@@ -9,7 +9,7 @@ in
   imports =
     [
       (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+    ];   
 
   hardware = {
     opengl = {

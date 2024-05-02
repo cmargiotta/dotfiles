@@ -258,7 +258,8 @@
 
 (defvar my-keys-minor-mode-map
   (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "C-f") 're-search-forward)
+    (define-key map (kbd "C-f") #'re-search-forward)
+    (define-key map (kbd "C-j") #'term)
     map)
   "my-keys-minor-mode keymap.")
 

@@ -5,6 +5,7 @@
   services.printing = {
     enable = true;
     logLevel = "debug";
+    browsing = true;
 
     drivers = [
       pkgs.hplipWithPlugin
