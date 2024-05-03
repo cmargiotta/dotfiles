@@ -67,7 +67,7 @@
   networking = {
     networkmanager = {
       enable = true;
-      dhcp = "dhcpcd";
+      #dhcp = "dhcpcd";
       wifi.macAddress = "persistent";
       #wifi.backend = "iwd";
     };
