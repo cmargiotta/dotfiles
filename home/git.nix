@@ -7,7 +7,7 @@
     lfs.enable = true;
     ignores = [ "*~" ];
     userName = "Carmine Margiotta";
-    userEmail = "cmargiotta@posteo.net";
+    userEmail = "email@cmargiotta.net";
     signing = {
       signByDefault = true;
       key = null;
