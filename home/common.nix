@@ -3,6 +3,7 @@
   imports = [
     ../secrets/email.nix
     ./emacs.nix
+    ./mail.nix
     ./firefox.nix
     ./fish.nix
     ./git.nix

@@ -1,10 +1,6 @@
 { config, lib, pkgs, ... }:
 {
-  programs.neomutt = {
+  programs.thunderbird = {
     enable = true;
-    sidebar = {
-      enable = true;
-      
-    };
   };
 }
