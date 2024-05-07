@@ -9,7 +9,6 @@
     fira
     fira-code
     nerdfonts
-    font-manager
     symbola
   ];
 

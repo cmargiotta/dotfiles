@@ -10,6 +10,7 @@
     hyprpaper
     eww
     jq
+    hyprlock
     font-awesome
     nwg-look
     pamixer
