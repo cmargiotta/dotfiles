@@ -1,0 +1,79 @@
+let {
+    $workspaces = {
+        type = "workspaces"
+        all_monitors = false
+        name_map.telegram = "icon.telegram"
+        name_map.steam = "icon.steam"
+        name_map.music = "icon.music"
+    }
+
+    $focused = { type = "focused" }
+
+    $mpris = {
+        type = "music"
+        player_type = "mpris"
+
+        on_click_middle = "playerctl play-pause"
+        on_scroll_up = "playerctl volume +5"
+        on_scroll_down = "playerctl volume -5"
+
+    }
+
+    $notifications = {
+        type = "notifications"
+        show_count = true
+
+        icons.closed_none = "󰍥"
+        icons.closed_some = "󱥂"
+        icons.closed_dnd = "󱅯"
+        icons.open_none = "󰍡"
+        icons.open_some = "󱥁"
+        icons.open_dnd = "󱅮"
+    }
+
+    $sys_info = {
+        type = "sys_info"
+
+        interval.memory = 30
+        interval.cpu = 1
+        interval.temps = 5
+        interval.disks = 300
+        interval.networks = 3
+
+        format = [
+            " {cpu_percent}% | {temp_c:k10temp_Tccd1}°C"
+            " {memory_used} / {memory_total} GB"
+            "󰋊 {disk_used:/} / {disk_total:/} GB"
+            "󰓢 {net_down:eno1} / {net_up:eno1} Mbps"
+            "󰖡 {load_average:1} | {load_average:5} | {load_average:15}"
+            "󰥔 {uptime}"
+        ]
+    }
+
+    $tray = { type = "tray" }
+
+    $clock = { type = "clock" }
+
+    $volume = {
+        type = "volume"
+        format = "{icon} {percentage}%"
+        max_volume = 100
+        icons.volume_high = "󰕾"
+        icons.volume_medium = "󰖀"
+        icons.volume_low = "󰕿"
+        icons.muted = "󰝟"
+    }
+
+    $left = [ $workspaces ]
+    $right = [ $sys_info $volume $tray $clock $notifications ]
+    $center = [ $mpris ]
+}
+in {
+    anchor_to_edges = true
+    position = "bottom"
+    icon_theme = "Paper"
+
+    start = $left
+    center = $center
+    end = $right
+}

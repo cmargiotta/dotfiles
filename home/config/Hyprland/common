@@ -55,11 +55,12 @@ xwayland {
 }
 
 exec-once = hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd --all
-exec-once = nixos-clear && nix flake update ~/dotfiles && nixos-apply
-exec-once = eww daemon
+exec-once = swaync
+exec-once = ironbar
 exec-once = blueman-applet
 
 exec = hyprpaper
+exec = wal -i ~/.palette.png  
 
 $MOD = SUPER
 $MODSHIFT = SUPERSHIFT
