@@ -24,12 +24,12 @@ exec = sleep 3.5 && xrandr --output DP-2 --primary -s 3440x1440 && xrandr --outp
 # Autoconnect bluetooth soundbar
 exec = sleep 5 && echo "connect 00:15:83:02:82:79" | bluetoothctl
 
-workspace = 1, monitor:$ULTRAWIDE, default:true
-workspace = 9, monitor:$ULTRAWIDE
-workspace = 2, monitor:$VERTICAL, default:true, layoutopt:orientation:top
-workspace = name:steam, monitor:$UPPER, default:true
+workspace = 1,             monitor:$ULTRAWIDE, default:true
+workspace = 9,             monitor:$ULTRAWIDE
+workspace = 2,             monitor:$VERTICAL,  default:true, layoutopt:orientation:top
+workspace = name:steam,    monitor:$UPPER,     default:true
 workspace = name:telegram, monitor:$UPPER
-workspace = name:music, monitor:$UPPER
+workspace = name:music,    monitor:$UPPER
 
 windowrule = workspace 3, Discord
 windowrule = workspace 2, com.github.wwmm.easyeffects

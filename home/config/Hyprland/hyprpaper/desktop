@@ -2,7 +2,7 @@ preload = ~/.wallpapers/ultrawide.jpg
 preload = ~/.wallpapers/upper.jpg
 preload = ~/.wallpapers/vert.png
 
-wallpaper = desc:Samsung Electric Company C34H89x H4ZN200636,~/.wallpapers/wallpaper.jpg
+wallpaper = desc:Samsung Electric Company C34H89x H4ZN200636,~/.wallpapers/ultrawide.jpg
 wallpaper = desc:Microstep MSI MP242 PA1T010907358,~/.wallpapers/vert.png
 wallpaper = desc:Microstep MSI MP273 PB4H793100073,~/.wallpapers/upper.jpg
 

@@ -67,13 +67,13 @@ $MODSHIFT = SUPERSHIFT
 
 # Exec bindings
 bind = $MOD, Return, exec, kitty
-bind = $MOD, D, exec, ~/.config/rofi/launchers/type-6/launcher.sh
-bind = $MOD, L, exec, ~/.config/swaylock.sh
-bind = ,Print, exec, grimblast copy output
-bind = $MOD, S, exec, grimblast copy area
+bind = $MOD, D,      exec, ~/.config/rofi/launchers/type-6/launcher.sh
+bind = $MOD, L,      exec, ~/.config/swaylock.sh
+bind =     ,Print,   exec, grimblast copy output
+bind = $MOD, S,      exec, grimblast copy area
 bind = $MODSHIFT, S, exec, GRIMBLAST_EDITOR="swappy -f" grimblast edit area
 bind = $MODSHIFT, W, exec, grimblast copy window
-bind = $MOD, T, exec, scratchpad
+bind = $MOD, T,      exec, scratchpad
 bind = $MODSHIFT, T, exec, scratchpad -g
 bind = $MODSHIFT, R, exec, hyprctl reload
 
@@ -86,24 +86,24 @@ bind = , XF86MonBrightnessUp, exec, ~/.config/hypr/scripts/volume_brightness.sh 
 bind = , XF86MonBrightnessDown, exec, ~/.config/hypr/scripts/volume_brightness.sh brightness_down
 
 # Window bindings
-bind = $MOD, Q, killactive
-bind = $MOD, F, fullscreen
+bind = $MOD,      Q, killactive
+bind = $MOD,      F, fullscreen
 bind = $MODSHIFT, F, togglefloating
-bind = $MOD, M, layoutmsg, swapwithmaster
+bind = $MOD,      M, layoutmsg, swapwithmaster
 
 # Move floating window
 bindm = $MOD, mouse:272, movewindow
 
 # Navigation bindings
-bind = $MOD, left, movefocus, l
+bind = $MOD, left,  movefocus, l
 bind = $MOD, right, movefocus, r
-bind = $MOD, up, movefocus, u
-bind = $MOD, down, movefocus, d
+bind = $MOD, up,    movefocus, u
+bind = $MOD, down,  movefocus, d
 
-bind = $MODSHIFT, left, movewindow, l
+bind = $MODSHIFT, left,  movewindow, l
 bind = $MODSHIFT, right, movewindow, r
-bind = $MODSHIFT, up, movewindow, u
-bind = $MODSHIFT, down, movewindow, d
+bind = $MODSHIFT, up,    movewindow, u
+bind = $MODSHIFT, down,  movewindow, d
 
 bind = $MOD, 1, workspace, 1
 bind = $MOD, 2, workspace, 2
@@ -135,11 +135,11 @@ bind = $MODSHIFT, H, layoutmsg, orientationleft
 bind = $MOD, R, submap, resize
 
 submap = resize
-binde = ,right, resizeactive, 10 0
-binde = ,left, resizeactive,-10 0
-binde = ,up, resizeactive, 0 -10
-binde = ,down, resizeactive, 0 10
-bind = ,escape, submap, reset
+binde  = ,right,  resizeactive,  10  0
+binde  = ,left,   resizeactive, -10  0
+binde  = ,up,     resizeactive,  0  -10
+binde  = ,down,   resizeactive,  0   10
+bind   = ,escape, submap, reset
 submap = reset
 
 windowrule = float,       pavucontrol
@@ -148,20 +148,19 @@ windowrule = forceinput,  ^(steam)$
 windowrule = workspace 9, ^(steam_app.*)$
 windowrule = float,       title:Picture-in-Picture
 
-windowrule = workspace name:, org.telegram.desktop
-windowrule = workspace name:, ^(steam)$
-windowrule = workspace name:󰗃, FreeTube
-windowrule = workspace name:󰝚, Sonixd
+windowrule = workspace name:telegram, org.telegram.desktop
+windowrule = workspace name:steam,    ^(steam)$
+windowrule = workspace name:music,    Sonixd
 
-windowrulev2   = tile,        workspace: 9, floating: 1
-windowrulev2   = opaque,      workspace: 9
-windowrulev2   = noblur,      workspace: 9
-windowrulev2   = fullscreen,  workspace: 9
-windowrulev2   = immediate,   workspace: 9
+windowrulev2 = tile,        workspace: 9, floating: 1
+windowrulev2 = opaque,      workspace: 9
+windowrulev2 = noblur,      workspace: 9
+windowrulev2 = fullscreen,  workspace: 9
+windowrulev2 = immediate,   workspace: 9
 
-windowrulev2 = float,class:^(steam)$,title:^(Lista amici)(.*)$
-windowrulev2 = size 391 1225,class:^(steam)$,title:^(Lista amici)$
-windowrulev2 = noinitialfocus, title:(^notificationtoasts.*)
+windowrulev2 = float,         class:^(steam)$, title:^(Lista amici)(.*)$
+windowrulev2 = size 391 1225, class:^(steam)$, title:^(Lista amici)$
+windowrulev2 = noinitialfocus,                 title:(^notificationtoasts.*)
 
 env = _JAVA_AWT_WM_NONREPARENTING
 env = CLUTTER_BACKEND,wayland

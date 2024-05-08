@@ -17,10 +17,9 @@ gestures {
     workspace_swipe_fingers=3
 }
 
-workspace = name:, monitor:$EXTERNAL
-workspace = name:, monitor:$EXTERNAL
-workspace = name:󰗃, monitor:$EXTERNAL
-workspace = name:󰝚, monitor:$EXTERNAL
+workspace = name:steam,    monitor:$EXTERNAL
+workspace = name:telegram, monitor:$EXTERNAL
+workspace = name:music,    monitor:$EXTERNAL
 
 monitor=HDMI-A-1,2560x1440,1700x0,1
 monitor=eDP-1,1920x1080,0x1440,1
