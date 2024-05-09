@@ -24,6 +24,7 @@
     # Internet
     discord
     mqttui
+    element-desktop
     #nextcloud-client
     slack
     tdesktop
