@@ -42,13 +42,16 @@
 (use-package xref)
 
 (use-package dap-mode
+  :custom
+  (dap-mode 1)
+  (dap-ui-mode 1)
+  (dap-tooltip-mode 1)
+  (tooltip-mode 1)
+  (dap-ui-controls-mode 1)
+  :config
+  (setq left-fringe-width 16)
   :hook
-  ('prog-mode . (lambda ()
-    (dap-mode 1)
-    (dap-ui-mode 1)
-    (dap-tooltip-mode 1)
-    (tooltip-mode 1)
-    (dap-ui-controls-mode 1)))
+  (lsp-mode . dap-auto-configure-mode)
   (c++-mode . (lambda ()
     (require 'dap-gdb-lldb))))
 
