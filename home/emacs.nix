@@ -4,28 +4,30 @@
     enable = true;
 
     extraPackages = epkgs: with epkgs; [
-      envrc
-      ligature
       company
       dap-mode
+      elisp-autofmt
       flycheck
-      xref
-      sideline-flycheck
-      flycheck-rust
-      flycheck-projectile
       flycheck-clang-tidy
-      treemacs-projectile
-      treemacs-magit
-      magit
-      projectile
+      flycheck-projectile
+      flycheck-rust
       helm
-      helm-xref
       helm-projectile
+      helm-xref
+      kanagawa-theme
+      ligature
       lsp-mode
       lsp-treemacs
       lsp-ui
+      magit
+      nix-mode
+      projectile
+      sideline-flycheck
+      treemacs-magit
+      treemacs-projectile
+      xref
       yasnippet
-      kanagawa-theme
+ envrc
     ] ++ [
       pkgs.vscode-extensions.ms-vscode.cpptools
     ];

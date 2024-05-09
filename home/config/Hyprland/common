@@ -58,9 +58,9 @@ exec-once = hash dbus-update-activation-environment 2>/dev/null && dbus-update-a
 exec-once = swaync
 exec-once = ironbar
 exec-once = blueman-applet
+exec-once = wal -i ~/.palette.png  
 
 exec = hyprpaper
-exec = wal -i ~/.palette.png  
 
 $MOD = SUPER
 $MODSHIFT = SUPERSHIFT

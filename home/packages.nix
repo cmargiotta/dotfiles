@@ -17,6 +17,7 @@
     # Editors
     meld
     nixfmt-rfc-style
+    nil
     #stm32cubemx
     python3
 

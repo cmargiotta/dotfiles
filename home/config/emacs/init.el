@@ -20,7 +20,6 @@
   (company-idle-delay 0.0))
 
 (use-package magit
-  :ensure t
   :bind ("C-x g" . #'magit-status)
   :custom
   (magit-module-sections-nested t)
@@ -28,6 +27,17 @@
   (magit-add-section-hook 'magit-status-sections-hook
                             'magit-insert-modules
                             'magit-insert-unpulled-from-upstream))
+
+(use-package nix-mode
+  :mode "\\.nix\\'"
+  :hook
+  ('before-save-hook #'nix-format-buffer))
+
+(use-package elisp-autofmt
+  :custom
+  (elisp-autofmt-on-save-p t)
+  :hook
+  ('elisp-mode-hook #'elisp-autofmt-mode))
 
 (use-package xref)
 
@@ -241,10 +251,12 @@
 
 (add-hook 'prog-mode-hook (
   lambda ()
+    (display-line-numbers-mode)
     (local-set-key (kbd "C-d") #'kill-line)
     (local-set-key (kbd "C-S-c") #'kill-region)
     (local-set-key (kbd "C-S-v") #'yank)
-    (local-set-key (kbd "C-z") #'undo)))
+    (local-set-key (kbd "C-z") #'undo)
+    (local-set-key (kbd "C-/") #'comment-region)))
 
 (with-eval-after-load 'lsp-mode
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
@@ -260,6 +272,8 @@
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-f") #'re-search-forward)
     (define-key map (kbd "C-j") #'term)
+    (define-key map (kbd "C-s") #'save-buffer)
+    (define-key map (kbd "C-k") #'kill-current-buffer)
     map)
   "my-keys-minor-mode keymap.")
 

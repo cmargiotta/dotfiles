@@ -33,6 +33,12 @@
     recursive = true;
   };
 
+  xdg.configFile.wal_templates = {
+    source = ./config/wal-templates;
+    target = "wal/templates";
+    recursive = true;
+  };
+
   xdg.configFile.lock = {
     source = ./config/lock.sh;
     target = "swaylock.sh";
@@ -56,17 +62,15 @@
     target = "hypr/scripts";
   };
 
+  xdg.configFile.hyprlock = {
+    source = ./config/Hyprland/hyprlock.conf;
+    target = "hypr/hyprlock.conf"; 
+  };
+
   xdg.configFile.eww_config = {
     source = ./config/eww;
     target = "eww";
   };
-
-  #wayland.windowManager.hyprland = {
-  #  enable = true;
-  #  xwayland = {
-  #    enable = true;
-  #  };
-  #};
 
   programs.swaylock = {
     enable = true;

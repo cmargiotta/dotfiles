@@ -11,6 +11,16 @@
     target = ".ssh/id_ed25519.pub";
   };
 
+  home.file.palette = {
+    source = ./wallpapers/laptop-wsense/wallpaper.jpg;
+    target = ".palette.jpg";
+  };
+
+  home.file.lock_wallpaper = {
+    source = ./wallpapers/laptop-wsense/wallpaper.jpg;
+    target = ".lock_wallpaper.jpg";
+  };
+
   home.file.sshpriv = {
     source = ../secrets/laptop-wsense/ssh_priv;
     target = ".ssh/id_ed25519";
