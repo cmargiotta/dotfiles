@@ -259,7 +259,7 @@
     (local-set-key (kbd "C-S-c") #'kill-region)
     (local-set-key (kbd "C-S-v") #'yank)
     (local-set-key (kbd "C-z") #'undo)
-    (local-set-key (kbd "C-/") #'comment-region)))
+    (local-set-key (kbd "C-/") #'comment-line)))
 
 (with-eval-after-load 'lsp-mode
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
