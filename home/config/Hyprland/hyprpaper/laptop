@@ -1,5 +1,5 @@
-preload = ~/.wallpapers/wallpaper.jpg
+preload = ~/.wallpapers/wallpaper.png
 
-wallpaper = ,~/.wallpapers/wallpaper.jpg
+wallpaper = ,~/.wallpapers/wallpaper.png
 
 splash = true

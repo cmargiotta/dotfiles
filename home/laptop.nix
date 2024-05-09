@@ -12,13 +12,13 @@
   };
 
   home.file.palette = {
-    source = ./wallpapers/laptop-wsense/wallpaper.jpg;
-    target = ".palette.jpg";
+    source = ./wallpapers/laptop-wsense/wallpaper.png;
+    target = ".palette.png";
   };
 
   home.file.lock_wallpaper = {
-    source = ./wallpapers/laptop-wsense/wallpaper.jpg;
-    target = ".lock_wallpaper.jpg";
+    source = ./wallpapers/laptop-wsense/wallpaper.png;
+    target = ".lock_wallpaper.png";
   };
 
   home.file.sshpriv = {

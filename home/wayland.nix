@@ -38,12 +38,6 @@
     target = "wal/templates";
     recursive = true;
   };
-
-  xdg.configFile.lock = {
-    source = ./config/lock.sh;
-    target = "swaylock.sh";
-    executable = true;
-  };
   
   xdg.configFile.ironbar = {
     source = ./config/ironbar;

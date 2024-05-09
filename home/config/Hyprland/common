@@ -68,7 +68,7 @@ $MODSHIFT = SUPERSHIFT
 # Exec bindings
 bind = $MOD, Return, exec, kitty
 bind = $MOD, D,      exec, ~/.config/rofi/launchers/type-6/launcher.sh
-bind = $MOD, L,      exec, ~/.config/swaylock.sh
+bind = $MOD, L,      exec, hyprlock
 bind =     ,Print,   exec, grimblast copy output
 bind = $MOD, S,      exec, grimblast copy area
 bind = $MODSHIFT, S, exec, GRIMBLAST_EDITOR="swappy -f" grimblast edit area
