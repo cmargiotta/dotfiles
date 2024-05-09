@@ -1,4 +1,4 @@
-q$EXTERNAL = desc:HP Inc. HP 27mq CNC34518VJ
+$EXTERNAL = desc:HP Inc. HP 27mq CNC34518VJ
 $INTERNAL = eDP-1
 
 input {
