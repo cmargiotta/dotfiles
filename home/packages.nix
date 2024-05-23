@@ -8,7 +8,6 @@
     docker-compose
     esphome
     nix-direnv
-    # pgadmin4-desktopmode
     pkg-config
     sqlitebrowser
     wineWowPackages.waylandFull
@@ -78,5 +77,7 @@
     pkg-config
     xorg.xeyes
     xorg.xrandr
+  ] ++ [
+    
   ];
 }
