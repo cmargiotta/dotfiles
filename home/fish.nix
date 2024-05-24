@@ -90,6 +90,14 @@
         body = "nixos-clear && nix flake update ~/dotfiles && nixos-apply";
       };
 
+      fastfetch = {
+        body = ''
+             set -l image (fd --type file --extension jpg 'C\+\+|Lisp|OCaml|Rust|Quantum Computing|Racket|Regex|Algorithms|Architecture|Compilers|Linux|Math|Memes|Prolog' ~/.assets/anime-girls-with-programming-books | shuf -n 1)
+
+             clear && command fastfetch --logo "$image" --logo-height 30
+        '';
+      };
+
       fish_command_not_found = {
         body = ''
           source ~/.config/fish/functions/_lib.fish
