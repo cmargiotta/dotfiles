@@ -12,7 +12,7 @@
   };
 
   home.file.lock_wallpaper = {
-    source = ./wallpapers/laptop-wsense/ultrawide.jpg;
+    source = ./wallpapers/desktop/ultrawide.jpg;
     target = ".lock_wallpaper.jpg";
   };
 
