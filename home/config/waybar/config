@@ -5,10 +5,9 @@
 
     "modules-left": ["custom/playerctl","custom/playerlabel","cava","hyprland/window"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["hyprland/language","disk","memory","cpu","custom/pacmanAlt","pulseaudio","clock","custom/wlogout"],
+    "modules-right": ["hyprland/language","disk","memory","cpu"],
 				
-"cava": {
-   //     "cava_config": "$XDG_CONFIG_HOME/cava/config",
+    "cava": {
         "framerate": 30,
         "autosens": 1,
         "sensitivity": 1,
@@ -29,40 +28,21 @@
                    "on-click-right": "mode"
                    }
     },
-"clock": {
-        "interval": 1,    
-        "format": " {:%B %d  %H:%M}",
-        "format-alt": " {:%H:%M}",
-        "on-click-middle": "gnome-calendar",
-        "tooltip-format": "\n<span size='14pt' font='JetBrains Mono ExtraBold'>{calendar}</span>",
-        "calendar": {
-                    "mode"          : "month",
-                    "mode-mon-col"  : 3,
-                    "on-scroll"     : 1,
-                    "on-click-right": "mode",
-                    "format": {
-                              "months":     "<span color='#5e81ac'><b>{}</b></span>",
-                              "days":       "<span color='#88c0d0'><b>{}</b></span>",
-                              "weekdays":   "<span color='#d08770'><b>{}</b></span>",
-                              "today":      "<span color='#bf616a'><b><u>{}</u></b></span>"
-                              }
-                    }
+    "hyprland/workspaces": {
+	"active-only": false,
+	"all-outputs": false,
+	"disable-scroll": false,
+	"on-scroll-up": "hyprctl dispatch workspace e-1",
+	"on-scroll-down": "hyprctl dispatch workspace e+1",
+	"format": "{name}",
+	"on-click": "activate",
+	"format-icons": {
+		"urgent": "",
+		"active": "",
+		"default": "",
+	},
+	"sort-by-number": true,
     },
-		"hyprland/workspaces": {
-			"active-only": true,
-			"all-outputs": true,
-			"disable-scroll": false,
-			"on-scroll-up": "hyprctl dispatch workspace e-1",
-			"on-scroll-down": "hyprctl dispatch workspace e+1",
-			"format": "{icon}",
-			"on-click": "activate",
-			"format-icons": {
-				"urgent": "",
-				"active": "",
-				"default": "",
-				},
-			"sort-by-number": true,
-		},
     "custom/playerctl": {
       "format": "{icon}",
       "return-type": "json",
@@ -84,80 +64,30 @@
       "on-click-middle": "playerctl --player=mpd previous",
       "on-click-right": "playerctl --player=mpd next",
     },
-		
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-      //"format-bluetooth": "{volume}% {icon}",
-        "format-muted": "",
-        "format-icons": {
-        "headphone": "",
-        "hands-free": "",
-        "headset": "",
-        "phone": "",
-        "portable": "",
-        "car": "",
-        "default": ["", "", ""]
-    },
-        "scroll-step": 1,
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "ignored-sinks": ["Easy Effects Sink"]
-},
-
-
     "tray": {
         "icon-size": 16,
         "spacing": 8,
     },
-
-		"memory": {
-			"format": " {}%",
-			"format-alt": " {used}/{total} GiB",
-			"interval": 5,
-		},
-		"cpu": {
-			"format": " {usage}%",
-			"format-alt": "󰍛 {avg_frequency} GHz",
-			"interval": 5,
-		},
-		"disk": {
-			"format": " {}%",
-			"format-alt": "󰋊 {used}/{total} GiB",
-			"interval": 20,
-			"path": "/"
-		},
-
-		   "hyprland/window": {
-		    "format": "{}",
-            "max-length": 25,
-        "rewrite": {
-            "(.*) - Chromium": "🌎 $1",
-            "(.*) - Brave-browser-beta": "🌎 $1",
-            "(.*) - Thunar": " $1",
-            "(.*) - mpv": " $1",
-            
-            "(.*) - fish": " [$1]",
-            "(.*) - wezterm": " [$1]",
-            "(.*) - kitty": " [$1]",
-            "(.*) - nautilus": " $1",
-            "(.*) - Alacritty": " $1"
-
-            
-        },
+    "memory": {
+	"format": " {}%",
+	"format-alt": " {used}/{total} GiB",
+	"interval": 5,
+    },
+    "cpu": {
+ 	"format": " {usage}%",
+	"format-alt": "󰍛 {avg_frequency} GHz",
+	"interval": 5,
+    },
+    "disk": {
+	"format": " {}%",
+	"format-alt": "󰋊 {used}/{total} GiB",
+	"interval": 20,
+	"path": "/"
+    },
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 25,
         "separate-outputs": true
     },
-
-		"custom/pacmanAlt": {
-    			"format": "󰮯 {}",
-    			"interval": 3600,
-    			"exec": "checkupdates | wc -l",
-    			"tooltip": false        
-    		},
-    		
-    	"custom/wlogout": {
-        "format": "  {}",
-        "on-click": "wlogout -p xdg -b 2 -T 300 -B 300 -R 800 -L 800",
-        "tooltip": false
-    },
-
 }
 

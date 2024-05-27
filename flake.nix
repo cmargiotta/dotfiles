@@ -9,6 +9,7 @@
     iceberg.url = "github:icebox-nix/iceberg";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nur.url = "github:nix-community/NUR";
+    gBar.url = "github:scorpion-26/gBar";
     nix-gaming.url = "github:fufexan/nix-gaming";
     waybar.url = "github:Alexays/Waybar"; 
   };
@@ -45,6 +46,7 @@
                 imports =
                   [
                     hyprland.homeManagerModules.default
+                    inputs.gBar.homeManagerModules.x86_64-linux.default
 
                     ./home/common.nix
                     ./home/desktop.nix
@@ -87,6 +89,7 @@
                 imports =
                   [
                     hyprland.homeManagerModules.default
+                    inputs.gBar.homeManagerModules.x86_64-linux.default
 
                     ./home/common.nix
                     ./home/laptop.nix

@@ -26,14 +26,25 @@
     time = "it_IT.UTF-8";
   };
 
+  home.file.scripts = {
+    source = ../scripts;
+    target = ".scripts";
+    recursive = true;
+    executable = true;
+  };
+
+  home.file.assets = {
+    source = ../assets;
+    target = ".assets";
+    recursive = true;
+  };
+
   home.activation = {
     linkConfigFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
       run ln -sf $HOME/dotfiles/home/config/PrusaSlicer $HOME/.config/
       run ln -sf $HOME/dotfiles/home/config/easyeffects $HOME/.config/
       run ln -sf $HOME/dotfiles/home/config/emacs $HOME/.config/
       run ln -sf $HOME/dotfiles/home/config/vscode.json $HOME/.config/Code/User/settings.json
-      run ln -sf $HOME/dotfiles/assets $HOME/.assets
-      run ln -sf $HOME/dotfiles/scripts $HOME/.scripts
       run rm -rf $HOME/.config/emacs/.extension/vscode/cpptools/extension
       run ln -sf ${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/ $HOME/.config/emacs/.extension/vscode/cpptools/extension
     '';

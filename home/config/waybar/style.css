@@ -245,7 +245,7 @@ window#waybar.chromium {
 
 
 #workspaces button.active {
-    color: #cdd6f4;
+    color: black;
     background-color: #cdd6f4;
     border-radius: 16px;
     min-width: 50px;

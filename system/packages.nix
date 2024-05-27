@@ -73,7 +73,7 @@
 
     waybar = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      package = inputs.waybar.packages.${pkgs.system}.waybar;
     };
 
     dconf = {

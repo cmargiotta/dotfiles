@@ -58,6 +58,7 @@ exec-once = hash dbus-update-activation-environment 2>/dev/null && dbus-update-a
 exec-once = swaync
 exec-once = ironbar
 exec-once = blueman-applet
+exec-once = ~/.scripts/run_bars.sh
 exec-once = wal -i ~/.palette.png  
 
 exec = hyprpaper
