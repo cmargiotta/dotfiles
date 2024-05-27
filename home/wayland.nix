@@ -1,4 +1,10 @@
-{ config, pkgs, nixpkgs, unstable, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  unstable,
+  ...
+}:
 {
   home.packages = with pkgs; [
     arandr
@@ -18,7 +24,6 @@
     rofi-wayland
     slurp
     scratchpad
-    gbar
     swappy
     pulseaudio
     waypipe
@@ -39,7 +44,7 @@
     target = "wal/templates";
     recursive = true;
   };
-  
+
   xdg.configFile.ironbar = {
     source = ./config/ironbar;
     target = "ironbar";
@@ -49,12 +54,6 @@
   xdg.configFile.waybar = {
     source = ./config/waybar;
     target = "waybar";
-    recursive = true;
-  };
-
-  xdg.configFile.gbar = {
-    source = ./config/gBar;
-    target = "gBar";
     recursive = true;
   };
 
@@ -71,17 +70,31 @@
 
   xdg.configFile.hyprlock = {
     source = ./config/Hyprland/hyprlock.conf;
-    target = "hypr/hyprlock.conf"; 
-  };
-
-  xdg.configFile.eww_config = {
-    source = ./config/eww;
-    target = "eww";
+    target = "hypr/hyprlock.conf";
   };
 
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;
+  };
+
+  programs.gBar = {
+    enable = true;
+    extraCSS = (builtins.readFile ./config/gBar/style.css);
+    config = {
+      Location = "B";
+      CPUThermalZone = "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input";
+      CenterTime = true;
+      AudioInput = true;
+      AudioRevealer = true;
+      NetworkAdapter = "wlp0s20f3";
+      EnableSNI = true;
+    };
+    extraConfig = ''
+      WidgetsLeft: [Sensors]
+      WidgetsCenter: [Time]
+      WidgetsRight: [Tray, Audio, Bluetooth, Network]
+    '';
   };
 
   programs.pywal.enable = true;

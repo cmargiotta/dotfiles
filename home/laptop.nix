@@ -1,24 +1,8 @@
 { config, pkgs, lib, ... }:
 {
-  home.file.wallpapers = {
-    source = ./wallpapers/laptop-wsense;
-    target = ".wallpapers";
-    recursive = true;
-  };
-
   home.file.sshpub = {
     source = ../secrets/laptop-wsense/ssh_pub;
     target = ".ssh/id_ed25519.pub";
-  };
-
-  home.file.palette = {
-    source = ./wallpapers/laptop-wsense/wallpaper.png;
-    target = ".palette.png";
-  };
-
-  home.file.lock_wallpaper = {
-    source = ./wallpapers/laptop-wsense/wallpaper.png;
-    target = ".lock_wallpaper.png";
   };
 
   home.file.sshpriv = {
