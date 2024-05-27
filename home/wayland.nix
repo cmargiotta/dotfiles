@@ -13,7 +13,6 @@
     libnotify
     libGL
     glmark2
-    ironbar
     hyprpaper
     jq
     hyprlock
@@ -39,6 +38,12 @@
     recursive = true;
   };
 
+  xdg.configFile.waybar = {
+    source = ./config/waybar;
+    target = "waybar";
+    recursive = true;
+  };
+
   xdg.configFile.wal_templates = {
     source = ./config/wal-templates;
     target = "wal/templates";
@@ -48,12 +53,6 @@
   xdg.configFile.ironbar = {
     source = ./config/ironbar;
     target = "ironbar";
-    recursive = true;
-  };
-
-  xdg.configFile.waybar = {
-    source = ./config/waybar;
-    target = "waybar";
     recursive = true;
   };
 

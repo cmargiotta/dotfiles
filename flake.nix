@@ -52,7 +52,7 @@
                     ./home/desktop.nix
                   ];
 
-                home.stateVersion = "23.11";
+                home.stateVersion = "24.11";
               };
           }
         ];
@@ -95,7 +95,7 @@
                     ./home/laptop.nix
                   ];
 
-                home.stateVersion = "23.11";
+                home.stateVersion = "24.11";
               };
           }
         ];

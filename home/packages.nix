@@ -42,7 +42,11 @@
     inxi
     lm_sensors
     nix-index
-    fastfetch
+    (fastfetch.overrideAttrs (old: {
+      cmakeFlags = old.cmakeFlags ++ [
+        (lib.cmakeBool "ENABLE_IMAGEMAGICK7" true)
+      ];
+    }))
     quickemu
     home-manager
     pavucontrol

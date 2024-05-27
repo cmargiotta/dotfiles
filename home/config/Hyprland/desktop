@@ -9,9 +9,6 @@ monitor = $VERTICAL,  highres, 0x500,     1
 monitor = $VERTICAL, transform, 1
 
 # Autostart apps
-exec-once = gamemoderun steam
-exec-once = telegram-desktop
-exec-once = discord
 exec-once = easyeffects
 exec-once = kitty --class=btop btop
 
@@ -27,9 +24,11 @@ exec = sleep 5 && echo "connect 00:15:83:02:82:79" | bluetoothctl
 workspace = 1,             monitor:$ULTRAWIDE, default:true
 workspace = 9,             monitor:$ULTRAWIDE
 workspace = 2,             monitor:$VERTICAL,  default:true, layoutopt:orientation:top
-workspace = name:steam,    monitor:$UPPER,     default:true
-workspace = name:telegram, monitor:$UPPER
-workspace = name:music,    monitor:$UPPER
+workspace = name:,       monitor:$UPPER
+workspace = name:󰍩,        monitor:$UPPER
+workspace = name:,       monitor:$UPPER
+workspace = name:,       monitor:$UPPER
+workspace = name:        monitor:$UPPER
 
 windowrule = workspace 3, Discord
 windowrule = workspace 2, com.github.wwmm.easyeffects
