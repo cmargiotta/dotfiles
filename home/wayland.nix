@@ -18,6 +18,7 @@
     rofi-wayland
     slurp
     scratchpad
+    gbar
     swappy
     pulseaudio
     waypipe
@@ -42,6 +43,18 @@
   xdg.configFile.ironbar = {
     source = ./config/ironbar;
     target = "ironbar";
+    recursive = true;
+  };
+
+  xdg.configFile.waybar = {
+    source = ./config/waybar;
+    target = "waybar";
+    recursive = true;
+  };
+
+  xdg.configFile.gbar = {
+    source = ./config/gBar;
+    target = "gBar";
     recursive = true;
   };
 

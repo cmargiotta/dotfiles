@@ -5,11 +5,12 @@
     home-manager.url = "github:rycee/home-manager";
     hypr-contrib.url = "github:hyprwm/contrib";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     iceberg.url = "github:icebox-nix/iceberg";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nur.url = "github:nix-community/NUR";
     nix-gaming.url = "github:fufexan/nix-gaming";
+    waybar.url = "github:Alexays/Waybar"; 
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware, hyprland, iceberg, nur, ... }@inputs:
