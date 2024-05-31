@@ -11,11 +11,6 @@
     target = ".palette.jpg";
   };
 
-  home.file.lock_wallpaper = {
-    source = ./wallpapers/desktop/ultrawide.jpg;
-    target = ".lock_wallpaper.jpg";
-  };
-
   home.file.sshpub = {
     source = ../secrets/desktop/ssh_pub;
     target = ".ssh/id_ed25519.pub";

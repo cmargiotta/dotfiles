@@ -58,13 +58,12 @@ exec-once = hash dbus-update-activation-environment 2>/dev/null && dbus-update-a
 exec-once = swaync
 exec-once = blueman-applet
 exec-once = ~/.scripts/run_bars.sh
-exec-once = wal -i ~/.palette.png
 exec-once = element-desktop
 exec-once = thunderbird
 exec-once = telegram-desktop
-exec-once = waybar
 
 exec = hyprpaper
+exec = ~/.scripts/random_wallpaper.sh
 
 $MOD = SUPER
 $MODSHIFT = SUPERSHIFT
@@ -77,6 +76,7 @@ bind =     ,Print,   exec, grimblast copy output
 bind = $MOD, S,      exec, grimblast copy area
 bind = $MODSHIFT, S, exec, GRIMBLAST_EDITOR="swappy -f" grimblast edit area
 bind = $MODSHIFT, W, exec, grimblast copy window
+bind = $MODSHIFT, B, exec, ~/.scripts/random_wallpaper.sh
 bind = $MOD, T,      exec, scratchpad
 bind = $MODSHIFT, T, exec, scratchpad -g
 bind = $MODSHIFT, R, exec, hyprctl reload
