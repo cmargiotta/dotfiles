@@ -183,6 +183,8 @@ env = QT_QPA_PLATFORMTHEME, qt5ct
 env = SDL_VIDEODRIVER, wayland
 env = XDG_SESSION_TYPE, wayland
 env = WLR_DRM_NO_ATOMIC,1
+env = HYPRCURSOR_THEME,"Nordzy-cursors-white"
+env = HYPRCURSOR_SIZE,24
 # env = STEAM_USE_DYNAMIC_VRS, 1
 # env = WINEDLLOVERRIDES, "dxgi=n"
 # env = STEAMOS_STEAM_REBOOT_SENTINEL, "/tmp/steamos-reboot-sentinel"

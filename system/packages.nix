@@ -10,6 +10,7 @@
     gnome.gnome-keyring
     gnupg
     btop
+    mangohud
     libsecret
     nano
     ntfs3g
@@ -29,14 +30,19 @@
       steam = prev.steam.override ({ extraPkgs ? pkgs': [ ], ... }: {
         extraPkgs = pkgs': (extraPkgs pkgs') ++ (with pkgs'; [
           curl
+          glib
+          libGL
           freetype
           gtk3
           gtk3-x11
           harfbuzz
           keyutils
           krb5
+          fontconfig
           libgdiplus
+          freetype
           libidn2
+          libxkbcommon
           libkrb5
           libpng
           libpsl
@@ -54,15 +60,35 @@
           xorg.libXinerama
           xorg.libXScrnSaver
           zlib
+          mono
+          xorg.libX11
+          libdbusmenu
+          dbus
         ]);
       });
     })
   ];
-
+  
   programs = {
     steam = {
       enable = true;
       platformOptimizations.enable = true;
+      gamescopeSession = {
+        enable = true;
+      };
+    };
+
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
+
+    gamemode = {
+      enable = true;
+      settings.custom = {
+        start="nvidia-settings -a '[gpu:0]/GPUPowerMizerMode=1'";
+        end="nvidia-settings -a '[gpu:0]/GPUPowerMizerMode=0'";
+      };
     };
 
     hyprland = {

@@ -37,11 +37,12 @@ in
     };
 
     nvidia = {
-      modesetting.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
       powerManagement.enable = true;
-      #open = true;
+      open = true;
       nvidiaSettings = true;
+      modesetting.enable = true;
+      forceFullCompositionPipeline = true;
     };
 
     xpadneo.enable = true;
@@ -83,7 +84,7 @@ in
     '';
 
     kernelPackages = pkgs.linuxPackages_zen;
-    initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+    initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "nvidia_uvm" ];
     initrd.kernelModules = [ ];
     plymouth = {
       enable = true;

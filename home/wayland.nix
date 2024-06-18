@@ -14,6 +14,7 @@
     libGL
     glmark2
     hyprpaper
+    hyprcursor
     jq
     hyprlock
     font-awesome

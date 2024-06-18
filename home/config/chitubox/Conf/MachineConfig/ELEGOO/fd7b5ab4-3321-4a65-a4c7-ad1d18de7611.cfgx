@@ -1644,8 +1644,8 @@
                         },
                         "enable_obscure": {
                             "type": "bool",
-                            "currentvalue": true,
-                            "defaultvalue": true,
+                            "currentvalue": false,
+                            "defaultvalue": false,
                             "tooltip": "",
                             "showname": "",
                             "visible": true,
@@ -3080,8 +3080,8 @@
                         },
                         "enable_obscure": {
                             "type": "bool",
-                            "currentvalue": true,
-                            "defaultvalue": true,
+                            "currentvalue": false,
+                            "defaultvalue": false,
                             "tooltip": "",
                             "showname": "",
                             "visible": true,
@@ -4516,8 +4516,8 @@
                         },
                         "enable_obscure": {
                             "type": "bool",
-                            "currentvalue": true,
-                            "defaultvalue": true,
+                            "currentvalue": false,
+                            "defaultvalue": false,
                             "tooltip": "",
                             "showname": "",
                             "visible": true,

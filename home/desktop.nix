@@ -1,16 +1,5 @@
 { config, pkgs, lib, ... }:
 {
-  home.file.wallpapers = {
-    source = ./wallpapers/desktop;
-    target = ".wallpapers";
-    recursive = true;
-  };
-
-  home.file.palette = {
-    source = ./wallpapers/desktop/ultrawide.jpg;
-    target = ".palette.jpg";
-  };
-
   home.file.sshpub = {
     source = ../secrets/desktop/ssh_pub;
     target = ".ssh/id_ed25519.pub";
