@@ -80,7 +80,19 @@
 
     gamescope = {
       enable = true;
-      capSysNice = true;
+      # capSysNice = true;
+      args = [
+        "-w 3440"
+        "-h 1440"
+        "-f"
+        "-e"
+      ];
+      env = {
+        DXVK_HDR = "1";
+        ENABLE_GAMESCOPE_WSI = "1";
+        WINE_FULLSCREEN_FSR = "1";
+        WLR_RENDERER = "vulkan";
+     };
     };
 
     gamemode = {

@@ -31,6 +31,7 @@
     wl-clipboard
     wlr-randr
     xorg.xhost
+    xwayland
   ];
 
   xdg.configFile.wofi = {
