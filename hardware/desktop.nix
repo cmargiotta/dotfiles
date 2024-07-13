@@ -12,11 +12,9 @@ in
     ];   
 
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport32Bit = true;
-      package = pkgs-hypr.mesa.drivers;
-      package32 = pkgs-hypr.pkgsi686Linux.mesa.drivers;
+      enable32Bit = true;
       extraPackages32 = with pkgs.pkgsi686Linux; [
         libva
         # qt6.qtwayland

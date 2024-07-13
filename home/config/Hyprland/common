@@ -46,7 +46,6 @@ input {
 
 master {
   no_gaps_when_only = true
-  new_is_master = false
   new_on_top = true
 }
 

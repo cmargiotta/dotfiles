@@ -88,9 +88,7 @@
         "-e"
       ];
       env = {
-        DXVK_HDR = "1";
         ENABLE_GAMESCOPE_WSI = "1";
-        WINE_FULLSCREEN_FSR = "1";
         WLR_RENDERER = "vulkan";
      };
     };
