@@ -30,7 +30,7 @@
     tor-browser-bundle-bin
 
     # Office
-    gnome.gnome-calculator
+    gnome-calculator
     onlyoffice-bin
     libreoffice
 
@@ -55,7 +55,6 @@
     flacon
     gimp
     mac
-    picard
     playerctl
     pureref
     shntool
@@ -78,6 +77,6 @@
     xorg.xeyes
     xorg.xrandr
   ] ++ [
-    
+
   ];
 }

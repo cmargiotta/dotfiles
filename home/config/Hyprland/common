@@ -147,8 +147,7 @@ submap = reset
 
 windowrule = float,       pavucontrol
 windowrule = center,      pavucontrol
-windowrule = forceinput,  ^(steam)$
-windowrule = noblur,	  ^(steam)$
+windowrule = noblur,	    ^(steam)$
 windowrule = forcergbx,   ^(steam)$
 windowrule = workspace 9, ^(steam_app.*)$
 windowrule = float,       title:Picture-in-Picture

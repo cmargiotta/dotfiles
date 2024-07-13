@@ -7,7 +7,7 @@
     fd
     git
     glibcLocales
-    gnome.gnome-keyring
+    gnome-keyring
     gnupg
     btop
     mangohud
@@ -68,7 +68,7 @@
       });
     })
   ];
-  
+
   programs = {
     steam = {
       enable = true;
