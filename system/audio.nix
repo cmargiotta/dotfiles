@@ -8,6 +8,7 @@
       support32Bit = true;
     };
 
+    audio.enable = true;
     jack.enable = true;
     pulse.enable = true;
     wireplumber.enable = true;
@@ -24,6 +25,7 @@
 
   environment.systemPackages = with pkgs; [
     easyeffects
+    pwvucontrol
   ];
 
   security.rtkit.enable = true;

@@ -1,7 +1,10 @@
 #!/usr/bin/env sh
 
-run_gBar() {
+run_bars() {
   killall gBar
+  killall waybar
+  waybar &
+  
   ids=$(hyprctl monitors -j | jq -r '.[] | .id')
 
   for id in $ids; do
@@ -9,8 +12,7 @@ run_gBar() {
   done
 }
 
-run_gBar
-waybar &
+run_bars
 
 handle() {
   case $1 in

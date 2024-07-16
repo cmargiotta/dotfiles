@@ -13,6 +13,7 @@
     mangohud
     libsecret
     nano
+    prusa-slicer
     ntfs3g
     pass-secret-service
     socat
@@ -109,7 +110,7 @@
 
     waybar = {
       enable = true;
-      package = inputs.waybar.packages.${pkgs.system}.waybar;
+      # package = inputs.waybar.packages.${pkgs.system}.waybar;
     };
 
     dconf = {

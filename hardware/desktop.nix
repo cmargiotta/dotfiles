@@ -2,9 +2,6 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 { inputs, config, lib, pkgs, modulesPath, ... }:
-let
-  pkgs-hypr = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in
 {
   imports =
     [
@@ -34,7 +31,7 @@ in
     };
 
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+      package = config.boot.kernelPackages.nvidiaPackages.production;
       powerManagement.enable = true;
       open = true;
       nvidiaSettings = true;

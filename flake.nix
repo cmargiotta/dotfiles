@@ -11,7 +11,7 @@
     nur.url = "github:nix-community/NUR";
     gBar.url = "github:scorpion-26/gBar";
     nix-gaming.url = "github:fufexan/nix-gaming";
-    waybar.url = "github:Alexays/Waybar"; 
+    waybar.url = "github:Alexays/Waybar";
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware, hyprland, iceberg, nur, ... }@inputs:

@@ -52,12 +52,6 @@
     recursive = true;
   };
 
-  xdg.configFile.ironbar = {
-    source = ./config/ironbar;
-    target = "ironbar";
-    recursive = true;
-  };
-
   xdg.configFile.swaync = {
     source = ./config/swaync;
     target = "swaync";

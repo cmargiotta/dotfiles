@@ -48,7 +48,6 @@
     }))
     quickemu
     home-manager
-    pavucontrol
 
     # Media
     ffmpeg
@@ -62,7 +61,6 @@
     sox
 
     # 3D printing
-    prusa-slicer
     openscad
 
     # Others
