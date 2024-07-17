@@ -29,10 +29,8 @@ in
   };
 
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
       package = pkgs-hypr.mesa.drivers;
       package32 = pkgs-hypr.pkgsi686Linux.mesa.drivers;
       extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
