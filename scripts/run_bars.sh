@@ -1,22 +1,15 @@
 #!/usr/bin/env sh
 
 run_bars() {
-  killall gBar
   killall waybar
   waybar &
-  
-  ids=$(hyprctl monitors -j | jq -r '.[] | .id')
-
-  for id in $ids; do
-    gBar bar "$id"&
-  done
 }
 
 run_bars
 
 handle() {
   case $1 in
-    monitoradded*) run_gBar;;
+    monitoradded*) run_bars;;
   esac
 }
 

@@ -31,7 +31,7 @@
     };
 
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.production;
+      package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
       powerManagement.enable = true;
       open = true;
       nvidiaSettings = true;

@@ -53,7 +53,148 @@
   :hook
   (lsp-mode . dap-auto-configure-mode)
   (c++-mode . (lambda ()
-    (require 'dap-gdb-lldb))))
+		(require 'dap-gdb-lldb))))
+
+;; connect with @<username>:host.org
+(use-package ement
+  :hook (ement-room-mode . (lambda () (display-line-numbers-mode -1)))
+  :general
+    (leader 
+      "m m" '((lambda () (interactive) (persp-switch "matrix") (ement-connect)) :wk "Matrix with ement"))
+    (:keymaps 'ement-room-minibuffer-map :states 'insert "RET" #'newline)
+  :config
+  (setq ement-notify-dbus-p nil))
+
+(defun jl/random-quote ()
+  "Generate a random quote for dashboard"
+  (interactive)
+  (let ((ops '(
+    "Hello World!"
+    "Whopper Whopper Whopper Whopper Junior Double Triple Whopper"
+    "sudo systemctl stop justinlime"
+    "sudo systemctl start justinlime"
+    "sudo systemctl restart justinlime"
+    "White Monster"
+    "https://stinkboys.com"
+    "Stink Boys Inc. ©"
+    "/home/justinlime/.config"
+    "No emacs???"))) (nth (random (length ops)) ops)))
+
+(defun jl/random-ascii ()
+  "Generate a random quote for dashboard"
+  (interactive)
+  (let ((ops '(
+"
+    ⠀⠀⠀⠀⠀⡰⢂⣾⠿⠛⠒⠚⠛⠃⠺⢶⡀⠀⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⢠⡣⠋⠁⠀⠀⠀⠀⠀⢀⡐⠒⢙⣄⠀⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⡘⠀⠀⠀⠀⠀⠀⢄⠉⠀⠐⠀⠀⠙⢦⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⣾⠁⠀⠀⠄⠂⢈⣠⠎⠀⠀⣸⣿⡿⠓⢬⡇⠀⠀⠀⠀⠀
+    ⠀⠀⢸⡟⠀⠔⣁⣤⣶⣿⠋⢰⠀⠀⣿⡟⠻⣦⠀⢳⠀⠀⠀⠀⠀
+    ⠀⠀⣷⡇⢠⣾⢟⢭⣭⡭⡄⠀⡆⠀⣿⣷⣶⠺⡆⢸⡄⠀⠀⠀⠀
+    ⠀⠀⠇⡇⠛⠡⣑⣈⣛⠝⢁⡀⠇⠀⣿⡿⠛⠒⣡⠇⣧⣀⠀⠀⠀
+    ⠀⠀⢠⠁⠈⠐⠤⠄⠀⣠⢸⠈⠢⠀⣿⡇⠀⠀⠠⠚⣿⣿⠀⠀⠀
+    ⡄⠀⢾⠀⡆⠠⣴⠞⠯⡀⠈⠙⠲⣶⣿⡇⠑⣦⡄⠀⣿⣿⠀⠀⠀
+    ⠈⠺⡮⠀⢡⠀⠀⠀⠀⠀⠁⠐⠒⠒⠛⠃⠈⠛⠇⠀⡏⡏⠀⠀⠀
+    ⠀⢰⠁⠀⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡄⠀⢷⠀⠀⠀
+    ⠀⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠃⠀⢸⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡄⠀⠀
+    ⠀⠀⢣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠸⡳⡀⠀
+    ⠀⠀⠀⠑⢄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣯⣼⡇⠑⣄
+"
+"
+⠀⣞⢽⢪⢣⢣⢣⢫⡺⡵⣝⡮⣗⢷⢽⢽⢽⣮⡷⡽⣜⣜⢮⢺⣜⢷⢽⢝⡽⣝
+⠸⡸⠜⠕⠕⠁⢁⢇⢏⢽⢺⣪⡳⡝⣎⣏⢯⢞⡿⣟⣷⣳⢯⡷⣽⢽⢯⣳⣫⠇
+⠀⠀⢀⢀⢄⢬⢪⡪⡎⣆⡈⠚⠜⠕⠇⠗⠝⢕⢯⢫⣞⣯⣿⣻⡽⣏⢗⣗⠏⠀
+⠀⠪⡪⡪⣪⢪⢺⢸⢢⢓⢆⢤⢀⠀⠀⠀⠀⠈⢊⢞⡾⣿⡯⣏⢮⠷⠁⠀⠀⠀
+⠀⠀⠀⠈⠊⠆⡃⠕⢕⢇⢇⢇⢇⢇⢏⢎⢎⢆⢄⠀⢑⣽⣿⢝⠲⠉⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⡿⠂⠠⠀⡇⢇⠕⢈⣀⠀⠁⠡⠣⡣⡫⣂⣿⠯⢪⠰⠂⠀⠀⠀⠀
+⠀⠀⠀⠀⡦⡙⡂⢀⢤⢣⠣⡈⣾⡃⠠⠄⠀⡄⢱⣌⣶⢏⢊⠂⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢝⡲⣜⡮⡏⢎⢌⢂⠙⠢⠐⢀⢘⢵⣽⣿⡿⠁⠁⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠨⣺⡺⡕⡕⡱⡑⡆⡕⡅⡕⡜⡼⢽⡻⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⣼⣳⣫⣾⣵⣗⡵⡱⡡⢣⢑⢕⢜⢕⡝⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⣴⣿⣾⣿⣿⣿⡿⡽⡑⢌⠪⡢⡣⣣⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⡟⡾⣿⢿⢿⢵⣽⣾⣼⣘⢸⢸⣞⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠁⠇⠡⠩⡫⢿⣝⡻⡮⣒⢽⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+"
+"
+⠀⠀⠀⠀⠀⠀⢀⣤⣤⡴⢾⠾⠛⠾⠛⠶⠟⠷⡿⠶⡶⢶⣄⣀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⣠⣶⠟⠁⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠛⣦⡀⠀⠀⠀⠀
+⠀⠀⢀⣴⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣆⠀⠀⠀
+⠀⠀⣼⠋⠀⠀⢀⣀⣠⡄⠤⣀⣤⣠⣀⣠⣠⢆⢤⡠⣄⣠⠀⠀⠀⠀⢻⡆⠀⠀
+⠀⢰⡏⠀⠀⡴⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠢⡀⠀⠀⢿⠀⠀
+⠀⢸⡇⠀⡜⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠘⡄⠀⢸⡀⠀
+⠀⢸⡇⢸⠀⠀⠀⠀⠀⠀⠀⠐⠉⠀⠀⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠘⡄⢸⡇⠀
+⠀⢸⡇⢸⠀⠀⠀⠀⠀⠀⢀⠤⠐⠊⠉⠉⠒⠂⠤⠀⠀⠀⠀⠀⠀⠀⡇⢸⡇⠀
+⠀⢸⡇⢸⢠⣤⣤⣤⣤⣤⣤⣤⣤⡀⠀⠀⢠⡴⠶⠶⠶⠶⠶⠶⢶⡄⡇⢸⡇⠀
+⠀⣸⠇⣸⣾⠃⠀⢀⣀⣒⣰⠀⠸⣷⠾⠷⣾⡇⠀⣮⠕⢒⣄⠀⠘⡟⣷⣸⣧⡀
+⣼⢛⣾⡻⢸⠀⢠⠁⢴⡆⠈⡆⠀⡇⠀⠀⢸⡆⠸⡁⠰⡆⠀⣧⢰⡇⠷⢻⠊⣿
+⢿⠀⢳⠀⠸⣇⠀⠉⠒⠒⠉⠀⣸⠇⠀⠀⠸⣇⠀⠈⠑⠒⠉⠁⣸⠇⠀⡇⠀⡿
+⠸⣇⠘⢰⠀⠈⠛⠓⠒⠒⠒⠛⠉⠀⠀⠀⠀⡉⠛⠛⠛⠛⠛⠋⠁⠀⢣⠁⢸⠇
+⠀⢻⣆⡇⠀⠀⠀⠀⠀⠀⠀⣠⠊⠀⠀⠀⠀⠘⢆⠀⠀⠀⠀⠀⠀⠀⢸⣤⡟⠀
+⠀⠀⠸⣷⠀⠀⠀⠀⠀⢀⠐⢇⠚⠳⢄⣠⠔⠉⠡⠇⢄⠀⠀⠀⠀⡀⢸⡇⠀⠀
+⠀⠀⠀⣿⠀⠈⠒⠒⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠐⠂⠉⠀⣾⠃⠀⠀
+⠀⠀⠀⢻⡄⠀⠀⠀⠀⠀⡀⠀⢀⣀⣀⣀⣀⣀⣀⡀⡀⠀⠀⠀⠀⠀⣿⠀⠀⠀
+⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠈⠉⠠⣀⣀⣀⣀⡠⠄⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀
+⠀⠀⠀⢸⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀
+⠀⠀⠀⠀⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡟⠀⠀⠀
+⠀⠀⠀⠀⠘⣗⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠐⣿⠁⠀⠀⠀
+⠀⠀⠀⠀⠀⢿⠀⠀⠀⠀⠈⠑⠒⠤⠤⠤⠤⠤⠐⠊⠁⠀⠀⠀⢠⡏⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢰⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣸⡷⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠈⠙⠛⠶⠶⢤⣤⣤⣤⣤⣤⣤⣤⣤⠤⠶⠶⠛⠋⠁⠀⠀⠀⠀⠀
+"
+    ))) (nth (random (length ops)) ops)))
+(defun jl/random-icon ()
+  "Generate a random image for dashboard"
+  (interactive)
+  (let* ((icons-dir (expand-file-name "icons/" user-emacs-directory))
+        (ops (directory-files icons-dir))
+        (ops (delete "." ops))
+        (ops (delete ".." ops))
+        (file (nth (random (length ops)) ops)))
+          (expand-file-name file icons-dir)))
+
+(use-package dashboard
+  :ensure t
+  :custom
+    (default-directory "~/")
+    (dashboard-icon-type 'nerd-icons)
+    (dashboard-set-file-icons t)
+    (dashboard-vertically-center-content t)
+    (dashboard-center-content t)
+    (dashboard-display-icons-p t)
+    (dashboard-projects-switch-function 'projectile-persp-switch-project)
+    (initial-buffer-choice (lambda() (get-buffer-create "*dashboard*")) )
+    (dashboard-banner-logo-title (jl/random-quote))
+    (dashboard-footer-messages `(,(jl/random-quote)))
+    (dashboard-startup-banner 'ascii)
+    (dashboard-banner-ascii (jl/random-ascii))
+  :config
+    (dashboard-setup-startup-hook))
+
+(use-package perspective
+  :init
+    (setq persp-suppress-no-prefix-key-warning t)
+    (setq persp-initial-frame-name "emacs")
+    (setq persp-mode-prefix-key "C-p")
+    (persp-mode))
+
+(use-package nerd-icons
+  :config
+  (setq nerd-icons-font-family "RobotoMono Nerd Font"))
+
+(use-package hl-todo
+  :hook (prog-mode . hl-todo-mode)
+  :config
+    (setq hl-todo-keyword-faces
+        '(("TODO"   . "#FF0000")
+          ("FIXME"  . "#FF0000")
+          ("DEBUG"  . "#A020F0")
+          ("GOTCHA" . "#FF4500")
+          ("STUB"   . "#1E90FF"))))
+
+(use-package rainbow-mode
+  :hook (prog-mode . rainbow-mode))
 
 ;;;; Treemacs family
 (use-package treemacs
@@ -233,6 +374,26 @@
   :hook
   ('flycheck-mode . flycheck-clang-tidy-setup))
 
+;; Enable mouse in term-mode
+(unless (display-graphic-p)
+  (xterm-mouse-mode 1)
+  ;; let terminal emacs use system clipboard
+  ;; check out the xclip package if this doesn't work
+  (setq xterm-extra-capabilities '(getSelection setSelection)))
+(setq blink-cursor-mode nil ; Exactly what is sounds like
+      use-short-answers t ; Set y or n instead of yes or no for questions
+      display-line-numbers-type 'relative ; Realive line numbers
+      frame-resize-pixelwise t) ; Better frame resizing
+(setq-default tab-width 2 ; self explanitory
+              indent-tabs-mode nil ; use spaces not tabs
+              truncate-lines t) ;Allow truncated lines
+(electric-pair-mode 1) ; Auto closing pairs like () and {}
+(save-place-mode) ; Save cursor position in buffer on reopen
+(global-hl-line-mode) ; Highlight the current line
+(electric-indent-mode t) ; Auto Indent
+(global-display-line-numbers-mode 1) ; Display line numbers
+(global-prettify-symbols-mode) ; prettyyyyyyy
+
 ;; Whitespace
 (require 'whitespace)
 (global-whitespace-mode 1)
@@ -284,6 +445,38 @@
     (local-set-key (kbd "C-z") #'undo)
     (local-set-key (kbd "C-/") #'comment-line)))
 
+;; Kill *Help* after :q'ing
+(advice-add #'evil-quit :after #'(lambda (&rest r)
+  (let ((buf (get-buffer "*Help*")))
+    (if (eq buf nil) nil
+      (kill-buffer buf)))))
+
+;; Disables all startup warnings, and kills message buffer, comment this out when debugging
+(setq warning-minimum-level :emergency)
+(setq-default message-log-max nil)
+
+(add-hook 'emacs-startup-hook #'(lambda() ;Kills the warning buffer for even emergency messages
+				                          (kill-buffer (get-buffer "*Messages*"))
+                                  (kill-buffer (get-buffer "*scratch*"))))
+
+(setq make-backup-files nil ; stop creating ~ files
+      auto-save-default nil ; Disable autosave # files
+      create-lockfiles nil  ; Disable .# files
+      ;; Prevent emacs from trying to write to init.el
+      custom-file (concat user-emacs-directory "trash.el"))
+
+(setq use-dialog-box nil) ; No dialog box
+(scroll-bar-mode -1) ;Disable scroll bar
+
+(setq-default pixel-scroll-precision-mode t
+      mouse-wheel-scroll-amount '(1 ((shift) . 1)) ;; one line at a time
+      mouse-wheel-progressive-speed nil ;; don't accelerate scrolling
+      mouse-wheel-follow-mouse t ;; scroll window under mouse
+      mouse-wheel-tilt-scroll t
+      scroll-margin 7
+      scroll-preserve-screen-position t
+      scroll-conservatively 101)
+
 (with-eval-after-load 'lsp-mode
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
   (require 'dap-cpptools)
@@ -298,6 +491,7 @@
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-f") #'re-search-forward)
     (define-key map (kbd "C-j") #'term)
+    (define-key map (kbd "C-a") #'mark-whole-buffer)
     (define-key map (kbd "C-s") #'save-buffer)
     (define-key map (kbd "C-k") #'kill-current-buffer)
     map)
