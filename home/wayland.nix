@@ -8,30 +8,30 @@
 {
   home.packages = with pkgs; [
     arandr
-    grimblast
-    hyprland-protocols
-    libnotify
-    libGL
-    glmark2
-    hyprpaper
-    hyprcursor
-    jq
-    hyprlock
     font-awesome
+    glmark2
+    grimblast
+    hyprcursor
+    hyprland-protocols
+    hyprlock
+    hyprpaper
+    jq
+    libGL
+    libnotify
     nwg-look
-    swaynotificationcenter
     pamixer
-    rofi-wayland
-    slurp
-    scratchpad
-    swappy
     pulseaudio
+    rofi-wayland
+    scratchpad
+    slurp
+    swappy
+    swaynotificationcenter
     waypipe
     wev
     wl-clipboard
     wlr-randr
     xorg.xhost
-    xwayland
+    xwaylan
   ];
 
   xdg.configFile.wofi = {
@@ -71,25 +71,6 @@
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;
-  };
-
-  programs.gBar = {
-    enable = true;
-    extraCSS = (builtins.readFile ./config/gBar/style.css);
-    config = {
-      Location = "B";
-      CPUThermalZone = "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input";
-      CenterTime = true;
-      AudioInput = true;
-      AudioRevealer = true;
-      NetworkAdapter = "wlp0s20f3";
-      EnableSNI = true;
-    };
-    extraConfig = ''
-      WidgetsLeft: [Sensors]
-      WidgetsCenter: [Time]
-      WidgetsRight: [Tray, Audio, Bluetooth, Network]
-    '';
   };
 
   programs.pywal.enable = true;
