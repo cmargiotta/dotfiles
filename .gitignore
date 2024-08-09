@@ -11,5 +11,5 @@ home/config/emacs/projectile.cache
 home/config/emacs/projects
 home/config/emacs/tabsession.el
 
-!home/config/emacs/config
-!home/config/emacs/snippets
+!home/config/emacs/config/**
+!home/config/emacs/snippets/**
