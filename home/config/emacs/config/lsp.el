@@ -14,7 +14,6 @@
   ;; :global/:workspace/:file
   (setq lsp-modeline-diagnostics-scope :workspace))
 
-
 (use-package lsp-ui
   :after lsp-mode
   :custom

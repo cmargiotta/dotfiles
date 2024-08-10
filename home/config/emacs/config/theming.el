@@ -54,6 +54,28 @@
                                      "<+>" "<=" "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<"
                                      "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%"))
 
+(defun prettify-cpp ()
+  (progn
+    (setq prettify-symbols-alist
+          '((" &&" . " ∧")
+            ("||" . "∨")
+            ("!" . "¬")
+            ("for" . "∀")
+            ("float" . "ℝ")
+            ("void" . "∅")
+            ("typename" . "𝓣")
+            ("return" . "↩")
+            ("true" . "⊤")
+            ("false" . "⊥")))
+    (prettify-symbols-mode 1)))
+
+(add-hook 'c++-mode-hook #'prettify-cpp)
+(add-hook 'c-mode-hook #'prettify-cpp)
+
 (global-ligature-mode 't)
-(set-frame-font "Fira Code 14" nil t)
-(load-theme 'kanagawa t)
+(set-frame-font "Fira Code 15" nil t)
+
+(use-package solo-jazz-theme
+  :ensure t
+  :config
+  (load-theme 'solo-jazz t))

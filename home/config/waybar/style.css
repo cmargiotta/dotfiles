@@ -9,7 +9,7 @@
 	}
 
 window#waybar {
-     background: rgba(0, 0, 0, 0); 
+     background: rgba(0, 0, 0, 0);
    /* background: rgba(76,86,106,0.8); */
 }
 
@@ -29,9 +29,9 @@ window#waybar > box {
 @define-color color_text #5e81ac;
 @define-color color_urgent #bf616a;
 
-#clock, 
-#pulseaudio, 
-#custom-launcher, 
+#clock,
+#pulseaudio,
+#custom-launcher,
 #custom-pacmanAlt,
 #custom-wlogout,
 #custom-playerctl,
@@ -65,11 +65,11 @@ tooltip label {
   background: rgb(180,142,173);
   background: linear-gradient(45deg, rgba(180,142,173,1) 0%, rgba(180,142,173,1) 43%, rgba(129,161,193,1) 80%, rgba(94,129,172,1)100%);
   background-size: 300% 300%;
-  animation: gradient 5s ease infinite;
+  /* animation: gradient 5s ease infinite;*/
   color: #4c566a;
   /* box-shadow: rgba(10, 0, 20, 0.3) 0px 2px 5px, rgba(10, 0, 20, 0.15) 0px 2px 8px; */
   /* border: 1.5px solid @border; */
-} 
+}
 
 #pulseaudio {
   border-radius: 16px;
@@ -122,7 +122,7 @@ tooltip label {
   background: rgb(143,188,187);
   background: linear-gradient(52deg, rgba(180,142,173,1) 0%, rgba(136,192,208,1) 32%, 	rgba(129,161,193,1) 72%, rgba(163,190,140,1) 100%);
   background-size: 300% 300%;
-  animation: gradient 20s ease infinite;
+  /*animation: gradient 20s ease infinite;*/
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377);
 }
 
@@ -185,13 +185,13 @@ tooltip label {
   box-shadow: rgba(0, 0, 0, 0.116) 2px 2px 5px 2px;
 }
 
-#window { 
+#window {
   border-radius: 16px;
   margin: 5px;
   margin-left: 5px;
   margin-right: 5px;
   padding: 0px 10px 0px 10px;
-/*  
+/*
   background: rgb(143,188,187);
   background: linear-gradient(52deg, rgba(180,142,173,1) 0%, rgba(136,192,208,1) 32%, 	rgba(129,161,193,1) 72%, rgba(163,190,140,1) 100%);
   background-size: 300% 300%;
@@ -200,11 +200,11 @@ tooltip label {
 */
     background: rgb(94,129,172);
     color: rgb(76,86,106);
-    background: radial-gradient(circle, rgba(195,164,189,1) 0%, rgba(187,153,181,1) 12%, rgba(94,129,172,1) 19%, rgba(180,142,173,1) 20%, rgba(94,129,172,1) 82%, rgba(136,192,208,1) 83%, rgba(141,170,199,1) 90%, rgba(129,161,193,1) 100%); 
+    background: radial-gradient(circle, rgba(195,164,189,1) 0%, rgba(187,153,181,1) 12%, rgba(94,129,172,1) 19%, rgba(180,142,173,1) 20%, rgba(94,129,172,1) 82%, rgba(136,192,208,1) 83%, rgba(141,170,199,1) 90%, rgba(129,161,193,1) 100%);
     background-size: 400% 400%;
     animation: gradient 7s linear infinite;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
-    border-radius: 16px; 
+    border-radius: 16px;
 }
 
 window#waybar.chromium {

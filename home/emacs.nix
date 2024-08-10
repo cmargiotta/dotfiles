@@ -10,7 +10,6 @@
       dap-mode
       dashboard
       elisp-autofmt
-      ement
       flycheck
       flycheck-clang-tidy
       flycheck-projectile
@@ -33,6 +32,7 @@
       pretty-mode
       projectile
       sideline-flycheck
+      solo-jazz-theme
       treemacs-magit
       treemacs-projectile
       xref

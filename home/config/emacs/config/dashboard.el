@@ -2,11 +2,11 @@
   "Generate a random quote for dashboard"
   (interactive)
   (let ((ops '(
-    "Hello World!"
+    "Did you uninstall vscode?"
     "Whopper Whopper Whopper Whopper Junior Double Triple Whopper"
     "Pepe"
     "Chomsky"
-    "Stink Boys Inc. ©"
+    "Stink Boys Inc©"
     "No emacs???")))(nth (random (length ops)) ops)))
 
 (defun dashboard/random-ascii ()
@@ -28,33 +28,6 @@
     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡄⠀⠀
     ⠀⠀⢣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠸⡳⡀⠀
     ⠀⠀⠀⠑⢄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣯⣼⡇⠑⣄
-"
-"
-⠀⠀⠀⠀⠀⠀⢀⣤⣤⡴⢾⠾⠛⠾⠛⠶⠟⠷⡿⠶⡶⢶⣄⣀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⣠⣶⠟⠁⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠛⣦⡀⠀⠀⠀⠀
-⠀⠀⢀⣴⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣆⠀⠀⠀
-⠀⠀⣼⠋⠀⠀⢀⣀⣠⡄⠤⣀⣤⣠⣀⣠⣠⢆⢤⡠⣄⣠⠀⠀⠀⠀⢻⡆⠀⠀
-⠀⢰⡏⠀⠀⡴⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠢⡀⠀⠀⢿⠀⠀
-⠀⢸⡇⠀⡜⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠘⡄⠀⢸⡀⠀
-⠀⢸⡇⢸⠀⠀⠀⠀⠀⠀⠀⠐⠉⠀⠀⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠘⡄⢸⡇⠀
-⠀⢸⡇⢸⠀⠀⠀⠀⠀⠀⢀⠤⠐⠊⠉⠉⠒⠂⠤⠀⠀⠀⠀⠀⠀⠀⡇⢸⡇⠀
-⠀⢸⡇⢸⢠⣤⣤⣤⣤⣤⣤⣤⣤⡀⠀⠀⢠⡴⠶⠶⠶⠶⠶⠶⢶⡄⡇⢸⡇⠀
-⠀⣸⠇⣸⣾⠃⠀⢀⣀⣒⣰⠀⠸⣷⠾⠷⣾⡇⠀⣮⠕⢒⣄⠀⠘⡟⣷⣸⣧⡀
-⣼⢛⣾⡻⢸⠀⢠⠁⢴⡆⠈⡆⠀⡇⠀⠀⢸⡆⠸⡁⠰⡆⠀⣧⢰⡇⠷⢻⠊⣿
-⢿⠀⢳⠀⠸⣇⠀⠉⠒⠒⠉⠀⣸⠇⠀⠀⠸⣇⠀⠈⠑⠒⠉⠁⣸⠇⠀⡇⠀⡿
-⠸⣇⠘⢰⠀⠈⠛⠓⠒⠒⠒⠛⠉⠀⠀⠀⠀⡉⠛⠛⠛⠛⠛⠋⠁⠀⢣⠁⢸⠇
-⠀⢻⣆⡇⠀⠀⠀⠀⠀⠀⠀⣠⠊⠀⠀⠀⠀⠘⢆⠀⠀⠀⠀⠀⠀⠀⢸⣤⡟⠀
-⠀⠀⠸⣷⠀⠀⠀⠀⠀⢀⠐⢇⠚⠳⢄⣠⠔⠉⠡⠇⢄⠀⠀⠀⠀⡀⢸⡇⠀⠀
-⠀⠀⠀⣿⠀⠈⠒⠒⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠐⠂⠉⠀⣾⠃⠀⠀
-⠀⠀⠀⢻⡄⠀⠀⠀⠀⠀⡀⠀⢀⣀⣀⣀⣀⣀⣀⡀⡀⠀⠀⠀⠀⠀⣿⠀⠀⠀
-⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠈⠉⠠⣀⣀⣀⣀⡠⠄⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀
-⠀⠀⠀⢸⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀
-⠀⠀⠀⠀⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡟⠀⠀⠀
-⠀⠀⠀⠀⠘⣗⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠐⣿⠁⠀⠀⠀
-⠀⠀⠀⠀⠀⢿⠀⠀⠀⠀⠈⠑⠒⠤⠤⠤⠤⠤⠐⠊⠁⠀⠀⠀⢠⡏⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢰⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣸⡷⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠈⠙⠛⠶⠶⢤⣤⣤⣤⣤⣤⣤⣤⣤⠤⠶⠶⠛⠋⠁⠀⠀⠀⠀⠀
 "
 "
 ⠀⢀⠔⠂⠉⠉⠉⠉⠑⠢⡄⣀⠔⠊⠁⠀⠒⠤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -88,7 +61,6 @@
     (dashboard-center-content t)
     (dashboard-display-icons-p t)
     (dashboard-projects-switch-function 'projectile-persp-switch-project)
-    (initial-buffer-choice (lambda() (get-buffer-create "*dashboard*")) )
     (dashboard-banner-logo-title (dashboard/random-quote))
     (dashboard-footer-messages `(,(dashboard/random-quote)))
     (dashboard-startup-banner 'ascii)

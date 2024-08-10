@@ -2,10 +2,6 @@
   :hook
   ('after-init . #'envrc-global-mode))
 
-(use-package pretty-mode
-  :config
-  (global-pretty-mode t))
-
 (use-package yasnippet
   :config
   (yas-global-mode 1))
@@ -54,20 +50,18 @@
   :hook
   (lsp-mode . dap-auto-configure-mode)
   (c++-mode . (lambda ()
-		(require 'dap-gdb-lldb))))
+                (require 'dap-gdb-lldb))))
 
 (use-package projectile
   :bind ("C-S-p" . 'projectile-command-map)
   :config
     ;(setq projectile-project-search-path '(("~/projects/" . 4)))
     ;(projectile-discover-projects-in-search-path)
-  (projectile-global-mode))
+  (projectile-mode))
 
 (use-package helm
   :bind
-    ("M-x" . #'helm-M-x)
-    ("C-x r b" . #'helm-filtered-bookmarks)
-    ("C-x C-f" . #'helm-find-files))
+    ("M-x" . #'helm-M-x))
 
 (use-package helm-projectile
   :after (helm projectile)
