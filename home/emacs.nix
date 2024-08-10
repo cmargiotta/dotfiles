@@ -4,6 +4,8 @@
     enable = true;
 
     extraPackages = epkgs: with epkgs; [
+      beacon
+      colorful-mode
       company
       dap-mode
       dashboard
@@ -23,11 +25,13 @@
       lsp-treemacs
       lsp-ui
       magit
+      multiple-cursors
       nerd-icons
       nix-mode
+      nyan-mode
       perspective
+      pretty-mode
       projectile
-      rainbow-mode
       sideline-flycheck
       treemacs-magit
       treemacs-projectile
