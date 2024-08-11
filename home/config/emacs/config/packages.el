@@ -52,11 +52,25 @@
   (c++-mode . (lambda ()
                 (require 'dap-gdb-lldb))))
 
+(use-package dim
+  :config
+  (dim-major-names
+   '((yas-global-mode    ""    yas)))
+  (dim-minor-names
+   '((yas-minor-mode     ""    yas)
+     (company-mode       ""    company)
+     (eldoc-mode         ""    eldoc)
+     (whitespace-mode    ""    whitespace)
+     (paredit-mode       " ()" paredit)
+     (my-keys-minor-mode "")
+     (sideline-mode      ""     sideline)
+     (beacon-mode        ""     beacon))))
+
 (use-package projectile
   :bind ("C-S-p" . 'projectile-command-map)
+  :custom
+  (projectile-mode-line-function (lambda () (format " 📂[%s]" (projectile-project-name))))
   :config
-    ;(setq projectile-project-search-path '(("~/projects/" . 4)))
-    ;(projectile-discover-projects-in-search-path)
   (projectile-mode))
 
 (use-package helm

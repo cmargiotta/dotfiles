@@ -73,7 +73,7 @@
 (add-hook 'c-mode-hook #'prettify-cpp)
 
 (global-ligature-mode 't)
-(set-frame-font "Fira Code 15" nil t)
+(set-face-attribute 'default nil :family "Fira Code" :height 150 :weight 'normal)
 
 (use-package solo-jazz-theme
   :ensure t

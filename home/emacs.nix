@@ -9,6 +9,7 @@
       company
       dap-mode
       dashboard
+      dim
       elisp-autofmt
       flycheck
       flycheck-clang-tidy

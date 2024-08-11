@@ -65,5 +65,7 @@
     (dashboard-footer-messages `(,(dashboard/random-quote)))
     (dashboard-startup-banner 'ascii)
     (dashboard-banner-ascii (dashboard/random-ascii))
+    (dashboard-items '((projects  . 3)
+                       (recents   . 2)))
   :config
     (dashboard-setup-startup-hook))
