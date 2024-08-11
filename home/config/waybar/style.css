@@ -202,7 +202,7 @@ tooltip label {
     color: rgb(76,86,106);
     background: radial-gradient(circle, rgba(195,164,189,1) 0%, rgba(187,153,181,1) 12%, rgba(94,129,172,1) 19%, rgba(180,142,173,1) 20%, rgba(94,129,172,1) 82%, rgba(136,192,208,1) 83%, rgba(141,170,199,1) 90%, rgba(129,161,193,1) 100%);
     background-size: 400% 400%;
-    animation: gradient 7s linear infinite;
+    /*animation: gradient 7s linear infinite;*/
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
     border-radius: 16px;
 }
@@ -223,7 +223,7 @@ window#waybar.chromium {
   background: rgb(238, 190, 190);
   background: linear-gradient(45deg, rgb(244, 219, 214) 0%, rgb(223, 221, 238) 43%, rgb(245, 208, 225) 100%);
   background-size: 300% 300%;
-  animation: gradient 5s ease infinite;
+  /*animation: gradient 5s ease infinite;*/
 }
 
 #workspaces {
