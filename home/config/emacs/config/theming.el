@@ -1,4 +1,4 @@
-;; Load nerd icons
+;; Load nerd icons  -*- lexical-binding: t; -*-
 (use-package nerd-icons
   :config
   (setq nerd-icons-font-family "RobotoMono Nerd Font"))
@@ -79,3 +79,35 @@
   :ensure t
   :config
   (load-theme 'solo-jazz t))
+
+(use-package all-the-icons
+  :if (display-graphic-p))
+
+(use-package centaur-tabs
+  :init
+  (centaur-tabs-group-by-projectile-project)
+  (centaur-tabs-enable-buffer-alphabetical-reordering)
+  :config
+  (centaur-tabs-mode t)
+  :custom
+  (centaur-tabs-style "bar")
+  (centaur-tabs-set-icons t)
+  (centaur-tabs-show-new-tab-button nil)
+  (centaur-tabs-adjust-buffer-order t)
+  (centaur-tabs-set-bar 'left)
+  (centaur-tabs-set-modified-marker t)
+  (centaur-tabs-mode t)
+  :bind
+  ("M-<left>" . centaur-tabs-backward)
+  ("M-<right>" . centaur-tabs-forward))
+
+(use-package telephone-line
+  :custom
+  (telephone-line-primary-left-separator 'telephone-line-cubed-left)
+  (telephone-line-secondary-left-separator 'telephone-line-cubed-hollow-left)
+  (telephone-line-primary-right-separator 'telephone-line-cubed-right)
+  (telephone-line-secondary-right-separator 'telephone-line-cubed-hollow-right)
+  (telephone-line-height 24)
+  (telephone-line-evil-use-short-tag t)
+  :config
+  (telephone-line-mode))

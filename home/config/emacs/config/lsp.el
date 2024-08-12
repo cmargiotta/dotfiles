@@ -3,9 +3,11 @@
   (lsp-keymap-prefix "C-c l")
   (lsp-enable-on-type-formatting t)
   (lsp-enable-suggest-server-download nil)
+  (lsp-completion-provider :none)
   :hook
   ('prog-mode        . #'lsp-deferred)
   ('before-save-hook . #'lsp-format-buffer)
+  :init
   :commands lsp
   :bind
   ("C-." . lsp-execute-code-action))

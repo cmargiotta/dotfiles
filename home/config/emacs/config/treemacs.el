@@ -1,9 +1,7 @@
 ;; Treemacs family
 (use-package treemacs
-  :defer t
-  :init
-  (with-eval-after-load 'winum
-    (define-key winum-keymap (kbd "M-F") #'treemacs-select-window))
+  :after hide-mode-line
+
   :config
   (progn
     (setq treemacs-collapse-dirs                   (if treemacs-python-executable 3 0)
@@ -71,8 +69,8 @@
        (treemacs-git-mode 'simple)))
 
     (treemacs-hide-gitignored-files-mode nil))
-    (treemacs-add-and-display-current-project-exclusively)
-    (treemacs-project-follow-mode)
+    ;; (treemacs-add-and-display-current-project-exclusively)
+    ;(treemacs-project-follow-mode)
   :bind
   (:map global-map
         ("M-F"       . #'treemacs-select-window)

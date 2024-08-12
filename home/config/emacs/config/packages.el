@@ -6,15 +6,8 @@
   :config
   (yas-global-mode 1))
 
-(use-package company
-  :bind (:map company-active-map
-         ("C-n" . company-select-next)
-         ("C-p" . company-select-previous))
-  :config
-  (global-company-mode t)
-  :custom
-  (company-minimum-prefix-length 1)
-  (company-idle-delay 0.0))
+(use-package expand-region
+  :bind ("C-=" . er/expand-region))
 
 (use-package magit
   :bind ("C-x g" . #'magit-status)
@@ -38,6 +31,17 @@
 
 (use-package xref)
 
+(use-package magit-lfs
+  :after magit)
+
+(use-package magit-todos
+  :after magit
+  :config (magit-todos-mode 1))
+
+(use-package git-modes
+  :config
+  (require 'gitignore-mode))
+
 (use-package dap-mode
   :custom
   (dap-mode 1)
@@ -52,38 +56,15 @@
   (c++-mode . (lambda ()
                 (require 'dap-gdb-lldb))))
 
-(use-package dim
-  :config
-  (dim-major-names
-   '((yas-global-mode    ""    yas)))
-  (dim-minor-names
-   '((yas-minor-mode     ""    yas)
-     (company-mode       ""    company)
-     (eldoc-mode         ""    eldoc)
-     (whitespace-mode    ""    whitespace)
-     (paredit-mode       " ()" paredit)
-     (my-keys-minor-mode "")
-     (sideline-mode      ""     sideline)
-     (beacon-mode        ""     beacon))))
-
 (use-package projectile
-  :bind ("C-S-p" . 'projectile-command-map)
+  :bind
+  ("C-S-p" . #'projectile-command-map)
+  ("C-j"   . #'project-shell)
+  :after treemacs
   :custom
-  (projectile-mode-line-function (lambda () (format " 📂[%s]" (projectile-project-name))))
+  (projectile-switch-project-action #'treemacs-add-and-display-current-project-exclusively)
   :config
   (projectile-mode))
-
-(use-package helm
-  :bind
-    ("M-x" . #'helm-M-x))
-
-(use-package helm-projectile
-  :after (helm projectile)
-  :config
-    (helm-projectile-on))
-
-(use-package helm-xref
-  :after (helm xref))
 
 (use-package multiple-cursors
   :bind
@@ -93,3 +74,59 @@
       ("C-S-n" .      mc/mark-next-symbol-like-this)
       ;("C-S-p" .      mc/mark-prev-symbol-like-this)
       ("C-S-a" .      mc/mark-all-like-this))
+
+(use-package embark
+  :ensure t
+
+  :bind
+  (("M-." . embark-act)
+   ("C-h B" . embark-bindings)) ;; alternative for `describe-bindings'
+
+  :init
+
+  ;; Optionally replace the key help with a completing-read interface
+  (setq prefix-help-command #'embark-prefix-help-command)
+
+  ;; Show the Embark target at point via Eldoc. You may adjust the
+  ;; Eldoc strategy, if you want to see the documentation from
+  ;; multiple providers. Beware that using this can be a little
+  ;; jarring since the message shown in the minibuffer can be more
+  ;; than one line, causing the modeline to move up and down:
+
+  (add-hook 'eldoc-documentation-functions #'embark-eldoc-first-target)
+  (setq eldoc-documentation-strategy #'eldoc-documentation-compose-eagerly)
+
+  :config
+
+  ;; Hide the mode line of the Embark live/completions buffers
+  (add-to-list 'display-buffer-alist
+               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
+                 nil
+                 (window-parameters (mode-line-format . none)))))
+
+;; Consult users will also want the embark-consult package.
+(use-package embark-consult
+  :ensure t ; only need to install it, embark loads it after consult if found
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
+
+(use-package visual-regexp)
+(use-package visual-regexp-steroids
+  :bind
+  ("C-h" . #'vr/replace)
+  ("C-f" . #'vr/isearch-forward)
+  ("C-r" . #'vr/isearch-backward))
+
+(use-package link-hint
+  :bind
+  ("C-L" . link-hint-open-link))
+
+(use-package markdown-mode
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown"))
+
+(use-package git-timemachine)
+(use-package compiler-explorer)
+
+(use-package esh-autosuggest
+  :hook (eshell-mode . esh-autosuggest-mode))
