@@ -91,5 +91,5 @@
         ("WONT-DO" . (:foreground "LimeGreen" :weight bold))
         ))
 
-(use-package org-modern
-  :hook (org-mode . #'org-modern-mode))
+;; (use-package org-modern
+;;   :hook (org-mode . #'org-modern-mode))
