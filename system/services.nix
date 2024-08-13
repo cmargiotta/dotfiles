@@ -11,6 +11,26 @@ in
     blueman.enable = true;
     upower.enable = true;
 
+    syncthing = {
+      enable = true;
+      user = "nychtelios";
+      dataDir = "/home/nychtelios/.syncthing/data";
+      configDir = "/home/nychtelios/.syncthing/config/syncthing";
+      overrideDevices = true;
+      overrideFolders = true;
+      settings = {
+        devices = {
+          "device1" = { id = "T2PC4Q3-WS6RZGH-QD6JEO3-XW2W2JR-NGJAERK-VSJGDMG-4VPVUCP-QD3DSQF"; };
+        };
+        folders = {
+          "org" = {
+            path = "/home/nychtelios/org";    # Which folder to add to Syncthing
+            devices = [ "device1" ];# Which devices to share the folder with
+          };
+        };
+      };
+    };
+
     avahi = {
       enable = true;
       nssmdns4 = true;
