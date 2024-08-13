@@ -5,7 +5,7 @@
 
 ;; Highlight TODO comments
 (use-package hl-todo
-  :hook (prog-mode . hl-todo-mode)
+  :hook prog-mode
   :config
     (setq hl-todo-keyword-faces
         '(("TODO"   . "#FF0000")
@@ -16,7 +16,7 @@
 
 ;; Display colored color strings
 (use-package colorful-mode
-  :hook (prog-mode text-mode))
+  :hook (prog-mode . #'text-mode))
 
 ;; Beacon
 (use-package beacon
@@ -34,13 +34,6 @@
   :config
   (setq whitespace-line-column 80) ;; limit line length
   (setq whitespace-style '(face tabs empty trailing lines-tail)))
-
-(use-package nyan-mode
-  :init
-  (setq nyan-wavy-trail t)
-  (setq nyan-bar-length 10)
-  (setq nyan-animate-nyancat t)
-  (nyan-mode 1))
 
 ;; Enable ligatures in programming modes
 (ligature-set-ligatures 'prog-mode '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\" "{-" "::"

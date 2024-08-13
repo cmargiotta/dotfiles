@@ -1,6 +1,5 @@
 (use-package envrc
-  :hook
-  ('after-init . #'envrc-global-mode))
+  :config (envrc-global-mode 1))
 
 (use-package yasnippet
   :config
@@ -18,16 +17,16 @@
                             'magit-insert-modules
                             'magit-insert-unpulled-from-upstream))
 
-(use-package nix-mode
-  :mode "\\.nix\\'"
-  :hook
-  ('before-save-hook #'nix-format-buffer))
+;; (use-package nix-mode
+;;   :mode "\\.nix\\'"
+;;   :hook
+;;   (before-save . #'nix-format-buffer))
 
 (use-package elisp-autofmt
   :custom
   (elisp-autofmt-on-save-p t)
   :hook
-  ('elisp-mode-hook #'elisp-autofmt-mode))
+  elisp-mode)
 
 (use-package xref)
 
@@ -43,27 +42,26 @@
   (require 'gitignore-mode))
 
 (use-package dap-mode
+  :after lsp-mode
   :custom
   (dap-mode 1)
   (dap-ui-mode 1)
   (dap-tooltip-mode 1)
   (tooltip-mode 1)
   (dap-ui-controls-mode 1)
-  :config
-  (setq left-fringe-width 16)
+  (left-fringe-width 16)
   :hook
-  (lsp-mode . dap-auto-configure-mode)
-  (c++-mode . (lambda ()
-                (require 'dap-gdb-lldb))))
+  ((lsp-mode . dap-auto-configure-mode)
+   (c++-mode  . (lambda ()
+                  (require 'dap-gdb-lldb)))))
 
 (use-package projectile
   :bind
   ("C-S-p" . #'projectile-command-map)
   ("C-j"   . #'project-eshell)
-  :after treemacs
   :custom
   (projectile-switch-project-action #'treemacs-add-and-display-current-project-exclusively)
-  :config
+  :init
   (projectile-mode))
 
 (use-package multiple-cursors
@@ -106,7 +104,6 @@
 
 ;; Consult users will also want the embark-consult package.
 (use-package embark-consult
-  :ensure t ; only need to install it, embark loads it after consult if found
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
@@ -123,10 +120,11 @@
 
 (use-package markdown-mode
   :mode ("README\\.md\\'" . gfm-mode)
-  :init (setq markdown-command "multimarkdown"))
+  :custom
+  (markdown-command "multimarkdown"))
 
 (use-package git-timemachine)
 (use-package compiler-explorer)
 
 (use-package esh-autosuggest
-  :hook (eshell-mode . esh-autosuggest-mode))
+  :hook eshell-mode)
