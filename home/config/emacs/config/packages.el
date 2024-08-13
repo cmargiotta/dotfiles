@@ -59,7 +59,7 @@
 (use-package projectile
   :bind
   ("C-S-p" . #'projectile-command-map)
-  ("C-j"   . #'project-shell)
+  ("C-j"   . #'project-eshell)
   :after treemacs
   :custom
   (projectile-switch-project-action #'treemacs-add-and-display-current-project-exclusively)
