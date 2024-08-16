@@ -55,12 +55,12 @@
   :ensure t
   :custom
     (default-directory "~/")
-    (dashboard-icon-type 'nerd-icons)
+    (dashboard-icon-type 'all-the-icons)
     (dashboard-set-file-icons t)
     (dashboard-vertically-center-content t)
     (dashboard-center-content t)
     (dashboard-display-icons-p t)
-    (dashboard-projects-switch-function 'projectile-persp-switch-project)
+    (dashboard-projects-switch-function #'projectile-switch-project-by-name)
     (dashboard-banner-logo-title (dashboard/random-quote))
     (dashboard-footer-messages `(,(dashboard/random-quote)))
     (dashboard-startup-banner 'ascii)

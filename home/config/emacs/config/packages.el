@@ -5,18 +5,6 @@
   :config
   (yas-global-mode 1))
 
-(use-package expand-region
-  :bind ("C-=" . er/expand-region))
-
-(use-package magit
-  :bind ("C-x g" . #'magit-status)
-  :custom
-  (magit-module-sections-nested t)
-  :config
-  (magit-add-section-hook 'magit-status-sections-hook
-                            'magit-insert-modules
-                            'magit-insert-unpulled-from-upstream))
-
 ;; (use-package nix-mode
 ;;   :mode "\\.nix\\'"
 ;;   :hook
@@ -29,17 +17,6 @@
   elisp-mode)
 
 (use-package xref)
-
-(use-package magit-lfs
-  :after magit)
-
-(use-package magit-todos
-  :after magit
-  :config (magit-todos-mode 1))
-
-(use-package git-modes
-  :config
-  (require 'gitignore-mode))
 
 (use-package dap-mode
   :after lsp-mode
@@ -59,19 +36,11 @@
   :bind
   ("C-S-p" . #'projectile-command-map)
   ("C-j"   . #'project-eshell)
+  ("C-S-h" . #'project-query-replace-regexp)
   :custom
   (projectile-switch-project-action #'treemacs-add-and-display-current-project-exclusively)
   :init
   (projectile-mode))
-
-(use-package multiple-cursors
-  :bind
-      ("C-S-e" .      mc/edit-lines)
-      ("C-S-<down>" . mc/mark-next-like-this)
-      ("C-S-<up>" .   mc/mark-previous-like-this)
-      ("C-S-n" .      mc/mark-next-symbol-like-this)
-      ;("C-S-p" .      mc/mark-prev-symbol-like-this)
-      ("C-S-a" .      mc/mark-all-like-this))
 
 (use-package embark
   :ensure t
@@ -118,13 +87,4 @@
   :bind
   ("C-L" . link-hint-open-link))
 
-(use-package markdown-mode
-  :mode ("README\\.md\\'" . gfm-mode)
-  :custom
-  (markdown-command "multimarkdown"))
-
-(use-package git-timemachine)
 (use-package compiler-explorer)
-
-(use-package esh-autosuggest
-  :hook eshell-mode)

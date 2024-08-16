@@ -50,7 +50,7 @@
       (insert (concat "#ifndef " guard "\n"
                       "#define " guard "\n"))
       (goto-char (point-max))
-      (insert (concat "#endif /* " guard "*/\n")))))
+      (insert (concat "\n#endif /* " guard "*/\n")))))
 
 (defun buffer-contains-regex? (regex)ifndef-regexp
   "Return non-nil if the current buffer contains a match for the given REGEX."

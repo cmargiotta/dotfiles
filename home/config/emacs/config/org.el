@@ -53,6 +53,11 @@
    `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.5))))
    `(org-document-title ((t (,@headline ,@variable-tuple :height 1.6 :underline nil))))))
 
+;;; Source code block, Org-tempo allows for ‘<s’ followed by TAB to expand to a begin_src tag.
+(use-package org-tempo
+  :ensure nil
+  :after org)
+
 (setq org-capture-templates
       '(
         ("n" "Note"

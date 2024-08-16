@@ -8,19 +8,24 @@
   (lsp-completion-provider :none)
   (lsp-auto-guess-root t)
   (lsp-before-save-edits t)
-  (lsp-idle-delay 1.0)
-  (lsp-inlay-hint-enable t)
+  (lsp-idle-delay 0.2)
+  (lsp-inlay-hint-enable nil)
   (lsp-restart 'auto-restart)
+  (lsp-eldoc-enable-hover t)
+  (lsp-signature-auto-activate t)
+  (lsp-signature-render-documentation t)
+  (lsp-completion-show-detail t)
+  (lsp-completion-show-kind nil)
 
   :init
   (defun lsp-format-buffer-on-idle ()
-    (run-with-idle-timer 1.0 t (lambda ()
+    (run-with-idle-timer 10.0 t (lambda ()
 				 (when (and lsp-mode (buffer-modified-p))
                                    (lsp-format-buffer)))))
 
   (defun my-lsp-mode-setup ()
     (message "lsp-mode-hook triggered")
-    (lsp-format-buffer-on-idle)
+    ;; (lsp-format-buffer-on-idle)
     (add-hook 'before-save-hook #'lsp-format-buffer nil t))
 
   (add-hook 'lsp-configure-hook #'my-lsp-mode-setup)
@@ -28,7 +33,8 @@
   :hook
   ((c++-mode   . lsp-deferred)
    (c-mode     . lsp-deferred)
-   (elisp-mode . lsp-deferred))
+   (elisp-mode . lsp-deferred)
+   (lsp-mode-hook . cape-setup-capf))
 
   :commands (lsp lsp-deferred)
   :bind
@@ -40,8 +46,11 @@
 
 (use-package lsp-ui
   :after lsp-mode
+  :custom-face
+  (lsp-ui-sideline-code-action ((t (:inherit warning))))
+  :hook lsp-mode
   :custom
-  (lsp-ui-doc-enable t)
+  (lsp-ui-doc-enable nil)
   (lsp-ui-sideline-enable t)
   (lsp-ui-sideline-show-code-actions t)
   (lsp-ui-sideline-show-hover t)
