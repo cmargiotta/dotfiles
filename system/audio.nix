@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ pkgs, ... }:
 {
   services.pipewire = {
     enable = true;
@@ -24,7 +24,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    easyeffects
+    # easyeffects
     pwvucontrol
   ];
 

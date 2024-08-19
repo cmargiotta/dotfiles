@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  unstable,
-  ...
-}:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     arandr

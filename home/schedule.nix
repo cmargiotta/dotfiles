@@ -1,4 +1,4 @@
-{ lib, config, pkgs, nixpkgs, ... }:
+{ ... }:
 {
   systemd.user.services = {
     system-update = {
@@ -10,7 +10,9 @@
         Type = "exec";
         ExecStart = "/etc/profiles/per-user/nychtelios/bin/fish -c 'nixos-update'";
       };
-      Install = { WantedBy = [ "default.target" ]; };
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
     };
 
     store-update = {
@@ -22,7 +24,9 @@
         Type = "exec";
         ExecStart = "/etc/profiles/per-user/nychtelios/bin/fish -c nix-index";
       };
-      Install = { WantedBy = [ "default.target" ]; };
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
     };
   };
 }

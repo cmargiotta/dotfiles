@@ -1,6 +1,6 @@
-{ lib, config, pkgs, ... }:
+{ config, pkgs, ... }:
 {
-  virtualisation= {
+  virtualisation = {
     docker.enable = true;
     spiceUSBRedirection.enable = true;
   };
@@ -30,13 +30,16 @@
         "https://nix-gaming.cachix.org"
       ];
 
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
   };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  virtualisation.virtualbox.host.enable = true; 
+  virtualisation.virtualbox.host.enable = true;
 
   time.timeZone = "Europe/Rome";
 
@@ -77,12 +80,11 @@
 
   system.stateVersion = "23.11";
 
-  imports =
-    [
-      ./packages.nix
-      ./services.nix
-      ./users.nix
-      ./audio.nix
-      ../secrets/fortinet.nix
-    ];
+  imports = [
+    ./packages.nix
+    ./services.nix
+    ./users.nix
+    ./audio.nix
+    ../secrets/fortinet.nix
+  ];
 }

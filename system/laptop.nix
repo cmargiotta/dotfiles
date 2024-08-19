@@ -1,10 +1,9 @@
-{ lib, config, pkgs, ... }:
+{ ... }:
 {
-  imports =
-    [
-      ../secrets/wireguard.nix
-      ../secrets/wifi.nix
-    ];
+  imports = [
+    ../secrets/wireguard.nix
+    ../secrets/wifi.nix
+  ];
 
   hardware.bluetooth = {
     enable = true;

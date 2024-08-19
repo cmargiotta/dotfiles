@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
   pkgs-hypr = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
@@ -20,12 +20,14 @@ in
       overrideFolders = true;
       settings = {
         devices = {
-          "device1" = { id = "T2PC4Q3-WS6RZGH-QD6JEO3-XW2W2JR-NGJAERK-VSJGDMG-4VPVUCP-QD3DSQF"; };
+          "device1" = {
+            id = "T2PC4Q3-WS6RZGH-QD6JEO3-XW2W2JR-NGJAERK-VSJGDMG-4VPVUCP-QD3DSQF";
+          };
         };
         folders = {
           "org" = {
-            path = "/home/nychtelios/org";    # Which folder to add to Syncthing
-            devices = [ "device1" ];# Which devices to share the folder with
+            path = "/home/nychtelios/org"; # Which folder to add to Syncthing
+            devices = [ "device1" ]; # Which devices to share the folder with
           };
         };
       };

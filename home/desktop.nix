@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ ... }:
 {
   home.file.sshpub = {
     source = ../secrets/desktop/ssh_pub;
@@ -17,7 +17,8 @@
   };
 
   xdg.configFile.hyprland = {
-    text = (builtins.readFile ./config/Hyprland/common) + "\n" + (builtins.readFile ./config/Hyprland/desktop);
+    text =
+      (builtins.readFile ./config/Hyprland/common) + "\n" + (builtins.readFile ./config/Hyprland/desktop);
     target = "hypr/hyprland.conf";
   };
 

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   imports = [
     ../secrets/email.nix
@@ -40,7 +40,7 @@
   };
 
   home.activation = {
-    linkConfigFiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    linkConfigFiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       run ln -sf $HOME/dotfiles/home/config/PrusaSlicer $HOME/.config/
       run ln -sf $HOME/dotfiles/home/config/easyeffects $HOME/.config/
       run ln -sf $HOME/dotfiles/home/config/emacs $HOME/.config/

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   home.file.sshpub = {
     source = ../secrets/laptop-wsense/ssh_pub;
@@ -16,12 +16,11 @@
     recursive = true;
   };
 
-  home.packages = with pkgs; [
-    brightnessctl
-  ];
-   
+  home.packages = with pkgs; [ brightnessctl ];
+
   xdg.configFile.hyprland = {
-    text = (builtins.readFile ./config/Hyprland/laptop) + "\n" + (builtins.readFile ./config/Hyprland/common);
+    text =
+      (builtins.readFile ./config/Hyprland/laptop) + "\n" + (builtins.readFile ./config/Hyprland/common);
     target = "hypr/hyprland.conf";
   };
 

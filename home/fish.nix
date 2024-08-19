@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ ... }:
 {
   home.file.starship = {
     source = ./config/starship.toml;
@@ -93,31 +93,31 @@
 
       fastfetch = {
         body = ''
-            set -l image (fd --type file --extension jpeg --extension jpg --extension png 'C\+\+|Lisp|OCaml|Rust|Quantum Computing|Racket|Regex|Algorithms|Architecture|Compilers|Linux|Math|Memes|Prolog' ~/.assets/anime-girls-with-programming-books | shuf -n 1)
+          set -l image (fd --type file --extension jpeg --extension jpg --extension png 'C\+\+|Lisp|OCaml|Rust|Quantum Computing|Racket|Regex|Algorithms|Architecture|Compilers|Linux|Math|Memes|Prolog' ~/.assets/anime-girls-with-programming-books | shuf -n 1)
 
-            set TARGET_WIDTH (math $COLUMNS / 2)
-            set TARGET_HEIGHT 70
+          set TARGET_WIDTH (math $COLUMNS / 2)
+          set TARGET_HEIGHT 70
 
-            set ORIGINAL_DIMENSIONS (identify -format "%wx%h" $image)
-            set WIDTH (echo $ORIGINAL_DIMENSIONS | cut -d'x' -f1)
-            set HEIGHT (echo $ORIGINAL_DIMENSIONS | cut -d'x' -f2)
+          set ORIGINAL_DIMENSIONS (identify -format "%wx%h" $image)
+          set WIDTH (echo $ORIGINAL_DIMENSIONS | cut -d'x' -f1)
+          set HEIGHT (echo $ORIGINAL_DIMENSIONS | cut -d'x' -f2)
 
-            if test (math $TARGET_WIDTH/$WIDTH) -lt (math $TARGET_HEIGHT/$HEIGHT)
-              set SCALE (echo "scale=2; $TARGET_WIDTH / $WIDTH" | bc)
-            else
-              set SCALE (echo "scale=2; $TARGET_HEIGHT / $HEIGHT" | bc)
-            end
+          if test (math $TARGET_WIDTH/$WIDTH) -lt (math $TARGET_HEIGHT/$HEIGHT)
+            set SCALE (echo "scale=2; $TARGET_WIDTH / $WIDTH" | bc)
+          else
+            set SCALE (echo "scale=2; $TARGET_HEIGHT / $HEIGHT" | bc)
+          end
 
-            set NEW_WIDTH (math "round ($WIDTH * $SCALE)")
-            set NEW_HEIGHT (math "round ($HEIGHT * $SCALE / 2)")
+          set NEW_WIDTH (math "round ($WIDTH * $SCALE)")
+          set NEW_HEIGHT (math "round ($HEIGHT * $SCALE / 2)")
 
-            if string match -q -r '\.(jpeg|jpg)$' $image
-               set protocol --logo
-            else
-               set protocol --kitty-direct
-            end
+          if string match -q -r '\.(jpeg|jpg)$' $image
+             set protocol --logo
+          else
+             set protocol --kitty-direct
+          end
 
-            command fastfetch $protocol "$image" --logo-height "$NEW_HEIGHT" --logo-width "$NEW_WIDTH"
+          command fastfetch $protocol "$image" --logo-height "$NEW_HEIGHT" --logo-width "$NEW_WIDTH"
         '';
       };
 

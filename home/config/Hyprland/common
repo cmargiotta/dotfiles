@@ -18,7 +18,6 @@ decoration {
 
 misc {
   vrr = 1
-  no_direct_scanout = true
   animate_manual_resizes = true
   animate_mouse_windowdragging = true
   enable_swallow = true

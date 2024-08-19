@@ -3,7 +3,7 @@
 {
   programs.git = {
     enable = true;
-    delta.enable = true;
+    delta.enable = false;
     lfs.enable = true;
     ignores = [ "*~" ];
     userName = "Carmine Margiotta";

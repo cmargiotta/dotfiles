@@ -1,4 +1,4 @@
-{ config, pkgs, nixpkgs, eww, ... }:
+{ config, ... }:
 {
   xdg.desktopEntries = {
     mongodb-compass = {
