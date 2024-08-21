@@ -120,9 +120,6 @@
 ;; Always ensure packages are installed
 (setq use-package-always-ensure t)
 
-;; LSP Perfomance boost
-(setenv "LSP_USE_PLISTS" "true")
-
 (provide 'early-init)
 
 ;;; early-init.el ends here

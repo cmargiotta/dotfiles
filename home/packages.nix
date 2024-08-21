@@ -14,6 +14,7 @@
       sqlitebrowser
       wineWowPackages.waylandFull
       winetricks
+      nixfmt-rfc-style
 
       # Editors
       meld
@@ -64,7 +65,7 @@
       coreutils-full
       filezilla
       gobject-introspection
-      cinnamon.nemo-with-extensions
+      nemo-with-extensions
       ncdu
       nil
       pinentry-all

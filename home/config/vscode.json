@@ -15,7 +15,7 @@
     "editor.formatOnType": true,
     "editor.inlayHints.enabled": false,
     "explorer.confirmDragAndDrop": false,
-    "extensions.autoUpdate": "onlySelectedExtensions",
+    "extensions.autoUpdate": false,
     "extensions.ignoreRecommendations": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,

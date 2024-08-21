@@ -1,5 +1,10 @@
 { pkgs, ... }:
 {
+  imports = [
+    wayland/hyprland.nix
+    wayland/hyprlock.nix
+  ];
+
   home.packages = with pkgs; [
     arandr
     font-awesome
@@ -7,7 +12,6 @@
     grimblast
     hyprcursor
     hyprland-protocols
-    hyprlock
     hyprpaper
     jq
     libGL
@@ -55,11 +59,6 @@
   xdg.configFile.hyprland_scripts = {
     source = ./config/Hyprland/scripts;
     target = "hypr/scripts";
-  };
-
-  xdg.configFile.hyprlock = {
-    source = ./config/Hyprland/hyprlock.conf;
-    target = "hypr/hyprlock.conf";
   };
 
   programs.swaylock = {

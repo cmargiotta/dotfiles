@@ -22,7 +22,10 @@
     zip
   ];
 
-  nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1w"
+    "jitsi-meet-1.0.8043"
+  ];
 
   nixpkgs.overlays = [
     (final: prev: {

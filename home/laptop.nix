@@ -10,19 +10,7 @@
     target = ".ssh/id_ed25519";
   };
 
-  xdg.configFile.hyprpaper = {
-    source = ./config/Hyprland/hyprpaper/laptop;
-    target = "hypr/hyprpaper.conf";
-    recursive = true;
-  };
-
   home.packages = with pkgs; [ brightnessctl ];
-
-  xdg.configFile.hyprland = {
-    text =
-      (builtins.readFile ./config/Hyprland/laptop) + "\n" + (builtins.readFile ./config/Hyprland/common);
-    target = "hypr/hyprland.conf";
-  };
 
   xdg.desktopEntries = {
     mcuxpresso-ide = {
