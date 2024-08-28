@@ -73,10 +73,10 @@
  (lsp-ui-sideline-show-hover nil)
  (lsp-ui-peek-enable t))
 
-(use-package
- lsp-treemacs
- :after (lsp-mode treemacs)
- :hook (treemacs-mode . #'lsp-treemacs-sync-mode))
+;; (use-package
+;;  lsp-treemacs
+;;  :after (lsp-mode treemacs)
+;;  :hook (treemacs-mode . #'lsp-treemacs-sync-mode))
 
 (with-eval-after-load 'lsp-mode
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)

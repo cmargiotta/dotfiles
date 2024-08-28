@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
     # Others
@@ -20,6 +20,8 @@
     unzip
     wget
     zip
+
+    inputs.zen-browser.packages."${system}".default
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

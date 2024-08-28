@@ -12,7 +12,6 @@
     grimblast
     hyprcursor
     hyprland-protocols
-    hyprpaper
     jq
     libGL
     libnotify
@@ -66,5 +65,11 @@
     package = pkgs.swaylock-effects;
   };
 
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      splash = true;
+    };
+  };
   programs.pywal.enable = true;
 }

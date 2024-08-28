@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
     home-manager.url = "github:rycee/home-manager";
     hypr-contrib.url = "github:hyprwm/contrib";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -14,11 +15,23 @@
     waybar.url = "github:Alexays/Waybar";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, hyprland, iceberg, nur, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nixos-hardware,
+      hyprland,
+      iceberg,
+      nur,
+      ...
+    }@inputs:
     {
       nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs;
+        };
 
         modules = [
           ./hardware/desktop.nix
@@ -41,26 +54,26 @@
             home-manager.extraSpecialArgs = inputs;
             home-manager.useUserPackages = true;
             home-manager.useGlobalPkgs = true;
-            home-manager.users.nychtelios =
-              {
-                imports =
-                  [
-                    hyprland.homeManagerModules.default
-                    inputs.gBar.homeManagerModules.x86_64-linux.default
+            home-manager.users.nychtelios = {
+              imports = [
+                hyprland.homeManagerModules.default
+                inputs.gBar.homeManagerModules.x86_64-linux.default
 
-                    ./home/common.nix
-                    ./home/desktop.nix
-                  ];
+                ./home/common.nix
+                ./home/desktop.nix
+              ];
 
-                home.stateVersion = "24.11";
-              };
+              home.stateVersion = "24.11";
+            };
           }
         ];
       };
 
       nixosConfigurations.cmargiotta = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs;
+        };
 
         modules = [
           ./hardware/laptop.nix
@@ -84,19 +97,17 @@
             home-manager.extraSpecialArgs = inputs;
             home-manager.useUserPackages = true;
             home-manager.useGlobalPkgs = true;
-            home-manager.users.nychtelios =
-              {
-                imports =
-                  [
-                    hyprland.homeManagerModules.default
-                    inputs.gBar.homeManagerModules.x86_64-linux.default
+            home-manager.users.nychtelios = {
+              imports = [
+                hyprland.homeManagerModules.default
+                inputs.gBar.homeManagerModules.x86_64-linux.default
 
-                    ./home/common.nix
-                    ./home/laptop.nix
-                  ];
+                ./home/common.nix
+                ./home/laptop.nix
+              ];
 
-                home.stateVersion = "24.11";
-              };
+              home.stateVersion = "24.11";
+            };
           }
         ];
       };

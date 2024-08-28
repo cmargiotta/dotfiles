@@ -103,7 +103,6 @@ in
       exec = lib.mkMerge [
         [
           "waybar"
-          "hyprpaper"
           "~/.scripts/random_wallpaper.sh"
         ]
         (lib.mkIf desktop [
