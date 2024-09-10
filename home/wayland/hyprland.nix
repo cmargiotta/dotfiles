@@ -93,6 +93,7 @@ in
           "element-desktop"
           "thunderbird"
           "telegram-desktop"
+          "waybar"
         ]
         (lib.mkIf desktop [
           "kitty --class=btop btop"
@@ -102,7 +103,6 @@ in
 
       exec = lib.mkMerge [
         [
-          "waybar"
           "~/.scripts/random_wallpaper.sh"
         ]
         (lib.mkIf desktop [

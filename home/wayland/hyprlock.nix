@@ -41,7 +41,7 @@
       label = [
         {
           monitor = "";
-          text = "cmd[update:1000] echo \"<b><big> $(date +\"%H:%M:%S\") </big></b><br>\"";
+          text = "cmd[update:1000] echo \"<b><big> $(date +\"%H:%M:%S\") </big></b>\"";
           color = "$color6";
           font_size = 64;
           font_family = "JetBrains Mono Nerd Font 10";
