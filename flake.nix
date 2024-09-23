@@ -10,7 +10,6 @@
     iceberg.url = "github:icebox-nix/iceberg";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nur.url = "github:nix-community/NUR";
-    gBar.url = "github:scorpion-26/gBar";
     nix-gaming.url = "github:fufexan/nix-gaming";
     waybar.url = "github:Alexays/Waybar";
   };
@@ -40,7 +39,6 @@
 
           nur.nixosModules.nur
           inputs.nix-gaming.nixosModules.pipewireLowLatency
-          inputs.nix-gaming.nixosModules.platformOptimizations
           home-manager.nixosModules.home-manager
 
           {
@@ -57,7 +55,6 @@
             home-manager.users.nychtelios = {
               imports = [
                 hyprland.homeManagerModules.default
-                inputs.gBar.homeManagerModules.x86_64-linux.default
 
                 ./home/common.nix
                 ./home/desktop.nix
@@ -82,7 +79,6 @@
 
           nur.nixosModules.nur
           inputs.nix-gaming.nixosModules.pipewireLowLatency
-          inputs.nix-gaming.nixosModules.platformOptimizations
           home-manager.nixosModules.home-manager
           nixos-hardware.nixosModules.dell-latitude-7430
 
@@ -100,7 +96,6 @@
             home-manager.users.nychtelios = {
               imports = [
                 hyprland.homeManagerModules.default
-                inputs.gBar.homeManagerModules.x86_64-linux.default
 
                 ./home/common.nix
                 ./home/laptop.nix

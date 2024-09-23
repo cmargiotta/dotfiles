@@ -3,6 +3,7 @@
   imports = [
     wayland/hyprland.nix
     wayland/hyprlock.nix
+    wayland/waybar.nix
   ];
 
   home.packages = with pkgs; [
@@ -13,6 +14,7 @@
     hyprcursor
     hyprland-protocols
     jq
+    kdePackages.wayland-protocols
     libGL
     libnotify
     nwg-look

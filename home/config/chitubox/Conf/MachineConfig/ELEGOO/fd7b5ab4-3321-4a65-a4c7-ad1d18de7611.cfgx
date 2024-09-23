@@ -370,7 +370,7 @@
             "enable": true
         }
     },
-    "current_support": 0,
+    "current_support": 1,
     "current_material": 0,
     "material": [
         {
@@ -4765,7 +4765,7 @@
                 },
                 "supporttipupdiameter": {
                     "type": "double",
-                    "currentvalue": 0.3,
+                    "currentvalue": 0.2,
                     "defaultvalue": 0.3,
                     "maxvalue": 5000.0,
                     "minvalue": -5000.0,
@@ -4786,7 +4786,7 @@
                     "maxvalue": 5000.0,
                     "minvalue": -5000.0,
                     "maxalarmvalue": 5000.0,
-                    "minalarmvalue": -5000.0,
+                    "minalarmvalue": 0.2,
                     "stepvalue": 0.1,
                     "decimal": 2,
                     "tooltip": "",
@@ -5247,7 +5247,7 @@
                 },
                 "touchtipdistance": {
                     "type": "double",
-                    "currentvalue": 4.0,
+                    "currentvalue": 4.2,
                     "defaultvalue": 4.0,
                     "maxvalue": 5000.0,
                     "minvalue": -5000.0,
@@ -5709,7 +5709,7 @@
                 },
                 "supporttipupdiameter": {
                     "type": "double",
-                    "currentvalue": 0.4,
+                    "currentvalue": 0.3,
                     "defaultvalue": 0.4,
                     "maxvalue": 5000.0,
                     "minvalue": -5000.0,
@@ -5730,7 +5730,7 @@
                     "maxvalue": 5000.0,
                     "minvalue": -5000.0,
                     "maxalarmvalue": 5000.0,
-                    "minalarmvalue": -5000.0,
+                    "minalarmvalue": 0.3,
                     "stepvalue": 0.1,
                     "decimal": 2,
                     "tooltip": "",
@@ -6307,7 +6307,7 @@
                 },
                 "supportinshellenable": {
                     "type": "bool",
-                    "currentvalue": false,
+                    "currentvalue": true,
                     "defaultvalue": false,
                     "tooltip": "",
                     "showname": "",

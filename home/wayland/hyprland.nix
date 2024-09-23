@@ -87,13 +87,11 @@ in
 
       exec-once = lib.mkMerge [
         [
-          "hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd --all"
           "swaync"
           "blueman-applet"
           "element-desktop"
           "thunderbird"
           "telegram-desktop"
-          "waybar"
         ]
         (lib.mkIf desktop [
           "kitty --class=btop btop"
@@ -205,33 +203,34 @@ in
 
       env = lib.mkMerge [
         [
-          "_JAVA_AWT_WM_NONREPARENTING"
           "CLUTTER_BACKEND,wayland"
+          "DBUS_SESSION_BUS_ADDRESS,unix:path=/run/user/1000/bus"
+          "ELECTRON_OZONE_PLATFORM_HINT,auto"
           "GDK_BACKEND,wayland,x11"
-          "MOZ_ENABLE_WAYLAND, 1"
+          "HYPRCURSOR_SIZE,24"
+          "HYPRCURSOR_THEME,\"Nordzy-cursors-white\""
           "MOZ_DISABLE_RDD_SANDBOX,1"
-          "_JAVA_AWT_WM_NONREPARENTING=1"
+          "MOZ_ENABLE_WAYLAND, 1"
           "NIXOS_OZONE_WL, 1"
-          "QT_QPA_PLATFORM, wayland;xcb"
           "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+          "QT_QPA_PLATFORM, wayland;xcb"
           "QT_QPA_PLATFORMTHEME, qt5ct"
           "SDL_VIDEODRIVER, wayland"
-          "XDG_SESSION_TYPE, wayland"
           "WLR_DRM_NO_ATOMIC,1"
-          "HYPRCURSOR_THEME,\"Nordzy-cursors-white\""
-          "HYPRCURSOR_SIZE,24"
-          "DBUS_SESSION_BUS_ADDRESS,unix:path=/run/user/1000/bus"
+          "XDG_SESSION_TYPE, wayland"
+          "_JAVA_AWT_WM_NONREPARENTING"
+          "_JAVA_AWT_WM_NONREPARENTING=1"
         ]
         (lib.mkIf desktop [
-          "__GL_GSYNC_ALLOWED,1"
-          "__GL_MaxFramesAllowed,1"
-          "__GL_VRR_ALLOWED,1"
-          "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-          "LIBVA_DRIVER_NAME,nvidia"
           "GBM_BACKEND,nvidia-drm"
+          "LIBVA_DRIVER_NAME,nvidia"
           "NVD_BACKEND,direct"
           "PROTON_ENABLE_NGX_UPDATER,1"
           "WLR_USE_LIBINPUT,0"
+          "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+          "__GL_GSYNC_ALLOWED,1"
+          "__GL_MaxFramesAllowed,1"
+          "__GL_VRR_ALLOWED,1"
         ])
       ];
 

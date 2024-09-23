@@ -56,9 +56,9 @@
       ffmpeg
       flacon
       gimp
+      inkscape
       mac
       playerctl
-      pureref
       shntool
       sonixd
       sox

@@ -29,81 +29,66 @@
     "jitsi-meet-1.0.8043"
   ];
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      steam = prev.steam.override (
-        {
-          extraPkgs ? pkgs': [ ],
-          ...
-        }:
-        {
-          extraPkgs =
-            pkgs':
-            (extraPkgs pkgs')
-            ++ (with pkgs'; [
-              curl
-              glib
-              libGL
-              freetype
-              gtk3
-              gtk3-x11
-              harfbuzz
-              keyutils
-              krb5
-              fontconfig
-              libgdiplus
-              freetype
-              libidn2
-              libxkbcommon
-              libkrb5
-              libpng
-              libpsl
-              libpulseaudio
-              libthai
-              libvorbis
-              mono
-              nghttp2
-              openssl_1_1
-              pango
-              rtmpdump
-              stdenv.cc.cc.lib
-              xorg.libXcursor
-              xorg.libXi
-              xorg.libXinerama
-              xorg.libXScrnSaver
-              zlib
-              mono
-              xorg.libX11
-              libdbusmenu
-              dbus
-            ]);
-        }
-      );
-    })
-  ];
-
   programs = {
     steam = {
       enable = true;
-      platformOptimizations.enable = true;
+      extest.enable = true;
+      extraPackages = with pkgs; [
+        curl
+        glib
+        libGL
+        extest
+        freetype
+        gtk3
+        gtk3-x11
+        harfbuzz
+        keyutils
+        krb5
+        fontconfig
+        libgdiplus
+        freetype
+        libidn2
+        libxkbcommon
+        libkrb5
+        libpng
+        libpsl
+        libpulseaudio
+        libthai
+        libvorbis
+        mono
+        nghttp2
+        openssl_1_1
+        pango
+        rtmpdump
+        stdenv.cc.cc.lib
+        xorg.libXcursor
+        xorg.libXi
+        xorg.libXinerama
+        xorg.libXScrnSaver
+        zlib
+        mono
+        xorg.libX11
+        libdbusmenu
+        dbus
+      ];
       gamescopeSession = {
         enable = true;
+        args = [
+          "-w 3440"
+          "-h 1440"
+          "-f"
+          "-e"
+        ];
+        env = {
+          ENABLE_GAMESCOPE_WSI = "1";
+          WLR_RENDERER = "vulkan";
+        };
       };
     };
 
     gamescope = {
       enable = true;
       # capSysNice = true;
-      args = [
-        "-w 3440"
-        "-h 1440"
-        "-f"
-        "-e"
-      ];
-      env = {
-        ENABLE_GAMESCOPE_WSI = "1";
-        WLR_RENDERER = "vulkan";
-      };
     };
 
     gamemode = {
@@ -120,10 +105,7 @@
       # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     };
 
-    waybar = {
-      enable = true;
-      # package = inputs.waybar.packages.${pkgs.system}.waybar;
-    };
+    xwayland.enable = true;
 
     dconf = {
       enable = true;
