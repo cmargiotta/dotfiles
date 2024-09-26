@@ -20,7 +20,7 @@
  (lsp-signature-render-documentation t)
 
  ;; Nix
- (lsp-nix-nil-formatter ["nixfmt"])
+ (lsp-nix-nil-formatter ["nixpkgs-fmt"])
 
  :init
  (defun lsp-format-buffer-on-idle ()

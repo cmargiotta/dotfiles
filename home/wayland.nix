@@ -39,12 +39,6 @@
     recursive = true;
   };
 
-  xdg.configFile.waybar = {
-    source = ./config/waybar;
-    target = "waybar";
-    recursive = true;
-  };
-
   xdg.configFile.wal_templates = {
     source = ./config/wal-templates;
     target = "wal/templates";

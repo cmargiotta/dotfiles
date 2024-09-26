@@ -65,8 +65,10 @@
         yaml-mode
         yasnippet
         all-the-icons
-      ]
-      ++ (with pkgs; [
+      ];
+  };
+
+  home.packages = with pkgs; [
         emacs-all-the-icons-fonts
         multimarkdown
 
@@ -78,9 +80,8 @@
         dockerfile-language-server-nodejs
         mesonlsp
         nil
-        nixfmt-rfc-style
+        nixpkgs-fmt
         nodePackages.vscode-json-languageserver
         nodePackages.unified-language-server
-      ]);
-  };
+      ];
 }
