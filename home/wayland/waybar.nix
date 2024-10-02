@@ -1,7 +1,8 @@
-{ pkgs
-, osConfig
-, lib
-, ...
+{
+  pkgs,
+  osConfig,
+  inputs,
+  ...
 }:
 let
   laptop = osConfig.networking.hostName == "cmargiotta";
@@ -10,6 +11,7 @@ in
 {
   programs.waybar = {
     enable = true;
+    package = inputs.waybar.packages.${pkgs.system}.waybar;
     systemd = {
       enable = true;
       target = "hyprland-session.target";
@@ -21,9 +23,17 @@ in
         layer = "top";
         height = 50;
 
-        modules-left = [ "cava" "hyprland/window" ];
+        modules-left = [
+          "cava"
+          "hyprland/window"
+        ];
         modules-center = [ "hyprland/workspaces" ];
-        modules-right = [ "memory" "cpu" "tray" "clock" ];
+        modules-right = [
+          "memory"
+          "cpu"
+          "tray"
+          "clock"
+        ];
 
         cava = {
           framerate = 30;
@@ -41,7 +51,16 @@ in
           waves = false;
           noise_reduction = 0.77;
           input_delay = 2;
-          format-icons = [ "▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
+          format-icons = [
+            "▁"
+            "▂"
+            "▃"
+            "▄"
+            "▅"
+            "▆"
+            "▇"
+            "█"
+          ];
           actions = {
             on-click-right = "mode";
           };

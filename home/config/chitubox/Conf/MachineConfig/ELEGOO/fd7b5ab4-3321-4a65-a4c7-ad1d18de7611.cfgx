@@ -370,7 +370,7 @@
             "enable": true
         }
     },
-    "current_support": 1,
+    "current_support": 0,
     "current_material": 0,
     "material": [
         {
@@ -3499,7 +3499,7 @@
                         },
                         "normalexposuretime": {
                             "type": "float",
-                            "currentvalue": 3.5,
+                            "currentvalue": 4.0,
                             "defaultvalue": 2.5,
                             "maxvalue": 5000.0,
                             "minvalue": 0.0010000000474974513,
@@ -7525,5 +7525,5 @@
     ],
     "open_filter": "Mesh files (*.stl *.obj *.3mf)",
     "save_filter": "",
-    "slice_save_filter": ""
+    "slice_save_filter": "CHITUBOX slicer (*.ctb)"
 }

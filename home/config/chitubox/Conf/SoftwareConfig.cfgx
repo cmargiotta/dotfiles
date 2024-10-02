@@ -7,7 +7,7 @@ setting_appearance_config:
     tooltip: ""
     visible: true
     enable: true
-    currentvalue: 0
+    currentvalue: 1
     defaultvalue: 0
     valuelist:
       - 0
@@ -519,7 +519,7 @@ setting_system_config:
     tooltip: ""
     visible: true
     enable: true
-    currentvalue: true
+    currentvalue: false
     defaultvalue: true
   graphic_quality:
     type: combobox
@@ -605,7 +605,7 @@ setting_system_config:
     tooltip: ""
     visible: true
     enable: true
-    currentvalue: true
+    currentvalue: false
     defaultvalue: true
 setting_function_config:
   visible: true
@@ -1188,7 +1188,7 @@ extra_config:
     tooltip: ""
     visible: true
     enable: true
-    currentvalue: 133
+    currentvalue: 136
     defaultvalue: 580
     maxvalue: 800
     minvalue: 80

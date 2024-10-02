@@ -49,7 +49,9 @@
             ];
 
             networking.hostName = "nixos-desktop";
-            home-manager.extraSpecialArgs = inputs;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+            };
             home-manager.useUserPackages = true;
             home-manager.useGlobalPkgs = true;
             home-manager.users.nychtelios = {
@@ -90,7 +92,9 @@
             ];
 
             networking.hostName = "cmargiotta";
-            home-manager.extraSpecialArgs = inputs;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+            };
             home-manager.useUserPackages = true;
             home-manager.useGlobalPkgs = true;
             home-manager.users.nychtelios = {
