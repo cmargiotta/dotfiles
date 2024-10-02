@@ -71,6 +71,7 @@
     };
 
     pulseaudio.support32Bit = true;
+    nvidia-container-toolkit.enable = true;
   };
 
   services.xserver = {
