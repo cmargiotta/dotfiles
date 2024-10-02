@@ -227,7 +227,6 @@ in
           "NVD_BACKEND,direct"
           "PROTON_ENABLE_NGX_UPDATER,1"
           "WLR_USE_LIBINPUT,0"
-          "__GLX_VENDOR_LIBRARY_NAME,nvidia"
           "__GL_GSYNC_ALLOWED,1"
           "__GL_MaxFramesAllowed,1"
           "__GL_VRR_ALLOWED,1"
