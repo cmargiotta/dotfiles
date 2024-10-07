@@ -25,8 +25,9 @@
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
+    "cinny-unwrapped-4.2.1"
+    "cinny-4.2.1"
     "openssl-1.1.1w"
-    "jitsi-meet-1.0.8043"
   ];
 
   programs = {

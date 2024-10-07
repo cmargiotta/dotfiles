@@ -1,8 +1,7 @@
-{
-  inputs,
-  lib,
-  pkgs,
-  ...
+{ inputs
+, lib
+, pkgs
+, ...
 }:
 {
   nixpkgs.config.allowUnfree = true;
@@ -26,11 +25,13 @@
       #stm32cubemx
       python3
 
+      # Games
+      prismlauncher
+
       # Internet
       discord
       mqttui
-      element-desktop
-      #nextcloud-client
+      cinny-desktop
       slack
       tdesktop
       tor-browser-bundle-bin

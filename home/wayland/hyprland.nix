@@ -1,8 +1,7 @@
-{
-  pkgs,
-  osConfig,
-  lib,
-  ...
+{ pkgs
+, osConfig
+, lib
+, ...
 }:
 let
   laptop = osConfig.networking.hostName == "cmargiotta";
@@ -50,6 +49,11 @@ in
           "fade, 1, 10, default"
           "workspaces, 1, 6, default"
         ];
+      };
+
+      render = {
+        explicit_sync = 0;
+        direct_scanout = true;
       };
 
       input = lib.mkMerge [
@@ -206,7 +210,7 @@ in
           "CLUTTER_BACKEND,wayland"
           "DBUS_SESSION_BUS_ADDRESS,unix:path=/run/user/1000/bus"
           "ELECTRON_OZONE_PLATFORM_HINT,auto"
-          "GDK_BACKEND,wayland,x11"
+          "GDK_BACKEND,wayland,x11,*"
           "HYPRCURSOR_SIZE,24"
           "HYPRCURSOR_THEME,\"Nordzy-cursors-white\""
           "MOZ_DISABLE_RDD_SANDBOX,1"
@@ -215,14 +219,18 @@ in
           "QT_AUTO_SCREEN_SCALE_FACTOR,1"
           "QT_QPA_PLATFORM, wayland;xcb"
           "QT_QPA_PLATFORMTHEME, qt5ct"
-          "SDL_VIDEODRIVER, wayland"
+          "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+          "SDL_VIDEODRIVER,wayland"
           "WLR_DRM_NO_ATOMIC,1"
+          "XDG_CURRENT_DESKTOP,Hyprland"
+          "XDG_SESSION_DESKTOP,Hyprland"
           "XDG_SESSION_TYPE, wayland"
           "_JAVA_AWT_WM_NONREPARENTING"
           "_JAVA_AWT_WM_NONREPARENTING=1"
         ]
         (lib.mkIf desktop [
           "GBM_BACKEND,nvidia-drm"
+          "__GLX_VENDOR_LIBRARY_NAME,nvidia"
           "LIBVA_DRIVER_NAME,nvidia"
           "NVD_BACKEND,direct"
           "PROTON_ENABLE_NGX_UPDATER,1"
