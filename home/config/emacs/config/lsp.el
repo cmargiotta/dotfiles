@@ -1,5 +1,7 @@
 ;;; lsp.el --- LSP   -*- lexical-binding:t -*-
 
+(use-package rust-mode)
+
 (use-package
  lsp-mode
  :custom
@@ -44,6 +46,7 @@
     js-json-mode
     markdown-mode
     nix-mode
+    rust-mode
     shell-script-mode
     yaml-mode)
    . lsp-deferred)
