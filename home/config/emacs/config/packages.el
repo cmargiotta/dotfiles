@@ -34,13 +34,24 @@
 
 (use-package projectile
   :bind
-  ("C-S-p" . #'projectile-command-map)
-  ("C-j"   . #'project-eshell)
-  ("C-S-h" . #'project-query-replace-regexp)
-  :custom
-  (projectile-switch-project-action #'treemacs-add-and-display-current-project-exclusively)
-  :init
-  (projectile-mode))
+ ("C-S-p" . #'projectile-command-map)
+ ("C-j" . #'project-eshell)
+ ("C-S-h" . #'project-query-replace-regexp)
+ :custom
+ (projectile-switch-project-action
+  #'treemacs-add-and-display-current-project-exclusively)
+ :init
+ ;;(setq projectile-project-root-files '(".projectile"))
+ (defcustom projectile-project-root-functions
+  '(projectile-root-local
+    projectile-root-marked
+    projectile-root-top-down-recurring
+    projectile-root-top-down
+    projectile-root-bottom-up)
+  "A list of functions for finding project roots."
+  :group 'projectile
+  :type '(repeat function))
+ (projectile-mode))
 
 (use-package embark
   :ensure t
