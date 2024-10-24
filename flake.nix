@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     home-manager.url = "github:rycee/home-manager";
@@ -15,15 +15,14 @@
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      nixos-hardware,
-      hyprland,
-      iceberg,
-      nur,
-      ...
+    { self
+    , nixpkgs
+    , home-manager
+    , nixos-hardware
+    , hyprland
+    , iceberg
+    , nur
+    , ...
     }@inputs:
     {
       nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {

@@ -33,14 +33,9 @@
     executable = true;
   };
 
-  home.file.assets = {
-    source = ../assets;
-    target = ".assets";
-    recursive = true;
-  };
-
   home.activation = {
     linkConfigFiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      run ln -sf $HOME/dotfiles/assets $HOME/.assets
       run ln -sf $HOME/dotfiles/home/config/PrusaSlicer $HOME/.config/
       run ln -sf $HOME/dotfiles/home/config/easyeffects $HOME/.config/
       run ln -sf $HOME/dotfiles/home/config/emacs $HOME/.config/

@@ -11,6 +11,7 @@
       defaultCacheTtl = 28800;
     };
 
+    ssh-agent.enable = true;
     poweralertd.enable = true;
     kdeconnect.enable = true;
   };

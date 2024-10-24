@@ -259,7 +259,7 @@ in
     xdgOpenUsePortal = true;
     extraPortals = [
       # pkgs-hypr.xdg-desktop-portal-hyprland
-      pkgs-hypr.xdg-desktop-portal-gtk
+      # pkgs-hypr.xdg-desktop-portal-gtk
     ];
   };
 

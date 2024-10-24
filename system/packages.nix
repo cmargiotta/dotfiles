@@ -25,12 +25,17 @@
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
-    "cinny-unwrapped-4.2.1"
-    "cinny-4.2.1"
+    "cinny-4.2.2"
+    "cinny-unwrapped-4.2.2"
     "openssl-1.1.1w"
   ];
 
   programs = {
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
+
     steam = {
       enable = true;
       extest.enable = true;

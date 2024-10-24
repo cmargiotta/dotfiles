@@ -6,6 +6,13 @@
 {
   nixpkgs.config.allowUnfree = true;
 
+  programs = {
+    ssh = {
+      enable = true;
+      addKeysToAgent = "yes";
+    };
+  };
+
   home.packages =
     with pkgs;
     [
@@ -72,6 +79,7 @@
       filezilla
       gobject-introspection
       nemo-with-extensions
+      jdk17
       ncdu
       nil
       pinentry-all

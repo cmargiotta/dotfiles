@@ -22,13 +22,13 @@
         # qt6.qtwayland
         vaapiVdpau
         libvdpau-va-gl
-        libsForQt5.qt5ct
+        # libsForQt5.qt5ct
         nvidia-vaapi-driver
       ];
       extraPackages = with pkgs; [
         libva
         # qt6.qtwayland
-        libsForQt5.qt5ct
+        # libsForQt5.qt5ct
         nvidia-vaapi-driver
         vaapiVdpau
         libvdpau-va-gl
@@ -38,7 +38,6 @@
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.beta;
       powerManagement.enable = true;
-      powerManagement.finegrained = true;
       open = false;
       nvidiaSettings = true;
       modesetting.enable = true;
