@@ -35,7 +35,7 @@
 (use-package projectile
   :bind
  ("C-S-p" . #'projectile-command-map)
- ("C-j" . #'project-eshell)
+ ("C-j" . #'projectile-run-vterm)
  ("C-S-h" . #'project-query-replace-regexp)
  :custom
  (projectile-switch-project-action
@@ -99,3 +99,27 @@
   ("C-L" . link-hint-open-link))
 
 (use-package compiler-explorer)
+
+(use-package
+ vterm
+ :ensure t
+
+ :init
+ (defun run-in-vterm (command)
+   "Execute string COMMAND in a new vterm.
+
+Interactively, prompt for COMMAND with the current project root.
+When called from Dired, supply the name of the
+file at point.
+
+Like `async-shell-command`, but run in a vterm for full terminal features.
+
+When the command terminates, the shell remains open, but when the
+shell exits, the buffer is killed."
+   (interactive "sCommand: ")
+   (let ((vterm-shell "bash")
+	 (vterm-kill-buffer-on-exit 't))
+     (progn
+       (vterm)
+       (vterm-send-string (concat command "; exit") t)
+       (vterm-send-return)))))

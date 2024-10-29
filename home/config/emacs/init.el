@@ -9,7 +9,6 @@
 (load-config "completion.el")
 (load-config "dashboard.el")
 (load-config "editor.el")
-(load-config "eshell.el")
 (load-config "git.el")
 (load-config "hooks.el")
 (load-config "lsp.el")

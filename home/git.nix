@@ -23,6 +23,7 @@
   };
 
   home.packages = with pkgs; [
+    commitizen
     gitAndTools.git-annex
     gitAndTools.git-annex-remote-rclone
     gitAndTools.transcrypt

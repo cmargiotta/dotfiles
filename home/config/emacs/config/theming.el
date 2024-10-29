@@ -80,6 +80,7 @@
   :init
   (centaur-tabs-group-by-projectile-project)
   (centaur-tabs-enable-buffer-alphabetical-reordering)
+  (remove-hook 'kill-buffer-hook 'centaur-tabs-buffer-track-killed)
   :config
   (centaur-tabs-mode t)
   :custom
