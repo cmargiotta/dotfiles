@@ -88,7 +88,7 @@
       };
 
       nixos-update = {
-        body = "nixos-clear && nix flake update ~/dotfiles && nixos-apply";
+        body = "nixos-clear && nix flake update --flake ~/dotfiles && nixos-apply";
       };
 
       fastfetch = {
