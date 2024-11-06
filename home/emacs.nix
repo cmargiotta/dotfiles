@@ -31,7 +31,6 @@
           git-timemachine
           hide-mode-line
           hl-todo
-          kanagawa-theme
           ligature
           link-hint
           lsp-mode
