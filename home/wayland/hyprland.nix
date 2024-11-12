@@ -1,5 +1,4 @@
-{ pkgs
-, osConfig
+{ osConfig
 , lib
 , ...
 }:
@@ -13,7 +12,7 @@ in
     package = osConfig.programs.hyprland.package;
 
     systemd = {
-      enable = true;
+      enable = false;
       enableXdgAutostart = false;
     };
 
@@ -81,7 +80,6 @@ in
       );
 
       master = {
-        no_gaps_when_only = true;
         new_on_top = true;
       };
 
@@ -91,14 +89,16 @@ in
 
       exec-once = lib.mkMerge [
         [
-          "swaync"
-          "blueman-applet"
-          "element-desktop"
-          "thunderbird"
-          "telegram-desktop"
+          "uwsm app -- hyprpaper"
+          "uwsm app -- waybar"
+          "uwsm app -- swaync"
+          "uwsm app -- blueman-applet"
+          "uwsm app -- element-desktop"
+          "uwsm app -- thunderbird"
+          "uwsm app -- telegram-desktop"
         ]
         (lib.mkIf desktop [
-          "kitty --class=btop btop"
+          "uwsm app -- kitty --class=btop btop"
           "~/.config/hypr/scripts/vertical-layout.sh"
         ])
       ];
@@ -126,9 +126,9 @@ in
 
       bind = [
         # Exec bindings
-        "$MOD, Return, exec, kitty"
+        "$MOD, Return, exec, uwsm app -- kitty"
         "$MOD, D,      exec, ~/.config/rofi/launchers/type-6/launcher.sh"
-        "$MOD, L,      exec, hyprlock"
+        "$MOD, L,      exec, uwsm app -- hyprlock"
         "    ,Print,   exec, grimblast copy output"
         "$MOD, S,      exec, grimblast copy area"
         "$MODSHIFT, S, exec, GRIMBLAST_EDITOR=\"swappy -f\" grimblast edit area"
@@ -163,32 +163,20 @@ in
         "$MODSHIFT, up,    movewindow, u"
         "$MODSHIFT, down,  movewindow, d"
 
-        "$MOD, 1, workspace, 1"
-        "$MOD, 2, workspace, 2"
-        "$MOD, 3, workspace, 3"
-        "$MOD, 4, workspace, 4"
-        "$MOD, 5, workspace, 5"
-        "$MOD, 6, workspace, 6"
-        "$MOD, 7, workspace, 7"
-        "$MOD, 8, workspace, 8"
-        "$MOD, 9, workspace, 9"
-        "$MOD, 0, workspace, 10"
-
-        "$MODSHIFT, 1, movetoworkspace, 1"
-        "$MODSHIFT, 2, movetoworkspace, 2"
-        "$MODSHIFT, 3, movetoworkspace, 3"
-        "$MODSHIFT, 4, movetoworkspace, 4"
-        "$MODSHIFT, 5, movetoworkspace, 5"
-        "$MODSHIFT, 6, movetoworkspace, 6"
-        "$MODSHIFT, 7, movetoworkspace, 7"
-        "$MODSHIFT, 8, movetoworkspace, 8"
-        "$MODSHIFT, 9, movetoworkspace, 9"
-        "$MODSHIFT, 0, movetoworkspace, 10"
-
         # Orientation
         "$MODSHIFT, V, layoutmsg, orientationtop"
         "$MODSHIFT, H, layoutmsg, orientationleft"
-      ];
+      ] ++ (
+        # Build workspace commands
+        builtins.concatLists (builtins.genList
+          (i:
+            [
+              "$MOD, ${toString i}, workspace, ${toString i}"
+              "$MODSHIFT, ${toString i}, movetoworkspace, ${toString i}"
+            ]
+          )
+          9)
+      );
 
       windowrule = [
         "float,       pavucontrol"
@@ -222,9 +210,6 @@ in
           "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
           "SDL_VIDEODRIVER,wayland"
           "WLR_DRM_NO_ATOMIC,1"
-          "XDG_CURRENT_DESKTOP,Hyprland"
-          "XDG_SESSION_DESKTOP,Hyprland"
-          "XDG_SESSION_TYPE, wayland"
           "_JAVA_AWT_WM_NONREPARENTING"
           "_JAVA_AWT_WM_NONREPARENTING=1"
         ]
@@ -255,6 +240,13 @@ in
         binde  = ,down,   resizeactive,  0   10
         bind   = ,escape, submap, reset
         submap = reset
+
+        workspace = w[tv1], gapsout:0, gapsin:0
+        workspace = f[1], gapsout:0, gapsin:0
+        windowrulev2 = bordersize 0, floating:0, onworkspace:w[tv1]
+        windowrulev2 = rounding 0, floating:0, onworkspace:w[tv1]
+        windowrulev2 = bordersize 0, floating:0, onworkspace:f[1]
+        windowrulev2 = rounding 0, floating:0, onworkspace:f[1]
       ''
       (lib.mkIf laptop ''
         $EXTERNAL = desc:HP Inc. HP 27mq CNC34518VJ

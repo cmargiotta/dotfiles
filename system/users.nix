@@ -22,7 +22,7 @@
     enable = true;
     settings = rec {
       initial_session = {
-        command = "fish -c 'source ~/dotfiles/secrets/atuin-login.sh; dbus-run-session -- Hyprland'";
+        command = "fish -c 'source ~/dotfiles/secrets/atuin-login.sh; uwsm start hyprland-uwsm.desktop'";
         user = "nychtelios";
       };
       default_session = initial_session;

@@ -11,6 +11,8 @@
       enable = true;
       addKeysToAgent = "yes";
     };
+
+    firefox.enable = true;
   };
 
   home.packages =

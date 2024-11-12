@@ -48,20 +48,24 @@
             ];
 
             networking.hostName = "nixos-desktop";
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-            };
-            home-manager.useUserPackages = true;
-            home-manager.useGlobalPkgs = true;
-            home-manager.users.nychtelios = {
-              imports = [
-                hyprland.homeManagerModules.default
 
-                ./home/common.nix
-                ./home/desktop.nix
-              ];
+            home-manager = {
+              backupFileExtension = "bak";
+              extraSpecialArgs = {
+                inherit inputs;
+              };
+              useUserPackages = true;
+              useGlobalPkgs = true;
+              users.nychtelios = {
+                imports = [
+                  hyprland.homeManagerModules.default
 
-              home.stateVersion = "24.11";
+                  ./home/common.nix
+                  ./home/desktop.nix
+                ];
+
+                home.stateVersion = "24.11";
+              };
             };
           }
         ];
@@ -91,20 +95,24 @@
             ];
 
             networking.hostName = "cmargiotta";
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-            };
-            home-manager.useUserPackages = true;
-            home-manager.useGlobalPkgs = true;
-            home-manager.users.nychtelios = {
-              imports = [
-                hyprland.homeManagerModules.default
 
-                ./home/common.nix
-                ./home/laptop.nix
-              ];
+            home-manager = {
+              backupFileExtension = "bak";
+              extraSpecialArgs = {
+                inherit inputs;
+              };
+              useUserPackages = true;
+              useGlobalPkgs = true;
+              users.nychtelios = {
+                imports = [
+                  hyprland.homeManagerModules.default
 
-              home.stateVersion = "24.11";
+                  ./home/common.nix
+                  ./home/laptop.nix
+                ];
+
+                home.stateVersion = "24.11";
+              };
             };
           }
         ];
