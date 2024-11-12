@@ -1,9 +1,12 @@
-(defconst define-refexp "#define [[:alnum:]_]+")
+(defconst define-regexp "#define [[:alnum:]_]+")
 (defconst endif-regexp "#endif /\*[[:blank:][:alnum:]_]*")
 
 (defconst ifndef-regexp "#ifndef \\([[:alnum:]_]+\\)")
 
+(defvar header-guards-skip-levels 1)
+
 (defun current-header-guard ()
+  "Get current header guard define"
     (save-excursion
       (goto-char (point-min)) ; Move cursor to buffer start
       (if
@@ -18,6 +21,7 @@
     (if (re-search-forward regex nil 0 count) (delete-line))))
 
 (defun header-guard ()
+  "Generate an header guard for the current buffer, assuming it is in a projectile environment"
   (upcase
    (concat
     (subst-char-in-string ?- ?_ (subst-char-in-string
@@ -25,7 +29,8 @@
     "_"
     (subst-char-in-string ?/ ?_
                           (string-join
-                           (cdr
+                           (nthcdr
+			    header-guards-skip-levels
                             (file-name-split
                              (file-relative-name
                               (file-name-sans-extension buffer-file-name)
@@ -34,6 +39,7 @@
     "_HPP_")))
 
 (defun delete-old-header-guard ()
+  "Delete header guards in the current buffer"
   (save-excursion
     (let ((guard (current-header-guard)))
       (progn
@@ -44,6 +50,7 @@
         (delete-line-matching-regex "#endif" 't)))))
 
 (defun insert-guards ()
+  "Insert header guards in the current buffer"
   (let ((guard (header-guard)))
     (save-excursion
       (goto-char (point-min))
@@ -62,11 +69,19 @@
   "Return non-nil if the current buffer is visiting a file with a .hpp extension."
   (let ((file-name (buffer-file-name)))
     (and file-name
-         (string= (file-name-extension file-name) "hpp"))))
+         (or (string= (file-name-extension file-name) "hpp")
+	     (string= (file-name-extension file-name) "h")
+	     (string= (file-name-extension file-name) "hh")))))
 
 (defun buffer-has-header-guards? ()
-  (let (buffer-content (buffer-string))
-    (buffer-contains-regex? "#ifndef [[:alnum:]_]+")))
+  "Return non-nil if the current buffer contains valid header guards"
+  (let ((buffer-content (buffer-string))
+	(guard (current-header-guard)))
+    (and
+     guard
+     (buffer-contains-regex? (concat "#ifndef " guard))
+     (buffer-contains-regex? (concat "#define " guard))
+     (buffer-contains-regex? endif-regexp))))
 
 (defun write-header-guards ()
     (if (buffer-is-hpp-file?)
