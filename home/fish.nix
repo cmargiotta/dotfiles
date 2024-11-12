@@ -93,7 +93,7 @@
 
       fastfetch = {
         body = ''
-          set -l image (fd --type file --extension jpeg --extension jpg --extension png 'C\+\+|Lisp|OCaml|Rust|Quantum Computing|Racket|Regex|Algorithms|Architecture|Compilers|Linux|Math|Memes|Prolog' ~/.assets/anime-girls-with-programming-books | shuf -n 1)
+          set -l image (fd --type file --extension jpeg --extension jpg --extension png 'C\+\+|Lisp|OCaml|Rust|Quantum Computing|Racket|Regex|Algorithms|Architecture|Compilers|Linux|Math|Memes|Prolog' ~/dotfiles/assets/anime-girls-with-programming-books | shuf -n 1)
 
           set TARGET_WIDTH (math $COLUMNS / 2)
           set TARGET_HEIGHT 70

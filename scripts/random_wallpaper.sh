@@ -16,4 +16,4 @@ for monitor in $monitors; do
     wallpaper=$(random_wallpaper_file)
 done
 
-ln -s $(random_wallpaper_file) ~/.lock_wallpaper.jpg
+ln -sf $(random_wallpaper_file) ~/.lock_wallpaper.jpg
