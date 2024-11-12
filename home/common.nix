@@ -4,7 +4,6 @@
     ../secrets/email.nix
     ./emacs.nix
     ./mail.nix
-    ./firefox.nix
     ./fish.nix
     ./git.nix
     ./mime.nix
@@ -35,7 +34,6 @@
 
   home.activation = {
     linkConfigFiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      run ln -sf $HOME/dotfiles/assets $HOME/.assets
       run ln -sf $HOME/dotfiles/home/config/PrusaSlicer $HOME/.config/
       run ln -sf $HOME/dotfiles/home/config/easyeffects $HOME/.config/
       run ln -sf $HOME/dotfiles/home/config/emacs $HOME/.config/

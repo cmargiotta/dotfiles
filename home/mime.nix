@@ -1,10 +1,11 @@
 let
-  browser = "firefox.desktop";
+  browser = "zen.desktop";
   editor = "code.desktop";
   file-manager = "nemo.desktop";
   image-viewer = "pureref.desktop";
   image-editor = "gimp.desktop";
-in {
+in
+{
   xdg = {
     mime.enable = true;
 
