@@ -63,6 +63,7 @@
       home-manager
 
       # Media
+      feishin
       ffmpeg
       flacon
       gimp
@@ -70,7 +71,6 @@
       mac
       playerctl
       shntool
-      sonixd
       sox
 
       # 3D printing
