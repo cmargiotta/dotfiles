@@ -25,8 +25,7 @@
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
-    "cinny-4.2.2"
-    "cinny-unwrapped-4.2.2"
+    "olm-3.2.16"
     "openssl-1.1.1w"
   ];
 

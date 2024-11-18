@@ -40,7 +40,7 @@
       # Internet
       discord
       mqttui
-      cinny-desktop
+      nheko
       slack
       tdesktop
       tor-browser-bundle-bin

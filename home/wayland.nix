@@ -13,6 +13,7 @@
     grimblast
     hyprcursor
     hyprland-protocols
+    hyprpaper
     jq
     kdePackages.wayland-protocols
     libGL
