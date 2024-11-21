@@ -28,7 +28,7 @@
 ;; Whitespace
 (use-package whitespace
   :init
-  (dolist (hook '(prog-mode-hook text-mode-hook))
+  (dolist (hook '(c++-mode-hook rust-mode-hook))
     (add-hook hook #'whitespace-mode))
   (add-hook 'before-save-hook #'whitespace-cleanup)
   :config

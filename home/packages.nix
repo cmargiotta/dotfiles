@@ -39,8 +39,8 @@
 
       # Internet
       discord
+      element-desktop
       mqttui
-      nheko
       slack
       tdesktop
       tor-browser-bundle-bin
