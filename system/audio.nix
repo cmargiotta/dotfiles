@@ -14,10 +14,17 @@
     wireplumber.enable = true;
     socketActivation = true;
 
+    extraConfig.pipewire-pulse = {
+      "100-custom"."pulse.cmd" = [
+        {
+          cmd = "load-module";
+          args = "module-zeroconf-discover";
+        }
+      ];
+    };
+
     lowLatency = {
-      # enable this module
       enable = true;
-      # defaults (no need to be set unless modified)
       quantum = 64;
       rate = 48000;
     };

@@ -41,6 +41,12 @@
   boot.loader.efi.canTouchEfiVariables = true;
   virtualisation.virtualbox.host.enable = true;
 
+  fileSystems."/server-data" = {
+    device = "192.168.1.92:/data";
+    fsType = "nfs";
+    options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=600" ];
+  };
+
   time.timeZone = "Europe/Rome";
 
   i18n = {
