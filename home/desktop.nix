@@ -10,6 +10,11 @@
     target = ".ssh/id_ed25519";
   };
 
+  xdg.configFile.hyprland_env_desktop = {
+    source = ./config/Hyprland/env-desktop;
+    target = ".config/uwsm/env-hyprland-desktop";
+  };
+
   home.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     WLR_DRM_NO_ATOMIC = "1";

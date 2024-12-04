@@ -99,20 +99,17 @@ in
         ]
         (lib.mkIf desktop [
           "uwsm app -- kitty --class=btop btop"
-          "~/.config/hypr/scripts/vertical-layout.sh"
+          # "uwsm app -- kitty --class=cava cava"
         ])
       ];
 
       exec = lib.mkMerge [
         [
-          "~/.scripts/random_wallpaper.sh"
+          "sleep 5 && ~/.scripts/random_wallpaper.sh"
         ]
         (lib.mkIf desktop [
           # Select primary screen
           "sleep 3.5 && xrandr --output DP-2 --primary -s 3440x1440 && xrandr --output DP-4 --primary -s 3440x1440"
-
-          # Autoconnect bluetooth soundbar
-          "sleep 5 && echo \"connect 00:15:83:02:82:79\" | bluetoothctl\""
         ])
       ];
 
@@ -175,7 +172,7 @@ in
               "$MODSHIFT, ${toString i}, movetoworkspace, ${toString i}"
             ]
           )
-          9)
+          10)
       );
 
       windowrule = [
@@ -191,39 +188,6 @@ in
         "workspace name:, Sonixd"
         "workspace name:, thunderbird"
         "workspace name:󰍩, Element"
-      ];
-
-      env = lib.mkMerge [
-        [
-          "CLUTTER_BACKEND,wayland"
-          "DBUS_SESSION_BUS_ADDRESS,unix:path=/run/user/1000/bus"
-          "ELECTRON_OZONE_PLATFORM_HINT,auto"
-          "GDK_BACKEND,wayland,x11,*"
-          "HYPRCURSOR_SIZE,24"
-          "HYPRCURSOR_THEME,\"Nordzy-cursors-white\""
-          "MOZ_DISABLE_RDD_SANDBOX,1"
-          "MOZ_ENABLE_WAYLAND, 1"
-          "NIXOS_OZONE_WL, 1"
-          "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-          "QT_QPA_PLATFORM, wayland;xcb"
-          "QT_QPA_PLATFORMTHEME, qt5ct"
-          "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-          "SDL_VIDEODRIVER,wayland"
-          "WLR_DRM_NO_ATOMIC,1"
-          "_JAVA_AWT_WM_NONREPARENTING"
-          "_JAVA_AWT_WM_NONREPARENTING=1"
-        ]
-        (lib.mkIf desktop [
-          "GBM_BACKEND,nvidia-drm"
-          "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-          "LIBVA_DRIVER_NAME,nvidia"
-          "NVD_BACKEND,direct"
-          "PROTON_ENABLE_NGX_UPDATER,1"
-          "WLR_USE_LIBINPUT,0"
-          "__GL_GSYNC_ALLOWED,1"
-          "__GL_MaxFramesAllowed,1"
-          "__GL_VRR_ALLOWED,1"
-        ])
       ];
 
     };
@@ -275,16 +239,15 @@ in
 
         workspace  = 1,      monitor:$ULTRAWIDE, default:true
         workspace  = 9,      monitor:$ULTRAWIDE
-        workspace  = 2,      monitor:$VERTICAL,  default:true, layoutopt:orientation:top
+        workspace  = name:s, monitor:$VERTICAL,  default:true, layoutopt:orientation:top, gapsin:0, gapsout:0, border:false, decorate:false
         workspace  = name:, monitor:$UPPER
         workspace  = name:󰍩  monitor:$UPPER
         workspace  = name:, monitor:$UPPER
         workspace  = name:, monitor:$UPPER
         workspace  = name:  monitor:$UPPER
 
-        windowrule = workspace 3, Discord
-        windowrule = workspace 2, com.github.wwmm.easyeffects
-        windowrule = workspace 2, ^(btop)$
+        windowrule = workspace name:s, ^(cava)$
+        windowrule = workspace name:s, ^(btop)$
       '')
     ];
   };

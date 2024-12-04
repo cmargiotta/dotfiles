@@ -18,6 +18,7 @@
   home.packages =
     with pkgs;
     [
+
       # Dev
       cutecom
       docker-compose
@@ -52,6 +53,7 @@
 
       # System
       acpi
+      # cava
       dconf
       eza
       inxi
@@ -90,6 +92,5 @@
       xorg.xrandr
     ]
     ++ [
-
     ];
 }

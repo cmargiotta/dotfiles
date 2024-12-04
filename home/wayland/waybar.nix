@@ -1,8 +1,7 @@
-{
-  pkgs,
-  osConfig,
-  inputs,
-  ...
+{ pkgs
+, osConfig
+, inputs
+, ...
 }:
 let
   laptop = osConfig.networking.hostName == "cmargiotta";
@@ -22,6 +21,8 @@ in
         position = "top";
         layer = "top";
         height = 50;
+
+        output = "!HDMI-A-2";
 
         modules-left = [
           "cava"

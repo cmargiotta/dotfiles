@@ -57,6 +57,11 @@
     target = "hypr/scripts";
   };
 
+  xdg.configFile.hyprland_env = {
+    source = ./config/Hyprland/env;
+    target = ".config/uwsm/env-hyprland";
+  };
+
   programs.swaylock = {
     enable = true;
     package = pkgs.swaylock-effects;
