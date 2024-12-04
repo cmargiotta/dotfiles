@@ -3,16 +3,23 @@
 
 (defconst ifndef-regexp "#ifndef \\([[:alnum:]_]+\\)")
 
+(defconst current-header-query
+  (treesit-query-compile
+   'cpp
+   '((translation_unit
+      (preproc_ifdef
+       name: (identifier) @guard
+       (preproc_def name: (identifier) @defined-guard
+		    (:equal @guard @defined-guard)))))))
+
 (defvar header-guards-skip-levels 1)
 
 (defun current-header-guard ()
   "Get current header guard define."
-    (save-excursion
-      (goto-char (point-min)) ; Move cursor to buffer start
-      (if
-          (re-search-forward ifndef-regexp nil t)
-          (match-string-no-properties 1)
-        nil)))
+  (let* ((node (treesit-buffer-root-node))
+	 (capture (treesit-query-capture node current-header-query)))
+    (when capture
+	(treesit-node-text (alist-get 'guard capture)))))
 
 (defun delete-line-matching-regex (regex &optional backward)
   "Delete the first line in the buffer that matches the given REGEX."
@@ -73,22 +80,11 @@
 	     (string= (file-name-extension file-name) "h")
 	     (string= (file-name-extension file-name) "hh")))))
 
-(defun buffer-has-header-guards? ()
-  "Return non-nil if the current buffer contains valid header guards"
-  (let ((buffer-content (buffer-string))
-	(guard (current-header-guard)))
-    (and
-     guard
-     (buffer-contains-regex? (concat "#ifndef " guard))
-     (buffer-contains-regex? (concat "#define " guard))
-     (buffer-contains-regex? endif-regexp))))
-
 (defun write-header-guards ()
     (if (buffer-is-hpp-file?)
         ((lambda ()
-          (if (buffer-has-header-guards?)
+          (when (current-header-guard)
               (delete-old-header-guard))
-          (insert-guards)
-          (lsp-format-buffer)))))
+          (insert-guards)))))
 
 (add-hook 'before-save-hook #'write-header-guards)
