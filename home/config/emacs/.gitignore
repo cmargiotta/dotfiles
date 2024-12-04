@@ -1,9 +1,0 @@
-*
-
-!*/
-
-!early-init.el
-!init.el
-!snippets/**
-!config/**
-!.gitignore

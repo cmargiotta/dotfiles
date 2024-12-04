@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     home-manager.url = "github:rycee/home-manager";
     hypr-contrib.url = "github:hyprwm/contrib";
@@ -45,6 +46,7 @@
               nur.overlay
               inputs.nixpkgs-wayland.overlay
               inputs.hypr-contrib.overlays.default
+              inputs.emacs-overlay.overlays.default
             ];
 
             networking.hostName = "nixos-desktop";
@@ -92,6 +94,7 @@
               nur.overlay
               inputs.nixpkgs-wayland.overlay
               inputs.hypr-contrib.overlays.default
+              inputs.emacs-overlay.overlays.default
             ];
 
             networking.hostName = "cmargiotta";

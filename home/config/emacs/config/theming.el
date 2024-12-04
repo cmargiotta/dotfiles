@@ -26,46 +26,29 @@
   (add-hook 'beacon-blink 'focus-in-hook t))
 
 ;; Whitespace
-(use-package whitespace
-  :init
-  (dolist (hook '(c++-mode-hook rust-mode-hook))
-    (add-hook hook #'whitespace-mode))
-  (add-hook 'before-save-hook #'whitespace-cleanup)
+(setq whitespace-line-column 140) ;; limit line length
+  (setq whitespace-style '(face tabs empty trailing lines-tail))
+
+(use-package ligature
   :config
-  (setq whitespace-line-column 140) ;; limit line length
-  (setq whitespace-style '(face tabs empty trailing lines-tail)))
+  ;; Enable the "www" ligature in every possible major mode
+  (ligature-set-ligatures 't '("www"))
+  ;; Enable all Cascadia Code ligatures in programming modes
+  (ligature-set-ligatures 'prog-mode '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
+                                       ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
+                                       "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<"
+                                       "<~~" "<~>" "<*>" "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->"
+                                       "<--" "<-<" "<<=" "<<-" "<<<" "<+>" "</>" "###" "#_(" "..<"
+                                       "..." "+++" "/==" "///" "_|_" "www" "&&" "^=" "~~" "~@" "~="
+                                       "~>" "~-" "**" "*>" "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|"
+                                       "[|" "]#" "::" ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:"
+                                       ">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:"
+                                       "<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
+                                       "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:"
+                                       "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
+                                       "\\\\" "://"))
+  (global-ligature-mode t))
 
-;; Enable ligatures in programming modes
-(ligature-set-ligatures 'prog-mode '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\" "{-" "::"
-                                     ":::" ":=" "!!" "!=" "!==" "-}" "----" "-->" "->" "->>"
-                                     "-<" "-<<" "-~" "#{" "#[" "##" "###" "####" "#(" "#?" "#_"
-                                     "#_(" ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*" "/**"
-                                     "/=" "/==" "/>" "//" "///" "&&" "||" "||=" "|=" "|>" "^=" "$>"
-                                     "++" "+++" "+>" "=:=" "==" "===" "==>" "=>" "=>>" "<="
-                                     "=<<" "=/=" ">-" ">=" ">=>" ">>" ">>-" ">>=" ">>>" "<*"
-                                     "<*>" "<|" "<|>" "<$" "<$>" "<!--" "<-" "<--" "<->" "<+"
-                                     "<+>" "<=" "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<"
-                                     "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%"))
-
-(defun prettify-cpp ()
-  (progn
-    (setq prettify-symbols-alist
-          '((" &&" . " ∧")
-            ("||" . "∨")
-            ("!" . "¬")
-            ("for" . "∀")
-            ("float" . "ℝ")
-            ("void" . "∅")
-            ("typename" . "𝓣")
-            ("return" . "↩")
-            ("true" . "⊤")
-            ("false" . "⊥")))
-    (prettify-symbols-mode 1)))
-
-(add-hook 'c++-mode-hook #'prettify-cpp)
-(add-hook 'c-mode-hook #'prettify-cpp)
-
-(global-ligature-mode 't)
 (set-face-attribute 'default nil :family "Fira Code" :height 150 :weight 'normal)
 
 (use-package solo-jazz-theme
@@ -73,27 +56,14 @@
   :config
   (load-theme 'solo-jazz t))
 
-(use-package all-the-icons
-  :if (display-graphic-p))
+(use-package all-the-icons)
 
-(use-package centaur-tabs
-  :init
-  (centaur-tabs-group-by-projectile-project)
-  (centaur-tabs-enable-buffer-alphabetical-reordering)
-  (remove-hook 'kill-buffer-hook 'centaur-tabs-buffer-track-killed)
+(use-package all-the-icons-nerd-fonts
+  :straight
+  (all-the-icons-nerd-fonts :host github :repo "mohkale/all-the-icons-nerd-fonts")
+  :after all-the-icons
   :config
-  (centaur-tabs-mode t)
-  :custom
-  (centaur-tabs-style "bar")
-  (centaur-tabs-set-icons t)
-  (centaur-tabs-show-new-tab-button nil)
-  (centaur-tabs-adjust-buffer-order t)
-  (centaur-tabs-set-bar 'left)
-  (centaur-tabs-set-modified-marker t)
-  (centaur-tabs-mode t)
-  :bind
-  ("M-<left>" . centaur-tabs-backward)
-  ("M-<right>" . centaur-tabs-forward))
+  (all-the-icons-nerd-fonts-prefer))
 
 (use-package telephone-line
   :custom

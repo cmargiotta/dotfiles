@@ -48,7 +48,7 @@
 (setq inhibit-compacting-font-caches t)
 
 ;; Without this, Emacs will try to resize itself to a specific column size
-(setq frame-inhibit-implied-resize t)
+(setq frame-inhibit-implied-resize nil)
 
 ;; A second, case-insensitive pass over `auto-mode-alist' is time wasted.
 ;; No second pass of case-insensitive search over auto-mode-alist.

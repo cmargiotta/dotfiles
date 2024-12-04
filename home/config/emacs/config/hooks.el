@@ -1,5 +1,3 @@
-(load-config "hooks/cpp_header_guards.el")
-
 (add-hook 'prog-mode-hook (
   lambda ()
     (display-line-numbers-mode)
@@ -8,3 +6,5 @@
 (add-hook 'emacs-startup-hook #'(lambda() ;Kills the warning buffer for even emergency messages
                                   (kill-buffer (get-buffer "*Messages*"))
                                   (kill-buffer (get-buffer "*scratch*"))))
+
+(add-hook 'before-save-hook #'whitespace-cleanup)

@@ -1,71 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
-  programs.emacs = {
-    enable = true;
-
-    extraPackages =
-      epkgs:
-        with epkgs;
-        [
-          beacon
-          cape
-          centaur-tabs
-          colorful-mode
-          compiler-explorer
-          consult
-          corfu
-          dap-mode
-          dashboard
-          dim
-          dockerfile-mode
-          elisp-autofmt
-          embark
-          embark-consult
-          envrc
-          expand-region
-          flycheck
-          flycheck-clang-tidy
-          flycheck-projectile
-          flycheck-rust
-          git-modes
-          git-timemachine
-          hide-mode-line
-          hl-todo
-          ligature
-          link-hint
-          lsp-mode
-          lsp-treemacs
-          lsp-ui
-          magit
-          magit-lfs
-          magit-todos
-          marginalia
-          markdown-mode
-          meson-mode
-          multiple-cursors
-          nerd-icons
-          nix-mode
-          nyan-mode
-          orderless
-          org-modern
-          perspective
-          pretty-mode
-          projectile
-          rust-mode
-          sideline-flycheck
-          solo-jazz-theme
-          telephone-line
-          treemacs-magit
-          treemacs-projectile
-          vertico
-          visual-regexp
-          visual-regexp-steroids
-          vterm
-          xref
-          yaml-mode
-          yasnippet
-          all-the-icons
-        ];
+  home.file = {
+    ".emacs.d/early-init.el".source = ./config/emacs/early-init.el;
   };
 
   programs.fish.functions = {
@@ -100,9 +36,6 @@
     emacs-all-the-icons-fonts
     multimarkdown
 
-    # Dev
-    vscode-extensions.ms-vscode.cpptools
-
     # LSP
     bash-language-server
     dockerfile-language-server-nodejs
@@ -111,5 +44,44 @@
     nixpkgs-fmt
     nodePackages.vscode-json-languageserver
     nodePackages.unified-language-server
+  ] ++ [
+    (pkgs.emacsWithPackagesFromUsePackage {
+      config = pkgs.writeTextFile {
+        name = "init.el";
+        text = lib.concatStrings [
+          (lib.concatMapStringsSep "\n" builtins.readFile [
+            ./config/emacs/config/bindings.el
+            ./config/emacs/config/completion.el
+            ./config/emacs/config/dashboard.el
+            ./config/emacs/config/editor.el
+            ./config/emacs/config/git.el
+            ./config/emacs/config/hooks/cpp_header_guards.el
+            ./config/emacs/config/hooks.el
+            ./config/emacs/config/languages.el
+            ./config/emacs/config/org.el
+            ./config/emacs/config/packages.el
+            ./config/emacs/config/settings.el
+            ./config/emacs/config/theming.el
+            ./config/emacs/config/treemacs.el
+          ])
+
+          ''
+            (with-eval-after-load 'lsp-mode
+               (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+               (setq dap-cpptools-debug-path "${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/")
+               (setq dap-cpptools-debug-program (list "${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7"))
+               (require 'dap-cpptools))
+          ''
+        ];
+      };
+
+      extraEmacsPackages = epkgs: with epkgs; [
+        treesit-grammars.with-all-grammars
+      ];
+
+      defaultInitFile = true;
+      package = pkgs.emacs-git;
+      alwaysEnsure = true;
+    })
   ];
 }

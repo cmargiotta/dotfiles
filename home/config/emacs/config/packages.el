@@ -1,14 +1,9 @@
 (use-package envrc
   :config (envrc-global-mode 1))
 
-(use-package yasnippet
-  :config
-  (yas-global-mode 1))
-
-;; (use-package nix-mode
-;;   :mode "\\.nix\\'"
-;;   :hook
-;;   (before-save . #'nix-format-buffer))
+;; (use-package yasnippet
+;;   :config
+;;   (yas-global-mode 1))
 
 (use-package elisp-autofmt
   :custom
@@ -29,8 +24,10 @@
   (left-fringe-width 16)
   :hook
   ((lsp-mode . dap-auto-configure-mode)
-   (c++-mode  . (lambda ()
-                  (require 'dap-gdb-lldb)))))
+   ((c++-mode c++-ts-mode)
+    .
+    (lambda ()
+      (require 'dap-gdb-lldb)))))
 
 (use-package projectile
   :bind

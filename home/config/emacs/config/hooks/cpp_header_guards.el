@@ -6,7 +6,7 @@
 (defvar header-guards-skip-levels 1)
 
 (defun current-header-guard ()
-  "Get current header guard define"
+  "Get current header guard define."
     (save-excursion
       (goto-char (point-min)) ; Move cursor to buffer start
       (if
@@ -21,7 +21,7 @@
     (if (re-search-forward regex nil 0 count) (delete-line))))
 
 (defun header-guard ()
-  "Generate an header guard for the current buffer, assuming it is in a projectile environment"
+  "Generate an header guard for the current buffer, assuming it is in a projectile environment."
   (upcase
    (concat
     (subst-char-in-string ?- ?_ (subst-char-in-string
