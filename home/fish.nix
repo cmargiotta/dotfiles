@@ -45,7 +45,7 @@
 
       copy_on_select = "clipboard";
 
-      term = "xterm";
+      term = "xterm-kitty";
       linux_display_server = "wayland";
     };
   };

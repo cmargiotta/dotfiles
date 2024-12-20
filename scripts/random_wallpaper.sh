@@ -23,8 +23,6 @@ for monitor in $monitors; do
 
     hyprctl hyprpaper preload "$wallpaper"
     hyprctl hyprpaper wallpaper "${monitor},${wallpaper}"
-
-    wal -i "$wallpaper"
 done
 
 ln -sf "$(random_wallpaper_file "lockscreen")" ~/.lock_wallpaper.jpg

@@ -3,16 +3,26 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
     home-manager.url = "github:rycee/home-manager";
-    hypr-contrib.url = "github:hyprwm/contrib";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     iceberg.url = "github:icebox-nix/iceberg";
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nur.url = "github:nix-community/NUR";
-    nix-gaming.url = "github:fufexan/nix-gaming";
+    stylix.url = "github:danth/stylix/release-24.11";
     waybar.url = "github:Alexays/Waybar";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
+    hyprland.url = "github:hyprwm/Hyprland";
+    hypr-contrib.url = "github:hyprwm/contrib";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+    hypr-dynamic-cursors = {
+      url = "github:VirtCode/hypr-dynamic-cursors";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs =
@@ -37,9 +47,10 @@
           ./system/configuration.nix
           ./system/desktop.nix
 
-          nur.nixosModules.nur
-          inputs.nix-gaming.nixosModules.pipewireLowLatency
           home-manager.nixosModules.home-manager
+          inputs.nix-gaming.nixosModules.pipewireLowLatency
+          nur.nixosModules.nur
+          inputs.stylix.nixosModules.stylix
 
           {
             nixpkgs.overlays = [
@@ -84,10 +95,11 @@
           ./system/configuration.nix
           ./system/laptop.nix
 
-          nur.nixosModules.nur
-          inputs.nix-gaming.nixosModules.pipewireLowLatency
           home-manager.nixosModules.home-manager
+          inputs.nix-gaming.nixosModules.pipewireLowLatency
+          inputs.stylix.nixosModules.stylix
           nixos-hardware.nixosModules.dell-latitude-7430
+          nur.nixosModules.nur
 
           {
             nixpkgs.overlays = [

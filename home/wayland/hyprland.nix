@@ -1,4 +1,6 @@
 { osConfig
+, inputs
+, pkgs
 , lib
 , ...
 }:
@@ -7,6 +9,10 @@ let
   desktop = osConfig.networking.hostName == "nixos-desktop";
 in
 {
+  home.packages = with pkgs; [
+    hyprcursor
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = osConfig.programs.hyprland.package;
@@ -16,13 +22,16 @@ in
       enableXdgAutostart = false;
     };
 
+    plugins = with inputs; [
+      hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
+      hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
+    ];
+
     settings = {
       general = {
         gaps_in = 2;
         gaps_out = 8;
         border_size = 2;
-        "col.active_border" = "0x66ee1111";
-        "col.inactive_border" = "0x66333333";
         layout = "master";
         resize_on_border = false;
       };
@@ -160,6 +169,9 @@ in
         "$MODSHIFT, up,    movewindow, u"
         "$MODSHIFT, down,  movewindow, d"
 
+        # Plugins
+        "$MOD, I, exec, hyprctl dispatch hyprexpo:expo toggle"
+
         # Orientation
         "$MODSHIFT, V, layoutmsg, orientationtop"
         "$MODSHIFT, H, layoutmsg, orientationleft"
@@ -175,6 +187,54 @@ in
           10)
       );
 
+      plugin = {
+        hyprexpo = {
+          columns = 3;
+          gap_size = 5;
+          bg_col = "rgb(111111)";
+          workspace_method = "center current";
+
+          enable_gesture = true;
+          gesture_fingers = 3;
+          gesture_distance = 300;
+          gesture_positive = true; # positive = swipe down. Negative = swipe up.
+        };
+
+        dynamic-cursors = {
+          enabled = true;
+          mode = "tilt";
+          threshold = 2;
+
+          tilt = {
+            limit = 5000;
+            function = "negative_quadratic";
+          };
+
+
+          # configure shake to find
+          # magnifies the cursor if its is being shaken
+          shake = {
+            enabled = true;
+            nearest = true;
+            threshold = 6.0;
+            base = 4.0;
+            speed = 4.0;
+            influence = 0.0;
+            limit = 0.0;
+            timeout = 2000;
+            effects = false;
+            ipc = false;
+          };
+
+          hyprcursor = {
+            nearest = 0;
+            enabled = true;
+            resolution = -1;
+            fallback = "clientside";
+          };
+        };
+      };
+
       windowrule = [
         "float,       pavucontrol"
         "center,      pavucontrol"
@@ -189,66 +249,66 @@ in
         "workspace name:, thunderbird"
         "workspace name:󰍩, Element"
       ];
-
     };
 
-    extraConfig = lib.mkMerge [
-      ''
-        # Resize mode
-        bind = $MOD, R, submap, resize
+    extraConfig = lib.mkMerge
+      [
+        ''
+          # Resize mode
+          bind = $MOD, R, submap, resize
 
-        submap = resize
-        binde  = ,right,  resizeactive,  10  0
-        binde  = ,left,   resizeactive, -10  0
-        binde  = ,up,     resizeactive,  0  -10
-        binde  = ,down,   resizeactive,  0   10
-        bind   = ,escape, submap, reset
-        submap = reset
+          submap = resize
+          binde  = ,right,  resizeactive,  10  0
+          binde  = ,left,   resizeactive, -10  0
+          binde  = ,up,     resizeactive,  0  -10
+          binde  = ,down,   resizeactive,  0   10
+          bind   = ,escape, submap, reset
+          submap = reset
 
-        workspace = w[tv1], gapsout:0, gapsin:0
-        workspace = f[1], gapsout:0, gapsin:0
-        windowrulev2 = bordersize 0, floating:0, onworkspace:w[tv1]
-        windowrulev2 = rounding 0, floating:0, onworkspace:w[tv1]
-        windowrulev2 = bordersize 0, floating:0, onworkspace:f[1]
-        windowrulev2 = rounding 0, floating:0, onworkspace:f[1]
-      ''
-      (lib.mkIf laptop ''
-        $EXTERNAL = desc:HP Inc. HP 27mq CNC34518VJ
-        $INTERNAL = eDP-1
+          workspace = w[tv1], gapsout:0, gapsin:0
+          workspace = f[1], gapsout:0, gapsin:0
+          windowrulev2 = bordersize 0, floating:0, onworkspace:w[tv1]
+          windowrulev2 = rounding 0, floating:0, onworkspace:w[tv1]
+          windowrulev2 = bordersize 0, floating:0, onworkspace:f[1]
+          windowrulev2 = rounding 0, floating:0, onworkspace:f[1]
+        ''
+        (lib.mkIf laptop ''
+          $EXTERNAL = desc:HP Inc. HP 27mq CNC34518VJ
+          $INTERNAL = eDP-1
 
-        workspace = name:, monitor:$EXTERNAL
-        workspace = name:, monitor:$EXTERNAL
-        workspace = name:, monitor:$EXTERNAL
-        workspace = name:, monitor:$EXTERNAL
-        workspace = name:󰍩 monitor:$EXTERNAL,
+          workspace = name:, monitor:$EXTERNAL
+          workspace = name:, monitor:$EXTERNAL
+          workspace = name:, monitor:$EXTERNAL
+          workspace = name:, monitor:$EXTERNAL
+          workspace = name:󰍩 monitor:$EXTERNAL,
 
-        monitor=HDMI-A-1,2560x1440,1700x0,1
-        monitor=eDP-1,1920x1080,0x1440,1
-        monitor=,preferred,auto,1
-      '')
+          monitor=HDMI-A-1,2560x1440,1700x0,1
+          monitor=eDP-1,1920x1080,0x1440,1
+          monitor=,preferred,auto,1
+        '')
 
-      (lib.mkIf desktop ''
-        $ULTRAWIDE = desc:Samsung Electric Company C34H89x H4ZN200636
-        $VERTICAL  = desc:Microstep MSI MP242 PA1T010907358
-        $UPPER     = desc:Microstep MSI MP273 PB4H793100073
+        (lib.mkIf desktop ''
+          $ULTRAWIDE = desc:Samsung Electric Company C34H89x H4ZN200636
+          $VERTICAL  = desc:Microstep MSI MP242 PA1T010907358
+          $UPPER     = desc:Microstep MSI MP273 PB4H793100073
 
-        monitor    = $ULTRAWIDE, highres, 1080x1080, 1
-        monitor    = $UPPER,     highres, 1550x0,    1
-        monitor    = $VERTICAL,  highres, 0x500,     1
-        monitor    = $VERTICAL,  transform, 1
+          monitor    = $ULTRAWIDE, highres, 1080x1080, 1
+          monitor    = $UPPER,     highres, 1550x0,    1
+          monitor    = $VERTICAL,  highres, 0x500,     1
+          monitor    = $VERTICAL,  transform, 1
 
-        workspace  = 1,      monitor:$ULTRAWIDE, default:true
-        workspace  = 9,      monitor:$ULTRAWIDE
-        workspace  = name:s, monitor:$VERTICAL,  default:true, layoutopt:orientation:top, gapsin:0, gapsout:0, border:false, decorate:false
-        workspace  = name:, monitor:$UPPER
-        workspace  = name:󰍩  monitor:$UPPER
-        workspace  = name:, monitor:$UPPER
-        workspace  = name:, monitor:$UPPER
-        workspace  = name:  monitor:$UPPER
+          workspace  = 1,      monitor:$ULTRAWIDE, default:true
+          workspace  = 9,      monitor:$ULTRAWIDE
+          workspace  = name:s, monitor:$VERTICAL,  default:true, layoutopt:orientation:top, gapsin:0, gapsout:0, border:false, decorate:false
+          workspace  = name:, monitor:$UPPER
+          workspace  = name:󰍩  monitor:$UPPER
+          workspace  = name:, monitor:$UPPER
+          workspace  = name:, monitor:$UPPER
+          workspace  = name:  monitor:$UPPER
 
-        windowrule = workspace name:s, ^(cava)$
-        windowrule = workspace name:s, ^(btop)$
-      '')
-    ];
+          windowrule = workspace name:s, ^(cava)$
+          windowrule = workspace name:s, ^(btop)$
+        '')
+      ];
   };
 }

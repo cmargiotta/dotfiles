@@ -40,12 +40,6 @@
     recursive = true;
   };
 
-  xdg.configFile.wal_templates = {
-    source = ./config/wal-templates;
-    target = "wal/templates";
-    recursive = true;
-  };
-
   xdg.configFile.swaync = {
     source = ./config/swaync;
     target = "swaync";
@@ -73,5 +67,4 @@
       splash = true;
     };
   };
-  programs.pywal.enable = true;
 }

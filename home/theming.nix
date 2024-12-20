@@ -12,21 +12,14 @@
     symbola
   ];
 
-  home.pointerCursor = {
-    name = "Nordzy-cursors-white";
-    package = pkgs.nordzy-cursor-theme;
-    size = 32;
-    gtk.enable = true;
+  stylix.targets = {
+    waybar.enable = false;
+    vscode.enable = false;
+    kitty.enable = false;
   };
 
   gtk = {
     enable = true;
-
-    font = {
-      name = "Public Sans";
-      package = pkgs.public-sans;
-      size = 12;
-    };
 
     gtk3 = {
       extraCss = ''
@@ -40,11 +33,6 @@
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
-    };
-
-    theme = {
-      name = "Catppuccin-Purple-Dark-Compact";
-      package = pkgs.catppuccin-gtk.override { size = "compact"; };
     };
   };
 }

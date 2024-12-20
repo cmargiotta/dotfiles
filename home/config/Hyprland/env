@@ -1,4 +1,4 @@
-export HYPRCURSOR_SIZE=24
+export HYPRCURSOR_SIZE=32
 export HYPRCURSOR_THEME="Nordzy-cursors-white"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
 export MOZ_ENABLE_WAYLAND=1

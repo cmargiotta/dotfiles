@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   programs.hyprlock = {
     enable = true;
@@ -7,7 +7,7 @@
 
       background = {
         monitor = "";
-        path = "$HOME/.lock_wallpaper.jpg";
+        path = lib.mkForce "$HOME/.lock_wallpaper.jpg";
 
         # all these options are taken from hyprland, see https://wiki.hyprland.org/Configuring/Variables/#blur for explanations
         blur_size = 4;
@@ -26,9 +26,6 @@
         dots_size = 0.26; # Scale of input-field height, 0.2 - 0.8
         dots_spacing = 0.64; # Scale of dots' absolute size, 0.0 - 1.0
         dots_center = true;
-        outer_color = "$color0";
-        inner_color = "$color0";
-        font_color = "$color6";
         fade_on_empty = true;
         placeholder_text = "<i>Password...</i>"; # Text rendered in the input box when it's empty.
         hide_input = false;
@@ -48,7 +45,7 @@
           shadow_passes = 3;
           shadow_size = 4;
 
-          position = "0, 16";
+          position = "0, 32";
           halign = "center";
           valign = "center";
         }

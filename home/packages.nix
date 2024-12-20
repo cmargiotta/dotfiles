@@ -90,7 +90,5 @@
       pkg-config
       xorg.xeyes
       xorg.xrandr
-    ]
-    ++ [
     ];
 }

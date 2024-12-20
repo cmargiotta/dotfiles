@@ -87,10 +87,12 @@
   system.stateVersion = "23.11";
 
   imports = [
+    ./audio.nix
     ./packages.nix
     ./services.nix
+    ./theming.nix
     ./users.nix
-    ./audio.nix
+
     ../secrets/fortinet.nix
   ];
 }

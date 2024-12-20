@@ -32,20 +32,9 @@
     '';
   };
 
-  home.packages = with pkgs; [
-    emacs-all-the-icons-fonts
-    multimarkdown
-
-    # LSP
-    bash-language-server
-    dockerfile-language-server-nodejs
-    mesonlsp
-    nil
-    nixpkgs-fmt
-    nodePackages.vscode-json-languageserver
-    nodePackages.unified-language-server
-  ] ++ [
-    (pkgs.emacsWithPackagesFromUsePackage {
+  programs.emacs = {
+    enable = true;
+    package = (pkgs.emacsWithPackagesFromUsePackage {
       config = pkgs.writeTextFile {
         name = "init.el";
         text = lib.concatStrings [
@@ -80,8 +69,22 @@
       ];
 
       defaultInitFile = true;
-      package = pkgs.emacs-git;
+      package = pkgs.emacs-pgtk;
       alwaysEnsure = true;
-    })
+    });
+  };
+
+  home.packages = with pkgs; [
+    emacs-all-the-icons-fonts
+    multimarkdown
+
+    # LSP
+    bash-language-server
+    dockerfile-language-server-nodejs
+    mesonlsp
+    nil
+    nixpkgs-fmt
+    nodePackages.vscode-json-languageserver
+    nodePackages.unified-language-server
   ];
 }
