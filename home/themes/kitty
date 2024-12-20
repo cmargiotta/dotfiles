@@ -1,5 +1,5 @@
 background            #1e1c44
-background_opacity    0.85
+background_opacity    1.0
 foreground            #f8dbc0
 cursor                #eebf37
 selection_background  #6f6a4e

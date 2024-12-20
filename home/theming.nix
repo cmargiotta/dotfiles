@@ -15,7 +15,6 @@
   stylix.targets = {
     waybar.enable = false;
     vscode.enable = false;
-    kitty.enable = false;
   };
 
   gtk = {

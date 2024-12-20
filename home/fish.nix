@@ -31,7 +31,6 @@
 
   programs.kitty = {
     enable = true;
-    extraConfig = (builtins.readFile ./themes/kitty);
     font.name = "Iosevka Term";
     shellIntegration.enableFishIntegration = true;
 
@@ -63,10 +62,6 @@
       ls = "exa";
       lt = "exa -lT";
       reboot = "sudo systemctl reboot";
-    };
-
-    shellAliases = {
-      ssh = "kitty +kitten ssh";
     };
 
     functions = {

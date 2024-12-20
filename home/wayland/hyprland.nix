@@ -59,6 +59,14 @@ in
         ];
       };
 
+      decoration = {
+        rounding = 4;
+        active_opacity = 1.0;
+        inactive_opacity = 0.9;
+        dim_inactive = true;
+        dim_strength = 0.05;
+      };
+
       render = {
         explicit_sync = 0;
         direct_scanout = true;
@@ -236,8 +244,10 @@ in
       };
 
       windowrule = [
-        "float,       pavucontrol"
-        "center,      pavucontrol"
+        "float,       pwvucontrol"
+        "center,      pwvucontrol"
+        "float,       ^(blueman-manager)$"
+        "float,       org.gnome.Calculator"
         "noblur,      ^(steam)$"
         "forcergbx,   ^(steam)$"
         "workspace 9, ^(steam_app.*)$"
@@ -267,6 +277,7 @@ in
 
           workspace = w[tv1], gapsout:0, gapsin:0
           workspace = f[1], gapsout:0, gapsin:0
+
           windowrulev2 = bordersize 0, floating:0, onworkspace:w[tv1]
           windowrulev2 = rounding 0, floating:0, onworkspace:w[tv1]
           windowrulev2 = bordersize 0, floating:0, onworkspace:f[1]
