@@ -27,11 +27,6 @@
 ;; Increase how much is read from processes in a single chunk (default is 4kb).
 (setq read-process-output-max (* 256 1024))  ; 256kb
 
-;; Reduce rendering/line scan work by not rendering cursors or regions in
-;; non-focused windows.
-(setq-default cursor-in-non-selected-windows nil)
-(setq highlight-nonselected-windows nil)
-
 ;; Disable warnings from the legacy advice API. They aren't useful.
 (setq ad-redefinition-action 'accept)
 
@@ -40,9 +35,6 @@
 
 ;; Don't ping things that look like domain names.
 (setq ffap-machine-p-known 'reject)
-
-;; By default, Emacs "updates" its ui more often than it needs to
-(setq idle-update-delay 1.0)
 
 ;; Font compacting can be very resource-intensive.
 (setq inhibit-compacting-font-caches t)
@@ -92,7 +84,7 @@
 ;; Deactivate the `native-compile' feature if it is not available
 (setq features (delq 'native-compile features)))
 
-;; Disable GUIs because theyr are inconsistent across systems, desktop
+;; Disable GUIs because they are inconsistent across systems, desktop
 ;; environments, and themes, and they don't match the look of Emacs.
 (setq use-file-dialog nil)
 (setq use-dialog-box nil)
@@ -109,6 +101,49 @@
     (setq use-short-answers t)
   (advice-add #'yes-or-no-p :override #'y-or-n-p))
 (defalias #'view-hello-file #'ignore)  ; Never show the hello file
+
+
+;;; Minibuffer
+;; Allow nested minibuffers
+(setq enable-recursive-minibuffers t)
+
+;; Keep the cursor out of the read-only portions of the.minibuffer
+(setq minibuffer-prompt-properties
+      '(read-only t intangible t cursor-intangible t face
+                  minibuffer-prompt))
+(add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
+
+;;; Files
+;; Disable the warning "X and Y are the same file". Ignoring this warning is
+;; acceptable since it will redirect you to the existing buffer regardless.
+(setq find-file-suppress-same-file-warnings t)
+
+;; Resolve symlinks when opening files, so that any operations are conducted
+;; from the file's true directory (like `find-file').
+(setq find-file-visit-truename t
+      vc-follow-symlinks t)
+
+;; Skip confirmation prompts when creating a new file or buffer
+(setq confirm-nonexistent-file-or-buffer nil)
+(setq uniquify-buffer-name-style 'forward)
+(setq mouse-yank-at-point t)
+
+;; The native border "uses" a pixel of the fringe on the rightmost
+;; splits, whereas `window-divider` does not.
+(setq window-divider-default-bottom-width 1
+      window-divider-default-places t
+      window-divider-default-right-width 1)
+
+;;; Auto revert
+;; Auto-revert in Emacs is a feature that automatically updates the
+;; contents of a buffer to reflect changes made to the underlying file
+;; on disk.
+(setq revert-without-query (list ".")  ; Do not prompt
+      auto-revert-stop-on-user-input nil
+      auto-revert-verbose t)
+
+;; Use cat as a pager. Fixes all kinds of things.
+(setenv "PAGER" "cat")
 
 ;;; package.el
 ;; Since Emacs 27, package initialization occurs before `user-init-file' is

@@ -80,28 +80,6 @@
  :after (lsp-mode treemacs)
  :config (lsp-treemacs-sync-mode 1))
 
-;; Flycheck
-;; (use-package flycheck
-;;   :config
-;;   (add-hook 'after-init-hook #'global-flycheck-mode))
-
-;; (use-package
-;;  sideline-flycheck
-;;  :after (flycheck)
-;;  ;; :hook
-;;  ;; ((flycheck-mode . #'sideline-mode)
-;;  ;;  (flycheck-mode . #'sideline-flycheck-setup))
-;;  :custom (sideline-backends-right '(sideline-flycheck)))
-
-;; (use-package
-;;  flycheck-rust
-;;  :after (flycheck)
-;;  :hook (flycheck-mode . flycheck-rust-setup))
-
-;; (use-package
-;;   flycheck-projectile
-;;   :after (flycheck))
-
 (use-package
  elisp-autofmt
  :commands (elisp-autofmt-mode elisp-autofmt-buffer)

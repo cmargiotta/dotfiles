@@ -49,7 +49,7 @@
                                        "\\\\" "://"))
   (global-ligature-mode t))
 
-(set-face-attribute 'default nil :family "Fira Code" :height 150 :weight 'normal)
+(set-face-attribute 'default nil :family "Fira Code" :height 140 :weight 'normal)
 
 (use-package solo-jazz-theme
   :ensure t
