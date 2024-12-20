@@ -2,7 +2,7 @@
   :bind ("C-x g" . #'magit-status)
   :custom
   (magit-module-sections-nested t)
-  (magit-display-buffer-function magit-display-buffer-same-window-except-diff-v1)
+  (magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
   :init
   (defun commitizen() (interactive) (progn
 				      (run-in-vterm "git cz commit; exit")
