@@ -1,9 +1,25 @@
+{ lib
+, config
+, pkgs
+, inputs
+, ...
+}:
 let
-  browser = "zen.desktop";
-  editor = "code.desktop";
-  file-manager = "nemo.desktop";
-  image-viewer = "pureref.desktop";
-  image-editor = "gimp.desktop";
+  findDesktopFile = pkg:
+    let
+      desktop-path = "${pkg}/share/applications";
+      files = builtins.attrNames (builtins.readDir desktop-path);
+      desktop-files = lib.filter (f: lib.hasSuffix ".desktop" f) files;
+    in
+    if desktop-files != [ ] then
+      "${lib.lists.last desktop-files}"
+    else
+      null;
+
+  browser = findDesktopFile inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default;
+  editor = "emacs.desktop";
+  file-manager = findDesktopFile pkgs.nemo;
+  image-viewer = findDesktopFile pkgs.gthumb;
 in
 {
   xdg = {
@@ -22,25 +38,32 @@ in
 
         "x-scheme-handler/http" = browser;
         "x-scheme-handler/https" = browser;
+        "x-scheme-handler/chrome" = browser;
         "application/xhtml+xml" = browser;
+        "application/x-extension-htm" = browser;
+        "application/x-extension-html" = browser;
+        "application/x-extension-shtml" = browser;
+        "application/x-extension-xhtml" = browser;
+        "application/x-extension-xht" = browser;
         "text/html" = browser;
-
         "application/pdf" = browser;
-        "application/x-shellscript" = editor;
 
-        "image/jpeg" = image-editor;
+        "application/x-shellscript" = editor;
+        "selection.txt" = editor;
+
+        "image/jpeg" = image-viewer;
         "image/bmp" = image-viewer;
         "image/gif" = image-viewer;
         "image/jpg" = image-viewer;
         "image/pjpeg" = image-viewer;
-        "image/png" = image-editor;
+        "image/png" = image-viewer;
         "image/tiff" = image-viewer;
-        "image/webp" = image-editor;
+        "image/webp" = image-viewer;
         "image/x-bmp" = image-viewer;
         "image/x-gray" = image-viewer;
         "image/x-icb" = image-viewer;
-        "image/x-ico" = image-editor;
-        "image/x-png" = image-editor;
+        "image/x-ico" = image-viewer;
+        "image/x-png" = image-viewer;
         "image/x-portable-anymap" = image-viewer;
         "image/x-portable-bitmap" = image-viewer;
         "image/x-portable-graymap" = image-viewer;

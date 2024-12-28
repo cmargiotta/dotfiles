@@ -1,0 +1,76 @@
+font-family = FiraCode Nerd Font
+font-feature = calt
+font-feature = liga
+font-feature = dlig
+font-size = 13
+
+auto-update = off
+
+theme = AdventureTime
+background-opacity = 0.9
+fullscreen = false
+window-decoration = false
+window-theme = dark
+resize-overlay = never
+gtk-titlebar = false
+
+cursor-style = underline
+cursor-style-blink = true
+cursor-click-to-move = true
+mouse-hide-while-typing = true
+
+scrollback-limit = 100000
+link-url = true
+
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = true
+clipboard-paste-protection = false
+copy-on-select = false
+
+quick-terminal-position = bottom
+quick-terminal-animation-duration = 0.5
+quick-terminal-autohide = true
+
+shell-integration-features = sudo
+shell-integration-features = cursor
+
+linux-cgroup = always
+
+window-save-state = never
+window-new-tab-position = end
+focus-follows-mouse = false
+
+working-directory = ~
+window-inherit-working-directory = true
+
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+v=paste_from_clipboard
+keybind = ctrl+plus=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+l=clear_screen
+keybind = ctrl+down=scroll_to_bottom
+keybind = ctrl+shift+s=write_scrollback_file:open
+keybind = ctrl+s=write_selection_file:open
+
+keybind = ctrl+shift+h=new_split:right
+keybind = ctrl+shift+v=new_split:down
+
+keybind = ctrl+right=goto_split:next
+keybind = ctrl+left=goto_split:previous
+keybind = ctrl+down=goto_split:top
+keybind = ctrl+up=goto_split:bottom
+
+keybind = ctrl+f=toggle_split_zoom
+keybind = ctrl+shift+right=resize_split:right,10
+keybind = ctrl+shift+left=resize_split:left,10
+keybind = ctrl+shift+up=resize_split:up,10
+keybind = ctrl+shift+down=resize_split:down,10
+keybind = ctrl+shift+r=equalize_splits
+
+keybind = ctrl+k=close_surface
+keybind = ctrl+j=toggle_quick_terminal
+
+keybind = ctrl+t=new_tab
+keybind = alt+left=previous_tab
+keybind = alt+right=next_tab

@@ -10,10 +10,6 @@
     arandr
     font-awesome
     glmark2
-    grimblast
-    hyprcursor
-    hyprland-protocols
-    hyprpaper
     jq
     kdePackages.wayland-protocols
     libGL
@@ -23,9 +19,6 @@
     pulseaudio
     rofi-wayland
     scratchpad
-    slurp
-    swappy
-    swaynotificationcenter
     waypipe
     wev
     wl-clipboard
@@ -64,7 +57,7 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      splash = true;
+      splash = false;
     };
   };
 }

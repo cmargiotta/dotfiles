@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    useBabelfish = true;
+  };
 
   users.users.nychtelios = {
     isNormalUser = true;

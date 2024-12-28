@@ -1,13 +1,16 @@
 format = """
+$os\
 $username\
 $hostname\
 $directory\
 $git_branch\
 $git_state\
 $git_status\
+$direnv\
 $cmd_duration\
 $line_break\
-$python\
+$rust\
+${custom.meson}\
 $character"""
 
 [directory]
@@ -50,12 +53,7 @@ style = "yellow"
 [rust]
 disabled = false
 
-[shell]
-fish_indicator = '󰈺 '
-style = 'cyan bold'
-disabled = false
-
 [custom.meson]
 detect_files = ['meson.build']
 require_repo = true
-symbol = '󰙲'
+symbol = '[󰙲]($style)'

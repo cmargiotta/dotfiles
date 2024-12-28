@@ -31,8 +31,8 @@ in
   hardware = {
     graphics = {
       enable = true;
-      # package = pkgs-hypr.mesa.drivers;
-      # package32 = pkgs-hypr.pkgsi686Linux.mesa.drivers;
+      package = pkgs-hypr.mesa.drivers;
+      package32 = pkgs-hypr.pkgsi686Linux.mesa.drivers;
       extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
       extraPackages = with pkgs; [
         intel-media-driver # LIBVA_DRIVER_NAME=iHD

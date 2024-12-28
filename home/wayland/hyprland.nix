@@ -10,6 +10,11 @@ let
 in
 {
   home.packages = with pkgs; [
+    grimblast
+    hyprcursor
+    hyprpaper
+    slurp
+    swaynotificationcenter
     hyprcursor
   ];
 
@@ -140,12 +145,12 @@ in
 
       bind = [
         # Exec bindings
-        "$MOD, Return, exec, uwsm app -- kitty"
+        "$MOD, Return, exec, uwsm app -- ghostty"
         "$MOD, D,      exec, ~/.config/rofi/launchers/type-6/launcher.sh"
         "$MOD, L,      exec, uwsm app -- hyprlock"
         "    ,Print,   exec, grimblast copy output"
         "$MOD, S,      exec, grimblast copy area"
-        "$MODSHIFT, S, exec, GRIMBLAST_EDITOR=\"swappy -f\" grimblast edit area"
+        "$MODSHIFT, S, exec, GRIMBLAST_EDITOR=\"GRIMBLAST_EDITOR=\"satty --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png --fullscreen --filename \" grimblast edit output"
         "$MODSHIFT, W, exec, grimblast copy window"
         "$MODSHIFT, B, exec, ~/.scripts/random_wallpaper.sh"
         "$MOD, T,      exec, scratchpad"

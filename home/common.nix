@@ -4,7 +4,7 @@
     ../secrets/email.nix
     ./emacs.nix
     ./mail.nix
-    ./fish.nix
+    ./terminal.nix
     ./git.nix
     ./mime.nix
     ./packages.nix
@@ -36,10 +36,7 @@
     linkConfigFiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       run ln -sf $HOME/dotfiles/home/config/PrusaSlicer $HOME/.config/
       run ln -sf $HOME/dotfiles/home/config/easyeffects $HOME/.config/
-      #run ln -sf $HOME/dotfiles/home/config/emacs $HOME/.config/
       run ln -sf $HOME/dotfiles/home/config/vscode.json $HOME/.config/Code/User/settings.json
-      run rm -rf $HOME/.config/emacs/.extension/vscode/cpptools/extension
-      #run ln -sf ${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/ $HOME/.config/emacs/.extension/vscode/cpptools/extension
     '';
   };
 

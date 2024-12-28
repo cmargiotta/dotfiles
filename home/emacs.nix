@@ -84,6 +84,7 @@
     mesonlsp
     nil
     nixpkgs-fmt
+    nixfmt-rfc-style
     nodePackages.vscode-json-languageserver
     nodePackages.unified-language-server
   ];

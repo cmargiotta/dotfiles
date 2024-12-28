@@ -8,13 +8,17 @@
     dejavu_fonts
     fira
     fira-code
-    nerdfonts
     symbola
-  ];
+  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
-  stylix.targets = {
-    waybar.enable = false;
-    vscode.enable = false;
+  stylix = {
+    autoEnable = true;
+
+    targets = {
+      waybar.enable = false;
+      vscode.enable = false;
+      fish.enable = false;
+    };
   };
 
   gtk = {

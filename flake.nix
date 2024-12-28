@@ -3,15 +3,20 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
+    ghostty.url = "github:ghostty-org/ghostty";
     home-manager.url = "github:rycee/home-manager";
     iceberg.url = "github:icebox-nix/iceberg";
     nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nur.url = "github:nix-community/NUR";
     stylix.url = "github:danth/stylix/release-24.11";
     waybar.url = "github:Alexays/Waybar";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    zen-browser.url = "github:fufexan/zen-browser-flake";
 
     hyprland.url = "github:hyprwm/Hyprland";
     hypr-contrib.url = "github:hyprwm/contrib";
@@ -48,13 +53,14 @@
           ./system/desktop.nix
 
           home-manager.nixosModules.home-manager
+          inputs.nix-index-database.nixosModules.nix-index
           inputs.nix-gaming.nixosModules.pipewireLowLatency
-          nur.nixosModules.nur
+          nur.modules.nixos.default
           inputs.stylix.nixosModules.stylix
 
           {
             nixpkgs.overlays = [
-              nur.overlay
+              nur.overlays.default
               inputs.nixpkgs-wayland.overlay
               inputs.hypr-contrib.overlays.default
               inputs.emacs-overlay.overlays.default
@@ -96,14 +102,15 @@
           ./system/laptop.nix
 
           home-manager.nixosModules.home-manager
+          inputs.nix-index-database.nixosModules.nix-index
           inputs.nix-gaming.nixosModules.pipewireLowLatency
           inputs.stylix.nixosModules.stylix
           nixos-hardware.nixosModules.dell-latitude-7430
-          nur.nixosModules.nur
+          nur.modules.nixos.default
 
           {
             nixpkgs.overlays = [
-              nur.overlay
+              nur.overlays.default
               inputs.nixpkgs-wayland.overlay
               inputs.hypr-contrib.overlays.default
               inputs.emacs-overlay.overlays.default
@@ -132,6 +139,5 @@
           }
         ];
       };
-
     };
 }

@@ -5,7 +5,7 @@
     spiceUSBRedirection.enable = true;
   };
 
-  hardware.glasgow.enable = true;
+  # hardware.glasgow.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 

@@ -1,6 +1,6 @@
-{ inputs
-, lib
+{ lib
 , pkgs
+, inputs
 , ...
 }:
 {
@@ -11,28 +11,22 @@
       enable = true;
       addKeysToAgent = "yes";
     };
-
-    firefox.enable = true;
   };
 
   home.packages =
     with pkgs;
     [
-
       # Dev
       cutecom
       docker-compose
-      esphome
       nix-direnv
       pkg-config
       sqlitebrowser
       wineWowPackages.waylandFull
       winetricks
-      nixfmt-rfc-style
 
       # Editors
       meld
-      #stm32cubemx
       python3
 
       # Games
@@ -45,6 +39,7 @@
       slack
       tdesktop
       tor-browser-bundle-bin
+      inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
 
       # Office
       gnome-calculator
@@ -53,30 +48,27 @@
 
       # System
       acpi
-      # cava
+      cava
       dconf
       eza
       inxi
       lm_sensors
-      nix-index
-      (fastfetch.overrideAttrs (old: {
-        cmakeFlags = old.cmakeFlags ++ [ (lib.cmakeBool "ENABLE_IMAGEMAGICK7" true) ];
-      }))
       home-manager
 
       # Media
-      feishin
+      #feishin
+      gthumb
       ffmpeg
-      flacon
       gimp
       inkscape
       mac
       playerctl
       shntool
       sox
+      satty
 
       # 3D printing
-      openscad
+      # openscad
 
       # Others
       coreutils-full
