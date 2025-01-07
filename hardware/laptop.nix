@@ -14,7 +14,7 @@ in
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.kernelParams = [ "i915.force_probe=46a8" ];
+  boot.kernelParams = [ "i915.force_probe=46a8" "kvm.enable_virt_at_load=0" ];
   boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.plymouth.enable = true;
   boot.extraModulePackages = [ ];

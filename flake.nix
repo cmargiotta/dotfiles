@@ -28,6 +28,11 @@
       url = "github:VirtCode/hypr-dynamic-cursors";
       inputs.hyprland.follows = "hyprland";
     };
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel?rev=ba7e0dfd52172c9c63ee11da689dce49cf76ae1f";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =

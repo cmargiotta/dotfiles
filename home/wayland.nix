@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [
     wayland/hyprland.nix
     wayland/hyprlock.nix
-    wayland/waybar.nix
+    wayland/hyprpanel.nix
   ];
 
   home.packages = with pkgs; [
@@ -33,31 +33,8 @@
     recursive = true;
   };
 
-  xdg.configFile.swaync = {
-    source = ./config/swaync;
-    target = "swaync";
-    recursive = true;
-  };
-
-  xdg.configFile.hyprland_scripts = {
-    source = ./config/Hyprland/scripts;
-    target = "hypr/scripts";
-  };
-
   xdg.configFile.hyprland_env = {
     source = ./config/Hyprland/env;
     target = ".config/uwsm/env-hyprland";
-  };
-
-  programs.swaylock = {
-    enable = true;
-    package = pkgs.swaylock-effects;
-  };
-
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      splash = false;
-    };
   };
 }

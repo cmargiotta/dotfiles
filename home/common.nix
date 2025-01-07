@@ -25,13 +25,6 @@
     time = "it_IT.UTF-8";
   };
 
-  home.file.scripts = {
-    source = ../scripts;
-    target = ".scripts";
-    recursive = true;
-    executable = true;
-  };
-
   home.activation = {
     linkConfigFiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       run ln -sf $HOME/dotfiles/home/config/PrusaSlicer $HOME/.config/

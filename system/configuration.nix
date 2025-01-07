@@ -40,6 +40,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableKvm = true;
+  virtualisation.virtualbox.host.addNetworkInterface = false;
 
   fileSystems."/server-data" = {
     device = "192.168.1.92:/data";

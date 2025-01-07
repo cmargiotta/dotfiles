@@ -28,8 +28,8 @@ clipboard-trim-trailing-spaces = true
 clipboard-paste-protection = false
 copy-on-select = false
 
-quick-terminal-position = bottom
-quick-terminal-animation-duration = 0.5
+quick-terminal-position = top
+quick-terminal-animation-duration = 1
 quick-terminal-autohide = true
 
 shell-integration-features = sudo
@@ -53,13 +53,13 @@ keybind = ctrl+down=scroll_to_bottom
 keybind = ctrl+shift+s=write_scrollback_file:open
 keybind = ctrl+s=write_selection_file:open
 
-keybind = ctrl+shift+h=new_split:right
-keybind = ctrl+shift+v=new_split:down
+keybind = alt+h=new_split:right
+keybind = alt+v=new_split:down
 
-keybind = ctrl+right=goto_split:next
-keybind = ctrl+left=goto_split:previous
-keybind = ctrl+down=goto_split:top
-keybind = ctrl+up=goto_split:bottom
+keybind = alt+right=goto_split:next
+keybind = alt+left=goto_split:previous
+keybind = alt+down=goto_split:top
+keybind = alt+up=goto_split:bottom
 
 keybind = ctrl+f=toggle_split_zoom
 keybind = ctrl+shift+right=resize_split:right,10
@@ -72,5 +72,5 @@ keybind = ctrl+k=close_surface
 keybind = ctrl+j=toggle_quick_terminal
 
 keybind = ctrl+t=new_tab
-keybind = alt+left=previous_tab
-keybind = alt+right=next_tab
+keybind = alt+shift+left=previous_tab
+keybind = alt+shift+right=next_tab

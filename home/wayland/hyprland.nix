@@ -1,4 +1,5 @@
 { osConfig
+, config
 , inputs
 , pkgs
 , lib
@@ -7,16 +8,24 @@
 let
   laptop = osConfig.networking.hostName == "cmargiotta";
   desktop = osConfig.networking.hostName == "nixos-desktop";
+
+  commands = import ./commands.nix;
 in
 {
-  home.packages = with pkgs; [
-    grimblast
-    hyprcursor
-    hyprpaper
-    slurp
-    swaynotificationcenter
-    hyprcursor
-  ];
+  home.packages = with pkgs;
+    [
+      grimblast
+      hyprcursor
+      hyprpaper
+      slurp
+      hyprcursor
+    ];
+
+  services.hyprpaper = {
+    settings = {
+      splash = false;
+    };
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -112,8 +121,7 @@ in
       exec-once = lib.mkMerge [
         [
           "uwsm app -- hyprpaper"
-          "uwsm app -- waybar"
-          "uwsm app -- swaync"
+          "uwsm app -- hyprpanel"
           "uwsm app -- blueman-applet"
           "uwsm app -- element-desktop"
           "uwsm app -- thunderbird"
@@ -127,7 +135,7 @@ in
 
       exec = lib.mkMerge [
         [
-          "sleep 5 && ~/.scripts/random_wallpaper.sh"
+          "sleep 5 && ${toString ./scripts/random_wallpaper.sh}"
         ]
         (lib.mkIf desktop [
           # Select primary screen
@@ -150,20 +158,18 @@ in
         "$MOD, L,      exec, uwsm app -- hyprlock"
         "    ,Print,   exec, grimblast copy output"
         "$MOD, S,      exec, grimblast copy area"
-        "$MODSHIFT, S, exec, GRIMBLAST_EDITOR=\"GRIMBLAST_EDITOR=\"satty --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png --fullscreen --filename \" grimblast edit output"
+        "$MODSHIFT, S, exec, ${commands.screenshot}"
         "$MODSHIFT, W, exec, grimblast copy window"
-        "$MODSHIFT, B, exec, ~/.scripts/random_wallpaper.sh"
         "$MOD, T,      exec, scratchpad"
         "$MODSHIFT, T, exec, scratchpad -g"
         "$MODSHIFT, R, exec, hyprctl reload"
 
-        ", XF86AudioRaiseVolume, exec, ~/.config/hypr/scripts/volume_brightness.sh volume_up"
-        ", XF86AudioLowerVolume, exec, ~/.config/hypr/scripts/volume_brightness.sh volume_down"
-        ", XF86AudioMute,        exec, ~/.config/hypr/scripts/volume_brightness.sh volume_mute"
-        ", XF86AudioMicMute,     exec, ~/.config/hypr/scripts/volume_brightness.sh volume_mute"
+        ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
+        ", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
+        ", XF86AudioMute,        exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
-        ", XF86MonBrightnessUp,   exec, ~/.config/hypr/scripts/volume_brightness.sh brightness_up"
-        ", XF86MonBrightnessDown, exec, ~/.config/hypr/scripts/volume_brightness.sh brightness_down"
+        ", XF86MonBrightnessUp,   exec, sh -c \"sudo brightnessctl s 5%+\""
+        ", XF86MonBrightnessDown, exec, sh -c \"sudo brightnessctl s 5%-\""
 
         # Window bindings
         "$MOD,      Q, killactive"
@@ -258,11 +264,11 @@ in
         "workspace 9, ^(steam_app.*)$"
         "float,       title:Picture-in-Picture"
 
-        "workspace name:, org.telegram.desktop"
-        "workspace name:, ^(steam)$"
-        "workspace name:, Sonixd"
-        "workspace name:, thunderbird"
-        "workspace name:󰍩, Element"
+        "workspace 11, org.telegram.desktop"
+        "workspace 12, ^(steam)$"
+        "workspace 13, Sonixd"
+        "workspace 14, thunderbird"
+        "workspace 15, Element"
       ];
     };
 
@@ -292,11 +298,11 @@ in
           $EXTERNAL = desc:HP Inc. HP 27mq CNC34518VJ
           $INTERNAL = eDP-1
 
-          workspace = name:, monitor:$EXTERNAL
-          workspace = name:, monitor:$EXTERNAL
-          workspace = name:, monitor:$EXTERNAL
-          workspace = name:, monitor:$EXTERNAL
-          workspace = name:󰍩 monitor:$EXTERNAL,
+          workspace = 11, monitor:$EXTERNAL
+          workspace = 12, monitor:$EXTERNAL
+          workspace = 13, monitor:$EXTERNAL
+          workspace = 14, monitor:$EXTERNAL
+          workspace = 15 monitor:$EXTERNAL,
 
           monitor=HDMI-A-1,2560x1440,1700x0,1
           monitor=eDP-1,1920x1080,0x1440,1
@@ -316,11 +322,11 @@ in
           workspace  = 1,      monitor:$ULTRAWIDE, default:true
           workspace  = 9,      monitor:$ULTRAWIDE
           workspace  = name:s, monitor:$VERTICAL,  default:true, layoutopt:orientation:top, gapsin:0, gapsout:0, border:false, decorate:false
-          workspace  = name:, monitor:$UPPER
-          workspace  = name:󰍩  monitor:$UPPER
-          workspace  = name:, monitor:$UPPER
-          workspace  = name:, monitor:$UPPER
-          workspace  = name:  monitor:$UPPER
+          workspace  = 11, monitor:$UPPER
+          workspace  = 12, monitor:$UPPER
+          workspace  = 13, monitor:$UPPER
+          workspace  = 14, monitor:$UPPER
+          workspace  = 15, monitor:$UPPER
 
           windowrule = workspace name:s, ^(cava)$
           windowrule = workspace name:s, ^(btop)$
