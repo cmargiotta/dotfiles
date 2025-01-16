@@ -2,7 +2,8 @@
 {
   stylix = {
     enable = true;
-    autoEnable = false;
+    autoEnable = true;
+    targets.fish.enable = false;
     polarity = "light";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/primer-light.yaml";
 

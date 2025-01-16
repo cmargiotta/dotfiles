@@ -19,7 +19,7 @@
     pulseaudio
     rofi-wayland
     scratchpad
-    waypipe
+    # waypipe
     wev
     wl-clipboard
     wlr-randr

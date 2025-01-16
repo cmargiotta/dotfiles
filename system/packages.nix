@@ -81,24 +81,20 @@
         libdbusmenu
         dbus
       ];
-      gamescopeSession = {
-        enable = true;
-        args = [
-          "-w 3440"
-          "-h 1440"
-          "-f"
-          "-e"
-        ];
-        env = {
-          ENABLE_GAMESCOPE_WSI = "1";
-          WLR_RENDERER = "vulkan";
-        };
-      };
     };
 
     gamescope = {
       enable = true;
-      # capSysNice = true;
+      args = [
+        "-w 3440"
+        "-h 1440"
+        "-f"
+        "-e"
+      ];
+      env = {
+        ENABLE_GAMESCOPE_WSI = "1";
+        WLR_RENDERER = "vulkan";
+      };
     };
 
     gamemode = {

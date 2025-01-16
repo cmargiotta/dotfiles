@@ -62,7 +62,7 @@
         };
 
         nixos-clear = {
-          body = "home-manager expire-generations \"-6 days\" && sudo nix-collect-garbage --delete-older-than 1d && sudo nix store optimise";
+          body = "home-manager expire-generations \"-6 days\" && sudo nix-collect-garbage -d && sudo nix store optimise";
         };
 
         nixos-update = {

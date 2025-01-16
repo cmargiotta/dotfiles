@@ -36,11 +36,6 @@ in
       enableXdgAutostart = false;
     };
 
-    plugins = with inputs; [
-      hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
-      hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
-    ];
-
     settings = {
       general = {
         gaps_in = 2;
@@ -112,6 +107,10 @@ in
 
       master = {
         new_on_top = true;
+      };
+
+      cursor = {
+        no_hardware_cursors = true;
       };
 
       xwayland = {
@@ -188,9 +187,6 @@ in
         "$MODSHIFT, up,    movewindow, u"
         "$MODSHIFT, down,  movewindow, d"
 
-        # Plugins
-        "$MOD, I, exec, hyprctl dispatch hyprexpo:expo toggle"
-
         # Orientation
         "$MODSHIFT, V, layoutmsg, orientationtop"
         "$MODSHIFT, H, layoutmsg, orientationleft"
@@ -205,54 +201,6 @@ in
           )
           10)
       );
-
-      plugin = {
-        hyprexpo = {
-          columns = 3;
-          gap_size = 5;
-          bg_col = "rgb(111111)";
-          workspace_method = "center current";
-
-          enable_gesture = true;
-          gesture_fingers = 3;
-          gesture_distance = 300;
-          gesture_positive = true; # positive = swipe down. Negative = swipe up.
-        };
-
-        dynamic-cursors = {
-          enabled = true;
-          mode = "tilt";
-          threshold = 2;
-
-          tilt = {
-            limit = 5000;
-            function = "negative_quadratic";
-          };
-
-
-          # configure shake to find
-          # magnifies the cursor if its is being shaken
-          shake = {
-            enabled = true;
-            nearest = true;
-            threshold = 6.0;
-            base = 4.0;
-            speed = 4.0;
-            influence = 0.0;
-            limit = 0.0;
-            timeout = 2000;
-            effects = false;
-            ipc = false;
-          };
-
-          hyprcursor = {
-            nearest = 0;
-            enabled = true;
-            resolution = -1;
-            fallback = "clientside";
-          };
-        };
-      };
 
       windowrule = [
         "float,       pwvucontrol"
@@ -316,8 +264,7 @@ in
 
           monitor    = $ULTRAWIDE, highres, 1080x1080, 1
           monitor    = $UPPER,     highres, 1550x0,    1
-          monitor    = $VERTICAL,  highres, 0x500,     1
-          monitor    = $VERTICAL,  transform, 1
+          monitor    = $VERTICAL,  highres, 0x500,     1, transform, 1
 
           workspace  = 1,      monitor:$ULTRAWIDE, default:true
           workspace  = 9,      monitor:$ULTRAWIDE

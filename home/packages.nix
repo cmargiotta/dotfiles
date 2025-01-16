@@ -56,7 +56,7 @@
       home-manager
 
       # Media
-      #feishin
+      feishin
       gthumb
       ffmpeg
       gimp
