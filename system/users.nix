@@ -5,6 +5,10 @@
     useBabelfish = true;
   };
 
+  users.groups.plugdev = {
+    members = [ "nychtelios" ];
+  };
+
   users.mutableUsers = false;
 
   users.users.nychtelios = {
