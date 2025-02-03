@@ -1,3 +1,6 @@
 [submodule "assets/anime-girls-with-programming-books"]
 	path = assets/anime-girls-with-programming-books
 	url = https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books
+[submodule "assets/reveal.js"]
+	path = assets/reveal.js
+	url = https://github.com/hakimel/reveal.js
