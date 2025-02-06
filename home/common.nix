@@ -33,5 +33,16 @@
     '';
   };
 
+  xdg.desktopEntries = {
+    org-protocol = {
+      name = "Org-Protocol";
+      exec = "emacsclient %u";
+      icon = "emacs-icon";
+      type = "Application";
+      terminal = false;
+      mimeType = [ "x-scheme-handler/org-protocol" ];
+    };
+  };
+
   home.enableNixpkgsReleaseCheck = true;
 }

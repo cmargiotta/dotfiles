@@ -36,6 +36,8 @@ in
       defaultApplications = {
         "inode/directory" = file-manager;
 
+        "x-scheme-handler/org-protocol" = "org-protocol.desktop";
+
         "x-scheme-handler/http" = browser;
         "x-scheme-handler/https" = browser;
         "x-scheme-handler/chrome" = browser;

@@ -28,6 +28,7 @@
   nixpkgs.config.permittedInsecurePackages = [
     "olm-3.2.16"
     "openssl-1.1.1w"
+    "electron-31.7.7"
   ];
 
   programs = {

@@ -31,17 +31,21 @@ in
   hardware = {
     graphics = {
       enable = true;
+      enable32Bit = true;
       package = pkgs-hypr.mesa.drivers;
       package32 = pkgs-hypr.pkgsi686Linux.mesa.drivers;
-      extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
       extraPackages = with pkgs; [
         intel-media-driver # LIBVA_DRIVER_NAME=iHD
         vaapiVdpau
         libvdpau-va-gl
+        vpl-gpu-rt
+      ];
+      extraPackages32 = with pkgs; [
+        libva
+        vaapiVdpau
+        libvdpau-va-gl
       ];
     };
-
-    pulseaudio.support32Bit = true;
 
     bluetooth = {
       enable = true;

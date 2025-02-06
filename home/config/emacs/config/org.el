@@ -60,10 +60,6 @@
 
 (setq org-capture-templates
       '(
-        ("n" "Note"
-         entry (file+headline "~/org/notes.org" "Varie")
-         "** %?"
-         :empty-lines 0)
 	("t" "General To-Do"
          entry (file+headline "~/org/todos.org" "General Tasks")
          "* TODO [#B] %?\n:Created: %T\n "
@@ -96,5 +92,39 @@
         ("WONT-DO" . (:foreground "LimeGreen" :weight bold))
         ))
 
-;; (use-package org-modern
-;;   :hook (org-mode . #'org-modern-mode))
+(use-package org-re-reveal)
+
+(use-package org-roam
+  :custom
+  (org-roam-directory (file-truename "~/org/org-roam"))
+  (org-roam-dailies-directory "journal/")
+  (org-roam-completion-everywhere t)
+  (org-roam-capture-templates
+   '(
+     ("d" "default" plain "%?"
+      :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+      :unnarrowed t)
+     ;; several more tmeplates defined here
+     )
+   )
+  (org-roam-capture-ref-templates
+   '(
+     ("r" "ref" plain "%?" :target
+      (file+head "private/from_web/%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+date: %U\n\n${body}")
+      :unnarrowed t)
+     )
+   )
+  (org-roam-dailies-capture-templates
+   '(
+     ("d" "default" entry "* %?"
+      :if-new (file+datetree "%<%Y>.org" year))
+     )
+   )
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n i" . org-roam-node-insert))
+  :config
+  (org-roam-setup)
+  (org-roam-db-autosync-mode))
+
+(use-package org-roam-protocol)

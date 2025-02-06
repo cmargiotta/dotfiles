@@ -155,6 +155,7 @@
 ;; Always ensure packages are installed
 (setq use-package-always-ensure t)
 
-(provide 'early-init)
+(server-start)
 
+(provide 'early-init)
 ;;; early-init.el ends here

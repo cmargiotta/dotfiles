@@ -1,7 +1,7 @@
 ;; Example configuration for Consult
 (use-package consult
   :bind
-  (("C-S-f" . consult-git-grep)
+  (("C-S-f" . consult-ripgrep)
    ("C-S-o" . consult-find))
 
   ;; Enable automatic preview at point in the *Completions* buffer. This is

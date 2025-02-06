@@ -1,4 +1,11 @@
 { pkgs, lib, ... }:
+let
+  reveal-js = builtins.fetchGit
+    {
+      url = "https://github.com/hakimel/reveal.js.git";
+      rev = "6b8c64ffa8fddd9ed4bcd92bcfd37b67ba410244";
+    };
+in
 {
   home.file = {
     ".emacs.d/early-init.el".source = ./config/emacs/early-init.el;
@@ -38,6 +45,10 @@
       config = pkgs.writeTextFile {
         name = "init.el";
         text = lib.concatStrings [
+          ''
+            (setq org-re-reveal-root "file:///${reveal-js}")
+          ''
+
           (lib.concatMapStringsSep "\n" builtins.readFile [
             ./config/emacs/config/bindings.el
             ./config/emacs/config/completion.el
